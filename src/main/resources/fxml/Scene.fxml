@@ -42,5 +42,11 @@
             <Image url="@../imagenes/ks.png" />
          </image>
       </ImageView>
+      <Button fx:id="btnSound" layoutX="233.0" layoutY="328.0" mnemonicParsing="false" onAction="#handleButtonActionSound" prefHeight="50.0" prefWidth="107.0" />
+      <ImageView fitHeight="36.0" fitWidth="58.0" layoutX="266.0" layoutY="336.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../imagenes/head.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

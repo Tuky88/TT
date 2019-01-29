@@ -8,6 +8,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 
 public class FXMLController implements Initializable {
 
@@ -31,6 +33,12 @@ public class FXMLController implements Initializable {
         } else {
             lblStatus.setVisible(true);
         }
+    }
+        @FXML
+    private void handleButtonActionSound(ActionEvent event) {
+        Media song= new Media(getClass().getResource("/sonidos/feel.mp3").toString());
+        MediaPlayer media = new MediaPlayer(song);
+        media.play();
     }
 
     @Override
