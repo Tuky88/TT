@@ -1,0 +1,19 @@
+/*
+ * Empty Stylesheet file.
+ */
+
+.mainFxmlClass {
+
+    
+}
+#panelLeft {
+    -fx-background-color: #6666ff;
+    height: 100%;
+}
+#Container {
+    height: 100%;
+    width: 100%;
+}
+AnchorPane {
+    height: auto;
+}

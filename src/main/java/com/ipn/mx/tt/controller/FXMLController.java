@@ -26,17 +26,30 @@ public class FXMLController implements Initializable {
     private TextField txtPass;
 
     @FXML
+    private Button btnEjemplo;
+
+    @FXML
+    void btnActionPrueba(ActionEvent event) {
+        lblStatus.setVisible(true);
+        lblStatus.setText("----");
+                txtPass.setText("");
+                txtUser.setText("");
+    }
+
+    @FXML
     private void handleButtonAction(ActionEvent event) {
         System.out.println(txtPass.getText() + "//" + txtUser.getText());
         if (txtUser.getText().equals("Axel") && txtPass.getText().equals("1234")) {
             lblStatus.setText("BIENVENIDO CABALLERO");
         } else {
             lblStatus.setVisible(true);
+            lblStatus.setText("ERROR");
         }
     }
-        @FXML
+
+    @FXML
     private void handleButtonActionSound(ActionEvent event) {
-        Media song= new Media(getClass().getResource("/sonidos/feel.mp3").toString());
+        Media song = new Media(getClass().getResource("/sonidos/feel.mp3").toString());
         MediaPlayer media = new MediaPlayer(song);
         media.play();
     }
