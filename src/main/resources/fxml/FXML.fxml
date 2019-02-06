@@ -1,20 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import java.net.URL?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" fx:id="Container" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/10.0.1" fx:controller="com.ipn.mx.tt.controller.menuController">
+<AnchorPane id="AnchorPane" fx:id="Container" prefHeight="494.0" prefWidth="852.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ipn.mx.tt.controller.menuController">
     <stylesheets>
         <URL value="@/styles/menu.css" />
     </stylesheets>
    <children>
       <BorderPane prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <left>
-            <Pane fx:id="panelLeft" prefHeight="394.0" prefWidth="78.0" BorderPane.alignment="CENTER" />
+            <Pane fx:id="panelLeft" prefHeight="356.0" prefWidth="219.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Button layoutY="112.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="221.0" text="Cuenta" />
+                  <Button layoutX="-1.0" layoutY="166.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="222.0" text="Añadir especialista" />
+               </children></Pane>
          </left>
          <bottom>
             <Pane prefHeight="44.0" prefWidth="600.0" style="-fx-background-color: #000000;" BorderPane.alignment="CENTER" />
@@ -22,19 +30,71 @@
          <center>
             <TabPane prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
               <tabs>
-                <Tab text="Untitled Tab 1">
+                <Tab text="Configuración">
+                     <content>
+                        <Pane prefHeight="200.0" prefWidth="200.0">
+                           <children>
+                              <Pane prefHeight="422.0" prefWidth="634.0">
+                                 <children>
+                                    <Label alignment="CENTER" layoutX="-2.0" layoutY="23.0" prefHeight="28.0" prefWidth="636.0" style="-fx-background-color: #4664b5;" text="Cuenta" textAlignment="CENTER" textFill="WHITE">
+                                       <font>
+                                          <Font name="System Italic" size="25.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </Pane>
+                           </children>
+                        </Pane>
+                     </content>
+                </Tab>
+                <Tab text="Test">
                   <content>
-                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <Pane prefHeight="424.0" prefWidth="634.0">
+                                 <children>
+                                    <Label layoutX="244.0" layoutY="22.0" style="-fx-background-color: #8a8e97;" text="Nuevo Paciente" textFill="#f4f4f5">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </Pane>
+                           </children></AnchorPane>
                   </content>
                 </Tab>
-                <Tab text="Untitled Tab 2">
-                  <content>
-                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-                  </content>
-                </Tab>
+                  <Tab text="Prediagnósticos">
+                     <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                     </content>
+                  </Tab>
+                  <Tab text="Reportes">
+                     <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                     </content>
+                  </Tab>
+                  <Tab text="Ayuda">
+                     <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                     </content>
+                  </Tab>
+                  <Tab text="Acerca de">
+                     <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <Pane layoutX="23.0" layoutY="14.0" prefHeight="241.0" prefWidth="319.0">
+                                 <children>
+                                    <ComboBox layoutX="66.0" layoutY="79.0" prefWidth="150.0" />
+                                 </children>
+                              </Pane>
+                           </children>
+                        </AnchorPane>
+                     </content>
+                  </Tab>
               </tabs>
             </TabPane>
          </center>
       </BorderPane>
+  <AnchorPane layoutX="-164.0" layoutY="12.0" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
    </children>
 </AnchorPane>
