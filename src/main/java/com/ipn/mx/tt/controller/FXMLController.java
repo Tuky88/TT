@@ -1,5 +1,7 @@
 package com.ipn.mx.tt.controller;
 
+import com.ipn.mx.tt.dao.UsuarioDAO;
+import com.ipn.mx.tt.modelo.Usuario;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
@@ -30,10 +32,13 @@ public class FXMLController implements Initializable {
 
     @FXML
     void btnActionPrueba(ActionEvent event) {
+        UsuarioDAO udao=new UsuarioDAO();
+        udao.insertarUsuario(new Usuario(txtUser.getText(), txtPass.getText()));
         lblStatus.setVisible(true);
         lblStatus.setText("----");
                 txtPass.setText("");
                 txtUser.setText("");
+         
     }
 
     @FXML
