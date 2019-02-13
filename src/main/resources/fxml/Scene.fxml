@@ -2,6 +2,7 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -9,14 +10,9 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="362.0" prefWidth="661.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ipn.mx.tt.controller.FXMLController">
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="416.0" prefWidth="710.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ipn.mx.tt.controller.FXMLController">
    <children>
-      <Label layoutX="14.0" layoutY="109.0" prefHeight="57.0" prefWidth="305.0" text="Bienvenido">
-         <font>
-            <Font name="Century" size="45.0" />
-         </font>
-      </Label>
-      <Pane layoutX="305.0" prefHeight="366.0" prefWidth="356.0" style="-fx-background-color: #0B243B;">
+      <Pane layoutX="351.0" prefHeight="416.0" prefWidth="359.0" style="-fx-background-color: #0B243B;" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <TextField id="txtUser" fx:id="txtUser" layoutX="56.0" layoutY="81.0" prefHeight="47.0" prefWidth="246.0" />
             <Label layoutX="132.0" layoutY="45.0" prefHeight="36.0" prefWidth="98.0" text="Usuario" textFill="WHITE">
@@ -24,7 +20,6 @@
                   <Font size="25.0" />
                </font>
             </Label>
-            <TextField id="txtPass" fx:id="txtPass" layoutX="52.0" layoutY="179.0" prefHeight="47.0" prefWidth="246.0" />
             <Label layoutX="113.0" layoutY="143.0" prefHeight="3.0" prefWidth="136.0" text="Contraseña" textFill="#f2f0f0">
                <font>
                   <Font size="25.0" />
@@ -47,8 +42,13 @@
                   <Image url="@../imagenes/head.png" />
                </image>
             </ImageView>
+            <PasswordField fx:id="txtPass" layoutX="50.0" layoutY="196.0" prefHeight="25.0" prefWidth="246.0" />
          </children>
       </Pane>
-      <Pane layoutY="316.0" prefHeight="50.0" prefWidth="305.0" style="-fx-background-color: #000000;" />
+      <Label layoutX="32.0" layoutY="45.0" prefHeight="59.0" prefWidth="278.0" text="Bienvenido">
+         <font>
+            <Font name="Century Gothic" size="45.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>
