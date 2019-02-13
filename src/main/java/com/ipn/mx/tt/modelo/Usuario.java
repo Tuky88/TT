@@ -5,6 +5,8 @@
  */
 package com.ipn.mx.tt.modelo;
 
+import com.mongodb.DBObject;
+
 /**
  *
  * @author User
@@ -18,6 +20,16 @@ public class Usuario {
         this.Contraseña = Contraseña;
     }
 
+    public Usuario() {
+    Contraseña="";
+    Id="";
+    }
+    
+    public Usuario(DBObject dbo)
+    {
+        Id=(String)dbo.get("_id");
+        Contraseña=(String)dbo.get("contraseña");
+    }
     public String getId() {
         return Id;
     }
@@ -33,6 +45,5 @@ public class Usuario {
     public void setContraseña(String Contraseña) {
         this.Contraseña = Contraseña;
     }
-    
     
 }

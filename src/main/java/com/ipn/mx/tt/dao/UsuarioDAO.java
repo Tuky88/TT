@@ -8,6 +8,7 @@ package com.ipn.mx.tt.dao;
 import com.ipn.mx.tt.modelo.Usuario;
 import com.ipn.mx.tt.util.ConexionJavaMongo;
 import com.mongodb.BasicDBObject;
+import com.mongodb.DBCursor;
 import com.mongodb.DBObject;
 import java.net.UnknownHostException;
 import java.util.logging.Level;
@@ -20,33 +21,49 @@ import java.util.logging.Logger;
 public class UsuarioDAO {
 
     ConexionJavaMongo cjm;
-    String base,coleccion;
-    public UsuarioDAO(String base,String coleccion) {
-        this.base=base;
-        this.coleccion=coleccion;
-        cjm = new ConexionJavaMongo(base,coleccion);
-        
-    }
-    public UsuarioDAO() {
-        this.base="TT";
-        this.coleccion="User";
-        cjm = new ConexionJavaMongo(base,coleccion);
-        
-    }
-    public void insertarUsuario(Usuario u) {
-        try {
-            cjm.conectarDB();
-            cjm.obtenerBase(base);
-            cjm.obtenerColeccion(coleccion);
-            DBObject usuario = new BasicDBObject("_id", u.getId())
-                    .append(("contraseña"), u.getContraseña())
-                    .append("edad",25);
-            cjm.getMongoCollection().insert(usuario);
-            System.out.println("Registro Agregado con éxito");
-            
-        } catch (UnknownHostException ex) {
-            Logger.getLogger(UsuarioDAO.class.getName()).log(Level.SEVERE, null, ex);
-        }
+    String base, coleccion;
+
+    public UsuarioDAO(String base, String coleccion) {
+        this.base = base;
+        this.coleccion = coleccion;
+        cjm = new ConexionJavaMongo(base, coleccion);
+
     }
 
+    public UsuarioDAO() {
+        this.base = "TT";
+        this.coleccion = "User";
+        cjm = new ConexionJavaMongo(base, coleccion);
+
+    }
+
+    public DBObject convertirUser(Usuario u) {
+
+        return new BasicDBObject("_id", u.getId()).append("contraseña", u.getContraseña());
+
+    }
+
+    public void insertarUsuario(Usuario u) {
+
+        cjm.conectar();
+        cjm.getMongoCollection().insert(convertirUser(u));
+        System.out.println("Registro Agregado con éxito");
+    }
+
+    public Usuario buscarUsuario(String id) {
+        cjm.conectar();
+        DBObject query = new BasicDBObject("_id", id);
+        DBCursor cursor = cjm.getMongoCollection().find(query);
+        Usuario user;
+        if(cursor.length()>0)
+        {
+            DBObject jo = cursor.one();
+            user=new Usuario(jo);
+        }
+        else
+        {
+            user=new Usuario();
+        }
+        return user;
+    }
 }

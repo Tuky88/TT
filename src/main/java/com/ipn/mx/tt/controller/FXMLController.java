@@ -32,23 +32,27 @@ public class FXMLController implements Initializable {
 
     @FXML
     void btnActionPrueba(ActionEvent event) {
-        UsuarioDAO udao=new UsuarioDAO();
+        UsuarioDAO udao = new UsuarioDAO();
         udao.insertarUsuario(new Usuario(txtUser.getText(), txtPass.getText()));
         lblStatus.setVisible(true);
         lblStatus.setText("----");
-                txtPass.setText("");
-                txtUser.setText("");
-         
+        txtPass.setText("");
+        txtUser.setText("");
+
     }
 
     @FXML
     private void handleButtonAction(ActionEvent event) {
-        System.out.println(txtPass.getText() + "//" + txtUser.getText());
-        if (txtUser.getText().equals("Axel") && txtPass.getText().equals("1234")) {
-            lblStatus.setText("BIENVENIDO CABALLERO");
-        } else {
-            lblStatus.setVisible(true);
-            lblStatus.setText("ERROR");
+        UsuarioDAO udao = new UsuarioDAO();
+        Usuario user;
+        user = udao.buscarUsuario(txtUser.getText());
+        if(user.getContraseña().equals(txtPass.getText()))
+        {
+            lblStatus.setText("BIENVENIDO");
+        }
+        else
+        {
+            lblStatus.setText("inBIENVENIDO");            
         }
     }
 
@@ -62,6 +66,6 @@ public class FXMLController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-        lblStatus.setVisible(false);
+       // lblStatus.setVisible(false);
     }
 }

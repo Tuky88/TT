@@ -11,6 +11,8 @@ import com.mongodb.DBCollection;
 import com.mongodb.MongoClient;
 import com.mongodb.MongoClientURI;
 import java.net.UnknownHostException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -52,6 +54,16 @@ public class ConexionJavaMongo {
     public void obtenerColeccion(String col)
     {
         mongoCollection=mongoData.getCollection("User");
+    }
+    public void conectar()
+    {
+        try {
+            this.conectarDB();
+            this.obtenerBase(base);
+            this.obtenerColeccion(coleccion);
+        } catch (UnknownHostException ex) {
+            Logger.getLogger(ConexionJavaMongo.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     
     
