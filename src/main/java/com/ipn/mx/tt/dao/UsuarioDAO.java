@@ -48,6 +48,7 @@ public class UsuarioDAO {
         cjm.conectar();
         cjm.getMongoCollection().insert(convertirUser(u));
         System.out.println("Registro Agregado con éxito");
+        cjm.cerrarConexion();
     }
 
     public Usuario buscarUsuario(String id) {
@@ -64,6 +65,7 @@ public class UsuarioDAO {
         {
             user=new Usuario();
         }
+        cjm.cerrarConexion();
         return user;
     }
 }

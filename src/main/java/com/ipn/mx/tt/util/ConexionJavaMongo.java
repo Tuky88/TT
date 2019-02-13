@@ -65,6 +65,12 @@ public class ConexionJavaMongo {
             Logger.getLogger(ConexionJavaMongo.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    public void cerrarConexion()
+    {
+        
+        mongoClient.close();
+        System.out.println("Conexion Cerrada");
+    }
     
     
 }
