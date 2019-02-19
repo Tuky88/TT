@@ -14,7 +14,7 @@
    <children>
       <Pane layoutX="346.0" prefHeight="416.0" prefWidth="364.0" style="-fx-background-color: #0B243B;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="346.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <TextField id="txtUser" fx:id="txtUser" layoutX="56.0" layoutY="81.0" prefHeight="47.0" prefWidth="246.0" />
+            <TextField id="txtUser" fx:id="txtUser" layoutX="56.0" layoutY="81.0" prefHeight="25.0" prefWidth="246.0" />
             <Label layoutX="132.0" layoutY="45.0" prefHeight="36.0" prefWidth="98.0" text="Usuario" textFill="WHITE">
                <font>
                   <Font size="25.0" />
@@ -35,7 +35,7 @@
                   <Font name="System Bold" size="14.0" />
                </font>
             </Label>
-            <PasswordField fx:id="txtPass" layoutX="50.0" layoutY="196.0" prefHeight="25.0" prefWidth="246.0" />
+            <PasswordField fx:id="txtPass" layoutX="54.0" layoutY="196.0" prefHeight="25.0" prefWidth="246.0" />
          </children>
       </Pane>
       <Pane layoutY="1.0" prefHeight="416.0" prefWidth="346.0" style="-fx-background-color: #FFFFFF;" AnchorPane.bottomAnchor="-1.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="338.0" AnchorPane.topAnchor="1.0">
