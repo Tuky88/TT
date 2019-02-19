@@ -12,6 +12,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
@@ -26,7 +27,7 @@ public class AlertMessage {
     public int ALERT_MESSAGE = 0;
     public int ERROR_MESSAGE = 1;
     public int HELP_MESSAGE = 2;
-    public int LADO = 30;
+    public int LADO = 45;
     public AlertMessage(int code, String Titulo, String Mensaje)
     {
         Alert(code, Titulo, Mensaje);
@@ -48,29 +49,40 @@ public class AlertMessage {
                 codigo = "default.png";
 
         }
+        BorderPane border = new BorderPane();
         Stage window = new Stage();
         window.initModality(Modality.APPLICATION_MODAL);
         window.setTitle(Titulo);
         window.setMinWidth(400);
-        window.setMinHeight(100);
+        window.setMinHeight(130);
+        window.setMaxHeight(130);
+        window.setMaxWidth(400);
         Label label = new Label(Mensaje);
         ImageView image = new ImageView("/iconos/" + codigo);
         image.setFitHeight(LADO);
         image.setFitWidth(LADO);
         Button b = new Button("Aceptar");
         b.setOnAction(e -> window.close());
-        HBox layoutH = new HBox(10);
+        HBox layoutIzq = new HBox(10);
+        HBox layoutCentro = new HBox(5);
         VBox layoutV = new VBox(10);
-        layoutH.getChildren().addAll(image, label);
-        layoutV.getChildren().addAll(layoutH, b);
+        layoutIzq.getChildren().addAll(image);
+        layoutCentro.getChildren().addAll(label);
+        border.setCenter(layoutCentro);
+        border.setLeft(layoutIzq);
+        border.setRight(layoutV);
+        layoutIzq.setAlignment(Pos.BASELINE_LEFT);
+        layoutV.getChildren().addAll( b);
         layoutV.setAlignment(Pos.BOTTOM_RIGHT);
-        layoutH.setAlignment(Pos.CENTER);
         b.setAlignment(Pos.BOTTOM_RIGHT);
-        layoutH.setPadding(new Insets(5));
+        layoutCentro.setAlignment(Pos.CENTER);
+        layoutIzq.setAlignment(Pos.CENTER);
+        
+        layoutIzq.setPadding(new Insets(15));
         layoutV.setPadding(new Insets(5));
         Image icon = new Image("/imagenes/brain.png");
         window.getIcons().add(icon);
-        Scene scene = new Scene(layoutV);
+        Scene scene = new Scene(border);
         window.setScene(scene);
         window.showAndWait();
 

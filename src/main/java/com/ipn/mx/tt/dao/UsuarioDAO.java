@@ -56,7 +56,7 @@ public class UsuarioDAO {
         DBObject query = new BasicDBObject("_id", id);
         DBCursor cursor = cjm.getMongoCollection().find(query);
         Usuario user;
-        if(cursor.length()>0)
+        if(cursor.hasNext())
         {
             DBObject jo = cursor.one();
             user=new Usuario(jo);

@@ -66,7 +66,7 @@ public class ConexionJavaMongo {
             this.conectarDB();
             this.obtenerBase(base);
             this.obtenerColeccion(coleccion);
-        } catch ( UnknownHostException  ex ) {
+        } catch ( UnknownHostException | MongoTimeoutException ex ) {
             System.out.println("NO SE PUEDE ACCEDER EN ESTE MOMENTO TONTO");
         }
     }
