@@ -18,6 +18,8 @@ import javafx.scene.media.MediaPlayer;
 
 public class FXMLController implements Initializable {
 
+    AlertMessage alertMessage;
+
     @FXML
     private Button btnAcceder;
 
@@ -41,23 +43,25 @@ public class FXMLController implements Initializable {
         lblStatus.setText("----");
         txtPass.setText("");
         txtUser.setText("");
-        AlertMessage alertMessage = new AlertMessage(0,"JULIANO","TE AMO <3");
+        AlertMessage alertMessage = new AlertMessage(0, "JULIANO", "TE AMO <3");
     }
 
     @FXML
     private void handleButtonAction(ActionEvent event) {
         UsuarioDAO udao = new UsuarioDAO();
         Usuario user;
-        user = udao.buscarUsuario(txtUser.getText());
-        if(user.getContraseña().equals(txtPass.getText()))
-        {
-            lblStatus.setText("BIENVENIDO");
-            AlertMessage alertMessage = new AlertMessage(0,"JULIANO","TE AMO <3");
-        }
-        else
-        {
-            lblStatus.setText("inBIENVENIDO");  
-            AlertMessage alertMessage = new AlertMessage(0,"JULIANO","TE inAMO <3");
+        if (txtPass.getText().length() > 0 && txtUser.getText().length() > 0) {
+
+            user = udao.buscarUsuario(txtUser.getText());
+            if (user.getContraseña().equals(txtPass.getText())) {
+                lblStatus.setText("BIENVENIDO");
+                alertMessage = new AlertMessage(0, "JULIANO", "TE AMO <3");
+            } else {
+                lblStatus.setText("inBIENVENIDO");
+                alertMessage = new AlertMessage(0, "JULIANO", "TE inAMO <3");
+            }
+        } else {
+            alertMessage = new AlertMessage(0, "ERROR", "LOS CAMPOS NO PUEDEN ESTAR VACIOS");
         }
     }
 
@@ -71,6 +75,6 @@ public class FXMLController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-       // lblStatus.setVisible(false);
+        // lblStatus.setVisible(false);
     }
 }
