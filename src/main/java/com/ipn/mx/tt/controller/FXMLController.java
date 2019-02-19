@@ -2,12 +2,15 @@ package com.ipn.mx.tt.controller;
 
 import com.ipn.mx.tt.dao.UsuarioDAO;
 import com.ipn.mx.tt.modelo.Usuario;
+import com.ipn.mx.tt.util.AlertMessage;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.Dialog;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.media.Media;
@@ -32,13 +35,13 @@ public class FXMLController implements Initializable {
 
     @FXML
     void btnActionPrueba(ActionEvent event) {
-        UsuarioDAO udao = new UsuarioDAO();
-        udao.insertarUsuario(new Usuario(txtUser.getText(), txtPass.getText()));
+//        UsuarioDAO udao = new UsuarioDAO();
+//        udao.insertarUsuario(new Usuario(txtUser.getText(), txtPass.getText()));
         lblStatus.setVisible(true);
         lblStatus.setText("----");
         txtPass.setText("");
         txtUser.setText("");
-
+        AlertMessage alertMessage = new AlertMessage(0,"JULIANO","TE AMO <3");
     }
 
     @FXML
