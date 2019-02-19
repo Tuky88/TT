@@ -52,10 +52,12 @@ public class FXMLController implements Initializable {
         if(user.getContraseña().equals(txtPass.getText()))
         {
             lblStatus.setText("BIENVENIDO");
+            AlertMessage alertMessage = new AlertMessage(0,"JULIANO","TE AMO <3");
         }
         else
         {
-            lblStatus.setText("inBIENVENIDO");            
+            lblStatus.setText("inBIENVENIDO");  
+            AlertMessage alertMessage = new AlertMessage(0,"JULIANO","TE inAMO <3");
         }
     }
 
