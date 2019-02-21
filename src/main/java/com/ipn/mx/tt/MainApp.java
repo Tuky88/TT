@@ -12,21 +12,35 @@ import javafx.stage.StageStyle;
 
 public class MainApp extends Application {
 
+    Stage stage;
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("/fxml/FXML.fxml"));
+        //Parent root = FXMLLoader.load(getClass().getResource("/fxml/FXML.fxml"));
         //Parent root = FXMLLoader.load(getClass().getResource("/fxml/Scene.fxml"));
         
+
+        //Parent root = FXMLLoader.load(getClass().getResource("/fxml/FXML.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/fxml/Scene.fxml"));
+        this.stage=stage;
+
         Scene scene = new Scene(root);
         scene.getStylesheets().add("/styles/menu.css");
         
         Image image = new Image("/imagenes/brain.png");
+
         stage.getIcons().add(image);
         stage.setTitle("TT 2018-A030");
         stage.setScene(scene);
         stage.show();
         
+
+        this.stage.getIcons().add(image);
+        this.stage.setTitle("TT 2018-A030");
+        this.stage.setScene(scene);
+        this.stage.show();
+
     }
+
 
     /**
      * The main() method is ignored in correctly deployed JavaFX application.

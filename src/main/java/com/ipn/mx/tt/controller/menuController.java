@@ -5,13 +5,15 @@
  */
 package com.ipn.mx.tt.controller;
 
+import com.ipn.mx.tt.util.AlertMessage;
+import com.ipn.mx.tt.util.movEscena;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.layout.Pane;
-
 
 /**
  * FXML Controller class
@@ -20,18 +22,33 @@ import javafx.scene.layout.Pane;
  */
 public class menuController implements Initializable {
 
+    movEscena mov;
+    AlertMessage alertMessage;
     @FXML
     private Pane panelLeft;
     @FXML
     private Button btncuenta;
     @FXML
     private Button btnaespecialista;
+    @FXML
+    private Button btnCerrarSesion;
+
+    @FXML
+    void cerrarSesion(ActionEvent event) {
+        int resp=alertMessage.confirm(0, "¿Cerrar Sesión?","Desea cerrar sesión");
+        if(resp==1){
+         mov.cambiarEscena(event, "Scene.fxml");
+        }
+    }
+
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-    }    
-    
+        mov = new movEscena();
+        alertMessage=new AlertMessage();
+    }
+
 }
