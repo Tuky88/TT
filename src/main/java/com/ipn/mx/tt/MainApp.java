@@ -7,13 +7,15 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 
 public class MainApp extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("/fxml/Scene.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/fxml/FXML.fxml"));
+        //Parent root = FXMLLoader.load(getClass().getResource("/fxml/Scene.fxml"));
         
         Scene scene = new Scene(root);
         scene.getStylesheets().add("/styles/menu.css");
@@ -23,6 +25,7 @@ public class MainApp extends Application {
         stage.setTitle("TT 2018-A030");
         stage.setScene(scene);
         stage.show();
+        
     }
 
     /**

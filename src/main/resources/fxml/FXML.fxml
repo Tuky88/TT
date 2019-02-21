@@ -12,33 +12,25 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" fx:id="Container" prefHeight="494.0" prefWidth="852.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ipn.mx.tt.controller.menuController">
+<AnchorPane id="AnchorPane" fx:id="Container" prefHeight="494.0" prefWidth="852.0" styleClass="Container" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ipn.mx.tt.controller.menuController">
     <stylesheets>
         <URL value="@/styles/menu.css" />
     </stylesheets>
    <children>
-      <BorderPane prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <BorderPane layoutY="14.0" prefHeight="400.0" prefWidth="600.0" styleClass="Container" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <bottom>
             <Pane prefHeight="44.0" prefWidth="600.0" style="-fx-background-color: #000000;" BorderPane.alignment="CENTER" />
          </bottom>
          <center>
-            <TabPane prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
+            <TabPane prefHeight="200.0" prefWidth="200.0" styleClass="Container" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
               <tabs>
                 <Tab text="Configuración">
                      <content>
-                        <Pane prefHeight="200.0" prefWidth="200.0">
+                        <Pane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="421.0" prefWidth="523.0" styleClass="Container">
                            <children>
-                              <Pane prefHeight="422.0" prefWidth="852.0">
+                              <Pane fx:id="panelLeft" layoutX="1.0" layoutY="-14.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="436.0" prefWidth="224.0" styleClass="panelLeft">
                                  <children>
-                                    <Label alignment="CENTER" layoutX="224.0" layoutY="14.0" prefHeight="36.0" prefWidth="621.0" style="-fx-background-color: #4664b5;" text="Cuenta" textAlignment="CENTER" textFill="WHITE">
-                                       <font>
-                                          <Font name="System Italic" size="25.0" />
-                                       </font>
-                                    </Label>
-                                 </children></Pane>
-                              <Pane fx:id="panelLeft" layoutX="3.0" layoutY="3.0" prefHeight="419.0" prefWidth="219.0">
-                                 <children>
-                                    <Button fx:id="btncuenta" defaultButton="true" layoutY="167.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="216.0" text="Cuenta" textFill="WHITE">
+                                    <Button fx:id="btncuenta" layoutX="2.0" layoutY="167.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="216.0" styleClass="btn" text="Cuenta" textFill="WHITE">
                                        <effect>
                                           <DropShadow />
                                        </effect>
@@ -49,7 +41,7 @@
                                           <Cursor fx:constant="HAND" />
                                        </cursor>
                                     </Button>
-                                    <Button fx:id="btnaespecialista" defaultButton="true" layoutX="-3.0" layoutY="225.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="221.0" text="Añadir especialista" textFill="WHITE" textOverrun="CLIP">
+                                    <Button fx:id="btnaespecialista" layoutX="1.0" layoutY="225.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="217.0" styleClass="btn" text="Añadir especialista" textFill="WHITE" textOverrun="CLIP">
                                        <cursor>
                                           <Cursor fx:constant="HAND" />
                                        </cursor>
@@ -60,9 +52,18 @@
                                           <Font name="Century Gothic" size="15.0" />
                                        </font>
                                     </Button>
-                                    <Label layoutY="65.0" prefHeight="51.0" prefWidth="220.0" style="-fx-background-color: #FFFFFF;" text="Configuraciones" textFill="#b9b6b6">
+                                    <Label layoutY="49.0" prefHeight="51.0" prefWidth="220.0" style="-fx-background-color: #FFFFFF;" text="Configuraciones" textFill="#b9b6b6">
                                        <font>
                                           <Font name="Bookshelf Symbol 7" size="28.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </Pane>
+                              <Pane layoutX="225.0" prefHeight="419.0" prefWidth="626.0">
+                                 <children>
+                                    <Label alignment="CENTER" layoutX="-1.0" layoutY="8.0" prefHeight="36.0" prefWidth="545.0" style="-fx-background-color: #4664b5;" text="Cuenta" textAlignment="CENTER" textFill="WHITE">
+                                       <font>
+                                          <Font name="System Italic" size="25.0" />
                                        </font>
                                     </Label>
                                  </children>
@@ -73,7 +74,7 @@
                 </Tab>
                 <Tab text="Test">
                   <content>
-                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" styleClass="Container">
                            <children>
                               <Pane layoutX="13.0" layoutY="-1.0" prefHeight="424.0" prefWidth="790.0">
                                  <children>
@@ -84,9 +85,9 @@
                                     </Label>
                                  </children>
                               </Pane>
-                              <Pane fx:id="panelLeft1" layoutX="1.0" layoutY="2.0" prefHeight="419.0" prefWidth="219.0">
+                              <Pane fx:id="panelLeft1" layoutX="1.0" layoutY="2.0" prefHeight="419.0" prefWidth="219.0" styleClass="panelLeft">
                                  <children>
-                                    <Button fx:id="btncuenta1" defaultButton="true" layoutY="167.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="216.0" text="Paciente nuevo" textFill="WHITE">
+                                    <Button fx:id="btncuenta1" layoutY="167.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="216.0" styleClass="btn" text="Paciente nuevo" textFill="WHITE">
                                        <effect>
                                           <DropShadow />
                                        </effect>
@@ -97,7 +98,7 @@
                                           <Cursor fx:constant="HAND" />
                                        </cursor>
                                     </Button>
-                                    <Button fx:id="btnaespecialista1" defaultButton="true" layoutX="-3.0" layoutY="225.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="221.0" text="Paciente con registro" textFill="WHITE" textOverrun="CLIP">
+                                    <Button fx:id="btnaespecialista1" layoutX="-3.0" layoutY="225.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="221.0" styleClass="btn" text="Paciente con registro" textFill="WHITE" textOverrun="CLIP">
                                        <cursor>
                                           <Cursor fx:constant="HAND" />
                                        </cursor>
@@ -115,7 +116,8 @@
                                     </Label>
                                  </children>
                               </Pane>
-                           </children></AnchorPane>
+                           </children>
+                        </AnchorPane>
                   </content>
                 </Tab>
                   <Tab text="Prediagnósticos">
@@ -124,9 +126,9 @@
                            <children>
                               <Pane layoutY="-7.0" prefHeight="430.0" prefWidth="852.0">
                                  <children>
-                                    <Pane fx:id="panelLeft11" layoutX="7.0" layoutY="6.0" prefHeight="419.0" prefWidth="219.0">
+                                    <Pane fx:id="panelLeft11" layoutX="7.0" layoutY="6.0" prefHeight="419.0" prefWidth="219.0" styleClass="panelLeft">
                                        <children>
-                                          <Button fx:id="btncuenta11" defaultButton="true" layoutX="-1.0" layoutY="167.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="216.0" text="Historial" textFill="WHITE">
+                                          <Button fx:id="btncuenta11" layoutX="-1.0" layoutY="167.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="216.0" styleClass="btn" text="Historial" textFill="WHITE">
                                              <effect>
                                                 <DropShadow />
                                              </effect>
@@ -137,7 +139,7 @@
                                                 <Cursor fx:constant="HAND" />
                                              </cursor>
                                           </Button>
-                                          <Button fx:id="btnaespecialista11" defaultButton="true" layoutX="-3.0" layoutY="225.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="221.0" text="Validar" textFill="WHITE" textOverrun="CLIP">
+                                          <Button fx:id="btnaespecialista11" layoutX="-3.0" layoutY="225.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="221.0" styleClass="btn" text="Validar" textFill="WHITE" textOverrun="CLIP">
                                              <cursor>
                                                 <Cursor fx:constant="HAND" />
                                              </cursor>
@@ -160,7 +162,8 @@
                                           <Font name="System Italic" size="25.0" />
                                        </font>
                                     </Label>
-                                 </children></Pane>
+                                 </children>
+                              </Pane>
                            </children>
                         </AnchorPane>
                      </content>
@@ -178,7 +181,7 @@
                                     </Label>
                                  </children>
                               </Pane>
-                              <Pane fx:id="panelLeft111" layoutX="5.0" layoutY="2.0" prefHeight="419.0" prefWidth="219.0">
+                              <Pane fx:id="panelLeft111" layoutX="5.0" layoutY="2.0" prefHeight="419.0" prefWidth="219.0" styleClass="panelLeft">
                                  <children>
                                     <Label layoutY="65.0" prefHeight="51.0" prefWidth="220.0" style="-fx-background-color: #FFFFFF;" text="Reportes" textFill="#b9b6b6">
                                        <font>
@@ -187,7 +190,8 @@
                                     </Label>
                                  </children>
                               </Pane>
-                           </children></AnchorPane>
+                           </children>
+                        </AnchorPane>
                      </content>
                   </Tab>
                   <Tab text="Ayuda">
@@ -203,7 +207,8 @@
                                     </Label>
                                  </children>
                               </Pane>
-                           </children></AnchorPane>
+                           </children>
+                        </AnchorPane>
                      </content>
                   </Tab>
                   <Tab text="Acerca de">

@@ -6,34 +6,26 @@
 
     
 }
-#panelLeft {
+.panelLeft {
     -fx-background-color: #4D92DF;
-    height: 100%;
-}
-#Container {
-    height: 100%;
+    -fx-height: 100%;
     width: 100%;
 }
+.Container {
+    -fx-height: 100%;
+    -fx-width: 100%;
+}
 AnchorPane {
-    height: auto;
+    -fx-height: auto;
 }
-#btncuenta{
-		-fx-background: -o-linear-gradient(rgba(50, 50, 50, .5), rgba(50, 50, 50, .75), rgb(50, 50, 50));
+.btn{
+    -fx-background: -o-linear-gradient(rgba(50, 50, 50, .5), rgba(50, 50, 50, .75), rgb(50, 50, 50));
 		-fx-background: -moz-linear-gradient(rgba(50, 50, 50, .5), rgba(50, 50, 50, .75), rgb(50, 50, 50));
 		-fx-background: -webkit-linear-gradient(rgba(50, 50, 50, .5), rgba(50, 50, 50, .75), rgb(50, 50, 50));
 		-fx-background: linear-gradient(rgba(50, 50, 50, .5), rgba(50, 50, 50, .75), rgb(50, 50, 50));
-		height: 90%;
-                width: 90%;
-                margin: 5%;
-		color: #aaa;
-}
-#btnaespecialista{
-		-fx-background: -o-linear-gradient(rgba(50, 50, 50, .5), rgba(50, 50, 50, .75), rgb(50, 50, 50));
-		-fx-background: -moz-linear-gradient(rgba(50, 50, 50, .5), rgba(50, 50, 50, .75), rgb(50, 50, 50));
-		-fx-background: -webkit-linear-gradient(rgba(50, 50, 50, .5), rgba(50, 50, 50, .75), rgb(50, 50, 50));
-		-fx-background: linear-gradient(rgba(50, 50, 50, .5), rgba(50, 50, 50, .75), rgb(50, 50, 50));
-		height: 90%;
-                width: 90%;
-                margin: 5%;
-		color: #aaa;
+		-fx-background-color: #264e7c;
+                -fx-height: 90%;
+                -fx-width: 90%;
+                -fx-margin: 5%;
+		 
 }
