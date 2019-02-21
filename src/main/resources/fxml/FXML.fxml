@@ -12,14 +12,19 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" fx:id="Container" prefHeight="494.0" prefWidth="852.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ipn.mx.tt.controller.menuController">
+<AnchorPane id="AnchorPane" fx:id="Container" prefHeight="494.0" prefWidth="852.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ipn.mx.tt.controller.menuController">
     <stylesheets>
         <URL value="@/styles/menu.css" />
     </stylesheets>
    <children>
       <BorderPane prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <bottom>
-            <Pane prefHeight="44.0" prefWidth="600.0" style="-fx-background-color: #000000;" BorderPane.alignment="CENTER" />
+            <Pane prefHeight="44.0" prefWidth="600.0" style="-fx-background-color: #000000;" BorderPane.alignment="CENTER">
+               <children>
+                  <Label layoutX="80.0" layoutY="14.0" text="HORA" textFill="#fff4f4" />
+                  <Label layoutX="186.0" layoutY="14.0" text="FECHA" textFill="#fff4f4" />
+                  <Button fx:id="btnCerrarSesion" layoutX="683.0" layoutY="10.0" mnemonicParsing="false" onAction="#cerrarSesion" prefHeight="25.0" prefWidth="126.0" text="Cerrar Sesión" />
+               </children></Pane>
          </bottom>
          <center>
             <TabPane prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
