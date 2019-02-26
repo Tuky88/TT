@@ -15,12 +15,10 @@ public class MainApp extends Application {
     Stage stage;
     @Override
     public void start(Stage stage) throws Exception {
-        //Parent root = FXMLLoader.load(getClass().getResource("/fxml/FXML.fxml"));
-        //Parent root = FXMLLoader.load(getClass().getResource("/fxml/Scene.fxml"));
         
 
-        //Parent root = FXMLLoader.load(getClass().getResource("/fxml/FXML.fxml"));
-        Parent root = FXMLLoader.load(getClass().getResource("/fxml/Scene.fxml"));
+        //Parent root = FXMLLoader.load(getClass().getResource("/fxml/Menu.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/fxml/Login.fxml"));
         this.stage=stage;
 
         Scene scene = new Scene(root);

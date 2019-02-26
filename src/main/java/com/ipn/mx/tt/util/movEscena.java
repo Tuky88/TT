@@ -5,7 +5,7 @@
  */
 package com.ipn.mx.tt.util;
 
-import com.ipn.mx.tt.controller.FXMLController;
+import com.ipn.mx.tt.controller.LoginController;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -32,7 +32,7 @@ public class movEscena {
             window.show();
 
         } catch (IOException ex) {
-            Logger.getLogger(FXMLController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 }
