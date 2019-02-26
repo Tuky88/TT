@@ -15,7 +15,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 
-public class FXMLController implements Initializable {
+public class LoginController implements Initializable {
 
     movEscena mov;
     AlertMessage alertMessage;
@@ -54,7 +54,7 @@ public class FXMLController implements Initializable {
             user = udao.buscarUsuario(txtUser.getText());
             if (user.getContraseña().equals(txtPass.getText())) {
                 lblStatus.setText("BIENVENIDO");
-                mov.cambiarEscena(event,"FXML.fxml");
+                mov.cambiarEscena(event,"Menu.fxml");
                 
                 alertMessage.alert(0, "BIENVENIDO AL SISTEMA", "BIENVENIDO: " + user.getId());
             } else {
