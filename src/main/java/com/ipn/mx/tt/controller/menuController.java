@@ -8,9 +8,15 @@ package com.ipn.mx.tt.controller;
 import com.ipn.mx.tt.util.AlertMessage;
 import com.ipn.mx.tt.util.movEscena;
 import java.net.URL;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeFormatterBuilder;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javafx.application.Platform;
+import javafx.concurrent.Task;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -46,7 +52,7 @@ public class menuController implements Initializable {
     void cerrarSesion(ActionEvent event) {
         int resp = alertMessage.confirm(0, "¿Cerrar Sesión?", "Desea cerrar sesión");
         if (resp == 1) {
-            mov.cambiarEscena(event, "Scene.fxml");
+            mov.cambiarEscena(event, "Menu.fxml");
         }
     }
 
@@ -58,35 +64,34 @@ public class menuController implements Initializable {
         // TODO
         mov = new movEscena();
         alertMessage = new AlertMessage();
-        runClock();
+runClock();
     }
 
     public void runClock() {
-
-        boolean running = true;
-        new Thread() {
-            public void run() {
-                long last = System.nanoTime();
-                double delta = 0;
-                double ns = 1000000000.0;
-                while (running) {
-                    long now = System.nanoTime();
-                    delta += (now - last) / ns;
-                    last = now;
-                    while (delta >= 1) {
-
-                        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy---HH:mm:ss");
-                        LocalDateTime ahorita;
-                        ahorita = LocalDateTime.now();
-                        String fecha[] = dtf.format(ahorita).split("---");
-                        lblFecha.setText(fecha[0]);
-                        lblFecha.setText(fecha[1]);
-                        delta--;
-                    }
+        Task task = new Task<Void>() {
+            @Override
+            public Void call() throws Exception {
+                int i = 0;
+                while (true) {
+                    final int finalI = i;
+                    Platform.runLater(new Runnable() {
+                        @Override
+                        public void run() {
+                            DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd - HH:mm:ss");
+                            LocalDateTime now = LocalDateTime.now();
+                            String[] date=dtf.format(now).split("-");
+                            lblHora.setText(date[1]);
+                            lblFecha.setText(date[0]);
+                        }
+                    });
+                    i++;
+                    Thread.sleep(1000);
                 }
             }
-        }.start();
-
+        };
+        Thread th = new Thread(task);
+        th.setDaemon(true);
+        th.start();
     }
 
 }
