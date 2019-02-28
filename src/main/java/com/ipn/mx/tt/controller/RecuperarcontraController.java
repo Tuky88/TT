@@ -8,7 +8,14 @@ package com.ipn.mx.tt.controller;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
+import javafx.fxml.FXML;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.MenuButton;
+import javafx.scene.control.PasswordField;
+import javafx.scene.control.TextField;
 
 /**
  * FXML Controller class
@@ -16,7 +23,25 @@ import javafx.fxml.Initializable;
  * @author garci
  */
 public class RecuperarcontraController implements Initializable {
+ @FXML
+    private TextField txtCorreo;
 
+    @FXML
+    private Button btnEnviar;
+
+    @FXML
+    private Label lblStatus1;
+
+    @FXML
+    private PasswordField txtRespuesta;
+
+    @FXML
+    private MenuButton cmbpreguntaseguridad;
+
+    @FXML
+    void handleButtonAction(ActionEvent event) {
+
+    }
     /**
      * Initializes the controller class.
      */
