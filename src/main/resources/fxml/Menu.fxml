@@ -30,7 +30,7 @@
                </children></Pane>
          </bottom>
          <center>
-            <TabPane prefHeight="200.0" prefWidth="200.0" styleClass="Container" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
+            <TabPane fx:id="tbdMenu" prefHeight="200.0" prefWidth="200.0" styleClass="Container" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
               <tabs>
                 <Tab text="Configuración">
                      <content>
