@@ -6,13 +6,14 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" fx:id="Container" prefHeight="494.0" prefWidth="852.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ipn.mx.tt.controller.menuController">
+<AnchorPane id="AnchorPane" fx:id="Container" prefHeight="494.0" prefWidth="852.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ipn.mx.tt.controller.menuController">
     <stylesheets>
         <URL value="@/styles/menu.css" />
     </stylesheets>
@@ -60,7 +61,7 @@
                                           <Font name="Century Gothic" size="15.0" />
                                        </font>
                                     </Button>
-                                    <Label layoutY="49.0" prefHeight="51.0" prefWidth="220.0" style="-fx-background-color: #FFFFFF;" text="Configuraciones" textFill="#b9b6b6">
+                                    <Label layoutY="51.0" prefHeight="51.0" prefWidth="220.0" style="-fx-background-color: #FFFFFF;" text="Configuraciones" textFill="#b9b6b6">
                                        <font>
                                           <Font name="Bookshelf Symbol 7" size="28.0" />
                                        </font>
@@ -69,11 +70,45 @@
                               </Pane>
                               <Pane layoutX="225.0" prefHeight="419.0" prefWidth="626.0">
                                  <children>
-                                    <Label alignment="CENTER" layoutX="-1.0" layoutY="8.0" prefHeight="36.0" prefWidth="545.0" style="-fx-background-color: #4664b5;" text="Cuenta" textAlignment="CENTER" textFill="WHITE">
+                                    <Label alignment="CENTER" layoutX="-1.0" prefHeight="36.0" prefWidth="628.0" style="-fx-background-color: #4664b5;" text="Cuenta" textAlignment="CENTER" textFill="WHITE">
                                        <font>
                                           <Font name="System Italic" size="25.0" />
                                        </font>
                                     </Label>
+                                    <Label layoutX="73.0" layoutY="78.0" text="Nombre:">
+                                       <font>
+                                          <Font name="Arial" size="15.0" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="73.0" layoutY="125.0" text="Apellidos:">
+                                       <font>
+                                          <Font name="Arial" size="15.0" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="73.0" layoutY="168.0" text="Correo:">
+                                       <font>
+                                          <Font name="Arial" size="15.0" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="73.0" layoutY="207.0" text="Usuario:">
+                                       <font>
+                                          <Font name="Arial" size="15.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField fx:id="txtCnombre" layoutX="164.0" layoutY="74.0" prefHeight="25.0" prefWidth="263.0" />
+                                    <TextField fx:id="txtCapellido" layoutX="164.0" layoutY="121.0" prefHeight="25.0" prefWidth="263.0" />
+                                    <TextField fx:id="txtCcorreo" layoutX="164.0" layoutY="164.0" prefHeight="25.0" prefWidth="263.0" />
+                                    <TextField fx:id="txtCusuario" layoutX="164.0" layoutY="203.0" prefHeight="25.0" prefWidth="263.0" />
+                                    <Button fx:id="btnCambiarcontra" layoutX="160.0" layoutY="248.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="265.0" text="Cambiar contraseña">
+                                       <font>
+                                          <Font name="Century Gothic" size="14.0" />
+                                       </font>
+                                    </Button>
+                                    <Button fx:id="btnCguardar" layoutX="243.0" layoutY="297.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="182.0" text="Guardar">
+                                       <font>
+                                          <Font name="Century Gothic" size="14.0" />
+                                       </font>
+                                    </Button>
                                  </children>
                               </Pane>
                            </children>
@@ -86,7 +121,7 @@
                            <children>
                               <Pane layoutX="13.0" layoutY="-1.0" prefHeight="424.0" prefWidth="790.0">
                                  <children>
-                                    <Label alignment="CENTER" layoutX="217.0" layoutY="7.0" prefHeight="36.0" prefWidth="599.0" style="-fx-background-color: #4664b5;" text="Paciente nuevo" textAlignment="CENTER" textFill="WHITE">
+                                    <Label alignment="CENTER" layoutX="217.0" layoutY="-1.0" prefHeight="36.0" prefWidth="622.0" style="-fx-background-color: #4664b5;" text="Paciente nuevo" textAlignment="CENTER" textFill="WHITE">
                                        <font>
                                           <Font name="System Italic" size="25.0" />
                                        </font>
@@ -117,7 +152,7 @@
                                           <Font name="Century Gothic" size="15.0" />
                                        </font>
                                     </Button>
-                                    <Label layoutY="65.0" prefHeight="51.0" prefWidth="220.0" style="-fx-background-color: #FFFFFF;" text="Test" textFill="#b9b6b6">
+                                    <Label layoutY="32.0" prefHeight="51.0" prefWidth="220.0" style="-fx-background-color: #FFFFFF;" text="Test" textFill="#b9b6b6">
                                        <font>
                                           <Font name="Bookshelf Symbol 7" size="28.0" />
                                        </font>
@@ -158,14 +193,14 @@
                                                 <Font name="Century Gothic" size="15.0" />
                                              </font>
                                           </Button>
-                                          <Label layoutY="65.0" prefHeight="51.0" prefWidth="220.0" style="-fx-background-color: #FFFFFF;" text="Prediagnósticos" textFill="#b9b6b6">
+                                          <Label layoutY="37.0" prefHeight="51.0" prefWidth="220.0" style="-fx-background-color: #FFFFFF;" text="Prediagnósticos" textFill="#b9b6b6">
                                              <font>
                                                 <Font name="Bookshelf Symbol 7" size="28.0" />
                                              </font>
                                           </Label>
                                        </children>
                                     </Pane>
-                                    <Label alignment="CENTER" layoutX="227.0" layoutY="47.0" prefHeight="36.0" prefWidth="624.0" style="-fx-background-color: #4664b5;" text="Historial" textAlignment="CENTER" textFill="WHITE">
+                                    <Label alignment="CENTER" layoutX="226.0" layoutY="7.0" prefHeight="36.0" prefWidth="624.0" style="-fx-background-color: #4664b5;" text="Historial" textAlignment="CENTER" textFill="WHITE">
                                        <font>
                                           <Font name="System Italic" size="25.0" />
                                        </font>
@@ -182,7 +217,7 @@
                            <children>
                               <Pane prefHeight="422.0" prefWidth="852.0">
                                  <children>
-                                    <Label alignment="CENTER" layoutX="225.0" layoutY="28.0" prefHeight="36.0" prefWidth="594.0" style="-fx-background-color: #4664b5;" text="Estadisticas" textAlignment="CENTER" textFill="WHITE">
+                                    <Label alignment="CENTER" layoutX="225.0" prefHeight="36.0" prefWidth="594.0" style="-fx-background-color: #4664b5;" text="Estadisticas" textAlignment="CENTER" textFill="WHITE">
                                        <font>
                                           <Font name="System Italic" size="25.0" />
                                        </font>
@@ -191,7 +226,7 @@
                               </Pane>
                               <Pane fx:id="panelLeft111" layoutX="5.0" layoutY="2.0" prefHeight="419.0" prefWidth="219.0" styleClass="panelLeft">
                                  <children>
-                                    <Label layoutY="65.0" prefHeight="51.0" prefWidth="220.0" style="-fx-background-color: #FFFFFF;" text="Reportes" textFill="#b9b6b6">
+                                    <Label layoutY="34.0" prefHeight="51.0" prefWidth="220.0" style="-fx-background-color: #FFFFFF;" text="Reportes" textFill="#b9b6b6">
                                        <font>
                                           <Font name="Bookshelf Symbol 7" size="28.0" />
                                        </font>
@@ -208,7 +243,7 @@
                            <children>
                               <Pane prefHeight="419.0" prefWidth="633.0">
                                  <children>
-                                    <Label alignment="CENTER" layoutY="34.0" prefHeight="28.0" prefWidth="636.0" style="-fx-background-color: #4664b5;" text="Ayuda" textAlignment="CENTER" textFill="WHITE">
+                                    <Label alignment="CENTER" layoutY="34.0" prefHeight="36.0" prefWidth="852.0" style="-fx-background-color: #4664b5;" text="Ayuda" textAlignment="CENTER" textFill="WHITE">
                                        <font>
                                           <Font name="System Italic" size="25.0" />
                                        </font>
@@ -225,7 +260,7 @@
                            <children>
                               <Pane prefHeight="422.0" prefWidth="635.0">
                                  <children>
-                                    <Label alignment="CENTER" layoutY="34.0" prefHeight="28.0" prefWidth="636.0" style="-fx-background-color: #4664b5;" text="Acerca de" textAlignment="CENTER" textFill="WHITE">
+                                    <Label alignment="CENTER" layoutY="34.0" prefHeight="36.0" prefWidth="852.0" style="-fx-background-color: #4664b5;" text="Acerca de" textAlignment="CENTER" textFill="WHITE">
                                        <font>
                                           <Font name="System Italic" size="25.0" />
                                        </font>

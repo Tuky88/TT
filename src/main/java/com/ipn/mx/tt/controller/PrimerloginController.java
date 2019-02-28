@@ -16,27 +16,30 @@ import javafx.scene.control.Label;
 import javafx.scene.control.MenuButton;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-
 /**
  * FXML Controller class
  *
  * @author garci
  */
-public class RecuperarcontraController implements Initializable {
+public class PrimerloginController implements Initializable {
  @FXML
-    private TextField txtCorreo;
-
-    @FXML
     private Button btnEnviar;
 
     @FXML
     private Label lblStatus1;
 
     @FXML
-    private PasswordField txtResseguridad;
+    private MenuButton cmbpreguntaseguridad;
 
     @FXML
-    private MenuButton cmbpreguntaseguridad;
+    private TextField txtResseguridad;
+
+    @FXML
+    private PasswordField txtPassconf;
+
+    @FXML
+    private PasswordField txtPassnueva;
+    
 
     @FXML
     void handleButtonAction(ActionEvent event) {
