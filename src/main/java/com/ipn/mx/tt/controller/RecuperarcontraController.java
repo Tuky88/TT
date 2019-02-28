@@ -33,7 +33,7 @@ public class RecuperarcontraController implements Initializable {
     private Label lblStatus1;
 
     @FXML
-    private PasswordField txtRespuesta;
+    private PasswordField txtResseguridad;
 
     @FXML
     private MenuButton cmbpreguntaseguridad;

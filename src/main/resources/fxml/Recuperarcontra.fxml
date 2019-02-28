@@ -29,7 +29,7 @@
                         <Font size="25.0" />
                      </font>
                   </Label>
-                  <Button id="btnAcceder" fx:id="btnAcceder" layoutX="188.0" layoutY="297.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="25.0" prefWidth="123.0" text="Acceder">
+                  <Button id="btnAcceder" fx:id="btnEnviar" layoutX="188.0" layoutY="297.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="25.0" prefWidth="123.0" text="Enviar">
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -39,12 +39,12 @@
                         <Font name="System Bold" size="14.0" />
                      </font>
                   </Label>
-                  <PasswordField fx:id="txtRespuesta" layoutX="54.0" layoutY="196.0" prefHeight="25.0" prefWidth="246.0">
+                  <PasswordField fx:id="txtResseguridad" layoutX="54.0" layoutY="196.0" prefHeight="25.0" prefWidth="246.0">
                      <cursor>
                         <Cursor fx:constant="TEXT" />
                      </cursor>
                   </PasswordField>
-                  <MenuButton layoutX="63.0" layoutY="151.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="232.0" text="Pregunta de seguridad">
+                  <MenuButton fx:id="cmbpreguntaseguridad" layoutX="63.0" layoutY="151.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="232.0" text="Pregunta de seguridad">
                     <items>
                       <MenuItem mnemonicParsing="false" text="Action 1" />
                       <MenuItem mnemonicParsing="false" text="Action 2" />
