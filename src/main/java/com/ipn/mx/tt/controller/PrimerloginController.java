@@ -39,6 +39,7 @@ public class PrimerloginController implements Initializable {
 
     @FXML
     private PasswordField txtPassnueva;
+    
 
     @FXML
     void handleButtonAction(ActionEvent event) {

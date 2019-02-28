@@ -22,6 +22,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 
 /**
@@ -47,6 +48,24 @@ public class menuController implements Initializable {
 
     @FXML
     private Label lblFecha;
+    
+        @FXML
+    private TextField txtCnombre;
+
+    @FXML
+    private TextField txtCapellido;
+
+    @FXML
+    private TextField txtCcorreo;
+
+    @FXML
+    private TextField txtCusuario;
+
+    @FXML
+    private Button btnCambiarcontra;
+
+    @FXML
+    private Button btnCguardar;
 
     @FXML
     void cerrarSesion(ActionEvent event) {
