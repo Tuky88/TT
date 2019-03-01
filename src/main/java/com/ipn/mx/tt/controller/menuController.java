@@ -7,7 +7,6 @@ package com.ipn.mx.tt.controller;
 
 import com.ipn.mx.tt.util.AlertMessage;
 import com.ipn.mx.tt.util.movEscena;
-import java.awt.event.KeyEvent;
 import java.net.URL;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -15,12 +14,15 @@ import java.util.ResourceBundle;
 import javafx.application.Platform;
 import javafx.concurrent.Task;
 import javafx.event.ActionEvent;
+import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TabPane;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 
 import javafx.scene.layout.Pane;
 
@@ -50,8 +52,8 @@ public class menuController implements Initializable {
 
     @FXML
     private Label lblFecha;
-    
-        @FXML
+
+    @FXML
     private TextField txtCnombre;
 
     @FXML
@@ -70,7 +72,7 @@ public class menuController implements Initializable {
     private Button btnCguardar;
 
     @FXML
-    void cerrarSesion(ActionEvent event) {
+    void cerrarSesion(Event event) {
         int resp = alertMessage.confirm(0, "¿Cerrar Sesión?", "Desea cerrar sesión");
         if (resp == 1) {
             mov.cambiarEscena(event, "Login.fxml");
@@ -79,6 +81,7 @@ public class menuController implements Initializable {
 
     /**
      * Initializes the controller class.
+     *
      * @param url
      * @param rb
      */
@@ -113,6 +116,14 @@ public class menuController implements Initializable {
         Thread th = new Thread(task);
         th.setDaemon(true);
         th.start();
+    }
+
+    @FXML
+    void onEnter(KeyEvent event) {
+        if (event.getCode().equals(KeyCode.ENTER)) {
+            cerrarSesion(event);
+        } else {
+        }
     }
 
 }
