@@ -48,9 +48,9 @@
       </Pane>
       <Pane prefHeight="341.0" prefWidth="346.0" style="-fx-background-color: #FFFFFF;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="338.0" AnchorPane.topAnchor="0.0">
          <children>
-            <ImageView fitHeight="341.0" fitWidth="355.0" layoutX="-4.0">
+            <ImageView fitHeight="341.0" fitWidth="346.0">
                <image>
-                  <Image url="@../imagenes/bienvenido.jpg" />
+                  <Image url="@../imagenes/bienvenido.PNG" />
                </image>
             </ImageView>
          </children>
