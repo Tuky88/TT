@@ -1,5 +1,6 @@
 package com.ipn.mx.tt.controller;
 
+
 import com.ipn.mx.tt.dao.UsuarioDAO;
 import com.ipn.mx.tt.modelo.Usuario;
 import com.ipn.mx.tt.util.AlertMessage;
@@ -87,6 +88,7 @@ public class LoginController implements Initializable {
         } else {
         }
     }
+   
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -94,6 +96,7 @@ public class LoginController implements Initializable {
         // lblStatus.setVisible(false);
         mov = new movEscena();
         alertMessage = new AlertMessage();
+        txtPass.getStyleClass().setAll("btn","btn-primary");
     }
 
 }

@@ -15,6 +15,7 @@ import javafx.application.Platform;
 import javafx.concurrent.Task;
 import javafx.event.ActionEvent;
 import javafx.event.Event;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -98,9 +99,8 @@ public class menuController implements Initializable {
         Task task = new Task<Void>() {
             @Override
             public Void call() throws Exception {
-                int i = 0;
                 while (true) {
-                    final int finalI = i;
+                    
                     Platform.runLater(() -> {
                         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy - HH:mm:ss");
                         LocalDateTime now = LocalDateTime.now();
@@ -108,7 +108,6 @@ public class menuController implements Initializable {
                         lblHora.setText(date[1]);
                         lblFecha.setText(date[0]);
                     });
-                    i++;
                     Thread.sleep(1000);
                 }
             }
@@ -125,5 +124,6 @@ public class menuController implements Initializable {
         } else {
         }
     }
+
 
 }
