@@ -163,7 +163,7 @@
                                     <Button fx:id="btnTguardar" layoutX="561.0" layoutY="288.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="102.0" text="Guardar" />
                                  </children>
                               </Pane>
-                              <Pane fx:id="panelLeft1" layoutX="1.0" layoutY="2.0" prefHeight="419.0" prefWidth="219.0" styleClass="panelLeft">
+                              <Pane fx:id="panelLeft1" layoutX="1.0" layoutY="1.0" prefHeight="419.0" prefWidth="229.0" styleClass="panelLeft">
                                  <children>
                                     <Button fx:id="btncuenta1" layoutY="167.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="216.0" styleClass="btn" text="Paciente nuevo" textFill="WHITE">
                                        <effect>
