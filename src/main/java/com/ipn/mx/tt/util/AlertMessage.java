@@ -5,6 +5,8 @@
  */
 package com.ipn.mx.tt.util;
 
+import javafx.event.EventHandler;
+import javafx.fxml.FXML;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -12,6 +14,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
@@ -29,9 +33,9 @@ public class AlertMessage {
     public int HELP_MESSAGE = 2;
     public int LADO = 45;
     public int respuesta;
-    public AlertMessage()
-    {
-        
+
+    public AlertMessage() {
+
     }
 
     public void alert(int code, String Titulo, String Mensaje) {
@@ -64,6 +68,13 @@ public class AlertMessage {
         image.setFitWidth(LADO);
         Button b = new Button("Aceptar");
         b.setOnAction(e -> window.close());
+        b.setOnKeyReleased(e -> {
+
+            if (e.getCode().equals(KeyCode.ENTER)) {
+                window.close();
+                respuesta = 1;
+            }
+        });
         HBox layoutIzq = new HBox(10);
         HBox layoutCentro = new HBox(5);
         VBox layoutV = new VBox(10);
@@ -73,12 +84,12 @@ public class AlertMessage {
         border.setLeft(layoutIzq);
         border.setRight(layoutV);
         layoutIzq.setAlignment(Pos.BASELINE_LEFT);
-        layoutV.getChildren().addAll( b);
+        layoutV.getChildren().addAll(b);
         layoutV.setAlignment(Pos.BOTTOM_RIGHT);
         b.setAlignment(Pos.BOTTOM_RIGHT);
         layoutCentro.setAlignment(Pos.CENTER);
         layoutIzq.setAlignment(Pos.CENTER);
-        
+
         layoutIzq.setPadding(new Insets(15));
         layoutV.setPadding(new Insets(5));
         Image icon = new Image("/imagenes/brain.png");
@@ -88,6 +99,7 @@ public class AlertMessage {
         window.showAndWait();
 
     }
+
     public int confirm(int code, String Titulo, String Mensaje) {
         String codigo;
         switch (code) {
@@ -120,12 +132,27 @@ public class AlertMessage {
         Button bc = new Button("Cancelar");
         b.setOnAction(e -> {
             window.close();
-            respuesta=1;
-        } );
+            respuesta = 1;
+        });
+        b.setOnKeyReleased(e -> {
+
+            if (e.getCode().equals(KeyCode.ENTER)) {
+                window.close();
+                respuesta = 1;
+            }
+        });
         bc.setOnAction(e -> {
             window.close();
-            respuesta=2;
-        } );
+            respuesta = 2;
+        });
+
+        bc.setOnKeyReleased(e -> {
+
+            if (e.getCode().equals(KeyCode.ENTER)) {
+                window.close();
+                respuesta = 2;
+            }
+        });
         HBox layoutIzq = new HBox(10);
         HBox layoutCentro = new HBox(5);
         HBox layoutV = new HBox(10);
@@ -135,12 +162,12 @@ public class AlertMessage {
         border.setLeft(layoutIzq);
         border.setRight(layoutV);
         layoutIzq.setAlignment(Pos.BASELINE_LEFT);
-        layoutV.getChildren().addAll( b,bc);
+        layoutV.getChildren().addAll(b, bc);
         layoutV.setAlignment(Pos.BOTTOM_RIGHT);
         b.setAlignment(Pos.BOTTOM_RIGHT);
         layoutCentro.setAlignment(Pos.CENTER);
         layoutIzq.setAlignment(Pos.CENTER);
-        
+
         layoutIzq.setPadding(new Insets(15));
         layoutV.setPadding(new Insets(5));
         Image icon = new Image("/imagenes/brain.png");
@@ -151,4 +178,5 @@ public class AlertMessage {
 
         return respuesta;
     }
+
 }
