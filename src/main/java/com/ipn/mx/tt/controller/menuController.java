@@ -20,7 +20,9 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.RadioButton;
 import javafx.scene.control.TabPane;
+import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
@@ -71,6 +73,35 @@ public class menuController implements Initializable {
 
     @FXML
     private Button btnCguardar;
+    @FXML
+    private TextField txtTnombre;
+
+    @FXML
+    private TextField txtTapellido;
+
+    @FXML
+    private TextField txtTfecha;
+
+    @FXML
+    private TextField txtTtelefono;
+
+    @FXML
+    private RadioButton rbtnTMasculino;
+
+    @FXML
+    private RadioButton rbtnTFemenino;
+
+    @FXML
+    private Button btnTguardar;
+    
+    @FXML
+    private TextField txtPnombre;
+
+    @FXML
+    private TableView<?> tblPpre;
+
+    @FXML
+    private Button btnPver;
 
     @FXML
     void cerrarSesion(Event event) {

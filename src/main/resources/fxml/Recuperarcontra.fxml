@@ -54,7 +54,7 @@
             </Pane>
             <Pane prefHeight="341.0" prefWidth="346.0" style="-fx-background-color: #FFFFFF;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="338.0" AnchorPane.topAnchor="0.0">
                <children>
-                  <ImageView fitHeight="347.0" fitWidth="362.0" layoutX="-14.0" layoutY="-14.0">
+                  <ImageView fitHeight="348.0" fitWidth="362.0" layoutX="-14.0" layoutY="-14.0">
                      <image>
                         <Image url="@../imagenes/recuperar.PNG" />
                      </image>

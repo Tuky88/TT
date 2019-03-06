@@ -16,7 +16,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" fx:id="Container" prefHeight="494.0" prefWidth="852.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ipn.mx.tt.controller.menuController">
+<AnchorPane id="AnchorPane" fx:id="Container" prefHeight="494.0" prefWidth="852.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ipn.mx.tt.controller.menuController">
     <stylesheets>
         <URL value="@/styles/menu.css" />
     </stylesheets>
@@ -42,7 +42,7 @@
                            <children>
                               <Pane fx:id="panelLeft" layoutX="1.0" layoutY="-14.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="436.0" prefWidth="224.0" styleClass="panelLeft">
                                  <children>
-                                    <Button fx:id="btncuenta" layoutX="2.0" layoutY="167.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="216.0" styleClass="btn" text="Cuenta" textFill="WHITE">
+                                    <Button fx:id="btncuenta" layoutX="-3.0" layoutY="158.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="225.0" styleClass="btn" text="Cuenta" textFill="WHITE">
                                        <effect>
                                           <DropShadow />
                                        </effect>
@@ -53,7 +53,7 @@
                                           <Cursor fx:constant="HAND" />
                                        </cursor>
                                     </Button>
-                                    <Button fx:id="btnaespecialista" layoutX="1.0" layoutY="225.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="217.0" styleClass="btn" text="Añadir especialista" textFill="WHITE" textOverrun="CLIP">
+                                    <Button fx:id="btnaespecialista" layoutX="-3.0" layoutY="204.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="226.0" styleClass="btn" text="Añadir especialista" textFill="WHITE" textOverrun="CLIP">
                                        <cursor>
                                           <Cursor fx:constant="HAND" />
                                        </cursor>
@@ -73,7 +73,7 @@
                               </Pane>
                               <Pane layoutX="225.0" prefHeight="419.0" prefWidth="626.0">
                                  <children>
-                                    <Label alignment="CENTER" layoutX="-1.0" prefHeight="36.0" prefWidth="628.0" style="-fx-background-color: #4664b5;" text="Cuenta" textAlignment="CENTER" textFill="WHITE">
+                                    <Label alignment="CENTER" layoutX="-3.0" prefHeight="36.0" prefWidth="630.0" style="-fx-background-color: #4664b5;" text="Cuenta" textAlignment="CENTER" textFill="WHITE">
                                        <font>
                                           <Font name="System Italic" size="25.0" />
                                        </font>
@@ -124,7 +124,7 @@
                            <children>
                               <Pane layoutX="13.0" layoutY="-1.0" prefHeight="424.0" prefWidth="790.0">
                                  <children>
-                                    <Label alignment="CENTER" layoutX="217.0" layoutY="-1.0" prefHeight="36.0" prefWidth="622.0" style="-fx-background-color: #4664b5;" text="Paciente nuevo" textAlignment="CENTER" textFill="WHITE">
+                                    <Label alignment="CENTER" layoutX="209.0" layoutY="-1.0" prefHeight="38.0" prefWidth="630.0" style="-fx-background-color: #4664b5;" text="Paciente nuevo" textAlignment="CENTER" textFill="WHITE">
                                        <font>
                                           <Font name="System Italic" size="25.0" />
                                        </font>
@@ -150,9 +150,9 @@
                                        </font>
                                     </Label>
                                     <TextField fx:id="txtTnombre" layoutX="399.0" layoutY="68.0" prefHeight="25.0" prefWidth="263.0" />
-                                    <TextField fx:id="txtTapellido1" layoutX="399.0" layoutY="115.0" prefHeight="25.0" prefWidth="263.0" />
+                                    <TextField fx:id="txtTapellido" layoutX="399.0" layoutY="115.0" prefHeight="25.0" prefWidth="263.0" />
                                     <TextField fx:id="txtTfecha" layoutX="399.0" layoutY="158.0" prefHeight="25.0" prefWidth="263.0" />
-                                    <TextField fx:id="txtCusuario1" layoutX="400.0" layoutY="225.0" prefHeight="25.0" prefWidth="263.0" />
+                                    <TextField fx:id="txtTtelefono" layoutX="400.0" layoutY="225.0" prefHeight="25.0" prefWidth="263.0" />
                                     <RadioButton fx:id="rbtnTMasculino" layoutX="424.0" layoutY="195.0" mnemonicParsing="false" text="Masculino" />
                                     <RadioButton fx:id="rbtnTFemenino" layoutX="531.0" layoutY="195.0" mnemonicParsing="false" text="Femenino" />
                                     <Label layoutX="330.0" layoutY="195.0" text="Sexo:">
@@ -165,7 +165,7 @@
                               </Pane>
                               <Pane fx:id="panelLeft1" layoutX="1.0" layoutY="1.0" prefHeight="419.0" prefWidth="229.0" styleClass="panelLeft">
                                  <children>
-                                    <Button fx:id="btncuenta1" layoutY="167.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="216.0" styleClass="btn" text="Paciente nuevo" textFill="WHITE">
+                                    <Button fx:id="btncuenta1" layoutX="-2.0" layoutY="143.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="231.0" styleClass="btn" text="Paciente nuevo" textFill="WHITE">
                                        <effect>
                                           <DropShadow />
                                        </effect>
@@ -176,7 +176,7 @@
                                           <Cursor fx:constant="HAND" />
                                        </cursor>
                                     </Button>
-                                    <Button fx:id="btnaespecialista1" layoutX="-3.0" layoutY="225.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="221.0" styleClass="btn" text="Paciente con registro" textFill="WHITE" textOverrun="CLIP">
+                                    <Button fx:id="btnaespecialista1" layoutX="-2.0" layoutY="195.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="229.0" styleClass="btn" text="Paciente con registro" textFill="WHITE" textOverrun="CLIP">
                                        <cursor>
                                           <Cursor fx:constant="HAND" />
                                        </cursor>
@@ -187,7 +187,7 @@
                                           <Font name="Century Gothic" size="15.0" />
                                        </font>
                                     </Button>
-                                    <Label layoutY="32.0" prefHeight="51.0" prefWidth="220.0" style="-fx-background-color: #FFFFFF;" text="Test" textFill="#b9b6b6">
+                                    <Label layoutY="36.0" prefHeight="51.0" prefWidth="220.0" style="-fx-background-color: #FFFFFF;" text="Test" textFill="#b9b6b6">
                                        <font>
                                           <Font name="Bookshelf Symbol 7" size="28.0" />
                                        </font>
@@ -204,9 +204,9 @@
                            <children>
                               <Pane layoutY="-7.0" prefHeight="430.0" prefWidth="852.0">
                                  <children>
-                                    <Pane fx:id="panelLeft11" layoutX="7.0" layoutY="6.0" prefHeight="419.0" prefWidth="219.0" styleClass="panelLeft">
+                                    <Pane fx:id="panelLeft11" layoutX="2.0" layoutY="6.0" prefHeight="419.0" prefWidth="225.0" styleClass="panelLeft">
                                        <children>
-                                          <Button fx:id="btncuenta11" layoutX="-1.0" layoutY="167.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="216.0" styleClass="btn" text="Historial" textFill="WHITE">
+                                          <Button fx:id="btncuenta11" layoutX="-5.0" layoutY="144.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="229.0" styleClass="btn" text="Historial" textFill="WHITE">
                                              <effect>
                                                 <DropShadow />
                                              </effect>
@@ -217,7 +217,7 @@
                                                 <Cursor fx:constant="HAND" />
                                              </cursor>
                                           </Button>
-                                          <Button fx:id="btnaespecialista11" layoutX="-3.0" layoutY="225.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="221.0" styleClass="btn" text="Validar" textFill="WHITE" textOverrun="CLIP">
+                                          <Button fx:id="btnaespecialista11" layoutX="-2.0" layoutY="195.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="226.0" styleClass="btn" text="Validar" textFill="WHITE" textOverrun="CLIP">
                                              <cursor>
                                                 <Cursor fx:constant="HAND" />
                                              </cursor>
@@ -228,14 +228,14 @@
                                                 <Font name="Century Gothic" size="15.0" />
                                              </font>
                                           </Button>
-                                          <Label layoutY="37.0" prefHeight="51.0" prefWidth="220.0" style="-fx-background-color: #FFFFFF;" text="Prediagnósticos" textFill="#b9b6b6">
+                                          <Label layoutY="37.0" prefHeight="51.0" prefWidth="219.0" style="-fx-background-color: #FFFFFF;" text="Prediagnósticos" textFill="#b9b6b6">
                                              <font>
                                                 <Font name="Bookshelf Symbol 7" size="28.0" />
                                              </font>
                                           </Label>
                                        </children>
                                     </Pane>
-                                    <Label alignment="CENTER" layoutX="226.0" layoutY="7.0" prefHeight="36.0" prefWidth="624.0" style="-fx-background-color: #4664b5;" text="Historial" textAlignment="CENTER" textFill="WHITE">
+                                    <Label alignment="CENTER" layoutX="222.0" layoutY="7.0" prefHeight="36.0" prefWidth="628.0" style="-fx-background-color: #4664b5;" text="Historial" textAlignment="CENTER" textFill="WHITE">
                                        <font>
                                           <Font name="System Italic" size="25.0" />
                                        </font>
@@ -267,16 +267,16 @@
                            <children>
                               <Pane prefHeight="422.0" prefWidth="852.0">
                                  <children>
-                                    <Label alignment="CENTER" layoutX="225.0" prefHeight="36.0" prefWidth="594.0" style="-fx-background-color: #4664b5;" text="Estadisticas" textAlignment="CENTER" textFill="WHITE">
+                                    <Label alignment="CENTER" layoutX="222.0" layoutY="-1.0" prefHeight="36.0" prefWidth="607.0" style="-fx-background-color: #4664b5;" text="Estadisticas" textAlignment="CENTER" textFill="WHITE">
                                        <font>
                                           <Font name="System Italic" size="25.0" />
                                        </font>
                                     </Label>
                                  </children>
                               </Pane>
-                              <Pane fx:id="panelLeft111" layoutX="5.0" layoutY="2.0" prefHeight="419.0" prefWidth="219.0" styleClass="panelLeft">
+                              <Pane fx:id="panelLeft111" layoutX="-2.0" layoutY="-4.0" prefHeight="425.0" prefWidth="226.0" styleClass="panelLeft">
                                  <children>
-                                    <Label layoutY="34.0" prefHeight="51.0" prefWidth="220.0" style="-fx-background-color: #FFFFFF;" text="Reportes" textFill="#b9b6b6">
+                                    <Label layoutY="39.0" prefHeight="51.0" prefWidth="223.0" style="-fx-background-color: #FFFFFF;" text="Reportes" textFill="#b9b6b6">
                                        <font>
                                           <Font name="Bookshelf Symbol 7" size="28.0" />
                                        </font>
