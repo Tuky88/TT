@@ -7,7 +7,9 @@ package com.ipn.mx.tt.controller;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Label;
 
 /**
  * FXML Controller class
@@ -15,7 +17,14 @@ import javafx.fxml.Initializable;
  * @author garci
  */
 public class ComenzarTestController implements Initializable {
+    @FXML
+    private Label txtTespecialista;
 
+    @FXML
+    private Label txtTpaciente;
+
+    @FXML
+    private Label txtTacompañante;
     /**
      * Initializes the controller class.
      */

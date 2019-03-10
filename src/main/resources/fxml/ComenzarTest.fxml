@@ -20,17 +20,17 @@
                   <Font name="Arial" size="18.0" />
                </font>
             </Label>
-            <Label layoutX="248.0" layoutY="151.0" text="Especialista">
+            <Label fx:id="txtTespecialista" layoutX="248.0" layoutY="151.0" text="Especialista">
                <font>
                   <Font name="Baskerville Old Face" size="25.0" />
                </font>
             </Label>
-            <Label layoutX="263.0" layoutY="221.0" text="Paciente">
+            <Label fx:id="txtTpaciente" layoutX="263.0" layoutY="221.0" text="Paciente">
                <font>
                   <Font name="Baskerville Old Face" size="25.0" />
                </font>
             </Label>
-            <Label layoutX="236.0" layoutY="284.0" text="Acompañante">
+            <Label fx:id="txtTacompañante" layoutX="236.0" layoutY="284.0" text="Acompañante">
                <font>
                   <Font name="Baskerville Old Face" size="25.0" />
                </font>
