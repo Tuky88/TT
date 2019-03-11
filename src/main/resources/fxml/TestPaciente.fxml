@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="com.ipn.mx.tt.controller.TestPacienteController">
+   <children>
+      <Pane layoutX="12.0" prefHeight="424.0" prefWidth="790.0">
+         <children>
+            <Label alignment="CENTER" layoutX="209.0" layoutY="-1.0" prefHeight="38.0" prefWidth="630.0" style="-fx-background-color: #4664b5;" text="Bienvenido paciente" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font name="System Italic" size="25.0" />
+               </font>
+            </Label>
+            <Label layoutX="251.0" layoutY="67.0" text="Instrucciones para contestar el Test">
+               <font>
+                  <Font name="Arial" size="25.0" />
+               </font>
+            </Label>
+            <Button fx:id="btnTPComenzar" layoutX="507.0" layoutY="315.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="102.0" text="Comenzar" />
+            <TextArea editable="false" layoutX="219.0" layoutY="132.0" prefHeight="101.0" prefWidth="516.0" text="Bienvenido, introduce el número de paciente &#10;otorgado por tu especialista. ">
+               <font>
+                  <Font name="Arial" size="23.0" />
+               </font>
+            </TextArea>
+            <Label layoutX="273.0" layoutY="250.0" text="Número:">
+               <font>
+                  <Font name="Arial" size="18.0" />
+               </font>
+            </Label>
+            <TextField fx:id="txtTPnumero" layoutX="344.0" layoutY="250.0" prefHeight="25.0" prefWidth="208.0" />
+         </children>
+      </Pane>
+      <Pane id="panelLeft" fx:id="panelLeft1" layoutY="2.0" prefHeight="419.0" prefWidth="229.0" styleClass="panelLeft" />
+   </children>
+</AnchorPane>
