@@ -14,6 +14,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.ScrollBar;
+import javafx.scene.control.TableView;
 import javafx.scene.layout.Pane;
 import javafx.scene.media.MediaView;
 
@@ -44,8 +45,8 @@ public class TestEspecialistaController implements Initializable {
     @FXML
     private Pane panelLeft1;
 
-    @FXML
-    private MediaView listTEpreguntas;
+     @FXML
+    private TableView<?> listTEpreguntas;
 
     @FXML
     private ScrollBar sbTEpreguntas;
