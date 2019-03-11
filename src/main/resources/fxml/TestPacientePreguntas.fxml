@@ -1,11 +1,55 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ipn.mx.tt.controller.TestPacientePreguntasController">
-    
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="com.ipn.mx.tt.controller.TestPacientePreguntasController">
+   <children>
+      <Pane layoutX="12.0" prefHeight="424.0" prefWidth="790.0">
+         <children>
+            <Label alignment="CENTER" layoutX="209.0" layoutY="-1.0" prefHeight="38.0" prefWidth="630.0" style="-fx-background-color: #4664b5;" text="Bienvenido paciente" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font name="System Italic" size="25.0" />
+               </font>
+            </Label>
+            <Label layoutX="251.0" layoutY="67.0" text="Instrucciones para contestar el Test">
+               <font>
+                  <Font name="Arial" size="25.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblTPpregunta" layoutX="294.0" layoutY="144.0" text="PREGUNTA">
+               <font>
+                  <Font name="Arial" size="26.0" />
+               </font>
+            </Label>
+            <RadioButton fx:id="rbtnTPopcion3" layoutX="557.0" layoutY="212.0" mnemonicParsing="false" text="Opcion 3" />
+            <Button fx:id="btnTPsiguiente" layoutX="525.0" layoutY="323.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="102.0" text="Siguiente" />
+            <RadioButton fx:id="rbtnTPopcion2" layoutX="427.0" layoutY="212.0" mnemonicParsing="false" text="Opcion 2" />
+            <RadioButton fx:id="rbtnTPopcion1" layoutX="295.0" layoutY="212.0" mnemonicParsing="false" text="Opcion 1" />
+            <ImageView fitHeight="60.0" fitWidth="69.0" layoutX="490.0" layoutY="130.0">
+               <image>
+                  <Image url="@../imagenes/audio.jpg" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="31.0" fitWidth="46.0" layoutX="368.0" layoutY="267.0">
+               <image>
+                  <Image url="@../imagenes/ayuda.jpg" />
+               </image>
+            </ImageView>
+            <Label layoutX="290.0" layoutY="267.0" text="Ayuda">
+               <font>
+                  <Font name="Arial" size="26.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Pane id="panelLeft" fx:id="panelLeft1" layoutY="2.0" prefHeight="419.0" prefWidth="229.0" styleClass="panelLeft" />
+   </children>
 </AnchorPane>
