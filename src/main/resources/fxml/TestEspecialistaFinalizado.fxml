@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="com.ipn.mx.tt.controller.TestEspecialistaFinalizadoController">
+   <children>
+      <Pane layoutX="14.0" layoutY="1.0" prefHeight="424.0" prefWidth="840.0">
+         <children>
+            <Label alignment="CENTER" layoutX="209.0" layoutY="-1.0" prefHeight="38.0" prefWidth="630.0" style="-fx-background-color: #4664b5;" text="Test Terminado" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font name="System Italic" size="25.0" />
+               </font>
+            </Label>
+            <Button fx:id="btnTEprediagnostico" layoutX="422.0" layoutY="261.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="206.0" text="Prediagnóstico" />
+            <ProgressBar fx:id="pbTEterminado" layoutX="321.0" layoutY="313.0" prefHeight="31.0" prefWidth="407.0" progress="0.0" />
+            <TextArea editable="false" layoutX="296.0" layoutY="91.0" prefHeight="115.0" prefWidth="457.0" text="Has contestado todas las preguntas del Test, &#10;oprime el botón de prediagnóstico para saber &#10;tus resultados">
+               <font>
+                  <Font name="Arial" size="21.0" />
+               </font>
+            </TextArea>
+         </children>
+      </Pane>
+      <Pane id="panelLeft" fx:id="panelLeft1" layoutX="1.0" layoutY="3.0" prefHeight="419.0" prefWidth="229.0" styleClass="panelLeft" />
+   </children>
+</AnchorPane>

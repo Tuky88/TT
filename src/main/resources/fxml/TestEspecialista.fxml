@@ -34,10 +34,10 @@
             <Button fx:id="btnTEsiguiente" layoutX="509.0" layoutY="258.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="102.0" text="Siguiente" />
             <RadioButton fx:id="rbtnTEopcion2" layoutX="429.0" layoutY="212.0" mnemonicParsing="false" text="Opcion 2" />
             <RadioButton fx:id="rbtnTEopcion1" layoutX="297.0" layoutY="212.0" mnemonicParsing="false" text="Opcion 1" />
-            <ProgressBar fx:id="pbTprogeso" layoutX="227.0" layoutY="317.0" prefHeight="31.0" prefWidth="407.0" progress="0.0" />
+            <ProgressBar fx:id="pbTEprogeso" layoutX="227.0" layoutY="317.0" prefHeight="31.0" prefWidth="407.0" progress="0.0" />
          </children>
       </Pane>
-      <Pane fx:id="panelLeft1" layoutX="2.0" layoutY="3.0" prefHeight="419.0" prefWidth="229.0" styleClass="panelLeft">
+      <Pane id="panelLeft" fx:id="panelLeft1" layoutX="2.0" layoutY="3.0" prefHeight="419.0" prefWidth="229.0" styleClass="panelLeft">
          <children>
             <Label layoutY="36.0" prefHeight="51.0" prefWidth="220.0" style="-fx-background-color: #FFFFFF;" text="Preguntas contestadas" textFill="#b9b6b6">
                <font>
