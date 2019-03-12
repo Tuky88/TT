@@ -15,7 +15,7 @@
                   <Font name="System Italic" size="25.0" />
                </font>
             </Label>
-            <TextArea editable="false" layoutX="296.0" layoutY="91.0" prefHeight="115.0" prefWidth="457.0" text="Has contestado todas las preguntas del Test, &#10;oprime el botón de prediagnóstico para saber &#10;tus resultados">
+            <TextArea editable="false" layoutX="295.0" layoutY="91.0" prefHeight="115.0" prefWidth="457.0" text="Has contestado todas las preguntas del Test, &#10;oprime el botón de prediagnóstico para saber &#10;tus resultados">
                <font>
                   <Font name="Arial" size="21.0" />
                </font>
