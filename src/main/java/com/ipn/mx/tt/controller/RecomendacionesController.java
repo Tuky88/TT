@@ -10,6 +10,7 @@ import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.layout.Pane;
 
@@ -18,21 +19,28 @@ import javafx.scene.layout.Pane;
  *
  * @author garci
  */
-public class PrediagnosticoController implements Initializable {
-
-    /**
-     * Initializes the controller class.
-     */
-    
-    @FXML
-    private TableView<?> tblPtrastornos;
+public class RecomendacionesController implements Initializable {
 
     @FXML
-    private Button btnPrecomendaciones;
+    private TableView<?> tblRtrastornos;
+
+    @FXML
+    private Button btnRenviarcorreo;
+
+    @FXML
+    private TableView<?> tblPtrastornos1;
+
+    @FXML
+    private TableColumn<?, ?> tblRrecomendaciones;
+
+    @FXML
+    private Button btnRimprimir;
 
     @FXML
     private Pane panelLeft1;
-
+    /**
+     * Initializes the controller class.
+     */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
