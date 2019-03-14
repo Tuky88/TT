@@ -5,6 +5,9 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.Light.Distant?>
+<?import javafx.scene.effect.Lighting?>
+<?import javafx.scene.effect.Shadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -43,7 +46,20 @@
                   <Font name="System Bold" size="14.0" />
                </font>
             </Label>
-            <Label fx:id="lblRecuperar" layoutX="93.0" layoutY="232.0" onMouseClicked="#irMenuRecuperarContra" prefHeight="17.0" prefWidth="200.0" text="Recuperar contraseña*" textFill="WHITE" />
+            <Label fx:id="lblRecuperar" layoutX="93.0" layoutY="230.0" onMouseClicked="#irMenuRecuperarContra" prefHeight="17.0" prefWidth="200.0" text="Recuperar contraseña*" textFill="WHITE">
+               <effect>
+                  <Lighting>
+                     <bumpInput>
+                        <Shadow blurType="ONE_PASS_BOX" />
+                     </bumpInput>
+                     <light>
+                        <Light.Distant />
+                     </light>
+                  </Lighting>
+               </effect>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></Label>
          </children>
       </Pane>
       <Pane prefHeight="341.0" prefWidth="346.0" style="-fx-background-color: #FFFFFF;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="338.0" AnchorPane.topAnchor="0.0">

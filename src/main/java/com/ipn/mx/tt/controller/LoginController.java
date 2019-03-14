@@ -97,7 +97,7 @@ public class LoginController implements Initializable {
         // lblStatus.setVisible(false);
         mov = new movEscena();
         alertMessage = new AlertMessage();
-        txtPass.getStyleClass().setAll("btn", "btn-primary");
+       // txtPass.getStyleClass().setAll("btn", "btn-primary");
     }
 
     @FXML
