@@ -16,7 +16,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" fx:id="Container" prefHeight="494.0" prefWidth="852.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ipn.mx.tt.controller.menuController">
+<AnchorPane id="AnchorPane" fx:id="Container" prefHeight="494.0" prefWidth="852.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ipn.mx.tt.controller.menuController">
     <stylesheets>
         <URL value="@/styles/menu.css" />
     </stylesheets>
@@ -33,91 +33,47 @@
                      </cursor></Button>
                </children></Pane>
          </bottom>
-         <center>
-            <TabPane fx:id="tbdMenu" prefHeight="200.0" prefWidth="200.0" styleClass="Container" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
+         <left>
+            <Pane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="421.0" prefWidth="225.0" styleClass="Container" BorderPane.alignment="CENTER">
+               <children>
+                  <Pane fx:id="panelLeft" layoutX="1.0" layoutY="-8.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="430.0" prefWidth="223.0" styleClass="panelLeft">
+                     <children>
+                        <Button fx:id="btncuenta" layoutX="-3.0" layoutY="158.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="225.0" styleClass="btn" text="Cuenta" textFill="WHITE">
+                           <effect>
+                              <DropShadow />
+                           </effect>
+                           <font>
+                              <Font name="Century Gothic" size="15.0" />
+                           </font>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Button>
+                        <Button fx:id="btnaespecialista" layoutX="-3.0" layoutY="204.0" mnemonicParsing="false" onAction="#cambiarMenu" prefHeight="29.0" prefWidth="226.0" styleClass="btn" text="Añadir especialista" textFill="WHITE" textOverrun="CLIP">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                           <effect>
+                              <DropShadow />
+                           </effect>
+                           <font>
+                              <Font name="Century Gothic" size="15.0" />
+                           </font>
+                        </Button>
+                        <Label layoutY="51.0" prefHeight="51.0" prefWidth="220.0" style="-fx-background-color: #FFFFFF;" text="Configuraciones" textFill="#b9b6b6">
+                           <font>
+                              <Font name="Bookshelf Symbol 7" size="28.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </Pane>
+               </children>
+            </Pane>
+         </left>
+         <top>
+            <TabPane fx:id="tbdMenu" prefHeight="29.0" prefWidth="836.0" styleClass="Container" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
               <tabs>
-                <Tab text="Configuración">
-                     <content>
-                        <Pane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="421.0" prefWidth="523.0" styleClass="Container">
-                           <children>
-                              <Pane fx:id="panelLeft" layoutX="1.0" layoutY="-14.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="436.0" prefWidth="224.0" styleClass="panelLeft">
-                                 <children>
-                                    <Button fx:id="btncuenta" layoutX="-3.0" layoutY="158.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="225.0" styleClass="btn" text="Cuenta" textFill="WHITE">
-                                       <effect>
-                                          <DropShadow />
-                                       </effect>
-                                       <font>
-                                          <Font name="Century Gothic" size="15.0" />
-                                       </font>
-                                       <cursor>
-                                          <Cursor fx:constant="HAND" />
-                                       </cursor>
-                                    </Button>
-                                    <Button fx:id="btnaespecialista" layoutX="-3.0" layoutY="204.0" mnemonicParsing="false" onAction="#cambiarMenu" prefHeight="29.0" prefWidth="226.0" styleClass="btn" text="Añadir especialista" textFill="WHITE" textOverrun="CLIP">
-                                       <cursor>
-                                          <Cursor fx:constant="HAND" />
-                                       </cursor>
-                                       <effect>
-                                          <DropShadow />
-                                       </effect>
-                                       <font>
-                                          <Font name="Century Gothic" size="15.0" />
-                                       </font>
-                                    </Button>
-                                    <Label layoutY="51.0" prefHeight="51.0" prefWidth="220.0" style="-fx-background-color: #FFFFFF;" text="Configuraciones" textFill="#b9b6b6">
-                                       <font>
-                                          <Font name="Bookshelf Symbol 7" size="28.0" />
-                                       </font>
-                                    </Label>
-                                 </children>
-                              </Pane>
-                              <Pane fx:id="panelPrin" layoutX="225.0" layoutY="1.0" prefHeight="419.0" prefWidth="626.0">
-                                 <children>
-                                    <Label alignment="CENTER" layoutX="-3.0" prefHeight="36.0" prefWidth="630.0" style="-fx-background-color: #4664b5;" text="Cuenta" textAlignment="CENTER" textFill="WHITE">
-                                       <font>
-                                          <Font name="System Italic" size="25.0" />
-                                       </font>
-                                    </Label>
-                                    <Label layoutX="73.0" layoutY="78.0" text="Nombre:">
-                                       <font>
-                                          <Font name="Arial" size="15.0" />
-                                       </font>
-                                    </Label>
-                                    <Label layoutX="73.0" layoutY="125.0" text="Apellidos:">
-                                       <font>
-                                          <Font name="Arial" size="15.0" />
-                                       </font>
-                                    </Label>
-                                    <Label layoutX="73.0" layoutY="168.0" text="Correo:">
-                                       <font>
-                                          <Font name="Arial" size="15.0" />
-                                       </font>
-                                    </Label>
-                                    <Label layoutX="73.0" layoutY="207.0" text="Usuario:">
-                                       <font>
-                                          <Font name="Arial" size="15.0" />
-                                       </font>
-                                    </Label>
-                                    <TextField fx:id="txtCnombre" layoutX="164.0" layoutY="74.0" prefHeight="25.0" prefWidth="263.0" />
-                                    <TextField fx:id="txtCapellido" layoutX="164.0" layoutY="121.0" prefHeight="25.0" prefWidth="263.0" />
-                                    <TextField fx:id="txtCcorreo" layoutX="164.0" layoutY="164.0" prefHeight="25.0" prefWidth="263.0" />
-                                    <TextField fx:id="txtCusuario" layoutX="164.0" layoutY="203.0" prefHeight="25.0" prefWidth="263.0" />
-                                    <Button fx:id="btnCambiarcontra" layoutX="160.0" layoutY="248.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="265.0" text="Cambiar contraseña">
-                                       <font>
-                                          <Font name="Century Gothic" size="14.0" />
-                                       </font>
-                                    </Button>
-                                    <Button fx:id="btnCguardar" layoutX="243.0" layoutY="297.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="182.0" text="Guardar">
-                                       <font>
-                                          <Font name="Century Gothic" size="14.0" />
-                                       </font>
-                                    </Button>
-                                 </children>
-                              </Pane>
-                           </children>
-                        </Pane>
-                     </content>
-                </Tab>
+                <Tab text="Configuración" />
                 <Tab text="Test">
                   <content>
                     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" styleClass="Container">
@@ -323,6 +279,51 @@
                   </Tab>
               </tabs>
             </TabPane>
+         </top>
+         <center>
+            <Pane fx:id="panelPrin" prefHeight="427.0" prefWidth="626.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Label alignment="CENTER" layoutX="-2.0" layoutY="-4.0" prefHeight="36.0" prefWidth="630.0" style="-fx-background-color: #4664b5;" text="Cuenta" textAlignment="CENTER" textFill="WHITE">
+                     <font>
+                        <Font name="System Italic" size="25.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="73.0" layoutY="78.0" text="Nombre:">
+                     <font>
+                        <Font name="Arial" size="15.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="73.0" layoutY="125.0" text="Apellidos:">
+                     <font>
+                        <Font name="Arial" size="15.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="73.0" layoutY="168.0" text="Correo:">
+                     <font>
+                        <Font name="Arial" size="15.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="73.0" layoutY="207.0" text="Usuario:">
+                     <font>
+                        <Font name="Arial" size="15.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="txtCnombre" layoutX="164.0" layoutY="74.0" prefHeight="25.0" prefWidth="263.0" />
+                  <TextField fx:id="txtCapellido" layoutX="164.0" layoutY="121.0" prefHeight="25.0" prefWidth="263.0" />
+                  <TextField fx:id="txtCcorreo" layoutX="164.0" layoutY="164.0" prefHeight="25.0" prefWidth="263.0" />
+                  <TextField fx:id="txtCusuario" layoutX="164.0" layoutY="203.0" prefHeight="25.0" prefWidth="263.0" />
+                  <Button fx:id="btnCambiarcontra" layoutX="160.0" layoutY="248.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="265.0" text="Cambiar contraseña">
+                     <font>
+                        <Font name="Century Gothic" size="14.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="btnCguardar" layoutX="243.0" layoutY="297.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="182.0" text="Guardar">
+                     <font>
+                        <Font name="Century Gothic" size="14.0" />
+                     </font>
+                  </Button>
+               </children>
+            </Pane>
          </center>
       </BorderPane>
    </children>
