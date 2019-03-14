@@ -5,13 +5,16 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.Light.Distant?>
+<?import javafx.scene.effect.Lighting?>
+<?import javafx.scene.effect.Shadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" cacheShape="false" focusTraversable="true" pickOnBounds="false" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ipn.mx.tt.controller.LoginController">
+<AnchorPane id="AnchorPane" cacheShape="false" focusTraversable="true" pickOnBounds="false" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ipn.mx.tt.controller.LoginController">
    <children>
       <Pane layoutX="351.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="341.0" prefWidth="333.0" style="-fx-background-color: #0B243B;">
          <children>
@@ -43,7 +46,20 @@
                   <Font name="System Bold" size="14.0" />
                </font>
             </Label>
-            <Label layoutX="93.0" layoutY="226.0" prefHeight="17.0" prefWidth="200.0" text="Recuperar contraseña*" textFill="WHITE" />
+            <Label layoutX="93.0" layoutY="226.0" prefHeight="17.0" prefWidth="200.0" text="Recuperar contraseña*" textFill="WHITE">
+               <effect>
+                  <Lighting>
+                     <bumpInput>
+                        <Shadow blurType="ONE_PASS_BOX" />
+                     </bumpInput>
+                     <light>
+                        <Light.Distant />
+                     </light>
+                  </Lighting>
+               </effect>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></Label>
          </children>
       </Pane>
       <Pane prefHeight="341.0" prefWidth="346.0" style="-fx-background-color: #FFFFFF;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="338.0" AnchorPane.topAnchor="0.0">
