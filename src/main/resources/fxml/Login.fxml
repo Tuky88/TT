@@ -43,7 +43,7 @@
                   <Font name="System Bold" size="14.0" />
                </font>
             </Label>
-            <Label layoutX="93.0" layoutY="226.0" prefHeight="17.0" prefWidth="200.0" text="Recuperar contraseña*" textFill="WHITE" />
+            <Label fx:id="lblRecuperar" layoutX="93.0" layoutY="232.0" onMouseClicked="#irMenuRecuperarContra" prefHeight="17.0" prefWidth="200.0" text="Recuperar contraseña*" textFill="WHITE" />
          </children>
       </Pane>
       <Pane prefHeight="341.0" prefWidth="346.0" style="-fx-background-color: #FFFFFF;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="338.0" AnchorPane.topAnchor="0.0">

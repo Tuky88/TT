@@ -1,6 +1,5 @@
 package com.ipn.mx.tt.controller;
 
-
 import com.ipn.mx.tt.dao.UsuarioDAO;
 import com.ipn.mx.tt.modelo.Usuario;
 import com.ipn.mx.tt.util.AlertMessage;
@@ -16,6 +15,8 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.Pane;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 
@@ -24,6 +25,7 @@ public class LoginController implements Initializable {
     movEscena mov;
     AlertMessage alertMessage;
 
+    
     @FXML
     private Button btnAcceder;
 
@@ -88,7 +90,6 @@ public class LoginController implements Initializable {
         } else {
         }
     }
-   
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -96,7 +97,12 @@ public class LoginController implements Initializable {
         // lblStatus.setVisible(false);
         mov = new movEscena();
         alertMessage = new AlertMessage();
-        txtPass.getStyleClass().setAll("btn","btn-primary");
+        txtPass.getStyleClass().setAll("btn", "btn-primary");
+    }
+
+    @FXML
+    void irMenuRecuperarContra(MouseEvent event) {
+        mov.cambiarEscena(event,"Recuperarcontra.fxml");
     }
 
 }

@@ -7,17 +7,22 @@ package com.ipn.mx.tt.controller;
 
 import com.ipn.mx.tt.util.AlertMessage;
 import com.ipn.mx.tt.util.movEscena;
+import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.application.Platform;
 import javafx.concurrent.Task;
 import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
@@ -26,6 +31,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.layout.BorderPane;
 
 import javafx.scene.layout.Pane;
 
@@ -49,7 +55,8 @@ public class menuController implements Initializable {
     private Button btnaespecialista;
     @FXML
     private Button btnCerrarSesion;
-
+    @FXML
+    private BorderPane PanelPrin;
     @FXML
     private Label lblHora;
 
@@ -93,7 +100,7 @@ public class menuController implements Initializable {
 
     @FXML
     private Button btnTguardar;
-    
+
     @FXML
     private TextField txtPnombre;
 
@@ -102,6 +109,8 @@ public class menuController implements Initializable {
 
     @FXML
     private Button btnPver;
+    @FXML
+    private Pane panelPrin;
 
     @FXML
     void cerrarSesion(Event event) {
@@ -131,7 +140,7 @@ public class menuController implements Initializable {
             @Override
             public Void call() throws Exception {
                 while (true) {
-                    
+
                     Platform.runLater(() -> {
                         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy - HH:mm:ss");
                         LocalDateTime now = LocalDateTime.now();
@@ -156,5 +165,18 @@ public class menuController implements Initializable {
         }
     }
 
+    @FXML
+    void cambiarMenu(ActionEvent event) {
+        cambiarMenu(event, "AñadirEspecialista.fxml");
+    }
 
+    public void cambiarMenu(Event e, String menu) {
+        Parent root = null;
+        try {
+            root = FXMLLoader.load(getClass().getResource("/fxml/" + menu));
+        } catch (IOException ex) {
+            Logger.getLogger(menuController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        PanelPrin.setCenter(root);
+    }
 }

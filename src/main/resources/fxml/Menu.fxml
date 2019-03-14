@@ -16,12 +16,12 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" fx:id="Container" prefHeight="494.0" prefWidth="852.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ipn.mx.tt.controller.menuController">
+<AnchorPane id="AnchorPane" fx:id="Container" prefHeight="494.0" prefWidth="852.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ipn.mx.tt.controller.menuController">
     <stylesheets>
         <URL value="@/styles/menu.css" />
     </stylesheets>
    <children>
-      <BorderPane layoutY="14.0" prefHeight="400.0" prefWidth="600.0" styleClass="Container" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <BorderPane fx:id="PanelPrin" layoutY="14.0" prefHeight="400.0" prefWidth="600.0" styleClass="Container" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <bottom>
             <Pane prefHeight="44.0" prefWidth="600.0" style="-fx-background-color: #000000;" BorderPane.alignment="CENTER">
                <children>
@@ -53,7 +53,7 @@
                                           <Cursor fx:constant="HAND" />
                                        </cursor>
                                     </Button>
-                                    <Button fx:id="btnaespecialista" layoutX="-3.0" layoutY="204.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="226.0" styleClass="btn" text="Añadir especialista" textFill="WHITE" textOverrun="CLIP">
+                                    <Button fx:id="btnaespecialista" layoutX="-3.0" layoutY="204.0" mnemonicParsing="false" onAction="#cambiarMenu" prefHeight="29.0" prefWidth="226.0" styleClass="btn" text="Añadir especialista" textFill="WHITE" textOverrun="CLIP">
                                        <cursor>
                                           <Cursor fx:constant="HAND" />
                                        </cursor>
@@ -71,7 +71,7 @@
                                     </Label>
                                  </children>
                               </Pane>
-                              <Pane layoutX="225.0" prefHeight="419.0" prefWidth="626.0">
+                              <Pane fx:id="panelPrin" layoutX="225.0" layoutY="1.0" prefHeight="419.0" prefWidth="626.0">
                                  <children>
                                     <Label alignment="CENTER" layoutX="-3.0" prefHeight="36.0" prefWidth="630.0" style="-fx-background-color: #4664b5;" text="Cuenta" textAlignment="CENTER" textFill="WHITE">
                                        <font>

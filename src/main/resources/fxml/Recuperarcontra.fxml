@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="341.0" prefWidth="680.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller=".RecuperarcontraController">
+<AnchorPane id="AnchorPane" prefHeight="341.0" prefWidth="680.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ipn.mx.tt.controller.RecuperarcontraController">
    <children>
       <AnchorPane id="AnchorPane" cacheShape="false" focusTraversable="true" layoutX="10.0" layoutY="10.0" pickOnBounds="false" prefHeight="326.0" prefWidth="681.0">
          <children>
