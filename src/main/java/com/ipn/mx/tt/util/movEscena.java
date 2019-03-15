@@ -25,7 +25,7 @@ public class movEscena {
         public void cambiarEscena(Event event,String file) {
         Parent root;
         try {
-            root = FXMLLoader.load(getClass().getResource("/fxml/"+file));
+            root = FXMLLoader.load(getClass().getResource("/Center/"+file));
             Scene s = new Scene(root);
             Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
             window.setScene(s);

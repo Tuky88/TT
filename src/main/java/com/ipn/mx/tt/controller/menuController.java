@@ -26,6 +26,7 @@ import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
+import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -111,7 +112,11 @@ public class menuController implements Initializable {
     private Button btnPver;
     @FXML
     private Pane panelPrin;
+    @FXML
+    private Tab tabConfig;
 
+    @FXML
+    private Pane PanelIzq;
     @FXML
     void cerrarSesion(Event event) {
         int resp = alertMessage.confirm(0, "¿Cerrar Sesión?", "Desea cerrar sesión");
@@ -167,16 +172,21 @@ public class menuController implements Initializable {
 
     @FXML
     void cambiarMenu(ActionEvent event) {
-        cambiarMenu(event, "AñadirEspecialista.fxml");
+        cambiarMenu(event, "/Center/AñadirEspecialista.fxml",1);
+        cambiarMenu(event, "/Left/Configuraciones.fxml",1);
     }
 
-    public void cambiarMenu(Event e, String menu) {
+    public void cambiarMenu(Event e, String menu,int tipo) {
         Parent root = null;
         try {
-            root = FXMLLoader.load(getClass().getResource("/fxml/" + menu));
+            root = FXMLLoader.load(getClass().getResource(menu));
         } catch (IOException ex) {
             Logger.getLogger(menuController.class.getName()).log(Level.SEVERE, null, ex);
         }
+        if(tipo==1)
         PanelPrin.setCenter(root);
+        else
+        PanelPrin.setLeft(root);
+            
     }
 }
