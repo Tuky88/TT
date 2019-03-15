@@ -29,9 +29,6 @@
                      </cursor></Button>
                </children></Pane>
          </bottom>
-         <left>
-            <Pane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="421.0" prefWidth="225.0" style="-fx-background-color: #4D92DF;;" styleClass="panelLeft" BorderPane.alignment="CENTER" />
-         </left>
          <top>
             <TabPane fx:id="tbdMenu" prefHeight="29.0" prefWidth="836.0" styleClass="Container" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
               <tabs>
@@ -71,41 +68,7 @@
                      </content></Tab>
                 <Tab text="Test">
                   <content>
-                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" styleClass="Container">
-                           <children>
-                              <Pane fx:id="panelLeft1" prefHeight="419.0" prefWidth="229.0" style="-fx-background-color: #FFFFFF;" styleClass="panelLeft">
-                                 <children>
-                                    <Button fx:id="btncuenta1" layoutX="-5.0" layoutY="152.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="231.0" styleClass="btn" text="Paciente nuevo" textFill="WHITE">
-                                       <effect>
-                                          <DropShadow />
-                                       </effect>
-                                       <font>
-                                          <Font name="Century Gothic" size="15.0" />
-                                       </font>
-                                       <cursor>
-                                          <Cursor fx:constant="HAND" />
-                                       </cursor>
-                                    </Button>
-                                    <Button fx:id="btnaespecialista1" layoutX="-2.0" layoutY="195.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="229.0" styleClass="btn" text="Paciente con registro" textFill="WHITE" textOverrun="CLIP">
-                                       <cursor>
-                                          <Cursor fx:constant="HAND" />
-                                       </cursor>
-                                       <effect>
-                                          <DropShadow />
-                                       </effect>
-                                       <font>
-                                          <Font name="Century Gothic" size="15.0" />
-                                       </font>
-                                    </Button>
-                                    <Label layoutY="36.0" prefHeight="51.0" prefWidth="220.0" style="-fx-background-color: #FFFFFF;" text="Test" textFill="#b9b6b6">
-                                       <font>
-                                          <Font name="Bookshelf Symbol 7" size="28.0" />
-                                       </font>
-                                    </Label>
-                                 </children>
-                              </Pane>
-                           </children>
-                        </AnchorPane>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" styleClass="Container" />
                   </content>
                 </Tab>
                   <Tab text="Prediagnósticos">

@@ -18,15 +18,15 @@ import javafx.scene.layout.Pane;
  * @author garci
  */
 public class TestController implements Initializable {
-
-    @FXML
+    
+@FXML
     private Pane panelLeft1;
 
     @FXML
-    private Button btncuenta1;
+    private Button btnTpacientenuevo;
 
     @FXML
-    private Button btnaespecialista1;
+    private Button btnTpacienteregistrado;
     /**
      * Initializes the controller class.
      */

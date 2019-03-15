@@ -7,27 +7,15 @@ package com.ipn.mx.tt.controller;
 
 import java.net.URL;
 import java.util.ResourceBundle;
-import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.layout.Pane;
 
 /**
  * FXML Controller class
  *
  * @author garci
  */
-public class ConfiguracionesController implements Initializable {
+public class AcercadeController implements Initializable {
 
-
-@FXML
-    private Pane panelLeft;
-
-    @FXML
-    private Button btnCcuenta;
-
-    @FXML
-    private Button btnCaespecialista;
     /**
      * Initializes the controller class.
      */

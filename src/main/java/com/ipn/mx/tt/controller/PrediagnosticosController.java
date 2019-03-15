@@ -7,7 +7,10 @@ package com.ipn.mx.tt.controller;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
+import javafx.scene.layout.Pane;
 
 /**
  * FXML Controller class
@@ -15,7 +18,14 @@ import javafx.fxml.Initializable;
  * @author garci
  */
 public class PrediagnosticosController implements Initializable {
+@FXML
+    private Pane panelLeft11;
 
+    @FXML
+    private Button btnPhistorial;
+
+    @FXML
+    private Button btnPvalidar;
     /**
      * Initializes the controller class.
      */
