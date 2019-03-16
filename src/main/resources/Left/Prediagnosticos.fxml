@@ -9,11 +9,11 @@
 <?import javafx.scene.text.Font?>
 
 
-<AnchorPane id="AnchorPane" prefHeight="419.0" prefWidth="225.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="com.ipn.mx.tt.controller.PrediagnosticosController">
+<AnchorPane id="AnchorPane" prefHeight="419.0" prefWidth="225.0" style="-fx-background-color: #4D92DF;" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="com.ipn.mx.tt.controller.PrediagnosticosController">
    <children>
-      <Pane fx:id="panelLeft11" prefHeight="419.0" prefWidth="225.0" style="-fx-background-color: #4D92DF;" styleClass="panelLeft">
+      <Pane fx:id="panelLeft" prefHeight="419.0" prefWidth="230.0" style="-fx-background-color: #4D92DF;" styleClass="panelLeft">
          <children>
-            <Button fx:id="btnPhistorial" layoutX="-5.0" layoutY="144.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="229.0" styleClass="btn" text="Historial" textFill="WHITE">
+            <Button fx:id="btnPhistorial" layoutX="-7.0" layoutY="152.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="236.0" styleClass="btn" text="Historial" textFill="WHITE">
                <effect>
                   <DropShadow />
                </effect>
@@ -24,7 +24,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button fx:id="btnPvalidar" layoutX="-2.0" layoutY="195.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="226.0" styleClass="btn" text="Validar" textFill="WHITE" textOverrun="CLIP">
+            <Button fx:id="btnPvalidar" layoutY="195.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="229.0" styleClass="btn" text="Validar" textFill="WHITE" textOverrun="CLIP">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
@@ -35,7 +35,7 @@
                   <Font name="Century Gothic" size="15.0" />
                </font>
             </Button>
-            <Label layoutY="37.0" prefHeight="51.0" prefWidth="225.0" style="-fx-background-color: #FFFFFF;" text="Prediagnósticos" textFill="#b9b6b6">
+            <Label layoutY="59.0" prefHeight="51.0" prefWidth="229.0" style="-fx-background-color: #FFFFFF;" text="Prediagnóstico" textAlignment="CENTER" textFill="#b9b6b6">
                <font>
                   <Font name="Bookshelf Symbol 7" size="28.0" />
                </font>

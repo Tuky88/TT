@@ -20,7 +20,7 @@ import javafx.scene.layout.Pane;
 public class ConfiguracionesController implements Initializable {
 
 
-@FXML
+ @FXML
     private Pane panelLeft;
 
     @FXML

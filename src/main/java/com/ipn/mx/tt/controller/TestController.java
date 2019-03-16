@@ -20,7 +20,7 @@ import javafx.scene.layout.Pane;
 public class TestController implements Initializable {
     
 @FXML
-    private Pane panelLeft1;
+    private Pane panelLeft;
 
     @FXML
     private Button btnTpacientenuevo;
