@@ -167,6 +167,12 @@ public class menuController implements Initializable {
         TabPrediagnostico.setOnSelectionChanged((Event event) -> {
             cambiarMenu("/Left/Prediagnosticos.fxml", 0);
         });
+        TabAcerca.setOnSelectionChanged((Event event) -> {
+            cambiarMenu("/Left/Prediagnosticos.fxml",99);
+        });
+        TabAyuda.setOnSelectionChanged((Event event) -> {
+            cambiarMenu("/Left/Prediagnosticos.fxml", 99);
+        });
 
     }
 
@@ -201,7 +207,12 @@ public class menuController implements Initializable {
     }
 
     public void cambiarMenu(String menu, int tipo) {
-        Parent root = null;
+
+        if(tipo==99)
+        {
+            PanelPrin.setLeft(null);
+        }else{
+                    Parent root = null;
         try {
             root = FXMLLoader.load(getClass().getResource(menu));
         } catch (IOException ex) {
@@ -213,5 +224,6 @@ public class menuController implements Initializable {
             PanelPrin.setLeft(root);
         }
 
+        }
     }
 }
