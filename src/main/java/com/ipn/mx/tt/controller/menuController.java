@@ -112,11 +112,28 @@ public class menuController implements Initializable {
     private Button btnPver;
     @FXML
     private Pane panelPrin;
+
     @FXML
-    private Tab tabConfig;
+    private Tab TabConfig;
+
+    @FXML
+    private Tab TabTest;
+
+    @FXML
+    private Tab TabPrediagnostico;
+
+    @FXML
+    private Tab TabReporte;
+
+    @FXML
+    private Tab TabAyuda;
+
+    @FXML
+    private Tab TabAcerca;
 
     @FXML
     private Pane PanelIzq;
+
     @FXML
     void cerrarSesion(Event event) {
         int resp = alertMessage.confirm(0, "¿Cerrar Sesión?", "Desea cerrar sesión");
@@ -138,6 +155,19 @@ public class menuController implements Initializable {
         alertMessage = new AlertMessage();
         tbdMenu.getSelectionModel().select(1);
         runClock();
+        TabConfig.setOnSelectionChanged((Event event) -> {
+            cambiarMenu("/Left/Configuraciones.fxml", 0);
+        });
+        TabTest.setOnSelectionChanged((Event event) -> {
+            cambiarMenu("/Left/Test.fxml", 0);
+        });
+        TabReporte.setOnSelectionChanged((Event event) -> {
+            cambiarMenu("/Left/Reportes.fxml", 0);
+        });
+        TabPrediagnostico.setOnSelectionChanged((Event event) -> {
+            cambiarMenu("/Left/Prediagnosticos.fxml", 0);
+        });
+
     }
 
     public void runClock() {
@@ -170,23 +200,18 @@ public class menuController implements Initializable {
         }
     }
 
-    @FXML
-    void cambiarMenu(ActionEvent event) {
-        cambiarMenu(event, "/Center/AñadirEspecialista.fxml",1);
-        cambiarMenu(event, "/Left/Configuraciones.fxml",1);
-    }
-
-    public void cambiarMenu(Event e, String menu,int tipo) {
+    public void cambiarMenu(String menu, int tipo) {
         Parent root = null;
         try {
             root = FXMLLoader.load(getClass().getResource(menu));
         } catch (IOException ex) {
             Logger.getLogger(menuController.class.getName()).log(Level.SEVERE, null, ex);
         }
-        if(tipo==1)
-        PanelPrin.setCenter(root);
-        else
-        PanelPrin.setLeft(root);
-            
+        if (tipo == 1) {
+            PanelPrin.setCenter(root);
+        } else {
+            PanelPrin.setLeft(root);
+        }
+
     }
 }

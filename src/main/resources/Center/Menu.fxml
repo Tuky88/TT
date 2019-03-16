@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.Pane?>
 
-<AnchorPane id="AnchorPane" fx:id="Container" prefHeight="494.0" prefWidth="852.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ipn.mx.tt.controller.menuController">
+<AnchorPane id="AnchorPane" fx:id="Container" prefHeight="494.0" prefWidth="852.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ipn.mx.tt.controller.menuController">
     <stylesheets>
         <URL value="@/styles/menu.css" />
     </stylesheets>
@@ -33,12 +33,12 @@
          <top>
             <TabPane fx:id="tbdMenu" prefHeight="29.0" prefWidth="836.0" styleClass="Container" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
               <tabs>
-                <Tab text="Configuración" />
-                <Tab text="Test" />
-                  <Tab text="Prediagnósticos" />
-                  <Tab text="Reportes" />
-                  <Tab text="Ayuda" />
-                  <Tab text="Acerca de" />
+                <Tab fx:id="TabConfig" text="Configuración" />
+                <Tab fx:id="TabTest" text="Test" />
+                  <Tab fx:id="TabPrediagnostico" text="Prediagnósticos" />
+                  <Tab fx:id="TabReporte" text="Reportes" />
+                  <Tab fx:id="TabAyuda" text="Ayuda" />
+                  <Tab fx:id="TabAcerca" text="Acerca de" />
               </tabs>
             </TabPane>
          </top>
