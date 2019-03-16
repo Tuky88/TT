@@ -6,11 +6,9 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
-<?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.Pane?>
-<?import javafx.scene.text.Font?>
 
 <AnchorPane id="AnchorPane" fx:id="Container" prefHeight="494.0" prefWidth="852.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ipn.mx.tt.controller.menuController">
     <stylesheets>
@@ -29,151 +27,18 @@
                      </cursor></Button>
                </children></Pane>
          </bottom>
+         <left>
+            <Pane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="421.0" prefWidth="225.0" style="-fx-background-color: #4D92DF;;" styleClass="panelLeft" BorderPane.alignment="CENTER" />
+         </left>
          <top>
             <TabPane fx:id="tbdMenu" prefHeight="29.0" prefWidth="836.0" styleClass="Container" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
               <tabs>
-                <Tab text="Configuración">
-                     <content>
-                        <Pane fx:id="panelLeft" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="0.0" prefWidth="852.0" styleClass="panelLeft">
-                           <children>
-                              <Button fx:id="btncuenta" layoutX="-3.0" layoutY="158.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="225.0" styleClass="btn" text="Cuenta" textFill="WHITE">
-                                 <effect>
-                                    <DropShadow />
-                                 </effect>
-                                 <font>
-                                    <Font name="Century Gothic" size="15.0" />
-                                 </font>
-                                 <cursor>
-                                    <Cursor fx:constant="HAND" />
-                                 </cursor>
-                              </Button>
-                              <Button fx:id="btnaespecialista" layoutX="-3.0" layoutY="204.0" mnemonicParsing="false" onAction="#cambiarMenu" prefHeight="29.0" prefWidth="226.0" styleClass="btn" text="Añadir especialista" textFill="WHITE" textOverrun="CLIP">
-                                 <cursor>
-                                    <Cursor fx:constant="HAND" />
-                                 </cursor>
-                                 <effect>
-                                    <DropShadow />
-                                 </effect>
-                                 <font>
-                                    <Font name="Century Gothic" size="15.0" />
-                                 </font>
-                              </Button>
-                              <Label layoutY="51.0" prefHeight="51.0" prefWidth="220.0" style="-fx-background-color: #FFFFFF;" text="Configuraciones" textFill="#b9b6b6">
-                                 <font>
-                                    <Font name="Bookshelf Symbol 7" size="28.0" />
-                                 </font>
-                              </Label>
-                           </children>
-                        </Pane>
-                     </content></Tab>
-                <Tab text="Test">
-                  <content>
-                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" styleClass="Container" />
-                  </content>
-                </Tab>
-                  <Tab text="Prediagnósticos">
-                     <content>
-                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                           <children>
-                              <Pane layoutY="-7.0" prefHeight="430.0" prefWidth="852.0">
-                                 <children>
-                                    <Pane fx:id="panelLeft11" layoutX="2.0" layoutY="6.0" prefHeight="419.0" prefWidth="225.0" styleClass="panelLeft">
-                                       <children>
-                                          <Button fx:id="btncuenta11" layoutX="-5.0" layoutY="144.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="229.0" styleClass="btn" text="Historial" textFill="WHITE">
-                                             <effect>
-                                                <DropShadow />
-                                             </effect>
-                                             <font>
-                                                <Font name="Century Gothic" size="15.0" />
-                                             </font>
-                                             <cursor>
-                                                <Cursor fx:constant="HAND" />
-                                             </cursor>
-                                          </Button>
-                                          <Button fx:id="btnaespecialista11" layoutX="-2.0" layoutY="195.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="226.0" styleClass="btn" text="Validar" textFill="WHITE" textOverrun="CLIP">
-                                             <cursor>
-                                                <Cursor fx:constant="HAND" />
-                                             </cursor>
-                                             <effect>
-                                                <DropShadow />
-                                             </effect>
-                                             <font>
-                                                <Font name="Century Gothic" size="15.0" />
-                                             </font>
-                                          </Button>
-                                          <Label layoutY="37.0" prefHeight="51.0" prefWidth="219.0" style="-fx-background-color: #FFFFFF;" text="Prediagnósticos" textFill="#b9b6b6">
-                                             <font>
-                                                <Font name="Bookshelf Symbol 7" size="28.0" />
-                                             </font>
-                                          </Label>
-                                       </children>
-                                    </Pane>
-                                 </children>
-                              </Pane>
-                           </children>
-                        </AnchorPane>
-                     </content>
-                  </Tab>
-                  <Tab text="Reportes">
-                     <content>
-                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                           <children>
-                              <Pane prefHeight="422.0" prefWidth="852.0">
-                                 <children>
-                                    <Label alignment="CENTER" layoutX="222.0" layoutY="-1.0" prefHeight="36.0" prefWidth="607.0" style="-fx-background-color: #4664b5;" text="Estadisticas" textAlignment="CENTER" textFill="WHITE">
-                                       <font>
-                                          <Font name="System Italic" size="25.0" />
-                                       </font>
-                                    </Label>
-                                 </children>
-                              </Pane>
-                              <Pane fx:id="panelLeft111" layoutX="-2.0" layoutY="-4.0" prefHeight="425.0" prefWidth="226.0" styleClass="panelLeft">
-                                 <children>
-                                    <Label layoutY="39.0" prefHeight="51.0" prefWidth="223.0" style="-fx-background-color: #FFFFFF;" text="Reportes" textFill="#b9b6b6">
-                                       <font>
-                                          <Font name="Bookshelf Symbol 7" size="28.0" />
-                                       </font>
-                                    </Label>
-                                 </children>
-                              </Pane>
-                           </children>
-                        </AnchorPane>
-                     </content>
-                  </Tab>
-                  <Tab text="Ayuda">
-                     <content>
-                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                           <children>
-                              <Pane prefHeight="419.0" prefWidth="633.0">
-                                 <children>
-                                    <Label alignment="CENTER" layoutY="34.0" prefHeight="36.0" prefWidth="852.0" style="-fx-background-color: #4664b5;" text="Ayuda" textAlignment="CENTER" textFill="WHITE">
-                                       <font>
-                                          <Font name="System Italic" size="25.0" />
-                                       </font>
-                                    </Label>
-                                 </children>
-                              </Pane>
-                           </children>
-                        </AnchorPane>
-                     </content>
-                  </Tab>
-                  <Tab text="Acerca de">
-                     <content>
-                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                           <children>
-                              <Pane prefHeight="422.0" prefWidth="635.0">
-                                 <children>
-                                    <Label alignment="CENTER" layoutY="34.0" prefHeight="36.0" prefWidth="852.0" style="-fx-background-color: #4664b5;" text="Acerca de" textAlignment="CENTER" textFill="WHITE">
-                                       <font>
-                                          <Font name="System Italic" size="25.0" />
-                                       </font>
-                                    </Label>
-                                 </children>
-                              </Pane>
-                           </children>
-                        </AnchorPane>
-                     </content>
-                  </Tab>
+                <Tab text="Configuración" />
+                <Tab text="Test" />
+                  <Tab text="Prediagnósticos" />
+                  <Tab text="Reportes" />
+                  <Tab text="Ayuda" />
+                  <Tab text="Acerca de" />
               </tabs>
             </TabPane>
          </top>
