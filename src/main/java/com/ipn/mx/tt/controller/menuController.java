@@ -47,6 +47,8 @@ public class menuController implements Initializable {
     AlertMessage alertMessage;
 
     @FXML
+    private Tab TabInicio;
+    @FXML
     private TabPane tbdMenu;
     @FXML
     private Pane panelLeft;

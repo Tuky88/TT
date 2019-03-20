@@ -11,66 +11,76 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" cacheShape="false" focusTraversable="true" pickOnBounds="false" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ipn.mx.tt.controller.LoginController">
+<AnchorPane id="AnchorPane" fx:id="login" cacheShape="false" focusTraversable="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" pickOnBounds="false" prefHeight="330.0" prefWidth="670.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ipn.mx.tt.controller.LoginController">
    <children>
-      <Pane layoutX="351.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="341.0" prefWidth="333.0" style="-fx-background-color: #0B243B;">
-         <children>
-            <TextField id="txtUser" fx:id="txtUser" layoutX="56.0" layoutY="81.0" onKeyReleased="#onEnter" prefHeight="25.0" prefWidth="246.0">
-               <cursor>
-                  <Cursor fx:constant="TEXT" />
-               </cursor></TextField>
-            <PasswordField fx:id="txtPass" layoutX="54.0" layoutY="196.0" onKeyReleased="#onEnter" prefHeight="25.0" prefWidth="246.0">
-               <cursor>
-                  <Cursor fx:constant="TEXT" />
-               </cursor></PasswordField>
-            <Button id="btnAcceder" fx:id="btnAcceder" layoutX="188.0" layoutY="297.0" mnemonicParsing="false" onAction="#handleButtonAction" onKeyReleased="#onEnter" prefHeight="25.0" prefWidth="123.0" text="Acceder">
-               <font>
-                  <Font size="14.0" />
-               </font>
-            </Button>
-            <Label layoutX="132.0" layoutY="45.0" prefHeight="36.0" prefWidth="98.0" text="Usuario" textFill="WHITE">
-               <font>
-                  <Font size="25.0" />
-               </font>
-            </Label>
-            <Label layoutX="113.0" layoutY="156.0" prefHeight="3.0" prefWidth="136.0" text="Contraseña" textFill="#f2f0f0">
-               <font>
-                  <Font size="25.0" />
-               </font>
-            </Label>
-            <Label id="lblStatus" fx:id="lblStatus" layoutX="61.0" layoutY="259.0" prefHeight="20.0" prefWidth="232.0" textFill="#fc3939">
-               <font>
-                  <Font name="System Bold" size="14.0" />
-               </font>
-            </Label>
-            <Label fx:id="lblRecuperar" layoutX="93.0" layoutY="230.0" onMouseClicked="#irMenuRecuperarContra" prefHeight="17.0" prefWidth="200.0" text="Recuperar contraseña*" textFill="WHITE">
-               <effect>
-                  <Lighting>
-                     <bumpInput>
-                        <Shadow blurType="ONE_PASS_BOX" />
-                     </bumpInput>
-                     <light>
-                        <Light.Distant />
-                     </light>
-                  </Lighting>
-               </effect>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor></Label>
-         </children>
-      </Pane>
-      <Pane prefHeight="341.0" prefWidth="346.0" style="-fx-background-color: #FFFFFF;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="338.0" AnchorPane.topAnchor="0.0">
-         <children>
-            <ImageView fitHeight="341.0" fitWidth="346.0">
-               <image>
-                  <Image url="@../imagenes/bienvenido.PNG" />
-               </image>
-            </ImageView>
-         </children>
-      </Pane>
+      <BorderPane prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <left>
+            <Pane prefHeight="341.0" prefWidth="346.0" style="-fx-background-color: #FFFFFF;" BorderPane.alignment="CENTER">
+               <children>
+                  <ImageView fitHeight="341.0" fitWidth="346.0">
+                     <image>
+                        <Image url="@../imagenes/bienvenido.PNG" />
+                     </image>
+                  </ImageView>
+               </children>
+            </Pane>
+         </left>
+         <right>
+            <Pane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="341.0" prefWidth="336.0" style="-fx-background-color: #0B243B;" BorderPane.alignment="CENTER">
+               <children>
+                  <TextField id="txtUser" fx:id="txtUser" layoutX="56.0" layoutY="81.0" onKeyReleased="#onEnter" prefHeight="25.0" prefWidth="246.0">
+                     <cursor>
+                        <Cursor fx:constant="TEXT" />
+                     </cursor>
+                  </TextField>
+                  <PasswordField fx:id="txtPass" layoutX="54.0" layoutY="196.0" onKeyReleased="#onEnter" prefHeight="25.0" prefWidth="246.0">
+                     <cursor>
+                        <Cursor fx:constant="TEXT" />
+                     </cursor>
+                  </PasswordField>
+                  <Button id="btnAcceder" fx:id="btnAcceder" layoutX="188.0" layoutY="297.0" mnemonicParsing="false" onAction="#handleButtonAction" onKeyReleased="#onEnter" prefHeight="25.0" prefWidth="123.0" text="Acceder">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Button>
+                  <Label layoutX="132.0" layoutY="45.0" prefHeight="36.0" prefWidth="98.0" text="Usuario" textFill="WHITE">
+                     <font>
+                        <Font size="25.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="113.0" layoutY="156.0" prefHeight="3.0" prefWidth="136.0" text="Contraseña" textFill="#f2f0f0">
+                     <font>
+                        <Font size="25.0" />
+                     </font>
+                  </Label>
+                  <Label id="lblStatus" fx:id="lblStatus" layoutX="61.0" layoutY="259.0" prefHeight="20.0" prefWidth="232.0" textFill="#fc3939">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="lblRecuperar" layoutX="93.0" layoutY="230.0" onMouseClicked="#irMenuRecuperarContra" prefHeight="17.0" prefWidth="200.0" text="Recuperar contraseña*" textFill="WHITE">
+                     <effect>
+                        <Lighting>
+                           <bumpInput>
+                              <Shadow blurType="ONE_PASS_BOX" />
+                           </bumpInput>
+                           <light>
+                              <Light.Distant />
+                           </light>
+                        </Lighting>
+                     </effect>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Label>
+               </children>
+            </Pane>
+         </right>
+      </BorderPane>
    </children>
    <cursor>
       <Cursor fx:constant="DEFAULT" />

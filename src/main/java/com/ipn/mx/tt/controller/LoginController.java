@@ -16,9 +16,11 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
+
 
 public class LoginController implements Initializable {
 
@@ -40,7 +42,11 @@ public class LoginController implements Initializable {
 
     @FXML
     private Button btnEjemplo;
-
+    
+     @FXML
+    private AnchorPane login;
+     
+     
     @FXML
     void btnActionPrueba(ActionEvent event) {
 //        UsuarioDAO udao = new UsuarioDAO();
@@ -52,6 +58,7 @@ public class LoginController implements Initializable {
     }
 
     public void iniciarSesion(Event e) {
+        
         UsuarioDAO udao = new UsuarioDAO();
         Usuario user;
         if (txtPass.getText().length() > 0 && txtUser.getText().length() > 0) {
@@ -97,7 +104,7 @@ public class LoginController implements Initializable {
         // lblStatus.setVisible(false);
         mov = new movEscena();
         alertMessage = new AlertMessage();
-       // txtPass.getStyleClass().setAll("btn", "btn-primary");
+              // txtPass.getStyleClass().setAll("btn", "btn-primary");
     }
 
     @FXML

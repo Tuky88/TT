@@ -30,6 +30,7 @@ public class MainApp extends Application {
         stage.getIcons().add(image);
         stage.setTitle("TT 2018-A030");
         stage.setScene(scene);
+        stage.setResizable(false);
         stage.show();
 
         this.stage.getIcons().add(image);
