@@ -157,6 +157,8 @@ public class menuController implements Initializable {
         alertMessage = new AlertMessage();
         tbdMenu.getSelectionModel().select(1);
         runClock();
+        
+        
         TabConfig.setOnSelectionChanged((Event event) -> {
             cambiarMenu("/Left/Configuraciones.fxml", 0);
         });
