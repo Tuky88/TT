@@ -157,8 +157,10 @@ public class menuController implements Initializable {
         alertMessage = new AlertMessage();
         tbdMenu.getSelectionModel().select(1);
         runClock();
-        
-        
+
+        TabInicio.setOnSelectionChanged((Event event) -> {
+            cambiarMenu("/Left/Inicio.fxml", 2);
+        });
         TabConfig.setOnSelectionChanged((Event event) -> {
             cambiarMenu("/Left/Configuraciones.fxml", 0);
         });
@@ -172,7 +174,7 @@ public class menuController implements Initializable {
             cambiarMenu("/Left/Prediagnosticos.fxml", 0);
         });
         TabAcerca.setOnSelectionChanged((Event event) -> {
-            cambiarMenu("/Left/Prediagnosticos.fxml",99);
+            cambiarMenu("/Left/Prediagnosticos.fxml", 99);
         });
         TabAyuda.setOnSelectionChanged((Event event) -> {
             cambiarMenu("/Left/Prediagnosticos.fxml", 99);
@@ -212,21 +214,25 @@ public class menuController implements Initializable {
 
     public void cambiarMenu(String menu, int tipo) {
 
-        if(tipo==99)
-        {
+        if (tipo == 99) {
             PanelPrin.setLeft(null);
-        }else{
-                    Parent root = null;
-        try {
-            root = FXMLLoader.load(getClass().getResource(menu));
-        } catch (IOException ex) {
-            Logger.getLogger(menuController.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        if (tipo == 1) {
-            PanelPrin.setCenter(root);
         } else {
-            PanelPrin.setLeft(root);
-        }
+            Parent root = null;
+            try {
+                root = FXMLLoader.load(getClass().getResource(menu));
+            } catch (IOException ex) {
+                Logger.getLogger(menuController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            if (tipo == 1) {
+                PanelPrin.setCenter(root);
+            }if (tipo ==2)
+            {
+                PanelPrin.setCenter(root);
+                PanelPrin.setLeft(null);
+            }
+            else {
+                PanelPrin.setLeft(root);
+            }
 
         }
     }
