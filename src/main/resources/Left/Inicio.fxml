@@ -6,22 +6,21 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="/">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="420.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="/">
    <children>
-      <BorderPane prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <BorderPane prefHeight="400.0" prefWidth="900.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <top>
             <Pane prefHeight="51.0" prefWidth="600.0" style="-fx-background-color: #0B4C5F;" BorderPane.alignment="CENTER" />
          </top>
          <center>
             <Pane prefHeight="232.0" prefWidth="600.0" style="-fx-background-color: #FBFBEF;" BorderPane.alignment="CENTER">
                <children>
-                  <Label layoutX="208.0" layoutY="14.0" text="TT2 2018-A030">
+                  <Label layoutX="367.0" layoutY="14.0" text="TT2 2018-A030">
                      <font>
                         <Font name="Century Gothic" size="25.0" />
                      </font>
                   </Label>
-                  <Label layoutX="53.0" layoutY="46.0" text="Predianóstico de los trastornos del dormir en el adultos">
+                  <Label layoutX="213.0" layoutY="46.0" text="Predianóstico de los trastornos del dormir en el adultos">
                      <font>
                         <Font name="Century Gothic" size="18.0" />
                      </font>
