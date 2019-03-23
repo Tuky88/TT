@@ -5,12 +5,19 @@
  */
 package com.ipn.mx.tt.controller;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableView;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 
 /**
@@ -23,19 +30,40 @@ public class PrediagnosticoController implements Initializable {
     /**
      * Initializes the controller class.
      */
-    
     @FXML
-    private TableView<?> tblPtrastornos;
+    private Pane panelLeft;
 
     @FXML
-    private Button btnPrecomendaciones;
+    private Button btnPhistorial;
 
     @FXML
-    private Pane panelLeft1;
+    private Button btnPvalidar;
+
+    @FXML
+    private BorderPane panelRight;
+
+    @FXML
+    void abrirHistorial(ActionEvent event) {
+        abrirMenu("/Center/Historial.fxml");
+    }
+
+    @FXML
+    void abrirValidar(ActionEvent event) {
+        abrirMenu("/Center/Validar.fxml");
+    }
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-    }    
-    
+    }
+
+    public void abrirMenu(String menu) {
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource(menu));
+            panelRight.setCenter(root);
+
+        } catch (IOException ex) {
+            Logger.getLogger(ConfiguracionesController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
 }

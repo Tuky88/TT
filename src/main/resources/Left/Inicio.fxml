@@ -20,7 +20,7 @@
                         <Font name="Century Gothic" size="25.0" />
                      </font>
                   </Label>
-                  <Label layoutX="213.0" layoutY="46.0" text="Predianóstico de los trastornos del dormir en el adultos">
+                  <Label layoutX="213.0" layoutY="46.0" text="Prediagnóstico de los trastornos del dormir en el adultos">
                      <font>
                         <Font name="Century Gothic" size="18.0" />
                      </font>

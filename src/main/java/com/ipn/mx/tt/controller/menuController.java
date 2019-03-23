@@ -155,8 +155,8 @@ public class menuController implements Initializable {
         // TODO
         mov = new movEscena();
         alertMessage = new AlertMessage();
-        tbdMenu.getSelectionModel().select(1);
         runClock();
+        cambiarMenu("/Left/Inicio.fxml", 2);
 
         TabInicio.setOnSelectionChanged((Event event) -> {
             cambiarMenu("/Left/Inicio.fxml", 2);
@@ -234,6 +234,15 @@ public class menuController implements Initializable {
                 PanelPrin.setLeft(root);
             }
 
+        }
+    }
+        public void abrirMenu(String menu) {
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource(menu));
+            PanelPrin.setCenter(root);
+
+        } catch (IOException ex) {
+            Logger.getLogger(ConfiguracionesController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 }

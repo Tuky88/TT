@@ -5,11 +5,18 @@
  */
 package com.ipn.mx.tt.controller;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
 import javafx.scene.control.Button;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 
 /**
@@ -18,8 +25,8 @@ import javafx.scene.layout.Pane;
  * @author garci
  */
 public class TestController implements Initializable {
-    
-@FXML
+
+    @FXML
     private Pane panelLeft;
 
     @FXML
@@ -27,12 +34,32 @@ public class TestController implements Initializable {
 
     @FXML
     private Button btnTpacienteregistrado;
-    /**
-     * Initializes the controller class.
-     */
+
+    @FXML
+    private BorderPane panelRight;
+
+    @FXML
+    void abrirPacienteN(ActionEvent event) {
+        abrirMenu("/Center/Validar.fxml");
+    }
+
+    @FXML
+    void abrirPacienteR(ActionEvent event) {
+        abrirMenu("/Center/PacienteConRegistro.fxml");
+    }
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-    }    
-    
+    }
+
+    public void abrirMenu(String menu) {
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource(menu));
+            panelRight.setCenter(root);
+
+        } catch (IOException ex) {
+            Logger.getLogger(ConfiguracionesController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
 }
