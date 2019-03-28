@@ -5,6 +5,7 @@
  */
 package com.ipn.mx.tt.controller;
 
+import com.jfoenix.controls.JFXButton;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -29,12 +30,13 @@ public class PrediagnosticosController implements Initializable {
     @FXML
     private Pane panelLeft;
 
-    @FXML
-    private Button btnPhistorial;
+     @FXML
+    private JFXButton btnPhistorial;
 
     @FXML
-    private Button btnPvalidar;
+    private JFXButton btnPvalidar;
 
+    
     @FXML
     private BorderPane panelRight;
 

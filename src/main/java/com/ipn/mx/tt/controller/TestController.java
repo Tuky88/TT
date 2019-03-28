@@ -5,6 +5,7 @@
  */
 package com.ipn.mx.tt.controller;
 
+import com.jfoenix.controls.JFXButton;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -27,13 +28,10 @@ import javafx.scene.layout.Pane;
 public class TestController implements Initializable {
 
     @FXML
-    private Pane panelLeft;
+    private JFXButton btnTpacientenuevo;
 
     @FXML
-    private Button btnTpacientenuevo;
-
-    @FXML
-    private Button btnTpacienteregistrado;
+    private JFXButton btnTpacienteregistrado;
 
     @FXML
     private BorderPane panelRight;

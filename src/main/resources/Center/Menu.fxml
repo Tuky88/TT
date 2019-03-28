@@ -1,47 +1,72 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXTabPane?>
 <?import java.net.URL?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Tab?>
-<?import javafx.scene.control.TabPane?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.Pane?>
 
-<AnchorPane id="AnchorPane" fx:id="Container" prefHeight="494.0" prefWidth="852.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ipn.mx.tt.controller.menuController">
+<AnchorPane id="AnchorPane" fx:id="Container" prefHeight="600.0" prefWidth="1280.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ipn.mx.tt.controller.menuController">
     <stylesheets>
         <URL value="@/styles/menu.css" />
     </stylesheets>
    <children>
       <BorderPane fx:id="PanelPrin" layoutY="14.0" prefHeight="400.0" prefWidth="600.0" styleClass="Container" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <bottom>
-            <Pane prefHeight="44.0" prefWidth="600.0" style="-fx-background-color: #000000;" BorderPane.alignment="CENTER">
+            <Pane prefHeight="50.0" prefWidth="1280.0" style="-fx-background-color: #000000;" BorderPane.alignment="CENTER">
                <children>
                   <Label fx:id="lblHora" layoutX="80.0" layoutY="14.0" text="HORA" textFill="#fff4f4" />
                   <Label fx:id="lblFecha" layoutX="186.0" layoutY="14.0" text="FECHA" textFill="#fff4f4" />
-                  <Button fx:id="btnCerrarSesion" layoutX="683.0" layoutY="10.0" mnemonicParsing="false" onAction="#cerrarSesion" onKeyReleased="#onEnter" prefHeight="25.0" prefWidth="126.0" text="Cerrar Sesión">
+                  <Button fx:id="btnCerrarSesion" layoutX="1100.0" layoutY="13.0" mnemonicParsing="false" onAction="#cerrarSesion" onKeyReleased="#onEnter" prefHeight="25.0" prefWidth="126.0" text="Cerrar Sesión">
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor></Button>
                </children></Pane>
          </bottom>
-         <left>
-            <Pane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="421.0" prefWidth="225.0" style="-fx-background-color: #4D92DF;;" styleClass="panelLeft" BorderPane.alignment="CENTER" />
-         </left>
          <top>
-            <TabPane fx:id="tbdMenu" prefHeight="29.0" prefWidth="836.0" styleClass="Container" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
-              <tabs>
-                  <Tab fx:id="TabInicio" text="Inicio" />
-                <Tab fx:id="TabConfig" text="Configuración" />
-                <Tab fx:id="TabTest" text="Test" />
-                  <Tab fx:id="TabPrediagnostico" text="Prediagnósticos" />
-                  <Tab fx:id="TabReporte" text="Reportes" />
-                  <Tab fx:id="TabAyuda" text="Ayuda" />
-                  <Tab fx:id="TabAcerca" text="Acerca de" />
-              </tabs>
-            </TabPane>
+            <JFXTabPane fx:id="tbdMenu" nodeOrientation="LEFT_TO_RIGHT" prefHeight="40.0" prefWidth="1280.0">
+               <tabs>
+                  <Tab fx:id="TabInicio" text="Inicio">
+                    <content>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                    </content>
+                  </Tab>
+                  <Tab fx:id="TabConfig" text="Configuraciones">
+                    <content>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="1280.0" />
+                    </content>
+                  </Tab>
+                  <Tab fx:id="TabTest" text="Test">
+                    <content>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                    </content>
+                  </Tab>
+                  <Tab fx:id="TabPrediagnostico" text="Prediagnosticos">
+                    <content>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                    </content>
+                  </Tab>
+                  <Tab fx:id="TabReporte" text="Reportes">
+                    <content>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                    </content>
+                  </Tab>
+                  <Tab fx:id="TabAcerca" text="Acerca de">
+                    <content>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                    </content>
+                  </Tab>
+                  <Tab fx:id="TabAyuda" text="Ayuda">
+                    <content>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                    </content>
+                  </Tab>
+               </tabs>
+            </JFXTabPane>
          </top>
       </BorderPane>
    </children>

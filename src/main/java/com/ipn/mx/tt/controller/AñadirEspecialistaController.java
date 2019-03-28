@@ -5,6 +5,9 @@
  */
 package com.ipn.mx.tt.controller;
 
+import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXPasswordField;
+import com.jfoenix.controls.JFXTextField;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
@@ -19,25 +22,25 @@ import javafx.scene.control.TextField;
  */
 public class AñadirEspecialistaController implements Initializable {
  @FXML
-    private Button btnCacguardar;
+    private JFXButton btnCacguardar;
 
     @FXML
-    private TextField txtCanombre;
+    private JFXTextField txtCanombre;
 
     @FXML
-    private TextField txtCaapellido;
+    private JFXTextField txtCaapellido;
+
+      @FXML
+    private JFXPasswordField txtCapass;
 
     @FXML
-    private TextField txtCacorreo;
+    private JFXPasswordField txtCarpass;
 
     @FXML
-    private TextField txtCausuario;
+    private JFXTextField txtCausuario;
 
     @FXML
-    private PasswordField txtCapass;
-
-    @FXML
-    private PasswordField txtCarpass;
+    private JFXTextField txtCacorreo;
     /**
      * Initializes the controller class.
      */

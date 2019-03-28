@@ -5,6 +5,7 @@
  */
 package com.ipn.mx.tt.controller;
 
+import com.jfoenix.controls.JFXButton;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -30,12 +31,13 @@ public class ConfiguracionesController implements Initializable {
     @FXML
     private Pane panelLeft;
 
-    @FXML
-    private Button btnCcuenta;
+  @FXML
+    private JFXButton btnCcuenta;
 
     @FXML
-    private Button btnCaespecialista;
-    @FXML
+    private JFXButton btnCañadir;
+   
+     @FXML
     private BorderPane panelRight;
 
     @FXML

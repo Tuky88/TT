@@ -5,6 +5,8 @@
  */
 package com.ipn.mx.tt.controller;
 
+import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXTextField;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
@@ -23,23 +25,23 @@ public class CuentaEspecialistaController implements Initializable {
        @FXML
     private Pane panelPrin;
 
-    @FXML
-    private TextField txtCnombre;
+@FXML
+    private JFXButton btnCguardar;
 
     @FXML
-    private TextField txtCapellido;
+    private JFXButton btnCambiarcontra;
 
     @FXML
-    private TextField txtCcorreo;
+    private JFXTextField txtCnombre;
 
     @FXML
-    private TextField txtCusuario;
+    private JFXTextField txtCcorreo;
 
     @FXML
-    private Button btnCambiarcontra;
+    private JFXTextField txtCusuario;
 
     @FXML
-    private Button btnCguardar;
+    private JFXTextField txtCapellido;
     /**
      * Initializes the controller class.
      */
