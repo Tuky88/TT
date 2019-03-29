@@ -1,5 +1,9 @@
 package com.ipn.mx.tt;
 
+import com.ipn.mx.tt.modelo.testerPrueba;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.application.Application;
 import static javafx.application.Application.launch;
 import javafx.event.ActionEvent;
@@ -54,6 +58,15 @@ public class MainApp extends Application {
     public static void main(String[] args) {
         launch(args);
     }
+//    public static void main(String[] args) {
+//        try {
+//            //launch(args);
+//            testerPrueba tp=new testerPrueba();
+//            tp.ejecutar();
+//        } catch (IOException ex) {
+//            Logger.getLogger(MainApp.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+//    }
     public class onEnter implements EventHandler<ActionEvent>
     {
 

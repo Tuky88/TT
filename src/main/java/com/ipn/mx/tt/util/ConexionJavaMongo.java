@@ -58,7 +58,7 @@ public class ConexionJavaMongo {
     }
     public void obtenerColeccion(String col)
     {
-        mongoCollection=mongoData.getCollection("User");
+        mongoCollection=mongoData.getCollection(col);
     }
     public void conectar()
     {
