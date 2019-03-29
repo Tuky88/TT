@@ -7,6 +7,7 @@ package com.ipn.mx.tt.controller;
 
 import com.ipn.mx.tt.util.AlertMessage;
 import com.ipn.mx.tt.util.movEscena;
+import com.jfoenix.controls.JFXTabPane;
 import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDateTime;
@@ -46,8 +47,8 @@ public class menuController implements Initializable {
 
     @FXML
     private Tab TabInicio;
-    @FXML
-    private TabPane tbdMenu;
+      @FXML
+    private JFXTabPane tbdMenu;
     @FXML
     private Pane panelLeft;
     @FXML
@@ -154,28 +155,28 @@ public class menuController implements Initializable {
         mov = new movEscena();
         alertMessage = new AlertMessage();
         runClock();
-        cambiarMenu("/Left/Inicio.fxml", 2);
+        cambiarMenu("/Center/Inicio.fxml", 2);
 
         TabInicio.setOnSelectionChanged((Event event) -> {
-            cambiarMenu("/Left/Inicio.fxml", 2);
+            cambiarMenu("/Center/Inicio.fxml", 2);
         });
         TabConfig.setOnSelectionChanged((Event event) -> {
-            cambiarMenu("/Left/Configuraciones.fxml", 0);
+            cambiarMenu("/Center/Configuraciones.fxml", 0);
         });
         TabTest.setOnSelectionChanged((Event event) -> {
-            cambiarMenu("/Left/Test.fxml", 0);
+            cambiarMenu("/Center/Test.fxml", 0);
         });
         TabReporte.setOnSelectionChanged((Event event) -> {
-            cambiarMenu("/Left/Reportes.fxml", 0);
+            cambiarMenu("/Center/Reportes.fxml", 0);
         });
         TabPrediagnostico.setOnSelectionChanged((Event event) -> {
-            cambiarMenu("/Left/Prediagnosticos.fxml", 0);
+            cambiarMenu("/Center/Prediagnosticos.fxml", 0);
         });
         TabAcerca.setOnSelectionChanged((Event event) -> {
-            cambiarMenu("/Left/Prediagnosticos.fxml", 99);
+            cambiarMenu("/Center/Prediagnosticos.fxml", 99);
         });
         TabAyuda.setOnSelectionChanged((Event event) -> {
-            cambiarMenu("/Left/Prediagnosticos.fxml", 99);
+            cambiarMenu("/Center/Prediagnosticos.fxml", 99);
         });
 
     }
