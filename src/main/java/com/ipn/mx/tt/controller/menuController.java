@@ -7,6 +7,7 @@ package com.ipn.mx.tt.controller;
 
 import com.ipn.mx.tt.util.AlertMessage;
 import com.ipn.mx.tt.util.movEscena;
+import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTabPane;
 import java.io.IOException;
 import java.net.URL;
@@ -48,6 +49,8 @@ public class menuController implements Initializable {
     @FXML
     private Tab TabInicio;
 
+    @FXML
+    private JFXButton btnCerrarSesion;
     @FXML
     private BorderPane PanelPrin;
     @FXML
