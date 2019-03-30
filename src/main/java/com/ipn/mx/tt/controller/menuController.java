@@ -44,7 +44,7 @@ public class menuController implements Initializable {
 
     movEscena mov;
     AlertMessage alertMessage;
-public String val;
+    public String val;
     @FXML
     private Tab TabInicio;
 
@@ -55,7 +55,6 @@ public String val;
 
     @FXML
     private Label lblFecha;
-
 
     @FXML
     private Tab TabConfig;
@@ -75,7 +74,6 @@ public String val;
     @FXML
     private Tab TabAcerca;
 
-
     @FXML
     void cerrarSesion(Event event) {
         int resp = alertMessage.confirm(0, "¿Cerrar Sesión?", "Desea cerrar sesión");
@@ -94,7 +92,7 @@ public String val;
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
         mov = new movEscena();
-       
+
         alertMessage = new AlertMessage();
         runClock();
         cambiarMenu("/Center/Inicio.fxml", 2);
@@ -120,13 +118,13 @@ public String val;
         TabAyuda.setOnSelectionChanged((Event event) -> {
             cambiarMenu("/Center/Prediagnosticos.fxml", 99);
         });
-        System.out.println("el valor es:" +val);
+        System.out.println("el valor es:" + val);
     }
 
-    public void imprimir()
-    {
+    public void imprimir() {
         System.out.println("oifodsjflksjdl");
     }
+
     public void runClock() {
         Task task = new Task<Void>() {
             @Override
@@ -170,18 +168,18 @@ public String val;
             }
             if (tipo == 1) {
                 PanelPrin.setCenter(root);
-            }if (tipo ==2)
-            {
+            }
+            if (tipo == 2) {
                 PanelPrin.setCenter(root);
                 PanelPrin.setLeft(null);
-            }
-            else {
+            } else {
                 PanelPrin.setLeft(root);
             }
 
         }
     }
-        public void abrirMenu(String menu) {
+
+    public void abrirMenu(String menu) {
         try {
             Parent root = FXMLLoader.load(getClass().getResource(menu));
             PanelPrin.setCenter(root);
@@ -190,8 +188,8 @@ public String val;
             Logger.getLogger(ConfiguracionesController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-        public void cambiarTexto()
-        {
-            btnCerrarSesion.setText("TE VEO PRRO");
-        }
+
+    public void cambiarTexto() {
+        btnCerrarSesion.setText("TE VEO PRRO");
+    }
 }
