@@ -1,42 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="com.ipn.mx.tt.controller.PacienteConRegistroController">
+<AnchorPane id="AnchorPane" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="510.0" prefWidth="1020.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ipn.mx.tt.controller.AñadirEspecialistaController">
    <children>
-      <Pane layoutX="2.0" layoutY="-1.0" prefHeight="419.0" prefWidth="626.0">
+      <Pane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="510.0" prefWidth="1020.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <Label alignment="CENTER" layoutX="-3.0" prefHeight="36.0" prefWidth="630.0" style="-fx-background-color: #4664b5;" text="Paciente con registro" textAlignment="CENTER" textFill="WHITE">
+            <Label alignment="CENTER" layoutX="-3.0" prefHeight="36.0" prefWidth="1020.0" style="-fx-background-color: #4664b5;" text="Paciente con registro" textAlignment="CENTER" textFill="WHITE">
                <font>
                   <Font name="System Italic" size="25.0" />
                </font>
             </Label>
-            <Label layoutX="151.0" layoutY="57.0" text="Nombre:">
+            <Label layoutX="250.0" layoutY="65.0" text="Nombre:">
                <font>
                   <Font name="Arial" size="15.0" />
                </font>
             </Label>
-            <Button fx:id="btnTcguardar" layoutX="401.0" layoutY="350.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="182.0" text="Guardar">
+            <JFXButton fx:id="btnPriniciar" buttonType="RAISED" layoutX="780.0" layoutY="403.0" prefHeight="28.0" prefWidth="162.0" ripplerFill="WHITE" style="-fx-background-color: #B1F4AD;" text="Iniciar test">
                <font>
                   <Font name="Century Gothic" size="14.0" />
                </font>
-            </Button>
-            <PasswordField fx:id="txtTrnombre" layoutX="219.0" layoutY="53.0" prefHeight="25.0" prefWidth="274.0" />
-            <TableView fx:id="tblTpacientes" layoutX="87.0" layoutY="102.0" prefHeight="200.0" prefWidth="450.0">
-               <columns>
-                  <TableColumn prefWidth="75.0" text="Nombre" />
-                  <TableColumn prefWidth="75.0" text="Edad" />
-                  <TableColumn prefWidth="115.0" text="Fecha de registro" />
-                  <TableColumn prefWidth="183.0" text="Trastorno prediagnósticado" />
-               </columns>
+            </JFXButton>
+            <JFXTextField fx:id="txtPrnombre" layoutX="400.0" layoutY="61.0" prefHeight="25.0" prefWidth="263.0" style="-fx-background-color: #FFFFFF;" />
+            <TableView layoutX="44.0" layoutY="138.0" prefHeight="234.0" prefWidth="950.0">
+              <columns>
+                <TableColumn prefWidth="237.0" text="C1" />
+                <TableColumn prefWidth="237.0" text="C2" />
+                  <TableColumn prefWidth="237.0" text="Column X" />
+                  <TableColumn prefWidth="305.0" text="Column X" />
+              </columns>
             </TableView>
          </children>
       </Pane>

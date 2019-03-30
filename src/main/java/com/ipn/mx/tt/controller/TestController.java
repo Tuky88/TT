@@ -38,7 +38,7 @@ public class TestController implements Initializable {
 
     @FXML
     void abrirPacienteN(ActionEvent event) {
-        abrirMenu("/Center/Validar.fxml");
+        abrirMenu("/Center/PacienteNuevo.fxml");
     }
 
     @FXML
