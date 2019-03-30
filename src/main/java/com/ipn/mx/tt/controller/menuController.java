@@ -47,16 +47,7 @@ public class menuController implements Initializable {
 public String val;
     @FXML
     private Tab TabInicio;
-      @FXML
-    private JFXTabPane tbdMenu;
-    @FXML
-    private Pane panelLeft;
-    @FXML
-    private Button btncuenta;
-    @FXML
-    private Button btnaespecialista;
-    @FXML
-    private Button btnCerrarSesion;
+
     @FXML
     private BorderPane PanelPrin;
     @FXML
@@ -65,54 +56,6 @@ public String val;
     @FXML
     private Label lblFecha;
 
-    @FXML
-    private TextField txtCnombre;
-
-    @FXML
-    private TextField txtCapellido;
-
-    @FXML
-    private TextField txtCcorreo;
-
-    @FXML
-    private TextField txtCusuario;
-
-    @FXML
-    private Button btnCambiarcontra;
-
-    @FXML
-    private Button btnCguardar;
-    @FXML
-    private TextField txtTnombre;
-
-    @FXML
-    private TextField txtTapellido;
-
-    @FXML
-    private TextField txtTfecha;
-
-    @FXML
-    private TextField txtTtelefono;
-
-    @FXML
-    private RadioButton rbtnTMasculino;
-
-    @FXML
-    private RadioButton rbtnTFemenino;
-
-    @FXML
-    private Button btnTguardar;
-
-    @FXML
-    private TextField txtPnombre;
-
-    @FXML
-    private TableView<?> tblPpre;
-
-    @FXML
-    private Button btnPver;
-    @FXML
-    private Pane panelPrin;
 
     @FXML
     private Tab TabConfig;
@@ -132,8 +75,6 @@ public String val;
     @FXML
     private Tab TabAcerca;
 
-    @FXML
-    private Pane PanelIzq;
 
     @FXML
     void cerrarSesion(Event event) {
