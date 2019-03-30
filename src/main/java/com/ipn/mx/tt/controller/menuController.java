@@ -44,7 +44,7 @@ public class menuController implements Initializable {
 
     movEscena mov;
     AlertMessage alertMessage;
-
+public String val;
     @FXML
     private Tab TabInicio;
       @FXML
@@ -153,6 +153,7 @@ public class menuController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
         mov = new movEscena();
+       
         alertMessage = new AlertMessage();
         runClock();
         cambiarMenu("/Center/Inicio.fxml", 2);
@@ -178,9 +179,13 @@ public class menuController implements Initializable {
         TabAyuda.setOnSelectionChanged((Event event) -> {
             cambiarMenu("/Center/Prediagnosticos.fxml", 99);
         });
-
+        System.out.println("el valor es:" +val);
     }
 
+    public void imprimir()
+    {
+        System.out.println("oifodsjflksjdl");
+    }
     public void runClock() {
         Task task = new Task<Void>() {
             @Override
@@ -244,4 +249,8 @@ public class menuController implements Initializable {
             Logger.getLogger(ConfiguracionesController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+        public void cambiarTexto()
+        {
+            btnCerrarSesion.setText("TE VEO PRRO");
+        }
 }
