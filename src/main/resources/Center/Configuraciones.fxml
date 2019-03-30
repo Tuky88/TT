@@ -12,11 +12,11 @@
 
 <AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="510.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ipn.mx.tt.controller.ConfiguracionesController">
    <children>
-      <SplitPane dividerPositions="0.5" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="500.0" prefWidth="1280.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <SplitPane dividerPositions="0.5" prefHeight="510.0" prefWidth="1280.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <items>
-            <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="510.0" prefWidth="261.0" style="-fx-background-color: #4D92DF;">
+            <AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="510.0" prefWidth="260.0">
                <children>
-                  <GridPane layoutX="6.0" prefHeight="498.0" prefWidth="261.0" style="-fx-background-color: #4D92DF;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                  <GridPane layoutX="6.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="510.0" prefWidth="260.0" style="-fx-background-color: #4D92DF;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <columnConstraints>
                         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                      </columnConstraints>
@@ -49,10 +49,15 @@
                   </GridPane>
                </children>
             </AnchorPane>
-            <BorderPane fx:id="panelRight" prefHeight="200.0" prefWidth="200.0">
-               <center>
-                  <fx:include minHeight="-Infinity" minWidth="-Infinity" prefHeight="510.0" prefWidth="1020.0" source="CuentaEspecialista.fxml" />
-               </center></BorderPane>
+            <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="510.0" prefWidth="1020.0">
+               <children>
+                  <BorderPane fx:id="panelRight" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="510.0" prefWidth="1020.0">
+                     <center>
+                        <fx:include maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="510.0" prefWidth="1020.0" source="CuentaEspecialista.fxml" />
+                     </center>
+                  </BorderPane>
+               </children>
+            </AnchorPane>
          </items>
       </SplitPane>
    </children>

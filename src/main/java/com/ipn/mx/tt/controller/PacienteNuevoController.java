@@ -5,6 +5,11 @@
  */
 package com.ipn.mx.tt.controller;
 
+import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXDatePicker;
+import com.jfoenix.controls.JFXPasswordField;
+import com.jfoenix.controls.JFXRadioButton;
+import com.jfoenix.controls.JFXTextField;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
@@ -20,25 +25,32 @@ import javafx.scene.control.TextField;
  */
 public class PacienteNuevoController implements Initializable {
 @FXML
-    private TextField txtTnombre;
+    private JFXButton btnPnregistrar;
 
     @FXML
-    private TextField txtTapellido;
+    private JFXTextField txtPnnombre;
 
     @FXML
-    private TextField txtTfecha;
+    private JFXTextField txtPnapellido;
 
     @FXML
-    private TextField txtTtelefono;
+    private JFXTextField txtPncorreo;
+
+     @FXML
+    private JFXTextField txtPndireccion;
 
     @FXML
-    private RadioButton rbtnTMasculino;
+    private JFXTextField txtPntelefono;
+
 
     @FXML
-    private RadioButton rbtnTFemenino;
+    private JFXRadioButton rbPfemenino;
 
     @FXML
-    private Button btnTguardar;
+    private JFXRadioButton rbPmasculino;
+
+    @FXML
+    private JFXDatePicker datePn;
     /**
      * Initializes the controller class.
      */
