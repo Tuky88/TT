@@ -5,6 +5,8 @@
  */
 package com.ipn.mx.tt.controller;
 
+import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXRadioButton;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
@@ -15,6 +17,7 @@ import javafx.scene.control.ProgressBar;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.ScrollBar;
 import javafx.scene.control.TableView;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.media.MediaView;
 
@@ -24,32 +27,38 @@ import javafx.scene.media.MediaView;
  * @author garci
  */
 public class TestEspecialistaController implements Initializable {
-@FXML
+  @FXML
+    private TableView<?> listTEpreguntas;
+
+    @FXML
+    private ScrollBar sbTEpreguntas;
+
+    @FXML
+    private BorderPane panelRight;
+
+    @FXML
     private Label lblTEpregunta;
-
-    @FXML
-    private RadioButton rbtnTEopcion3;
-
-    @FXML
-    private Button btnTEsiguiente;
-
-    @FXML
-    private RadioButton rbtnTEopcion2;
-
-    @FXML
-    private RadioButton rbtnTEopcion1;
 
     @FXML
     private ProgressBar pbTEprogeso;
 
     @FXML
-    private Pane panelLeft1;
-
-     @FXML
-    private TableView<?> listTEpreguntas;
+    private JFXButton btnTEsiguiente;
 
     @FXML
-    private ScrollBar sbTEpreguntas;
+    private JFXRadioButton rbtnTEoca;
+
+    @FXML
+    private JFXRadioButton rbtnTEsiempre;
+
+    @FXML
+    private JFXRadioButton rbtnTEnunca;
+
+    @FXML
+    private JFXRadioButton rbtnTEavc;
+
+    @FXML
+    private JFXRadioButton rbtnTEcs;
 
     /**
      * Initializes the controller class.
