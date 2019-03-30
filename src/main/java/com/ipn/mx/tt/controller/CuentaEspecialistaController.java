@@ -5,14 +5,18 @@
  */
 package com.ipn.mx.tt.controller;
 
+import com.ipn.mx.tt.dao.UsuarioDAO;
+import com.ipn.mx.tt.modelo.Usuario;
 import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.TextField;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.scene.layout.Pane;
 
 /**
@@ -22,32 +26,35 @@ import javafx.scene.layout.Pane;
  */
 public class CuentaEspecialistaController implements Initializable {
 
-       @FXML
-    private Pane panelPrin;
-
-@FXML
-    private JFXButton btnCguardar;
+    @FXML
+    private JFXButton btnCacguardar;
 
     @FXML
-    private JFXButton btnCambiarcontra;
+    private JFXTextField txtCanombre;
 
     @FXML
-    private JFXTextField txtCnombre;
+    private JFXTextField txtCaapellido;
 
     @FXML
-    private JFXTextField txtCcorreo;
+    private JFXTextField txtCausuario;
 
     @FXML
-    private JFXTextField txtCusuario;
+    private JFXTextField txtCacorreo;
 
     @FXML
-    private JFXTextField txtCapellido;
+    private JFXPasswordField txtCapass;
+
+    @FXML
+    private JFXPasswordField txtCarpass;
+
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-    }    
+    }
+
     
+
 }
