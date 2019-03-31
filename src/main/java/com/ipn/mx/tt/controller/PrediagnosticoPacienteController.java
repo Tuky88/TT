@@ -5,6 +5,7 @@
  */
 package com.ipn.mx.tt.controller;
 
+import com.jfoenix.controls.JFXTextField;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
@@ -18,8 +19,8 @@ import javafx.scene.control.TableView;
  * @author garci
  */
 public class PrediagnosticoPacienteController implements Initializable {
- @FXML
-    private PasswordField txtPPnombre;
+     @FXML
+    private JFXTextField txtPPnombre;
 
     @FXML
     private TableView<?> tblPPprediagnostico;

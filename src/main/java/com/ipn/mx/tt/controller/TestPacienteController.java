@@ -5,6 +5,8 @@
  */
 package com.ipn.mx.tt.controller;
 
+import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXTextField;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
@@ -19,14 +21,12 @@ import javafx.scene.layout.Pane;
  * @author garci
  */
 public class TestPacienteController implements Initializable {
-@FXML
-    private Button btnTPComenzar;
+    @FXML
+    private JFXButton btnTPComenzar;
 
     @FXML
-    private TextField txtTPnumero;
-
-    @FXML
-    private Pane panelLeft1;
+    private JFXTextField txtTPnumero;
+   
     /**
      * Initializes the controller class.
      */

@@ -5,6 +5,7 @@
  */
 package com.ipn.mx.tt.controller;
 
+import com.jfoenix.controls.JFXButton;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
@@ -20,14 +21,13 @@ import javafx.scene.layout.Pane;
  */
 public class TestEspecialistaFinalizadoController implements Initializable {
 
-     @FXML
-    private Button btnTEprediagnostico;
+   @FXML
+    private JFXButton btnTEprediagnostico;
 
     @FXML
     private ProgressBar pbTEterminado;
 
-    @FXML
-    private Pane panelLeft1;
+    
     /**
      * Initializes the controller class.
      */

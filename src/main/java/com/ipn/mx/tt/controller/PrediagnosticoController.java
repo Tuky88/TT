@@ -5,6 +5,7 @@
  */
 package com.ipn.mx.tt.controller;
 
+import com.jfoenix.controls.JFXButton;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -30,40 +31,19 @@ public class PrediagnosticoController implements Initializable {
     /**
      * Initializes the controller class.
      */
+ 
     @FXML
-    private Pane panelLeft;
+    private TableView<?> tblPtrastornos;
 
     @FXML
-    private Button btnPhistorial;
-
+    private JFXButton btnPrecomendaciones;
     @FXML
-    private Button btnPvalidar;
-
-    @FXML
-    private BorderPane panelRight;
-
-    @FXML
-    void abrirHistorial(ActionEvent event) {
-        abrirMenu("/Center/Historial.fxml");
-    }
-
-    @FXML
-    void abrirValidar(ActionEvent event) {
-        abrirMenu("/Center/Validar.fxml");
-    }
+    
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }
 
-    public void abrirMenu(String menu) {
-        try {
-            Parent root = FXMLLoader.load(getClass().getResource(menu));
-            panelRight.setCenter(root);
-
-        } catch (IOException ex) {
-            Logger.getLogger(ConfiguracionesController.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
+    
 }

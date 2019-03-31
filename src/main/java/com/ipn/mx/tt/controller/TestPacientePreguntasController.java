@@ -5,6 +5,8 @@
  */
 package com.ipn.mx.tt.controller;
 
+import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXRadioButton;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
@@ -20,23 +22,26 @@ import javafx.scene.layout.Pane;
  * @author garci
  */
 public class TestPacientePreguntasController implements Initializable {
- @FXML
+  @FXML
     private Label lblTPpregunta;
 
     @FXML
-    private RadioButton rbtnTPopcion3;
+    private JFXButton btnTPsiguiente;
 
     @FXML
-    private Button btnTPsiguiente;
+    private JFXRadioButton rbtnTPoca;
 
     @FXML
-    private RadioButton rbtnTPopcion2;
+    private JFXRadioButton rbtnTPsiempre;
 
     @FXML
-    private RadioButton rbtnTPopcion1;
+    private JFXRadioButton rbtnTPnunca;
 
     @FXML
-    private Pane panelLeft1;
+    private JFXRadioButton rbtnTPavc;
+
+    @FXML
+    private JFXRadioButton rbtnTPcs;
     /**
      * Initializes the controller class.
      */
