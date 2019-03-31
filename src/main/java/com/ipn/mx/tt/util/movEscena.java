@@ -21,18 +21,23 @@ import javafx.stage.Stage;
  * @author User
  */
 public class movEscena {
-    
-        public void cambiarEscena(Event event,String file) {
-        Parent root;
+
+    public Object cambiarEscena(Event event, String file) {
+        FXMLLoader root;
+        Object o = null;
         try {
-            root = FXMLLoader.load(getClass().getResource("/Center/"+file));
-            Scene s = new Scene(root);
+            root = new FXMLLoader(getClass().getResource("/Center/"+file));
+            Parent t = root.load();
+            Scene s = new Scene(t);
             Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+
             window.setScene(s);
             window.show();
+            o = root.getController();
 
         } catch (IOException ex) {
             Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
         }
+        return o;
     }
 }

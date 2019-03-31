@@ -47,7 +47,7 @@
                   <Font name="Arial" size="15.0" />
                </font>
             </Label>
-            <JFXButton fx:id="btnCacguardar" buttonType="RAISED" layoutX="501.0" layoutY="405.0" prefHeight="28.0" prefWidth="162.0" ripplerFill="WHITE" style="-fx-background-color: #B1F4AD;" text="Guardar">
+            <JFXButton fx:id="btnCacguardar" buttonType="RAISED" layoutX="501.0" layoutY="405.0" onAction="#cargarUsuario" prefHeight="28.0" prefWidth="162.0" ripplerFill="WHITE" style="-fx-background-color: #B1F4AD;" text="Guardar">
                <font>
                   <Font name="Century Gothic" size="14.0" />
                </font>

@@ -10,9 +10,6 @@ import com.ipn.mx.tt.util.ConexionJavaMongo;
 import com.mongodb.BasicDBObject;
 import com.mongodb.DBCursor;
 import com.mongodb.DBObject;
-import java.net.UnknownHostException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
@@ -39,7 +36,9 @@ public class UsuarioDAO {
 
     public DBObject convertirUser(Usuario u) {
 
-        return new BasicDBObject("_id", u.getId()).append("contraseña", u.getContraseña());
+        return new BasicDBObject("_id", u.getId()).append("contraseña", u.getContraseña())
+                .append("Nombre", u.getNombre()).append("Apellido", u.getApellido())
+                .append("Correo", u.getCorreo());
 
     }
 
@@ -56,14 +55,11 @@ public class UsuarioDAO {
         DBObject query = new BasicDBObject("_id", id);
         DBCursor cursor = cjm.getMongoCollection().find(query);
         Usuario user;
-        if(cursor.hasNext())
-        {
+        if (cursor.hasNext()) {
             DBObject jo = cursor.one();
-            user=new Usuario(jo);
-        }
-        else
-        {
-            user=new Usuario();
+            user = new Usuario(jo);
+        } else {
+            user = new Usuario();
         }
         cjm.cerrarConexion();
         return user;

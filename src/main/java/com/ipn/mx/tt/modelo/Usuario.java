@@ -12,8 +12,44 @@ import com.mongodb.DBObject;
  * @author User
  */
 public class Usuario {
+
     String Id;
     String Contraseña;
+    String Nombre;
+    String Apellido;
+    String Correo;
+
+    public Usuario(String Id, String Contraseña, String Nombre, String Apellido, String Correo) {
+        this.Id = Id;
+        this.Contraseña = Contraseña;
+        this.Nombre = Nombre;
+        this.Apellido = Apellido;
+        this.Correo = Correo;
+    }
+
+    public String getNombre() {
+        return Nombre;
+    }
+
+    public void setNombre(String Nombre) {
+        this.Nombre = Nombre;
+    }
+
+    public String getApellido() {
+        return Apellido;
+    }
+
+    public void setApellido(String Apellido) {
+        this.Apellido = Apellido;
+    }
+
+    public String getCorreo() {
+        return Correo;
+    }
+
+    public void setCorreo(String Correo) {
+        this.Correo = Correo;
+    }
 
     public Usuario(String Id, String Contraseña) {
         this.Id = Id;
@@ -21,15 +57,18 @@ public class Usuario {
     }
 
     public Usuario() {
-    Contraseña="";
-    Id="";
+        Contraseña = "";
+        Id = "";
     }
-    
-    public Usuario(DBObject dbo)
-    {
-        Id=(String)dbo.get("_id");
-        Contraseña=(String)dbo.get("contraseña");
+
+    public Usuario(DBObject dbo) {
+        Id = (String) dbo.get("_id");
+        Contraseña = (String) dbo.get("contraseña");
+        Apellido= (String )dbo.get("apellido");
+        Nombre=(String) dbo.get("Nombre");
+        Correo=(String) dbo.get("Correo");
     }
+
     public String getId() {
         return Id;
     }
@@ -45,5 +84,5 @@ public class Usuario {
     public void setContraseña(String Contraseña) {
         this.Contraseña = Contraseña;
     }
-    
+
 }

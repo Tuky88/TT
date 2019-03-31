@@ -21,13 +21,11 @@ import javafx.scene.layout.Pane;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 
-
 public class LoginController implements Initializable {
 
     movEscena mov;
     AlertMessage alertMessage;
 
-    
     @FXML
     private Button btnAcceder;
 
@@ -42,11 +40,10 @@ public class LoginController implements Initializable {
 
     @FXML
     private Button btnEjemplo;
-    
-     @FXML
+
+    @FXML
     private AnchorPane login;
-     
-     
+
     @FXML
     void btnActionPrueba(ActionEvent event) {
 //        UsuarioDAO udao = new UsuarioDAO();
@@ -58,7 +55,7 @@ public class LoginController implements Initializable {
     }
 
     public void iniciarSesion(Event e) {
-        
+
         UsuarioDAO udao = new UsuarioDAO();
         Usuario user;
         if (txtPass.getText().length() > 0 && txtUser.getText().length() > 0) {
@@ -66,9 +63,9 @@ public class LoginController implements Initializable {
             user = udao.buscarUsuario(txtUser.getText());
             if (user.getContraseña().equals(txtPass.getText())) {
                 lblStatus.setText("BIENVENIDO");
-                mov.cambiarEscena(e, "Menu.fxml");
+                menuController o = (menuController) mov.cambiarEscena(e, "Menu.fxml");
 
-                alertMessage.alert(0, "BIENVENIDO AL SISTEMA", "BIENVENIDO: " + user.getId());
+                //alertMessage.alert(0, "BIENVENIDO AL SISTEMA", "BIENVENIDO: " + user.getId());
             } else {
                 lblStatus.setText("inBIENVENIDO");
 
@@ -104,12 +101,12 @@ public class LoginController implements Initializable {
         // lblStatus.setVisible(false);
         mov = new movEscena();
         alertMessage = new AlertMessage();
-              // txtPass.getStyleClass().setAll("btn", "btn-primary");
+        // txtPass.getStyleClass().setAll("btn", "btn-primary");
     }
 
     @FXML
     void irMenuRecuperarContra(MouseEvent event) {
-        mov.cambiarEscena(event,"Recuperarcontra.fxml");
+        mov.cambiarEscena(event, "Recuperarcontra.fxml");
     }
 
 }

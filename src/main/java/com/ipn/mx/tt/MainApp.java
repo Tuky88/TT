@@ -7,6 +7,8 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
@@ -31,7 +33,6 @@ public class MainApp extends Application {
         stage.setTitle("TT 2018-A030");
         stage.setScene(scene);
         stage.show();
-
         this.stage.getIcons().add(image);
         this.stage.setTitle("TT 2018-A030");
         this.stage.setScene(scene);
@@ -54,6 +55,15 @@ public class MainApp extends Application {
     public static void main(String[] args) {
         launch(args);
     }
+//    public static void main(String[] args) {
+//        try {
+//            //launch(args);
+//            testerPrueba tp=new testerPrueba();
+//            tp.ejecutar();
+//        } catch (IOException ex) {
+//            Logger.getLogger(MainApp.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+//    }
     public class onEnter implements EventHandler<ActionEvent>
     {
 

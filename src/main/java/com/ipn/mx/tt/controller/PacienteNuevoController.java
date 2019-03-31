@@ -7,22 +7,15 @@ package com.ipn.mx.tt.controller;
 
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXDatePicker;
-import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXRadioButton;
 import com.jfoenix.controls.JFXTextField;
-import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javafx.event.Event;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
-import javafx.scene.control.Button;
-import javafx.scene.control.RadioButton;
-import javafx.scene.control.TextField;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 
 /**
  * FXML Controller class
@@ -30,7 +23,8 @@ import javafx.scene.control.TextField;
  * @author garci
  */
 public class PacienteNuevoController implements Initializable {
-@FXML
+
+    @FXML
     private JFXButton btnPnregistrar;
 
     @FXML
@@ -42,12 +36,11 @@ public class PacienteNuevoController implements Initializable {
     @FXML
     private JFXTextField txtPncorreo;
 
-     @FXML
+    @FXML
     private JFXTextField txtPndireccion;
 
     @FXML
     private JFXTextField txtPntelefono;
-
 
     @FXML
     private JFXRadioButton rbPfemenino;
@@ -57,11 +50,7 @@ public class PacienteNuevoController implements Initializable {
 
     @FXML
     private JFXDatePicker datePn;
-    
-    
 
-        
-    
     /**
      * Initializes the controller class.
      */
@@ -69,6 +58,11 @@ public class PacienteNuevoController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         
         // TODO
-    }    
-    
+    }
+
+    @FXML
+    void registrarPaciente(ActionEvent event) {
+        Alert a = new Alert(Alert.AlertType.NONE, datePn.getValue().toString(), ButtonType.OK);
+        a.show();
+    }
 }

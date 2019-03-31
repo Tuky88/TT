@@ -8,7 +8,6 @@ package com.ipn.mx.tt.controller;
 import com.ipn.mx.tt.util.AlertMessage;
 import com.ipn.mx.tt.util.movEscena;
 import com.jfoenix.controls.JFXButton;
-import com.jfoenix.controls.JFXTabPane;
 import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDateTime;
@@ -18,25 +17,17 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.application.Platform;
 import javafx.concurrent.Task;
-import javafx.event.ActionEvent;
 import javafx.event.Event;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.RadioButton;
 import javafx.scene.control.Tab;
-import javafx.scene.control.TabPane;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.BorderPane;
 
-import javafx.scene.layout.Pane;
 
 /**
  * FXML Controller class
@@ -47,7 +38,7 @@ public class menuController implements Initializable {
 
     movEscena mov;
     AlertMessage alertMessage;
-
+    public String val;
     @FXML
     private Tab TabInicio;
 
@@ -60,7 +51,6 @@ public class menuController implements Initializable {
 
     @FXML
     private Label lblFecha;
-
 
     @FXML
     private Tab TabConfig;
@@ -80,7 +70,6 @@ public class menuController implements Initializable {
     @FXML
     private Tab TabAcerca;
 
-
     @FXML
     void cerrarSesion(Event event) {
         int resp = alertMessage.confirm(0, "¿Cerrar Sesión?", "Desea cerrar sesión");
@@ -99,6 +88,7 @@ public class menuController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
         mov = new movEscena();
+
         alertMessage = new AlertMessage();
         runClock();
         cambiarMenu("/Center/Inicio.fxml", 2);
@@ -124,7 +114,11 @@ public class menuController implements Initializable {
         TabAyuda.setOnSelectionChanged((Event event) -> {
             cambiarMenu("/Center/Prediagnosticos.fxml", 99);
         });
+        System.out.println("el valor es:" + val);
+    }
 
+    public void imprimir() {
+        System.out.println("oifodsjflksjdl");
     }
 
     public void runClock() {
@@ -170,18 +164,18 @@ public class menuController implements Initializable {
             }
             if (tipo == 1) {
                 PanelPrin.setCenter(root);
-            }if (tipo ==2)
-            {
+            }
+            if (tipo == 2) {
                 PanelPrin.setCenter(root);
                 PanelPrin.setLeft(null);
-            }
-            else {
+            } else {
                 PanelPrin.setLeft(root);
             }
 
         }
     }
-        public void abrirMenu(String menu) {
+
+    public void abrirMenu(String menu) {
         try {
             Parent root = FXMLLoader.load(getClass().getResource(menu));
             PanelPrin.setCenter(root);
@@ -189,5 +183,9 @@ public class menuController implements Initializable {
         } catch (IOException ex) {
             Logger.getLogger(ConfiguracionesController.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+
+    public void cambiarTexto() {
+        btnCerrarSesion.setText("TE VEO PRRO");
     }
 }
