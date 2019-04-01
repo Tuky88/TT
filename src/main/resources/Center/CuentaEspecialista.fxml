@@ -57,9 +57,9 @@
                </ripplerFill>
             </JFXButton>
             <JFXTextField fx:id="txtCnombre" layoutX="400.0" layoutY="112.0" prefHeight="25.0" prefWidth="263.0" style="-fx-background-color: #FFFFFF;" />
+            <JFXTextField fx:id="txtCapellido" layoutX="400.0" layoutY="160.0" prefHeight="25.0" prefWidth="263.0" style="-fx-background-color: #FFFFFF;" />
             <JFXTextField fx:id="txtCcorreo" layoutX="400.0" layoutY="203.0" prefHeight="25.0" prefWidth="263.0" style="-fx-background-color: #FFFFFF;" />
             <JFXTextField fx:id="txtCusuario" layoutX="400.0" layoutY="242.0" prefHeight="25.0" prefWidth="263.0" style="-fx-background-color: #FFFFFF;" />
-            <JFXTextField fx:id="txtCapellido" layoutX="400.0" layoutY="160.0" prefHeight="25.0" prefWidth="263.0" style="-fx-background-color: #FFFFFF;" />
          </children>
       </Pane>
    </children>
