@@ -7,9 +7,9 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ipn.mx.tt.controller.CambiarcontraController">
+<AnchorPane id="AnchorPane" fx:id="panelP" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ipn.mx.tt.controller.CambiarcontraController">
    <children>
-      <Pane prefHeight="419.0" prefWidth="626.0">
+      <Pane fx:id="panel" prefHeight="419.0" prefWidth="626.0">
          <children>
             <Label alignment="CENTER" layoutX="-3.0" prefHeight="36.0" prefWidth="630.0" style="-fx-background-color: #4664b5;" text="Cuenta" textAlignment="CENTER" textFill="WHITE">
                <font>

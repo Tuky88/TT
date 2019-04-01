@@ -5,6 +5,7 @@
  */
 package com.ipn.mx.tt.controller;
 
+import com.ipn.mx.tt.modelo.Usuario;
 import com.ipn.mx.tt.util.AlertMessage;
 import com.ipn.mx.tt.util.movEscena;
 import com.jfoenix.controls.JFXButton;
@@ -38,6 +39,15 @@ public class menuController implements Initializable {
 
     movEscena mov;
     AlertMessage alertMessage;
+    Usuario usuario;
+
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
     public String val;
     @FXML
     private Tab TabInicio;
@@ -97,7 +107,11 @@ public class menuController implements Initializable {
             cambiarMenu("/Center/Inicio.fxml", 2);
         });
         TabConfig.setOnSelectionChanged((Event event) -> {
-            cambiarMenu("/Center/Configuraciones.fxml", 0);
+            ConfiguracionesController cc=(ConfiguracionesController)
+                    cambiarMenu("/Center/Configuraciones.fxml", 0);
+            cc.setUsuario(usuario);
+            System.out.println(usuario.toString());
+            
         });
         TabTest.setOnSelectionChanged((Event event) -> {
             cambiarMenu("/Center/Test.fxml", 0);
@@ -114,7 +128,7 @@ public class menuController implements Initializable {
         TabAyuda.setOnSelectionChanged((Event event) -> {
             cambiarMenu("/Center/Prediagnosticos.fxml", 99);
         });
-        System.out.println("el valor es:" + val);
+        
     }
 
     public void imprimir() {
@@ -151,14 +165,17 @@ public class menuController implements Initializable {
         }
     }
 
-    public void cambiarMenu(String menu, int tipo) {
-
+    public Object cambiarMenu(String menu, int tipo) {
+        Object o = null;
         if (tipo == 99) {
             PanelPrin.setLeft(null);
         } else {
             Parent root = null;
+            FXMLLoader fx=new FXMLLoader(getClass().getResource(menu));
             try {
-                root = FXMLLoader.load(getClass().getResource(menu));
+                
+                root = fx.load();
+                o=fx.getController();
             } catch (IOException ex) {
                 Logger.getLogger(menuController.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -173,6 +190,7 @@ public class menuController implements Initializable {
             }
 
         }
+        return o;
     }
 
     public void abrirMenu(String menu) {

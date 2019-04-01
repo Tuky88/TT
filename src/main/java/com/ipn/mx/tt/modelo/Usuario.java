@@ -54,7 +54,18 @@ public class Usuario {
     public Usuario(String Id, String Contraseña) {
         this.Id = Id;
         this.Contraseña = Contraseña;
+        this.Apellido="";
+        this.Correo="";
+        this.Nombre="";
     }
+
+    public Usuario(String Id, String Nombre, String Apellido, String Correo) {
+        this.Id = Id;
+        this.Nombre = Nombre;
+        this.Apellido = Apellido;
+        this.Correo = Correo;
+    }
+    
 
     public Usuario() {
         Contraseña = "";
@@ -64,7 +75,7 @@ public class Usuario {
     public Usuario(DBObject dbo) {
         Id = (String) dbo.get("_id");
         Contraseña = (String) dbo.get("contraseña");
-        Apellido= (String )dbo.get("apellido");
+        Apellido= (String )dbo.get("Apellido");
         Nombre=(String) dbo.get("Nombre");
         Correo=(String) dbo.get("Correo");
     }
@@ -83,6 +94,11 @@ public class Usuario {
 
     public void setContraseña(String Contraseña) {
         this.Contraseña = Contraseña;
+    }
+
+    @Override
+    public String toString() {
+        return "Usuario{" + "Id=" + Id + ", Contrase\u00f1a=" + Contraseña + ", Nombre=" + Nombre + ", Apellido=" + Apellido + ", Correo=" + Correo + '}';
     }
 
 }

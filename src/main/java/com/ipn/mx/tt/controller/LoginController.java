@@ -64,6 +64,7 @@ public class LoginController implements Initializable {
             if (user.getContraseña().equals(txtPass.getText())) {
                 lblStatus.setText("BIENVENIDO");
                 menuController o = (menuController) mov.cambiarEscena(e, "Menu.fxml");
+                o.setUsuario(user);
 
                 //alertMessage.alert(0, "BIENVENIDO AL SISTEMA", "BIENVENIDO: " + user.getId());
             } else {

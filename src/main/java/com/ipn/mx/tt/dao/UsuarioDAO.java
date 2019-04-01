@@ -64,4 +64,30 @@ public class UsuarioDAO {
         cjm.cerrarConexion();
         return user;
     }
+    public boolean usuarioExiste(String usuario)
+    {
+        DBObject query = new BasicDBObject("_id", usuario);
+        DBCursor cursor = cjm.getMongoCollection().find(query);
+        if (cursor.hasNext()) {
+            return true;
+        }
+        else return false;
+    }
+
+    public boolean actualizarDatos(Usuario text) {
+    //    throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    cjm.conectar();
+    if(usuarioExiste(text.getId()))
+    {
+        DBObject query = new BasicDBObject("_id",text.getId());
+         cjm.getMongoCollection().update(query,new BasicDBObject("$set",
+                 new BasicDBObject("Nombre", text.getNombre())
+                         .append("Apellido", text.getApellido())
+                         .append("Correo", text.getCorreo())
+         ));
+        return true;
+    }
+    else
+    return false;
+    }
 }

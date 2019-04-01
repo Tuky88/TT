@@ -5,6 +5,7 @@
  */
 package com.ipn.mx.tt.controller;
 
+import com.ipn.mx.tt.modelo.Usuario;
 import com.jfoenix.controls.JFXButton;
 import java.io.IOException;
 import java.net.URL;
@@ -28,6 +29,7 @@ import javafx.scene.layout.Pane;
  */
 public class ConfiguracionesController implements Initializable {
 
+    private Usuario usuario;
     @FXML
     private Pane panelLeft;
 
@@ -42,23 +44,41 @@ public class ConfiguracionesController implements Initializable {
 
     @FXML
     void abrirCuenta(ActionEvent event) {
-        abrirMenu("/Center/CuentaEspecialista.fxml");
+        CuentaEspecialistaController cec=(CuentaEspecialistaController)
+                abrirMenu("/Center/CuentaEspecialista.fxml");
+        System.out.println(usuario.toString());
+        cec.colocarDatos(usuario);
+        
+        
     }
         @FXML
     void abrirEspecialista(ActionEvent event) {
         abrirMenu("/Center/AñadirEspecialista.fxml");
     }
 
-    public void abrirMenu(String menu) {
+    public Object abrirMenu(String menu) {
+        Object o=null;
         try {
-            Parent root = FXMLLoader.load(getClass().getResource(menu));
+            FXMLLoader fx=new FXMLLoader(getClass().getResource(menu));
+            Parent root = fx.load();
+            o=fx.getController();
             panelRight.setCenter(root);
 
         } catch (IOException ex) {
             Logger.getLogger(ConfiguracionesController.class.getName()).log(Level.SEVERE, null, ex);
         }
+        return o;
     }
 
+    public Usuario getUsuario()
+    {
+        return usuario;
+    }
+    public void setUsuario(Usuario u)
+    {
+        this.usuario=u;
+        
+    }
     /**
      * Initializes the controller class.
      */
