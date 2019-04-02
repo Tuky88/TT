@@ -4,6 +4,9 @@ import com.ipn.mx.tt.dao.UsuarioDAO;
 import com.ipn.mx.tt.modelo.Usuario;
 import com.ipn.mx.tt.util.AlertMessage;
 import com.ipn.mx.tt.util.movEscena;
+import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXPasswordField;
+import com.jfoenix.controls.JFXTextField;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
@@ -25,24 +28,23 @@ public class LoginController implements Initializable {
 
     movEscena mov;
     AlertMessage alertMessage;
-
-    @FXML
-    private Button btnAcceder;
-
-    @FXML
-    private TextField txtUser;
+@FXML
+    private AnchorPane login;
 
     @FXML
     private Label lblStatus;
 
     @FXML
-    private TextField txtPass;
+    private Label lblRecuperar;
 
     @FXML
-    private Button btnEjemplo;
+    private JFXTextField txtUser;
+
+       @FXML
+    private JFXPasswordField txtPass;
 
     @FXML
-    private AnchorPane login;
+    private JFXButton btnAcceder;
 
     @FXML
     void btnActionPrueba(ActionEvent event) {
