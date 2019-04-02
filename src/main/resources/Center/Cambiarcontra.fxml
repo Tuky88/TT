@@ -31,14 +31,14 @@
                   <Font name="Arial" size="15.0" />
                </font>
             </Label>
-            <Button fx:id="btnCcguardar" layoutX="259.0" layoutY="220.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="182.0" text="Guardar">
+            <Button fx:id="btnCcguardar" layoutX="259.0" layoutY="220.0" mnemonicParsing="false" onAction="#cambiarContraseña" prefHeight="41.0" prefWidth="182.0" text="Guardar">
                <font>
                   <Font name="Century Gothic" size="14.0" />
                </font>
             </Button>
-            <PasswordField fx:id="txtCpass" layoutX="216.0" layoutY="74.0" prefHeight="25.0" prefWidth="225.0" />
-            <PasswordField fx:id="txtCnpass" layoutX="216.0" layoutY="121.0" prefHeight="25.0" prefWidth="225.0" />
-            <PasswordField fx:id="txtCrnpass" layoutX="216.0" layoutY="164.0" prefHeight="25.0" prefWidth="225.0" />
+            <PasswordField fx:id="txtCpass" layoutX="216.0" layoutY="74.0" onKeyReleased="#CambiarContraseña" prefHeight="25.0" prefWidth="225.0" />
+            <PasswordField fx:id="txtCnpass" layoutX="216.0" layoutY="121.0" onKeyReleased="#CambiarContraseña" prefHeight="25.0" prefWidth="225.0" />
+            <PasswordField fx:id="txtCrnpass" layoutX="216.0" layoutY="164.0" onKeyReleased="#CambiarContraseña" prefHeight="25.0" prefWidth="225.0" />
          </children>
       </Pane>
    </children>

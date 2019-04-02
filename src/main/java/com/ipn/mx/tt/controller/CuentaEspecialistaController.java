@@ -68,8 +68,10 @@ public class CuentaEspecialistaController implements Initializable {
 
         try {
             FXMLLoader fx = new FXMLLoader(getClass().getResource("/Center/Cambiarcontra.fxml"));
-            panel=fx.load();
-            panelP.getChildren().add(panel);
+            AnchorPane ap=fx.load();
+            CambiarcontraController cc=(CambiarcontraController) fx.getController();
+            cc.setUsuario(u);
+            panelP.getChildren().setAll(ap);
         } catch (IOException ex) {
             Logger.getLogger(CuentaEspecialistaController.class.getName()).log(Level.SEVERE, null, ex);
         }
