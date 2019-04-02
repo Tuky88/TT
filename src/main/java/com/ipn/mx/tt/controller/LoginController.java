@@ -2,6 +2,7 @@ package com.ipn.mx.tt.controller;
 
 import com.ipn.mx.tt.dao.UsuarioDAO;
 import com.ipn.mx.tt.modelo.Usuario;
+import com.ipn.mx.tt.util.CustomMessage;
 import com.ipn.mx.tt.util.movEscena;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXPasswordField;
@@ -12,14 +13,10 @@ import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.Pane;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 
@@ -64,6 +61,7 @@ public class LoginController implements Initializable {
                 menuController o = (menuController) mov.cambiarEscena(e, "Menu.fxml");
                 o.setUsuario(user);
 
+                CustomMessage cm=new CustomMessage("BIENVENIDO","Bienvenido al sistema", 0);
                 //alertMessage.alert(0, "BIENVENIDO AL SISTEMA", "BIENVENIDO: " + user.getId());
             } else {
                 //lblStatus.setText("inBIENVENIDO");
