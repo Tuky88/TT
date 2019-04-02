@@ -5,6 +5,7 @@
  */
 package com.ipn.mx.tt.controller;
 
+import com.ipn.mx.tt.dao.UsuarioDAO;
 import com.ipn.mx.tt.modelo.Usuario;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXPasswordField;
@@ -54,6 +55,51 @@ public class CambiarcontraController implements Initializable {
     /**
      * Initializes the controller class.
      */
+
+
+    @FXML
+    private void CambiarContraseña(KeyEvent event) {
+        if (event.getCode().equals(KeyCode.ENTER)) {
+            cambiarContraseña();
+        } else { 
+        }
+    }
+
+    @FXML
+    void cambiarContraseña(ActionEvent event) {
+        cambiarContraseña();
+    }
+
+    public void cambiarContraseña() {
+        if (txtCnpass.getText().length() > 0 && txtCpass.getText().length() > 0 && txtCrnpass.getText().length() > 0) {
+            if (txtCpass.getText().equals(usuario.getContraseña())) {
+                UsuarioDAO ud = new UsuarioDAO();
+                if (txtCnpass.getText().equals(txtCrnpass.getText())) {
+                    usuario.setContraseña(txtCrnpass.getText());
+                    if (ud.actualizarContraseña(usuario)) {
+
+                        Alert a = new Alert(Alert.AlertType.NONE, "Se actualizó la contraseña.", ButtonType.OK);
+                        a.show();
+                    } else {
+
+                        Alert a = new Alert(Alert.AlertType.NONE, "No se pudo actualizar la contraseña..", ButtonType.OK);
+                        a.show();
+                    }
+                } else {
+
+                    Alert a = new Alert(Alert.AlertType.NONE, "Las contraseña no coinciden.", ButtonType.OK);
+                    a.show();
+                }
+            } else {
+
+                Alert a = new Alert(Alert.AlertType.NONE, "Hay un error en tu contraseña.", ButtonType.OK);
+                a.show();
+            }
+        } else {
+            Alert a = new Alert(Alert.AlertType.NONE, "Los campos no pueden estar vacíos.", ButtonType.OK);
+            a.show();
+        }
+    }
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
