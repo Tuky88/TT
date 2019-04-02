@@ -66,7 +66,7 @@ public class LoginController implements Initializable {
 
                 //alertMessage.alert(0, "BIENVENIDO AL SISTEMA", "BIENVENIDO: " + user.getId());
             } else {
-                lblStatus.setText("inBIENVENIDO");
+                //lblStatus.setText("inBIENVENIDO");
 
             }
         } else {
