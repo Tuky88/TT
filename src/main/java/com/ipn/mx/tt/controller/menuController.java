@@ -6,7 +6,6 @@
 package com.ipn.mx.tt.controller;
 
 import com.ipn.mx.tt.modelo.Usuario;
-import com.ipn.mx.tt.util.AlertMessage;
 import com.ipn.mx.tt.util.movEscena;
 import com.jfoenix.controls.JFXButton;
 import java.io.IOException;
@@ -38,7 +37,6 @@ import javafx.scene.layout.BorderPane;
 public class menuController implements Initializable {
 
     movEscena mov;
-    AlertMessage alertMessage;
     Usuario usuario;
 
     public Usuario getUsuario() {
@@ -82,7 +80,7 @@ public class menuController implements Initializable {
 
     @FXML
     void cerrarSesion(Event event) {
-        int resp = alertMessage.confirm(0, "¿Cerrar Sesión?", "Desea cerrar sesión");
+        int resp =1; //alertMessage.confirm(0, "¿Cerrar Sesión?", "Desea cerrar sesión");
         if (resp == 1) {
             mov.cambiarEscena(event, "Login.fxml");
         }
@@ -99,7 +97,7 @@ public class menuController implements Initializable {
         // TODO
         mov = new movEscena();
 
-        alertMessage = new AlertMessage();
+//        alertMessage = new AlertMessage();
         runClock();
         cambiarMenu("/Center/Inicio.fxml", 2);
 

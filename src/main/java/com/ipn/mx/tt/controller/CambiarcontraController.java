@@ -76,6 +76,7 @@ public class CambiarcontraController implements Initializable {
             if (txtCpass.getText().equals(usuario.getContraseña())) {
                 UsuarioDAO ud = new UsuarioDAO();
                 if (txtCnpass.getText().equals(txtCrnpass.getText())) {
+                    usuario.setContraseña(txtCrnpass.getText());
                     if (ud.actualizarContraseña(usuario)) {
 
                         Alert a = new Alert(Alert.AlertType.NONE, "Se actualizó la contraseña.", ButtonType.OK);

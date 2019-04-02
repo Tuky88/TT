@@ -2,7 +2,6 @@ package com.ipn.mx.tt.controller;
 
 import com.ipn.mx.tt.dao.UsuarioDAO;
 import com.ipn.mx.tt.modelo.Usuario;
-import com.ipn.mx.tt.util.AlertMessage;
 import com.ipn.mx.tt.util.movEscena;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -24,7 +23,7 @@ import javafx.scene.media.MediaPlayer;
 public class LoginController implements Initializable {
 
     movEscena mov;
-    AlertMessage alertMessage;
+    
 
     @FXML
     private Button btnAcceder;
@@ -72,7 +71,7 @@ public class LoginController implements Initializable {
 
             }
         } else {
-            alertMessage.alert(0, "ERROR", "LOS CAMPOS NO PUEDEN ESTAR VACIOS");
+           // alertMessage.alert(0, "ERROR", "LOS CAMPOS NO PUEDEN ESTAR VACIOS");
         }
     }
 
@@ -101,7 +100,6 @@ public class LoginController implements Initializable {
         // TODO
         // lblStatus.setVisible(false);
         mov = new movEscena();
-        alertMessage = new AlertMessage();
         // txtPass.getStyleClass().setAll("btn", "btn-primary");
     }
 
