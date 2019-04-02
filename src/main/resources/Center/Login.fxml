@@ -46,7 +46,7 @@
                               <Font size="25.0" />
                            </font>
                         </Label>
-                        <Label id="lblStatus" fx:id="lblStatus" layoutX="61.0" layoutY="259.0" prefHeight="20.0" prefWidth="232.0" textFill="#fc3939">
+                        <Label id="lblStatus" fx:id="lblStatus" layoutX="65.0" layoutY="285.0" prefHeight="20.0" prefWidth="232.0" textFill="#fc3939">
                            <font>
                               <Font name="System Bold" size="14.0" />
                            </font>

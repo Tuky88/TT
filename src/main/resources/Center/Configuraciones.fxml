@@ -51,7 +51,10 @@
             </AnchorPane>
             <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="510.0" prefWidth="1020.0">
                <children>
-                  <BorderPane fx:id="panelRight" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="510.0" prefWidth="1020.0" />
+                  <BorderPane fx:id="panelRight" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="510.0" prefWidth="1020.0">
+                     <center>
+                        <fx:include source="CuentaEspecialista.fxml" />
+                     </center></BorderPane>
                </children>
             </AnchorPane>
          </items>

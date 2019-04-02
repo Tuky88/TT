@@ -1,44 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXPasswordField?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" fx:id="panelP" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ipn.mx.tt.controller.CambiarcontraController">
+<AnchorPane id="AnchorPane" fx:id="panelP" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="510.0" prefWidth="1020.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ipn.mx.tt.controller.CambiarcontraController">
    <children>
-      <Pane fx:id="panel" prefHeight="419.0" prefWidth="626.0">
+      <Pane fx:id="panel" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="510.0" prefWidth="1020.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <Label alignment="CENTER" layoutX="-3.0" prefHeight="36.0" prefWidth="630.0" style="-fx-background-color: #4664b5;" text="Cuenta" textAlignment="CENTER" textFill="WHITE">
+            <Label alignment="CENTER" layoutX="-3.0" prefHeight="36.0" prefWidth="1020.0" style="-fx-background-color: #4664b5;" text="Cuenta" textAlignment="CENTER" textFill="WHITE">
                <font>
                   <Font name="System Italic" size="25.0" />
                </font>
             </Label>
-            <Label layoutX="73.0" layoutY="78.0" text="Contraseña actual:">
+            <Label layoutX="287.0" layoutY="129.0" text="Contraseña actual:">
                <font>
                   <Font name="Arial" size="15.0" />
                </font>
             </Label>
-            <Label layoutX="73.0" layoutY="125.0" text="Nueva contraseña:">
+            <Label layoutX="287.0" layoutY="176.0" text="Nueva contraseña:">
                <font>
                   <Font name="Arial" size="15.0" />
                </font>
             </Label>
-            <Label layoutX="73.0" layoutY="168.0" text="Repetir contraseña:">
+            <Label layoutX="287.0" layoutY="219.0" text="Repetir contraseña:">
                <font>
                   <Font name="Arial" size="15.0" />
                </font>
             </Label>
-            <Button fx:id="btnCcguardar" layoutX="259.0" layoutY="220.0" mnemonicParsing="false" onAction="#cambiarContraseña" prefHeight="41.0" prefWidth="182.0" text="Guardar">
-               <font>
-                  <Font name="Century Gothic" size="14.0" />
-               </font>
-            </Button>
-            <PasswordField fx:id="txtCpass" layoutX="216.0" layoutY="74.0" onKeyReleased="#CambiarContraseña" prefHeight="25.0" prefWidth="225.0" />
-            <PasswordField fx:id="txtCnpass" layoutX="216.0" layoutY="121.0" onKeyReleased="#CambiarContraseña" prefHeight="25.0" prefWidth="225.0" />
-            <PasswordField fx:id="txtCrnpass" layoutX="216.0" layoutY="164.0" onKeyReleased="#CambiarContraseña" prefHeight="25.0" prefWidth="225.0" />
+            <JFXPasswordField fx:id="txtCpass" layoutX="430.0" layoutY="125.0" prefHeight="25.0" prefWidth="225.0" style="-fx-background-color: #FFFFFF;" />
+            <JFXPasswordField fx:id="txtCnpass" layoutX="430.0" layoutY="176.0" prefHeight="25.0" prefWidth="225.0" style="-fx-background-color: #FFFFFF;" />
+            <JFXPasswordField fx:id="txtCrnpass" layoutX="430.0" layoutY="219.0" prefHeight="25.0" prefWidth="225.0" style="-fx-background-color: #FFFFFF;" />
+            <JFXButton fx:id="btnCcguardar" buttonType="RAISED" layoutX="443.0" layoutY="289.0" onAction="#cambiarContraseña" prefHeight="36.0" prefWidth="148.0" ripplerFill="#c1e1b8" style="-fx-background-color: #FFFFFF;" text="Guardar" />
          </children>
       </Pane>
    </children>
