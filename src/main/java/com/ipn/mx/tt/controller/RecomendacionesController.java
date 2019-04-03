@@ -5,6 +5,7 @@
  */
 package com.ipn.mx.tt.controller;
 
+import com.jfoenix.controls.JFXButton;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
@@ -21,11 +22,9 @@ import javafx.scene.layout.Pane;
  */
 public class RecomendacionesController implements Initializable {
 
+ 
     @FXML
     private TableView<?> tblRtrastornos;
-
-    @FXML
-    private Button btnRenviarcorreo;
 
     @FXML
     private TableView<?> tblPtrastornos1;
@@ -34,10 +33,10 @@ public class RecomendacionesController implements Initializable {
     private TableColumn<?, ?> tblRrecomendaciones;
 
     @FXML
-    private Button btnRimprimir;
+    private JFXButton btnRimprimir;
 
     @FXML
-    private Pane panelLeft1;
+    private JFXButton btnRenviarcorreo;
     /**
      * Initializes the controller class.
      */

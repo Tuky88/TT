@@ -5,6 +5,7 @@
  */
 package com.ipn.mx.tt.controller;
 
+import com.jfoenix.controls.JFXButton;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
@@ -23,7 +24,7 @@ public class ValidarController implements Initializable {
     private TableView<?> tblVpre;
 
     @FXML
-    private Button btnVver;
+    private JFXButton btnVver;
     /**
      * Initializes the controller class.
      */

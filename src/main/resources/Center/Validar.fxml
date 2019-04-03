@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
+<?import com.jfoenix.controls.JFXButton?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
@@ -8,22 +8,21 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="com.ipn.mx.tt.controller.ValidarController">
+<AnchorPane id="AnchorPane" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="510.0" prefWidth="1020.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ipn.mx.tt.controller.ValidarController">
    <children>
-      <Pane prefHeight="419.0" prefWidth="626.0">
+      <Pane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="510.0" prefWidth="1020.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <Label alignment="CENTER" layoutX="-3.0" prefHeight="36.0" prefWidth="630.0" style="-fx-background-color: #4664b5;" text="Prediagnóstico del paciente " textAlignment="CENTER" textFill="WHITE">
+            <Label alignment="CENTER" layoutX="-3.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="36.0" prefWidth="1020.0" style="-fx-background-color: #4664b5;" text="Prediagnóstico del paciente " textAlignment="CENTER" textFill="WHITE">
                <font>
                   <Font name="System Italic" size="25.0" />
                </font>
             </Label>
-            <Label layoutX="151.0" layoutY="57.0" text="Los prediagnósticos marcados con rojo no tienen validación">
+            <Label layoutX="346.0" layoutY="61.0" text="Los prediagnósticos marcados con rojo no tienen validación">
                <font>
                   <Font name="Arial" size="15.0" />
                </font>
             </Label>
-            <TableView fx:id="tblVpre" layoutX="104.0" layoutY="109.0" prefHeight="200.0" prefWidth="450.0">
+            <TableView fx:id="tblVpre" layoutX="104.0" layoutY="109.0" prefHeight="297.0" prefWidth="816.0">
                <columns>
                   <TableColumn prefWidth="75.0" text="Nombre" />
                   <TableColumn prefWidth="75.0" text="Edad" />
@@ -31,7 +30,7 @@
                   <TableColumn prefWidth="183.0" text="Trastorno prediagnósticado" />
                </columns>
             </TableView>
-            <Button fx:id="btnVver" layoutX="502.0" layoutY="330.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="55.0" text="Ver" />
+            <JFXButton fx:id="btnVver" layoutX="836.0" layoutY="427.0" prefHeight="31.0" prefWidth="71.0" style="-fx-background-color: AEDCBA;" text="Ver" />
          </children>
       </Pane>
    </children>

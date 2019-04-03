@@ -7,6 +7,8 @@
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.paint.RadialGradient?>
+<?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane id="AnchorPane" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="510.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ipn.mx.tt.controller.TestPacienteController">
@@ -38,7 +40,15 @@
                               <Font name="Arial" size="18.0" />
                            </font>
                         </Label>
-                        <JFXButton fx:id="btnTPComenzar" layoutX="565.0" layoutY="342.0" prefHeight="21.0" prefWidth="126.0" text="Comenzar" />
+                        <JFXButton fx:id="btnTPComenzar" buttonType="RAISED" layoutX="566.0" layoutY="337.0" prefHeight="30.0" prefWidth="125.0" style="-fx-background-color: #AECFDC;" text="Comenzar">
+                           <ripplerFill>
+                              <RadialGradient centerX="0.55" centerY="0.5" cycleMethod="REPEAT" focusAngle="164.05" focusDistance="-0.3023255813953488" radius="0.20930232558139533">
+                                 <stops>
+                                    <Stop color="BLACK" />
+                                    <Stop color="WHITE" offset="1.0" />
+                                 </stops>
+                              </RadialGradient>
+                           </ripplerFill></JFXButton>
                         <JFXTextField fx:id="txtTPnumero" layoutX="350.0" layoutY="248.0" prefHeight="25.0" prefWidth="260.0" />
                      </children>
                   </Pane>

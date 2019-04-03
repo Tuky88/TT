@@ -5,6 +5,8 @@
  */
 package com.ipn.mx.tt.controller;
 
+import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXTextField;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
@@ -20,13 +22,13 @@ import javafx.scene.control.TextField;
  */
 public class HistorialController implements Initializable {
   @FXML
-    private TextField txtPnombre;
+    private JFXButton btnPver;
 
     @FXML
     private TableView<?> tblPpre;
 
     @FXML
-    private Button btnPver;
+    private JFXTextField txtPnombre;
     /**
      * Initializes the controller class.
      */
