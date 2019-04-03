@@ -6,6 +6,7 @@
 package com.ipn.mx.tt.controller;
 
 import com.ipn.mx.tt.modelo.Usuario;
+import com.ipn.mx.tt.util.CustomMessage;
 import com.ipn.mx.tt.util.movEscena;
 import com.jfoenix.controls.JFXButton;
 import java.io.IOException;
@@ -22,12 +23,12 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.control.Tab;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.BorderPane;
-
 
 /**
  * FXML Controller class
@@ -80,8 +81,9 @@ public class menuController implements Initializable {
 
     @FXML
     void cerrarSesion(Event event) {
-        int resp =1; //alertMessage.confirm(0, "¿Cerrar Sesión?", "Desea cerrar sesión");
-        if (resp == 1) {
+        int resp = 1; //alertMessage.confirm(0, "¿Cerrar Sesión?", "Desea cerrar sesión");
+        CustomMessage cm = new CustomMessage("Cerrar Sesión", "¿Desea cerrar sesión?", 1);
+        if (cm.getMessage().equals(ButtonType.OK)) {
             mov.cambiarEscena(event, "Login.fxml");
         }
     }
@@ -100,19 +102,18 @@ public class menuController implements Initializable {
 //        alertMessage = new AlertMessage();
         runClock();
         cambiarMenu("/Center/Inicio.fxml", 2);
-
         TabInicio.setOnSelectionChanged((Event event) -> {
             cambiarMenu("/Center/Inicio.fxml", 2);
         });
         TabConfig.setOnSelectionChanged((Event event) -> {
-            ConfiguracionesController cc=(ConfiguracionesController)
-                    cambiarMenu("/Center/Configuraciones.fxml", 0);
+            ConfiguracionesController cc = (ConfiguracionesController) cambiarMenu("/Center/Configuraciones.fxml", 0);
             cc.setUsuario(usuario);
             System.out.println(usuario.toString());
-            
+
         });
         TabTest.setOnSelectionChanged((Event event) -> {
             cambiarMenu("/Center/Test.fxml", 0);
+            
         });
         TabReporte.setOnSelectionChanged((Event event) -> {
             cambiarMenu("/Center/Reportes.fxml", 0);
@@ -126,7 +127,7 @@ public class menuController implements Initializable {
         TabAyuda.setOnSelectionChanged((Event event) -> {
             cambiarMenu("/Center/Prediagnosticos.fxml", 99);
         });
-        
+
     }
 
     public void imprimir() {
@@ -169,11 +170,11 @@ public class menuController implements Initializable {
             PanelPrin.setLeft(null);
         } else {
             Parent root = null;
-            FXMLLoader fx=new FXMLLoader(getClass().getResource(menu));
+            FXMLLoader fx = new FXMLLoader(getClass().getResource(menu));
             try {
-                
+
                 root = fx.load();
-                o=fx.getController();
+                o = fx.getController();
             } catch (IOException ex) {
                 Logger.getLogger(menuController.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -191,14 +192,17 @@ public class menuController implements Initializable {
         return o;
     }
 
-    public void abrirMenu(String menu) {
+    public Object abrirMenu(String menu) {
+        Object o=null;
         try {
-            Parent root = FXMLLoader.load(getClass().getResource(menu));
+            FXMLLoader fx=new FXMLLoader(getClass().getResource(menu));
+            Parent root = fx.load();
             PanelPrin.setCenter(root);
-
+            o=fx.getController();
         } catch (IOException ex) {
             Logger.getLogger(ConfiguracionesController.class.getName()).log(Level.SEVERE, null, ex);
         }
+        return o;
     }
 
     public void cambiarTexto() {

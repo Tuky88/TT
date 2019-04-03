@@ -60,7 +60,7 @@ public class CuentaEspecialistaController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-        txtCnombre.setText("hola");
+        
     }
 
     @FXML

@@ -5,8 +5,10 @@
  */
 package com.ipn.mx.tt.util;
 
+import java.util.Optional;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
+import javafx.scene.control.Dialog;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
@@ -20,19 +22,21 @@ public class CustomMessage {
     String texto;
     String titulo;
     int tipo;
-
+    Optional<ButtonType> result;
     Image icon = new Image("/imagenes/brain.png");
 
-    public CustomMessage(String titulo,String texto, int tipo) {
+    public CustomMessage(String titulo, String texto, int tipo) {
         this.texto = texto;
         this.tipo = tipo;
-        this.titulo=titulo;
+        this.titulo = titulo;
         switch (this.tipo) {
             case 0:
                 //Mensaje
-                am = new Alert(Alert.AlertType.NONE, texto, ButtonType.OK);
+                am = new Alert(Alert.AlertType.INFORMATION, "", ButtonType.OK);
                 break;
             case 1:
+                am = new Alert(Alert.AlertType.CONFIRMATION, "");
+
                 break;
             case 2:
                 break;
@@ -44,7 +48,12 @@ public class CustomMessage {
         Stage s = (Stage) am.getDialogPane().getScene().getWindow();
         s.getIcons().add(icon);
         am.setTitle(titulo);
-        am.show();
+        am.setHeaderText(texto);
+        result = am.showAndWait();
+    }
 
+    public ButtonType getMessage() {
+
+        return result.get();
     }
 }
