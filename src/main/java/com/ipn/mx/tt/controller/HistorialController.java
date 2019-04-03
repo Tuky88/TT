@@ -29,6 +29,7 @@ public class HistorialController implements Initializable {
 
     @FXML
     private JFXTextField txtPnombre;
+
     /**
      * Initializes the controller class.
      */

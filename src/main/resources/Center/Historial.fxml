@@ -6,23 +6,28 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.paint.LinearGradient?>
 <?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane id="AnchorPane" fx:id="btnPver" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minWidth="-Infinity" prefHeight="510.0" prefWidth="1020.0" style="-fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ipn.mx.tt.controller.HistorialController">
    <children>
-      <Label alignment="CENTER" prefHeight="36.0" prefWidth="1020.0" style="-fx-background-color: #4664b5;" text="Historial" textAlignment="CENTER" textFill="WHITE">
-         <font>
-            <Font name="System Italic" size="25.0" />
-         </font>
-      </Label>
-      <Label layoutX="327.0" layoutY="74.0" text="Nombre:">
+      <Pane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="510.0" prefWidth="1020.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Label alignment="CENTER" prefHeight="36.0" prefWidth="1020.0" style="-fx-background-color: #4664b5;" text="Historial" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font name="System Italic" size="25.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Label layoutX="337.0" layoutY="84.0" text="Nombre:">
          <font>
             <Font name="Arial" size="15.0" />
          </font>
       </Label>
-      <TableView fx:id="tblPpre" layoutX="31.0" layoutY="119.0" prefHeight="307.0" prefWidth="927.0">
+      <TableView fx:id="tblPpre" layoutX="41.0" layoutY="129.0" prefHeight="307.0" prefWidth="927.0">
          <columns>
             <TableColumn prefWidth="75.0" text="Nombre" />
             <TableColumn prefWidth="75.0" text="Edad" />
@@ -30,8 +35,8 @@
             <TableColumn prefWidth="183.0" text="Trastorno prediagnósticado" />
          </columns>
       </TableView>
-      <JFXTextField fx:id="txtPnombre" layoutX="396.0" layoutY="70.0" prefHeight="25.0" prefWidth="358.0" style="-fx-background-color: #FFFFFF;" />
-      <JFXButton fx:id="btnPver" layoutX="757.0" layoutY="441.0" prefHeight="36.0" prefWidth="122.0" style="-fx-background-color: #53b1ff;" text="Ver">
+      <JFXTextField fx:id="txtPnombre" layoutX="406.0" layoutY="80.0" prefHeight="25.0" prefWidth="358.0" style="-fx-background-color: #FFFFFF;" />
+      <JFXButton fx:id="btnPver1" layoutX="767.0" layoutY="451.0" prefHeight="36.0" prefWidth="122.0" style="-fx-background-color: #53b1ff;" text="Ver">
          <ripplerFill>
             <LinearGradient endX="1.0" endY="1.0">
                <stops>
