@@ -64,7 +64,7 @@ public class LoginController implements Initializable {
                 CustomMessage cm=new CustomMessage("BIENVENIDO","Bienvenido al sistema", 0);
                 //alertMessage.alert(0, "BIENVENIDO AL SISTEMA", "BIENVENIDO: " + user.getId());
             } else {
-                //lblStatus.setText("inBIENVENIDO");
+                lblStatus.setText("inBIENVENIDO");
 
             }
         } else {
