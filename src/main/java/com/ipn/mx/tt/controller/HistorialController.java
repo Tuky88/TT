@@ -14,6 +14,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.AnchorPane;
 
 /**
  * FXML Controller class
@@ -21,14 +22,17 @@ import javafx.scene.control.TextField;
  * @author garci
  */
 public class HistorialController implements Initializable {
-  @FXML
-    private JFXButton btnPver;
+    @FXML
+    private AnchorPane btnPver;
 
     @FXML
     private TableView<?> tblPpre;
 
     @FXML
     private JFXTextField txtPnombre;
+
+    @FXML
+    private JFXButton btnPver1;
 
     /**
      * Initializes the controller class.
