@@ -108,6 +108,7 @@ public class menuController implements Initializable {
         TabConfig.setOnSelectionChanged((Event event) -> {
             ConfiguracionesController cc = (ConfiguracionesController) cambiarMenu("/Center/Configuraciones.fxml", 0);
             cc.setUsuario(usuario);
+            cc.clickInicial();
             System.out.println(usuario.toString());
 
         });

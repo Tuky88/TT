@@ -87,4 +87,9 @@ public class ConfiguracionesController implements Initializable {
         // TODO
     }
 
+    void clickInicial() {
+       // throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    this.btnCcuenta.fire();
+    }
+
 }
