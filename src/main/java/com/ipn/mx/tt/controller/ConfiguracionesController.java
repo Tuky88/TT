@@ -48,12 +48,17 @@ public class ConfiguracionesController implements Initializable {
                 abrirMenu("/Center/CuentaEspecialista.fxml");
         System.out.println(usuario.toString());
         cec.colocarDatos(usuario);
+        btnCcuenta.setDisable(true);
+        btnCañadir.setDisable(false);
         
         
     }
         @FXML
     void abrirEspecialista(ActionEvent event) {
         abrirMenu("/Center/AñadirEspecialista.fxml");
+        
+        btnCcuenta.setDisable(false);
+        btnCañadir.setDisable(true);
     }
 
     public Object abrirMenu(String menu) {

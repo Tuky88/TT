@@ -105,28 +105,84 @@ public class menuController implements Initializable {
         TabInicio.setOnSelectionChanged((Event event) -> {
             cambiarMenu("/Center/Inicio.fxml", 2);
         });
+        TabAcerca.setDisable(false);
+        TabAyuda.setDisable(false);
+        TabInicio.setDisable(true);
+        TabPrediagnostico.setDisable(false);
+        TabReporte.setDisable(false);
+        TabTest.setDisable(false);
+        TabConfig.setDisable(false);
+        TabConfig.setDisable(false);
         TabConfig.setOnSelectionChanged((Event event) -> {
             ConfiguracionesController cc = (ConfiguracionesController) cambiarMenu("/Center/Configuraciones.fxml", 0);
             cc.setUsuario(usuario);
             cc.clickInicial();
             System.out.println(usuario.toString());
+            TabAcerca.setDisable(false);
+            TabAyuda.setDisable(false);
+            TabInicio.setDisable(false);
+            TabPrediagnostico.setDisable(false);
+            TabReporte.setDisable(false);
+            TabTest.setDisable(false);
+            TabConfig.setDisable(false);
+            TabConfig.setDisable(true);
 
         });
         TabTest.setOnSelectionChanged((Event event) -> {
             cambiarMenu("/Center/Test.fxml", 0);
-            
+            TabAcerca.setDisable(false);
+            TabAyuda.setDisable(false);
+            TabInicio.setDisable(false);
+            TabPrediagnostico.setDisable(false);
+            TabReporte.setDisable(false);
+            TabTest.setDisable(false);
+            TabConfig.setDisable(false);
+            TabTest.setDisable(true);
         });
         TabReporte.setOnSelectionChanged((Event event) -> {
             cambiarMenu("/Center/Reportes.fxml", 0);
+            TabAcerca.setDisable(false);
+            TabAyuda.setDisable(false);
+            TabInicio.setDisable(false);
+            TabPrediagnostico.setDisable(false);
+            TabReporte.setDisable(false);
+            TabTest.setDisable(false);
+            TabConfig.setDisable(false);
+            TabReporte.setDisable(true);
         });
         TabPrediagnostico.setOnSelectionChanged((Event event) -> {
             cambiarMenu("/Center/Prediagnosticos.fxml", 0);
+            TabAcerca.setDisable(false);
+            TabAyuda.setDisable(false);
+            TabInicio.setDisable(false);
+            TabPrediagnostico.setDisable(false);
+            TabReporte.setDisable(false);
+            TabTest.setDisable(false);
+            TabConfig.setDisable(false);
+            TabPrediagnostico.setDisable(true);
         });
         TabAcerca.setOnSelectionChanged((Event event) -> {
             cambiarMenu("/Center/Prediagnosticos.fxml", 99);
+            TabAcerca.setDisable(false);
+            TabAyuda.setDisable(false);
+            TabInicio.setDisable(false);
+            TabPrediagnostico.setDisable(false);
+            TabReporte.setDisable(false);
+            TabTest.setDisable(false);
+            TabConfig.setDisable(false);
+            TabAcerca.setDisable(true);
+
         });
         TabAyuda.setOnSelectionChanged((Event event) -> {
             cambiarMenu("/Center/Prediagnosticos.fxml", 99);
+            TabAcerca.setDisable(false);
+            TabAyuda.setDisable(false);
+            TabInicio.setDisable(false);
+            TabPrediagnostico.setDisable(false);
+            TabReporte.setDisable(false);
+            TabTest.setDisable(false);
+            TabConfig.setDisable(false);
+            TabAyuda.setDisable(true);
         });
 
     }
@@ -194,12 +250,12 @@ public class menuController implements Initializable {
     }
 
     public Object abrirMenu(String menu) {
-        Object o=null;
+        Object o = null;
         try {
-            FXMLLoader fx=new FXMLLoader(getClass().getResource(menu));
+            FXMLLoader fx = new FXMLLoader(getClass().getResource(menu));
             Parent root = fx.load();
             PanelPrin.setCenter(root);
-            o=fx.getController();
+            o = fx.getController();
         } catch (IOException ex) {
             Logger.getLogger(ConfiguracionesController.class.getName()).log(Level.SEVERE, null, ex);
         }
