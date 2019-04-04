@@ -20,6 +20,19 @@ public class Paciente {
     String Fecha;
     String Direccion;
     String Telefono;
+    String CURP;
+
+    public String getCURP() {
+        return CURP;
+    }
+
+    public void setCURP(String CURP) {
+        this.CURP = CURP;
+    }
+
+    public Paciente() {
+        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 
     @Override
     public String toString() {
@@ -82,7 +95,7 @@ public class Paciente {
         this.Telefono = Telefono;
     }
 
-    public Paciente(String Nombre, String Apellido, String Sexo, String Correo, String Fecha, String Direccion, String Telefono) {
+    public Paciente(String Nombre, String Apellido, String Sexo, String Correo, String Fecha, String Direccion, String Telefono, String CURP) {
         this.Nombre = Nombre;
         this.Apellido = Apellido;
         this.Sexo = Sexo;
@@ -90,17 +103,18 @@ public class Paciente {
         this.Fecha = Fecha;
         this.Direccion = Direccion;
         this.Telefono = Telefono;
+        this.CURP = CURP;
     }
-    
-        public Paciente(DBObject dbo) {
+
+    public Paciente(DBObject dbo) {
         this.Nombre = (String) dbo.get("Nombre");
-        this.Apellido =(String) dbo.get("Apellido"); 
+        this.Apellido = (String) dbo.get("Apellido");
         this.Sexo = (String) dbo.get("Sexo");
-        this.Correo =(String) dbo.get("Correo"); 
+        this.Correo = (String) dbo.get("Correo");
         this.Fecha = (String) dbo.get("Fecha");
         this.Direccion = (String) dbo.get("Direccion");
-        this.Telefono =(String) dbo.get("Telefono"); 
+        this.Telefono = (String) dbo.get("Telefono");
+        this.CURP = (String) dbo.get("CURP");
     }
-    
 
 }
