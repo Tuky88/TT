@@ -10,54 +10,59 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="510.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ipn.mx.tt.controller.ConfiguracionesController">
+<AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="510.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ipn.mx.tt.controller.ConfiguracionesController">
    <children>
-      <SplitPane dividerPositions="0.5" prefHeight="510.0" prefWidth="1280.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-         <items>
-            <AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="510.0" prefWidth="260.0">
-               <children>
-                  <GridPane layoutX="6.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="510.0" prefWidth="260.0" style="-fx-background-color: #4D92DF;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                     <columnConstraints>
-                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                     </columnConstraints>
-                     <rowConstraints>
-                        <RowConstraints maxHeight="160.0" minHeight="10.0" prefHeight="62.0" vgrow="SOMETIMES" />
-                        <RowConstraints maxHeight="235.0" minHeight="10.0" prefHeight="60.0" vgrow="SOMETIMES" />
-                        <RowConstraints maxHeight="235.0" minHeight="10.0" prefHeight="70.0" vgrow="SOMETIMES" />
-                        <RowConstraints maxHeight="235.0" minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES" />
-                        <RowConstraints maxHeight="235.0" minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES" />
-                        <RowConstraints maxHeight="235.0" minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES" />
-                        <RowConstraints maxHeight="372.0" minHeight="10.0" prefHeight="222.0" vgrow="SOMETIMES" />
-                     </rowConstraints>
+      <BorderPane prefHeight="510.0" prefWidth="1280.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <center>
+            <SplitPane dividerPositions="0.5" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="510.0" prefWidth="1280.0" BorderPane.alignment="CENTER">
+               <items>
+                  <AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="510.0" prefWidth="260.0" SplitPane.resizableWithParent="false">
                      <children>
-                        <JFXTextField editable="false" focusTraversable="false" prefHeight="60.0" prefWidth="235.0" style="-fx-background-color: #FFFFFF;" text="Configuraciones" GridPane.rowIndex="1">
-                           <font>
-                              <Font name="Century Gothic" size="23.0" />
-                           </font>
-                        </JFXTextField>
-                        <JFXButton fx:id="btnCcuenta" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#abrirCuenta" prefHeight="40.0" prefWidth="261.0" style="-fx-background-color: #FFFFFF;" text="Cuenta" GridPane.rowIndex="3">
-                           <font>
-                              <Font name="Arial" size="15.0" />
-                           </font>
-                        </JFXButton>
-                        <JFXButton fx:id="btnCañadir" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#abrirEspecialista" prefHeight="40.0" prefWidth="261.0" style="-fx-background-color: #FFFFFF;" text="Añadir especialista" GridPane.rowIndex="5">
-                           <font>
-                              <Font size="15.0" />
-                           </font>
-                        </JFXButton>
+                        <GridPane layoutX="6.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="510.0" prefWidth="260.0" style="-fx-background-color: #4D92DF;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <columnConstraints>
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints maxHeight="160.0" minHeight="10.0" prefHeight="62.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="235.0" minHeight="10.0" prefHeight="60.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="235.0" minHeight="10.0" prefHeight="70.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="235.0" minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="235.0" minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="235.0" minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="372.0" minHeight="10.0" prefHeight="222.0" vgrow="SOMETIMES" />
+                           </rowConstraints>
+                           <children>
+                              <JFXTextField editable="false" focusTraversable="false" prefHeight="60.0" prefWidth="235.0" style="-fx-background-color: #FFFFFF;" text="Configuraciones" GridPane.rowIndex="1">
+                                 <font>
+                                    <Font name="Century Gothic" size="23.0" />
+                                 </font>
+                              </JFXTextField>
+                              <JFXButton fx:id="btnCcuenta" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#abrirCuenta" prefHeight="40.0" prefWidth="261.0" style="-fx-background-color: #FFFFFF;" text="Cuenta" GridPane.rowIndex="3">
+                                 <font>
+                                    <Font name="Arial" size="15.0" />
+                                 </font>
+                              </JFXButton>
+                              <JFXButton fx:id="btnCañadir" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#abrirEspecialista" prefHeight="40.0" prefWidth="261.0" style="-fx-background-color: #FFFFFF;" text="Añadir especialista" GridPane.rowIndex="5">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font>
+                              </JFXButton>
+                           </children>
+                        </GridPane>
                      </children>
-                  </GridPane>
-               </children>
-            </AnchorPane>
-            <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="510.0" prefWidth="1020.0">
-               <children>
-                  <BorderPane fx:id="panelRight" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="510.0" prefWidth="1020.0" style="-fx-background-color: #FFFFFF;">
-                     <center>
-                        <fx:include source="CuentaEspecialista.fxml" />
-                     </center></BorderPane>
-               </children>
-            </AnchorPane>
-         </items>
-      </SplitPane>
+                  </AnchorPane>
+                  <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="510.0" prefWidth="1020.0" style="-fx-background-color: #FFFFFF;">
+                     <children>
+                        <BorderPane fx:id="panelRight" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="510.0" prefWidth="1020.0" style="-fx-background-color: #FFFFFF;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <center>
+                              <fx:include source="CuentaEspecialista.fxml" />
+                           </center>
+                        </BorderPane>
+                     </children>
+                  </AnchorPane>
+               </items>
+            </SplitPane>
+         </center>
+      </BorderPane>
    </children>
 </AnchorPane>

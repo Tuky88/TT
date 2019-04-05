@@ -34,8 +34,9 @@
                               <TableColumn fx:id="tblRrecomendaciones" prefWidth="582.0" text="Recomendaciones" />
                            </columns>
                         </TableView>
-                        <JFXButton fx:id="btnRimprimir" layoutX="130.0" layoutY="456.0" prefHeight="31.0" prefWidth="92.0" style="-fx-background-color: #9FB4AE;" text="Imprimir" />
+                        <JFXButton fx:id="btnRimprimir" layoutX="130.0" layoutY="459.0" prefHeight="31.0" prefWidth="92.0" style="-fx-background-color: #9FB4AE;" text="Imprimir" />
                         <JFXButton fx:id="btnRenviarcorreo" layoutX="253.0" layoutY="459.0" prefHeight="31.0" prefWidth="118.0" style="-fx-background-color: #FECD7C;" text="Enviar por correo" />
+                        <JFXButton fx:id="btnRcerrar" layoutX="720.0" layoutY="459.0" prefHeight="31.0" prefWidth="83.0" ripplerFill="#e26363c9" style="-fx-background-color: #e26363;" text="Cerrar" />
                      </children>
                   </Pane>
                </children>

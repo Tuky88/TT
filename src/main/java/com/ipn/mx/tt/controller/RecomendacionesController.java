@@ -37,6 +37,9 @@ public class RecomendacionesController implements Initializable {
 
     @FXML
     private JFXButton btnRenviarcorreo;
+    
+    @FXML
+    private JFXButton btnRcerrar;
     /**
      * Initializes the controller class.
      */
