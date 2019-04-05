@@ -9,6 +9,7 @@
 <?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.Pane?>
@@ -63,27 +64,30 @@
                                     <Font size="16.0" />
                                  </font>
                               </JFXButton>
-                              <JFXRadioButton fx:id="rbtnTEoca" layoutX="251.0" layoutY="267.0" text="Ocasionalmente">
-                                 <font>
-                                    <Font size="15.0" />
-                                 </font>
-                              </JFXRadioButton>
-                              <JFXRadioButton fx:id="rbtnTEsiempre" layoutX="653.0" layoutY="268.0" text="Siempre">
-                                 <font>
-                                    <Font size="15.0" />
-                                 </font>
-                              </JFXRadioButton>
                               <JFXRadioButton fx:id="rbtnTEnunca" layoutX="147.0" layoutY="268.0" text="Nunca">
                                  <font>
                                     <Font size="15.0" />
                                  </font>
+                                 <toggleGroup>
+                                    <ToggleGroup fx:id="grupoPregunta" />
+                                 </toggleGroup>
                               </JFXRadioButton>
-                              <JFXRadioButton fx:id="rbtnTEavc" layoutX="401.0" layoutY="267.0" text="A veces">
+                              <JFXRadioButton fx:id="rbtnTEoca" layoutX="251.0" layoutY="267.0" text="Ocasionalmente" toggleGroup="$grupoPregunta">
                                  <font>
                                     <Font size="15.0" />
                                  </font>
                               </JFXRadioButton>
-                              <JFXRadioButton fx:id="rbtnTEcs" layoutX="519.0" layoutY="267.0" text="Casi siempre">
+                              <JFXRadioButton fx:id="rbtnTEavc" layoutX="401.0" layoutY="267.0" text="A veces" toggleGroup="$grupoPregunta">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font>
+                              </JFXRadioButton>
+                              <JFXRadioButton fx:id="rbtnTEcs" layoutX="519.0" layoutY="267.0" text="Casi siempre" toggleGroup="$grupoPregunta">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font>
+                              </JFXRadioButton>
+                              <JFXRadioButton fx:id="rbtnTEsiempre" layoutX="653.0" layoutY="268.0" text="Siempre" toggleGroup="$grupoPregunta">
                                  <font>
                                     <Font size="15.0" />
                                  </font>

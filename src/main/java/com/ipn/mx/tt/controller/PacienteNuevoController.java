@@ -9,13 +9,18 @@ import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXDatePicker;
 import com.jfoenix.controls.JFXRadioButton;
 import com.jfoenix.controls.JFXTextField;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
+import javafx.scene.layout.AnchorPane;
 
 /**
  * FXML Controller class
@@ -24,12 +29,24 @@ import javafx.scene.control.ButtonType;
  */
 public class PacienteNuevoController implements Initializable {
 
+    menuController c;
+    
+
+    public menuController getC() {
+        return c;
+    }
+
+    public void setC(menuController c) {
+        this.c = c;
+    }
     @FXML
     private JFXButton btnPnregistrar;
 
     @FXML
     private JFXTextField txtPnnombre;
 
+    @FXML
+    private AnchorPane panelP;
     @FXML
     private JFXTextField txtPnapellido;
 
@@ -56,13 +73,22 @@ public class PacienteNuevoController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        
+
         // TODO
     }
 
     @FXML
     void registrarPaciente(ActionEvent event) {
-        Alert a = new Alert(Alert.AlertType.NONE, datePn.getValue().toString(), ButtonType.OK);
-        a.show();
+        try {
+            FXMLLoader fx = new FXMLLoader(getClass().getResource("/Center/ComenzarTest.fxml"));
+            
+            AnchorPane ap = fx.load();
+            c.getPanelPrin().setCenter(ap);
+            c.getPanelPrin().setLeft(null);
+            ComenzarTestController ctc=(ComenzarTestController) fx.getController();
+            ctc.setC(c);
+        } catch (IOException ex) {
+            Logger.getLogger(PacienteNuevoController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 }

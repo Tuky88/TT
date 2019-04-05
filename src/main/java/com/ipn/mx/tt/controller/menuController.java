@@ -129,7 +129,9 @@ public class menuController implements Initializable {
 
         });
         TabTest.setOnSelectionChanged((Event event) -> {
-            cambiarMenu("/Center/Test.fxml", 0);
+            TestController tc= (TestController) cambiarMenu("/Center/Test.fxml", 0);
+            tc.setC(this);
+            tc.clickMenu();
             TabAcerca.setDisable(false);
             TabAyuda.setDisable(false);
             TabInicio.setDisable(false);
@@ -247,6 +249,14 @@ public class menuController implements Initializable {
 
         }
         return o;
+    }
+
+    public BorderPane getPanelPrin() {
+        return PanelPrin;
+    }
+
+    public void setPanelPrin(BorderPane PanelPrin) {
+        this.PanelPrin = PanelPrin;
     }
 
     public Object abrirMenu(String menu) {

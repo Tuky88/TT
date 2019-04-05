@@ -4,6 +4,7 @@
 <?import com.jfoenix.controls.JFXRadioButton?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -58,23 +59,26 @@
                            <font>
                               <Font size="15.0" />
                            </font>
+                           <toggleGroup>
+                              <ToggleGroup fx:id="grupoPregunta" />
+                           </toggleGroup>
                         </JFXRadioButton>
-                        <JFXRadioButton fx:id="rbtnTPsiempre" layoutX="716.0" layoutY="268.0" text="Siempre">
+                        <JFXRadioButton fx:id="rbtnTPsiempre" layoutX="716.0" layoutY="268.0" text="Siempre" toggleGroup="$grupoPregunta">
                            <font>
                               <Font size="15.0" />
                            </font>
                         </JFXRadioButton>
-                        <JFXRadioButton fx:id="rbtnTPnunca" layoutX="210.0" layoutY="268.0" text="Nunca">
+                        <JFXRadioButton fx:id="rbtnTPnunca" layoutX="210.0" layoutY="268.0" text="Nunca" toggleGroup="$grupoPregunta">
                            <font>
                               <Font size="15.0" />
                            </font>
                         </JFXRadioButton>
-                        <JFXRadioButton fx:id="rbtnTPavc" layoutX="464.0" layoutY="267.0" text="A veces">
+                        <JFXRadioButton fx:id="rbtnTPavc" layoutX="464.0" layoutY="267.0" text="A veces" toggleGroup="$grupoPregunta">
                            <font>
                               <Font size="15.0" />
                            </font>
                         </JFXRadioButton>
-                        <JFXRadioButton fx:id="rbtnTPcs" layoutX="582.0" layoutY="267.0" text="Casi siempre">
+                        <JFXRadioButton fx:id="rbtnTPcs" layoutX="582.0" layoutY="267.0" text="Casi siempre" toggleGroup="$grupoPregunta">
                            <font>
                               <Font size="15.0" />
                            </font>

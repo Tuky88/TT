@@ -16,9 +16,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
-import javafx.scene.control.Button;
 import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.Pane;
 
 /**
  * FXML Controller class
@@ -26,7 +24,16 @@ import javafx.scene.layout.Pane;
  * @author garci
  */
 public class TestController implements Initializable {
+ menuController  c;
 
+    public menuController getC() {
+        return c;
+    }
+
+    public void setC(menuController c) {
+        this.c = c;
+    }
+ 
     @FXML
     private JFXButton btnTpacientenuevo;
 
@@ -38,9 +45,15 @@ public class TestController implements Initializable {
 
     @FXML
     void abrirPacienteN(ActionEvent event) {
-        abrirMenu("/Center/PacienteNuevo.fxml");
+        PacienteNuevoController pnc= (PacienteNuevoController) abrirMenu("/Center/PacienteNuevo.fxml");
+        pnc.setC(c);
+        
     }
 
+    public void clickMenu()
+    {
+        btnTpacientenuevo.fire();
+    }
     @FXML
     void abrirPacienteR(ActionEvent event) {
         abrirMenu("/Center/PacienteConRegistro.fxml");
@@ -52,13 +65,16 @@ public class TestController implements Initializable {
         // TODO
     }
 
-    public void abrirMenu(String menu) {
+    public Object abrirMenu(String menu) {
+        Object o = null;
         try {
-            Parent root = FXMLLoader.load(getClass().getResource(menu));
+            FXMLLoader fx = new FXMLLoader(getClass().getResource(menu));
+            Parent root = fx.load();
             panelRight.setCenter(root);
-
+            o = fx.getController();
         } catch (IOException ex) {
             Logger.getLogger(ConfiguracionesController.class.getName()).log(Level.SEVERE, null, ex);
         }
+        return o;
     }
 }

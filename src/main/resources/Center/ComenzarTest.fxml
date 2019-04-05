@@ -51,7 +51,7 @@
                                     <Font name="Arial" size="20.0" />
                                  </font>
                               </Label>
-                              <JFXButton fx:id="btnTespecialista" layoutX="445.0" layoutY="146.0" text="Especialista">
+                              <JFXButton fx:id="btnTespecialista" layoutX="445.0" layoutY="146.0" onAction="#abrirEspecialista" text="Especialista">
                                  <font>
                                     <Font name="Baskerville Old Face" size="25.0" />
                                  </font>
@@ -64,7 +64,7 @@
                                     </LinearGradient>
                                  </ripplerFill>
                               </JFXButton>
-                              <JFXButton fx:id="btnTpaciente" layoutX="460.0" layoutY="221.0" text="Paciente">
+                              <JFXButton fx:id="btnTpaciente" layoutX="460.0" layoutY="221.0" onAction="#abrirPaciente" text="Paciente">
                                  <font>
                                     <Font name="Baskerville Old Face" size="25.0" />
                                  </font>
@@ -77,7 +77,7 @@
                                     </LinearGradient>
                                  </ripplerFill>
                               </JFXButton>
-                              <JFXButton fx:id="btnTacompañante" layoutX="433.0" layoutY="296.0" text="Acompañante">
+                              <JFXButton fx:id="btnTacompañante" layoutX="433.0" layoutY="296.0" onAction="#abirAcompañante" text="Acompañante">
                                  <font>
                                     <Font name="Baskerville Old Face" size="25.0" />
                                  </font>
