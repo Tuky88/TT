@@ -80,7 +80,8 @@ public class UsuarioDAO {
         cjm.conectar();
         if (usuarioExiste(text.getId())) {
             DBObject query = new BasicDBObject("_id", text.getId());
-            cjm.getMongoCollection().update(query, new BasicDBObject("$set",
+            cjm.getMongoCollection().update(query, new BasicDBObject("$"
+                    + "set",
                     new BasicDBObject("Nombre", text.getNombre())
                             .append("Apellido", text.getApellido())
                             .append("Correo", text.getCorreo())

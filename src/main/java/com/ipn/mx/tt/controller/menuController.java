@@ -164,7 +164,7 @@ public class menuController implements Initializable {
             TabPrediagnostico.setDisable(true);
         });
         TabAcerca.setOnSelectionChanged((Event event) -> {
-            cambiarMenu("/Center/Prediagnosticos.fxml", 99);
+            cambiarMenu("/Center/Inicio.fxml", 2);
             TabAcerca.setDisable(false);
             TabAyuda.setDisable(false);
             TabInicio.setDisable(false);
@@ -176,7 +176,7 @@ public class menuController implements Initializable {
 
         });
         TabAyuda.setOnSelectionChanged((Event event) -> {
-            cambiarMenu("/Center/Prediagnosticos.fxml", 99);
+            cambiarMenu("/Center/Inicio.fxml", 2);
             TabAcerca.setDisable(false);
             TabAyuda.setDisable(false);
             TabInicio.setDisable(false);
@@ -238,12 +238,15 @@ public class menuController implements Initializable {
                 Logger.getLogger(menuController.class.getName()).log(Level.SEVERE, null, ex);
             }
             if (tipo == 1) {
+                PanelPrin.setCenter(null);
                 PanelPrin.setCenter(root);
             }
             if (tipo == 2) {
+                PanelPrin.setCenter(null);
                 PanelPrin.setCenter(root);
                 PanelPrin.setLeft(null);
             } else {
+                PanelPrin.setCenter(null);
                 PanelPrin.setLeft(root);
             }
 
@@ -264,6 +267,7 @@ public class menuController implements Initializable {
         try {
             FXMLLoader fx = new FXMLLoader(getClass().getResource(menu));
             Parent root = fx.load();
+            PanelPrin.setCenter(null);
             PanelPrin.setCenter(root);
             o = fx.getController();
         } catch (IOException ex) {
