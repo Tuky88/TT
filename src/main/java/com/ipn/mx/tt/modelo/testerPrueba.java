@@ -33,7 +33,7 @@ public class testerPrueba {
             while ((linea = br.readLine()) != null) {
                 String[] div=linea.split("//");
                 System.out.println(div[0] +"----"+ div[1]);
-                pd.insertarPregunta(new Pregunta(div[0], div[1]));
+                pd.insertarPregunta(new Pregunta(Integer.valueOf(div[0]), div[1]));
             }
             pd.cjm.cerrarConexion();
         } catch (FileNotFoundException ex) {

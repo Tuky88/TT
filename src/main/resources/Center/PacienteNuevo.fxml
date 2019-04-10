@@ -12,7 +12,7 @@
 
 <AnchorPane id="AnchorPane" fx:id="panelP" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="510.0" prefWidth="1020.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ipn.mx.tt.controller.PacienteNuevoController">
    <children>
-      <Pane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="510.0" prefWidth="1020.0" style="-fx-background-color: #FFFFFF;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <Pane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="535.0" prefWidth="1020.0" style="-fx-background-color: #FFFFFF;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <Label alignment="CENTER" layoutX="-3.0" prefHeight="36.0" prefWidth="1020.0" style="-fx-background-color: #4664b5;" text="Paciente Nuevo " textAlignment="CENTER" textFill="WHITE">
                <font>
@@ -54,9 +54,9 @@
                   <Font name="Century Gothic" size="14.0" />
                </font>
             </JFXButton>
+            <JFXTextField fx:id="txtPnCURP" layoutX="399.0" layoutY="74.0" prefHeight="25.0" prefWidth="263.0" style="-fx-background-color: #FFFFFF;" />
             <JFXTextField fx:id="txtPnnombre" layoutX="400.0" layoutY="112.0" prefHeight="25.0" prefWidth="263.0" style="-fx-background-color: #FFFFFF;" />
             <JFXTextField fx:id="txtPnapellido" layoutX="400.0" layoutY="159.0" prefHeight="25.0" prefWidth="263.0" style="-fx-background-color: #FFFFFF;" />
-            <JFXTextField fx:id="txtPncorreo" layoutX="400.0" layoutY="237.0" prefHeight="25.0" prefWidth="263.0" style="-fx-background-color: #FFFFFF;" />
             <Label layoutX="250.0" layoutY="203.0" text="Sexo:">
                <font>
                   <Font name="Arial" size="15.0" />
@@ -67,9 +67,15 @@
                   <ToggleGroup fx:id="grupoPregunta" />
                </toggleGroup></JFXRadioButton>
             <JFXRadioButton fx:id="rbPmasculino" layoutX="442.0" layoutY="203.0" text="Masculino" toggleGroup="$grupoPregunta" />
-            <JFXDatePicker fx:id="datePn" defaultColor="#4664b5" layoutX="400.0" layoutY="278.0" style="-fx-background-color: #FFFFFF;" />
+            <JFXTextField fx:id="txtPncorreo" layoutX="400.0" layoutY="237.0" prefHeight="25.0" prefWidth="263.0" style="-fx-background-color: #FFFFFF;" />
+            <JFXDatePicker fx:id="datePn" defaultColor="#4664b5" layoutX="400.0" layoutY="278.0" prefHeight="25.0" prefWidth="263.0" style="-fx-background-color: #FFFFFF;" />
             <JFXTextField fx:id="txtPndireccion" layoutX="400.0" layoutY="320.0" prefHeight="25.0" prefWidth="263.0" style="-fx-background-color: #FFFFFF;" />
             <JFXTextField fx:id="txtPntelefono" layoutX="400.0" layoutY="365.0" prefHeight="25.0" prefWidth="263.0" style="-fx-background-color: #FFFFFF;" />
+            <Label layoutX="252.0" layoutY="78.0" text="CURP:">
+               <font>
+                  <Font name="Arial" size="15.0" />
+               </font>
+            </Label>
          </children>
       </Pane>
    </children>

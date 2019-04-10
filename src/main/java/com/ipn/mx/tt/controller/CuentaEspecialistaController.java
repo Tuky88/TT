@@ -60,7 +60,7 @@ public class CuentaEspecialistaController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-        
+
     }
 
     @FXML
@@ -68,8 +68,8 @@ public class CuentaEspecialistaController implements Initializable {
 
         try {
             FXMLLoader fx = new FXMLLoader(getClass().getResource("/Center/Cambiarcontra.fxml"));
-            AnchorPane ap=fx.load();
-            CambiarcontraController cc=(CambiarcontraController) fx.getController();
+            AnchorPane ap = fx.load();
+            CambiarcontraController cc = (CambiarcontraController) fx.getController();
             cc.setUsuario(u);
             panelP.getChildren().setAll(ap);
         } catch (IOException ex) {

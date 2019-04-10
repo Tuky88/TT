@@ -5,6 +5,7 @@
  */
 package com.ipn.mx.tt.controller;
 
+import com.ipn.mx.tt.util.cargadorVista;
 import com.jfoenix.controls.JFXButton;
 import java.io.IOException;
 import java.net.URL;
@@ -26,6 +27,7 @@ import javafx.scene.layout.BorderPane;
 public class ComenzarTestController implements Initializable {
 
     menuController c;
+    cargadorVista cv;
 
     public menuController getC() {
         return c;
@@ -53,31 +55,34 @@ public class ComenzarTestController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+        cv = new cargadorVista();
     }
 
-    public void cargarMenu(String menu) {
-        try {
-            FXMLLoader fx = new FXMLLoader(getClass().getResource(menu));
-            AnchorPane bp = fx.load();
-            c.getPanelPrin().setCenter(bp);
-        } catch (IOException ex) {
-            Logger.getLogger(ComenzarTestController.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
+
 
     @FXML
     void abirAcompañante(ActionEvent event) {
-        cargarMenu("/Center/TestPaciente.fxml");
+
+        TestPacienteController tpc
+                = (TestPacienteController) cv.cambiarVista("/Center/TestPaciente.fxml", c.getPanelPrin());
+        tpc.setMc(c);
     }
 
     @FXML
     void abrirEspecialista(ActionEvent event) {
-        cargarMenu("/Center/TestEspecialista.fxml");
+
+        TestEspecialistaController tec
+                = (TestEspecialistaController) cv.cambiarVista("/Center/TestEspecialista.fxml", c.getPanelPrin());
+        tec.setMc(c);
+        tec.iniciarTest();
+        
     }
 
     @FXML
     void abrirPaciente(ActionEvent event) {
-        cargarMenu("/Center/TestPaciente.fxml");
+        TestPacienteController tpc
+                = (TestPacienteController) cv.cambiarVista("/Center/TestPaciente.fxml", c.getPanelPrin());
+        tpc.setMc(c);
     }
 
 }

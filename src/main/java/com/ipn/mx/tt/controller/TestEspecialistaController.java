@@ -5,6 +5,8 @@
  */
 package com.ipn.mx.tt.controller;
 
+import com.ipn.mx.tt.dao.PreguntaDAO;
+import com.ipn.mx.tt.modelo.Pregunta;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXRadioButton;
 import java.net.URL;
@@ -27,7 +29,9 @@ import javafx.scene.media.MediaView;
  * @author garci
  */
 public class TestEspecialistaController implements Initializable {
-  @FXML
+
+    menuController mc;
+    @FXML
     private TableView<?> listTEpreguntas;
 
     @FXML
@@ -66,6 +70,19 @@ public class TestEspecialistaController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-    }    
-    
+    }
+
+    public void cargarPregunta(Pregunta p) {
+        lblTEpregunta.setText(p.getId() + ".-" + p.getTexto());
+    }
+
+    void setMc(menuController c) {
+        mc=c;
+    }
+
+    void iniciarTest() {
+        PreguntaDAO pd = new PreguntaDAO();
+        pd.cjm.conectar();
+        cargarPregunta(pd.getPregunta(1));
+    }
 }

@@ -5,6 +5,8 @@
  */
 package com.ipn.mx.tt.controller;
 
+import com.ipn.mx.tt.dao.PreguntaDAO;
+import com.ipn.mx.tt.modelo.Pregunta;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXRadioButton;
 import java.net.URL;
@@ -22,7 +24,20 @@ import javafx.scene.layout.Pane;
  * @author garci
  */
 public class TestPacientePreguntasController implements Initializable {
-  @FXML
+
+    menuController mc;
+
+    public menuController getMc() {
+        return mc;
+    }
+
+    public void setMc(menuController mc) {
+        this.mc = mc;
+    }
+
+   
+    
+    @FXML
     private Label lblTPpregunta;
 
     @FXML
@@ -42,12 +57,23 @@ public class TestPacientePreguntasController implements Initializable {
 
     @FXML
     private JFXRadioButton rbtnTPcs;
+
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-    }    
-    
+    }
+
+    public void cargarPregunta(Pregunta p)
+    {
+        lblTPpregunta.setText(p.getId()+".-"+p.getTexto());
+    }
+    void iniciarTest() {
+        PreguntaDAO pd=new PreguntaDAO();
+        pd.cjm.conectar();
+        cargarPregunta(pd.getPregunta(1));
+    }
+
 }

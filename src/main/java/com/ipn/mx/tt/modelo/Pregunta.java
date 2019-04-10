@@ -12,29 +12,29 @@ import com.mongodb.DBObject;
  * @author Axel Reyes
  */
 public class Pregunta {
-    String Id;
+    int Id;
     String Texto;
 
-    public Pregunta(String Id, String Texto) {
+    public Pregunta(int Id, String Texto) {
         this.Id = Id;
         this.Texto = Texto;
     }
 
     public Pregunta() {
     Texto="";
-    Id="";
+    Id=0;
     }
     
     public Pregunta(DBObject dbo)
     {
-        Id=(String)dbo.get("_idPregunta");
+        Id=(int)dbo.get("_idPregunta");
         Texto=(String)dbo.get("texto");
     }
-    public String getId() {
+    public int getId() {
         return Id;
     }
 
-    public void setId(String Id) {
+    public void setId(int Id) {
         this.Id = Id;
     }
 

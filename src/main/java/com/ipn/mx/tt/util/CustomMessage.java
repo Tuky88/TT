@@ -39,6 +39,7 @@ public class CustomMessage {
 
                 break;
             case 2:
+                am = new Alert(Alert.AlertType.ERROR, "");
                 break;
             case 3:
                 break;

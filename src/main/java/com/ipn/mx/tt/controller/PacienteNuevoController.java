@@ -5,12 +5,18 @@
  */
 package com.ipn.mx.tt.controller;
 
+import com.ipn.mx.tt.dao.PacienteDAO;
+import com.ipn.mx.tt.modelo.Paciente;
+import com.ipn.mx.tt.util.CustomMessage;
+import com.ipn.mx.tt.util.Validador;
+import com.ipn.mx.tt.util.cargadorVista;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXDatePicker;
 import com.jfoenix.controls.JFXRadioButton;
 import com.jfoenix.controls.JFXTextField;
 import java.io.IOException;
 import java.net.URL;
+import java.time.format.DateTimeFormatter;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -30,7 +36,7 @@ import javafx.scene.layout.AnchorPane;
 public class PacienteNuevoController implements Initializable {
 
     menuController c;
-    
+    Validador validador;
 
     public menuController getC() {
         return c;
@@ -39,6 +45,8 @@ public class PacienteNuevoController implements Initializable {
     public void setC(menuController c) {
         this.c = c;
     }
+    @FXML
+    private JFXTextField txtPnCURP;
     @FXML
     private JFXButton btnPnregistrar;
 
@@ -71,24 +79,55 @@ public class PacienteNuevoController implements Initializable {
     /**
      * Initializes the controller class.
      */
+    cargadorVista cv;
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
 
+        validador = new Validador();
+        cv = new cargadorVista();
         // TODO
+    }
+
+    public void hacerCuestionario(Paciente p) {
+        ComenzarTestController ctc = (ComenzarTestController) 
+                cv.cambiarVista("/Center/ComenzarTest.fxml", c.getPanelPrin());
+        ctc.setC(c);
+    }
+
+    void registrarPaciente(Paciente p) {
+        PacienteDAO pd = new PacienteDAO();
+        pd.insertarPaciente(p);
     }
 
     @FXML
     void registrarPaciente(ActionEvent event) {
-        try {
-            FXMLLoader fx = new FXMLLoader(getClass().getResource("/Center/ComenzarTest.fxml"));
-            
-            AnchorPane ap = fx.load();
-            c.getPanelPrin().setCenter(ap);
-            c.getPanelPrin().setLeft(null);
-            ComenzarTestController ctc=(ComenzarTestController) fx.getController();
-            ctc.setC(c);
-        } catch (IOException ex) {
-            Logger.getLogger(PacienteNuevoController.class.getName()).log(Level.SEVERE, null, ex);
+
+        String Nombre = validador.validarTF(txtPnnombre),
+                Apellido = validador.validarTF(txtPnapellido),
+                Sexo,
+                Correo = validador.validarTF(txtPncorreo),
+                Fecha = validador.validarDP(datePn),
+                Direccion = validador.validarTF(txtPndireccion),
+                Telefono = validador.validarTF(txtPntelefono),
+                CURP = validador.validarTF(txtPnCURP);
+        if (rbPfemenino.isSelected()) {
+            Sexo = "F";
+        } else {
+            Sexo = "M";
         }
+        if (!Nombre.equals("") && !Apellido.equals("") && !CURP.equals("") && !Correo.equals("") && !Fecha.equals("")
+                && !Direccion.equals("") && !Telefono.equals("")) {
+
+            Paciente p = new Paciente(Nombre, Apellido, Sexo, Correo, Fecha, Direccion, Telefono, CURP);
+            registrarPaciente(p);
+            hacerCuestionario(p);
+
+        } else {
+            CustomMessage cm = new CustomMessage("ERROR", "Hubo un error en alguno de los campos...", 2);
+
+        }
+        hacerCuestionario(new Paciente());
     }
+
 }

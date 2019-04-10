@@ -18,9 +18,9 @@ import java.nio.charset.Charset;
  * @author Axel Reyes
  */
 public class PreguntaDAO {
-    
-    private Charset UTF_8= Charset.forName("UTF-8");
-    private Charset ISO= Charset.forName("ISO-8859-1");
+
+    private Charset UTF_8 = Charset.forName("UTF-8");
+    private Charset ISO = Charset.forName("ISO-8859-1");
     public ConexionJavaMongo cjm;
     String base, coleccion;
 
@@ -40,7 +40,7 @@ public class PreguntaDAO {
 
     public DBObject convertirPregunta(Pregunta p) {
 
-        String pregunta=new String(p.getTexto().getBytes(ISO),UTF_8);
+        String pregunta = new String(p.getTexto().getBytes(ISO), UTF_8);
         return new BasicDBObject("_idPregunta", p.getId()).append("pregunta", pregunta);
 
     }
@@ -49,6 +49,21 @@ public class PreguntaDAO {
 
         cjm.getMongoCollection().insert(convertirPregunta(p));
         System.out.println("Registro Agregado con éxito");
-       
+
+    }
+
+    public Pregunta getPregunta(int i) {
+
+        DBObject query = new BasicDBObject("_idPregunta", i);
+        DBCursor cursor = cjm.getMongoCollection().find(query);
+        Pregunta p;
+        if (cursor.hasNext()) {
+            DBObject jo = cursor.one();
+            p = new Pregunta(jo);
+        } else {
+            p = new Pregunta();
+        }
+
+        return p;
     }
 }
