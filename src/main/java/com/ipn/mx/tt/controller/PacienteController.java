@@ -47,7 +47,8 @@ public class PacienteController implements Initializable {
     void abrirPacienteN(ActionEvent event) {
         PacienteNuevoController pnc= (PacienteNuevoController) abrirMenu("/Center/PacienteNuevo.fxml");
         pnc.setC(c);
-        
+        btnTpacienteregistrado.setDisable(false);
+        btnTpacientenuevo.setDisable(true);
     }
 
     public void clickMenu()
@@ -57,6 +58,8 @@ public class PacienteController implements Initializable {
     @FXML
     void abrirPacienteR(ActionEvent event) {
         abrirMenu("/Center/PacienteConRegistro.fxml");
+        btnTpacienteregistrado.setDisable(true);
+        btnTpacientenuevo.setDisable(false);
     }
 
     @Override

@@ -9,6 +9,7 @@ import com.ipn.mx.tt.dao.PreguntaDAO;
 import com.ipn.mx.tt.modelo.Pregunta;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXRadioButton;
+import com.jfoenix.controls.JFXTextArea;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
@@ -19,7 +20,10 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.ScrollBar;
+import javafx.scene.control.ScrollPane;
+import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextArea;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
@@ -35,8 +39,7 @@ public class TestEspecialistaController implements Initializable {
 
     PreguntaDAO pd;
     menuController mc;
-    @FXML
-    private TableView<?> listTEpreguntas;
+  
     @FXML
     private GridPane  gridPane;
     @FXML
@@ -46,7 +49,7 @@ public class TestEspecialistaController implements Initializable {
     private BorderPane panelRight;
 
     @FXML
-    private Label lblTEpregunta;
+    private JFXTextArea txtpregunta;
 
     @FXML
     private ProgressBar pbTEprogeso;
@@ -68,6 +71,11 @@ public class TestEspecialistaController implements Initializable {
 
     @FXML
     private JFXRadioButton rbtnTEcs;
+    
+    @FXML
+    private ScrollPane scrollE;
+    
+ 
 
     private int contadorPreguntas;
     /**
@@ -96,7 +104,7 @@ public class TestEspecialistaController implements Initializable {
     }
 
     public void cargarPregunta(Pregunta p) {
-        lblTEpregunta.setText(p.getId() + ".-" + p.getTexto());
+        txtpregunta.setText(p.getId() + ".-" + p.getTexto());
     }
 
     void setMc(menuController c) {
@@ -111,19 +119,23 @@ public class TestEspecialistaController implements Initializable {
 
     public void registroPregunta(String t, String r) {
         GridPane p = new GridPane();
-        Label pregunta = new Label(t);
+        TextArea pregunta = new TextArea(t);
         Label respuesta = new Label(r);
+        pregunta.setWrapText(true);
         p.addRow(0, pregunta);
         p.addRow(1, respuesta);
        int posicion=gridPane.impl_getRowCount();
         gridPane.addRow(posicion, p);
+        scrollE.setContent(gridPane);
+        scrollE.setVbarPolicy(ScrollPane.ScrollBarPolicy.AS_NEEDED);
+        scrollE.setPannable(true);
 
     }
 
     void contestarPregunta(int valor) {
 
         //AGREGAR A LA VISTA
-        registroPregunta(lblTEpregunta.getText(),getRespuesta(valor));
+        registroPregunta(txtpregunta.getText(),getRespuesta(valor));
         //SUMAR AL CUESTIONARIO 
         contadorPreguntas++;
         //TRAER NUEVA PREGUNTA

@@ -9,11 +9,13 @@ import com.ipn.mx.tt.dao.PreguntaDAO;
 import com.ipn.mx.tt.modelo.Pregunta;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXRadioButton;
+import com.jfoenix.controls.JFXTextArea;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
+import javafx.scene.control.ToggleGroup;
 
 /**
  * FXML Controller class
@@ -34,14 +36,11 @@ public class TestPacientePreguntasController implements Initializable {
 
    
     
-    @FXML
-    private Label lblTPpregunta;
-
-    @FXML
-    private JFXButton btnTPsiguiente;
-
-    @FXML
+      @FXML
     private JFXRadioButton rbtnTPoca;
+
+    @FXML
+    private ToggleGroup grupoPregunta;
 
     @FXML
     private JFXRadioButton rbtnTPsiempre;
@@ -55,6 +54,9 @@ public class TestPacientePreguntasController implements Initializable {
     @FXML
     private JFXRadioButton rbtnTPcs;
 
+    @FXML
+    private JFXTextArea txtpregunta;
+
     /**
      * Initializes the controller class.
      */
@@ -65,7 +67,7 @@ public class TestPacientePreguntasController implements Initializable {
 
     public void cargarPregunta(Pregunta p)
     {
-        lblTPpregunta.setText(p.getId()+".-"+p.getTexto());
+        txtpregunta.setText(p.getId()+".-"+p.getTexto());
     }
     void iniciarTest() {
         PreguntaDAO pd=new PreguntaDAO();

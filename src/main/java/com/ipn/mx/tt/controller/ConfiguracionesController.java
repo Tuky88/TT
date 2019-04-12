@@ -30,8 +30,6 @@ import javafx.scene.layout.Pane;
 public class ConfiguracionesController implements Initializable {
 
     private Usuario usuario;
-    @FXML
-    private Pane panelLeft;
 
   @FXML
     private JFXButton btnCcuenta;
