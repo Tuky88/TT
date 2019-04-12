@@ -23,7 +23,7 @@ import javafx.scene.layout.BorderPane;
  *
  * @author garci
  */
-public class TestController implements Initializable {
+public class PacienteController implements Initializable {
  menuController  c;
 
     public menuController getC() {

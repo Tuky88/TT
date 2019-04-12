@@ -66,6 +66,8 @@ public class menuController implements Initializable {
 
     @FXML
     private Tab TabTest;
+       @FXML
+    private Tab TabPaciente;
 
     @FXML
     private Tab TabPrediagnostico;
@@ -111,8 +113,9 @@ public class menuController implements Initializable {
         TabPrediagnostico.setDisable(false);
         TabReporte.setDisable(false);
         TabTest.setDisable(false);
+        TabPaciente.setDisable(false);
         TabConfig.setDisable(false);
-        TabConfig.setDisable(false);
+        
         TabConfig.setOnSelectionChanged((Event event) -> {
             ConfiguracionesController cc = (ConfiguracionesController) cambiarMenu("/Center/Configuraciones.fxml", 0);
             cc.setUsuario(usuario);
@@ -123,13 +126,28 @@ public class menuController implements Initializable {
             TabInicio.setDisable(false);
             TabPrediagnostico.setDisable(false);
             TabReporte.setDisable(false);
+            TabPaciente.setDisable(false);
             TabTest.setDisable(false);
-            TabConfig.setDisable(false);
+            TabPaciente.setDisable(false);
             TabConfig.setDisable(true);
 
         });
-        TabTest.setOnSelectionChanged((Event event) -> {
-            TestController tc= (TestController) cambiarMenu("/Center/Test.fxml", 0);
+        TabPaciente.setOnSelectionChanged((Event event) -> {
+            PacienteController tc= (PacienteController) cambiarMenu("/Center/Paciente.fxml", 0);
+            tc.setC(this);
+            tc.clickMenu();
+            TabAcerca.setDisable(false);
+            TabAyuda.setDisable(false);
+            TabInicio.setDisable(false);
+            TabPrediagnostico.setDisable(false);
+            TabReporte.setDisable(false);
+            TabTest.setDisable(false);
+            TabConfig.setDisable(false);
+            TabTest.setDisable(false);
+            TabPaciente.setDisable(true);
+        });
+         TabTest.setOnSelectionChanged((Event event) -> {
+            PacienteController tc= (PacienteController) cambiarMenu("/Center/ComenzarTest.fxml", 0);
             tc.setC(this);
             tc.clickMenu();
             TabAcerca.setDisable(false);
@@ -140,6 +158,7 @@ public class menuController implements Initializable {
             TabTest.setDisable(false);
             TabConfig.setDisable(false);
             TabTest.setDisable(true);
+            TabPaciente.setDisable(false);
         });
         TabReporte.setOnSelectionChanged((Event event) -> {
             cambiarMenu("/Center/Reportes.fxml", 0);
@@ -149,6 +168,7 @@ public class menuController implements Initializable {
             TabPrediagnostico.setDisable(false);
             TabReporte.setDisable(false);
             TabTest.setDisable(false);
+            TabPaciente.setDisable(false);
             TabConfig.setDisable(false);
             TabReporte.setDisable(true);
         });
@@ -160,6 +180,7 @@ public class menuController implements Initializable {
             TabPrediagnostico.setDisable(false);
             TabReporte.setDisable(false);
             TabTest.setDisable(false);
+            TabPaciente.setDisable(false);
             TabConfig.setDisable(false);
             TabPrediagnostico.setDisable(true);
         });
@@ -172,6 +193,7 @@ public class menuController implements Initializable {
             TabReporte.setDisable(false);
             TabTest.setDisable(false);
             TabConfig.setDisable(false);
+            TabPaciente.setDisable(false);
             TabAcerca.setDisable(true);
 
         });
@@ -184,6 +206,7 @@ public class menuController implements Initializable {
             TabReporte.setDisable(false);
             TabTest.setDisable(false);
             TabConfig.setDisable(false);
+            TabPaciente.setDisable(false);
             TabAyuda.setDisable(true);
         });
 
