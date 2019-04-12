@@ -14,6 +14,7 @@ import com.ipn.mx.tt.modelo.Pregunta;
 import com.ipn.mx.tt.util.cargadorVista;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXRadioButton;
+import com.jfoenix.controls.JFXTextArea;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
@@ -21,6 +22,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.control.ScrollBar;
+import javafx.scene.control.ScrollPane;
+import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
@@ -40,8 +43,7 @@ public class TestEspecialistaController implements Initializable {
     SintomaPreguntaDAO spd;
     TrastornoSintomaDAO tsd;
     menuController mc;
-    @FXML
-    private TableView<?> listTEpreguntas;
+  
     @FXML
     private GridPane gridPane;
     @FXML
@@ -51,7 +53,7 @@ public class TestEspecialistaController implements Initializable {
     private BorderPane panelRight;
 
     @FXML
-    private Label lblTEpregunta;
+    private JFXTextArea txtpregunta;
 
     @FXML
     private ProgressBar pbTEprogeso;
@@ -70,6 +72,11 @@ public class TestEspecialistaController implements Initializable {
 
     @FXML
     private JFXRadioButton rbtnTEcs;
+    
+    @FXML
+    private ScrollPane scrollE;
+    
+ 
 
     private int contadorPreguntas;
 
@@ -100,7 +107,7 @@ public class TestEspecialistaController implements Initializable {
     }
 
     public void cargarPregunta(Pregunta p) {
-        lblTEpregunta.setText(p.getId() + ".-" + p.getTexto());
+        txtpregunta.setText(p.getId() + ".-" + p.getTexto());
         pregunta = p.getId();
         instrumento = cd.buscarCuestionario(pregunta);
         // int tipo=id.tipoCuestionario(pregunta);
@@ -137,6 +144,9 @@ public class TestEspecialistaController implements Initializable {
         p.addRow(1, respuesta);
         int posicion = gridPane.impl_getRowCount();
         gridPane.addRow(posicion, p);
+        scrollE.setContent(gridPane);
+        scrollE.setVbarPolicy(ScrollPane.ScrollBarPolicy.AS_NEEDED);
+        scrollE.setPannable(true);
 
     }
 
@@ -152,7 +162,7 @@ public class TestEspecialistaController implements Initializable {
 
         if (contadorPreguntas < 10) {
             //AGREGAR A LA VISTA
-            registroPregunta(lblTEpregunta.getText(), getRespuesta(valor));
+            registroPregunta(txtpregunta.getText(), getRespuesta(valor));
             limpiarVista();
             //SUMAR AL CUESTIONARIO 
             contadorPreguntas++;
@@ -162,7 +172,7 @@ public class TestEspecialistaController implements Initializable {
         } else {
             cv = new cargadorVista();
             PrediagnosticoController pc = (PrediagnosticoController) cv.cambiarVista("/Center/Prediagnostico.fxml", mc.getPanelPrin());
-            pc.setC(cuestionario);
+            pc.setResultados("dfsd");
         }
     }
 

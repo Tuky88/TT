@@ -24,8 +24,10 @@ public class cargadorVista {
         Object o = null;
         try {
             FXMLLoader fx = new FXMLLoader(getClass().getResource(archivo));
-            o = fx.getController();
+
             AnchorPane ap = fx.load();
+
+            o = fx.getController();
             bp.getChildren().setAll(ap);
 
         } catch (IOException ex) {

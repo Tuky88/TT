@@ -50,10 +50,11 @@ public class PacienteController implements Initializable {
         PacienteNuevoController pnc= (PacienteNuevoController) 
                 cv.cambiarVista("/Center/PacienteNuevo.fxml",panelRight);
         pnc.setC(c);
+
         btnTpacientenuevo.setDisable(true);
         btnTpacienteregistrado.setDisable(false);
         
-        
+       
     }
 
     public void clickMenu()
@@ -62,9 +63,11 @@ public class PacienteController implements Initializable {
     }
     @FXML
     void abrirPacienteR(ActionEvent event) {
+
         cv.cambiarVista("/Center/PacienteConRegistro.fxml",panelRight);
                 btnTpacientenuevo.setDisable(false);
         btnTpacienteregistrado.setDisable(true);
+
     }
 
     @Override

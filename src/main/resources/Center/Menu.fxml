@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.Pane?>
 
-<AnchorPane id="AnchorPane" fx:id="Container" maxHeight="1.7976931348623157E308" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1280.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ipn.mx.tt.controller.menuController">
+<AnchorPane id="AnchorPane" fx:id="Container" centerShape="false" maxHeight="1.7976931348623157E308" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1280.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ipn.mx.tt.controller.menuController">
     <stylesheets>
         <URL value="@/styles/menu.css" />
     </stylesheets>
@@ -20,7 +20,7 @@
                <children>
                   <Label fx:id="lblHora" layoutX="80.0" layoutY="14.0" text="HORA" textFill="#fff4f4" />
                   <Label fx:id="lblFecha" layoutX="186.0" layoutY="14.0" text="FECHA" textFill="#fff4f4" />
-                  <JFXButton fx:id="btnCerrarSesion" buttonType="RAISED" layoutX="1108.0" layoutY="7.0" onAction="#cerrarSesion" prefHeight="31.0" prefWidth="95.0" ripplerFill="#d2e7fa" style="-fx-background-color: #d1e7fb;" text="Cerrar sesión" />
+                  <JFXButton fx:id="btnCerrarSesion" buttonType="RAISED" layoutX="1108.0" layoutY="7.0" onAction="#cerrarSesion" prefHeight="31.0" prefWidth="95.0" ripplerFill="#d2e7fa" style="-fx-background-color: #ECCCCC;" text="Cerrar sesión" />
                </children></Pane>
          </bottom>
          <top>

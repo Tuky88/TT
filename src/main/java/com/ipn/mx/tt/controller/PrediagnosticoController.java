@@ -23,9 +23,8 @@ public class PrediagnosticoController implements Initializable {
     /**
      * Initializes the controller class.
      */
- 
-    Cuestionario c;
-       @FXML
+    String resultados;
+    @FXML
     private JFXButton btnPrecomendaciones;
 
     @FXML
@@ -70,22 +69,23 @@ public class PrediagnosticoController implements Initializable {
     @FXML
     private Label os50;
 
-    public Cuestionario getC() {
-        return c;
-    }
-
-    public void setC(Cuestionario c) {
-        this.c = c;
-    }
-    
-
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-        ihsdq.setText(String.valueOf(12));
-        c.toString();
+        //c.toString();
 //        is50.setText(String.valueOf(c.getTrastorno(1, 1)));
     }
 
-    
+    public String getResultados() {
+        return resultados;
+    }
+
+    public void setResultados(String resultados) {
+        this.resultados = resultados;
+    }
+    public void cargarResultados()
+    {
+        is50.setText(resultados);
+    }
+
 }
