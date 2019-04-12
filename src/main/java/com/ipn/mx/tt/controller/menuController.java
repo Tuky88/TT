@@ -147,9 +147,8 @@ public class menuController implements Initializable {
             TabPaciente.setDisable(true);
         });
          TabTest.setOnSelectionChanged((Event event) -> {
-            PacienteController tc= (PacienteController) cambiarMenu("/Center/ComenzarTest.fxml", 0);
+            ComenzarTestController tc= (ComenzarTestController) cambiarMenu("/Center/ComenzarTest.fxml", 0);
             tc.setC(this);
-            tc.clickMenu();
             TabAcerca.setDisable(false);
             TabAyuda.setDisable(false);
             TabInicio.setDisable(false);
