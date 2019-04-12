@@ -23,7 +23,7 @@ public class PrediagnosticoController implements Initializable {
     /**
      * Initializes the controller class.
      */
-    String resultados;
+    Cuestionario cuestionario;
     @FXML
     private JFXButton btnPrecomendaciones;
 
@@ -76,16 +76,30 @@ public class PrediagnosticoController implements Initializable {
 //        is50.setText(String.valueOf(c.getTrastorno(1, 1)));
     }
 
-    public String getResultados() {
-        return resultados;
+    public Cuestionario getCuestionario() {
+        return cuestionario;
     }
 
-    public void setResultados(String resultados) {
-        this.resultados = resultados;
+    public void setCuestionario(Cuestionario cuestionario) {
+        this.cuestionario = cuestionario;
     }
-    public void cargarResultados()
-    {
-        is50.setText(resultados);
+
+    public void cargarResultados() {
+        ihsdq.setText("" + cuestionario.getTrastorno(1, 1));
+        is50.setText("" + cuestionario.getTrastorno(2, 1));
+        rchsdq.setText("" + cuestionario.getTrastorno(1, 2));
+        rcs50.setText("" + cuestionario.getTrastorno(2, 2));
+        pihsdq.setText("" + cuestionario.getTrastorno(1, 3));
+        pis50.setText("" + cuestionario.getTrastorno(2, 3));
+        ahsdq.setText("" + cuestionario.getTrastorno(1, 4));
+        as50.setText("" + cuestionario.getTrastorno(2, 4));
+        hhsdq.setText("" + cuestionario.getTrastorno(1, 5));
+        hs50.setText("" + cuestionario.getTrastorno(2, 5));
+        nhsdq.setText("" + cuestionario.getTrastorno(1, 6));
+        ns50.setText("" + cuestionario.getTrastorno(2, 6));
+        ohsdq.setText("" + cuestionario.getTrastorno(1, 7));
+        os50.setText("" + cuestionario.getTrastorno(2, 7));
+
     }
 
 }

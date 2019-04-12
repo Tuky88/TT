@@ -63,7 +63,7 @@
                                     <Font name="Century Gothic Bold" size="18.0" />
                                  </font>
                               </Label>
-                              <Label prefHeight="23.0" prefWidth="95.0" text="Apne" GridPane.columnIndex="4">
+                              <Label prefHeight="23.0" prefWidth="95.0" text="Apnea" GridPane.columnIndex="4">
                                  <font>
                                     <Font name="Century Gothic Bold" size="18.0" />
                                  </font>

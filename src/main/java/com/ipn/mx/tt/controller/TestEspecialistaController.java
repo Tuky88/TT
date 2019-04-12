@@ -160,7 +160,7 @@ public class TestEspecialistaController implements Initializable {
 
     void contestarPregunta(int valor) {
 
-        if (contadorPreguntas < 10) {
+        if (contadorPreguntas < 62) {
             //AGREGAR A LA VISTA
             registroPregunta(txtpregunta.getText(), getRespuesta(valor));
             limpiarVista();
@@ -172,7 +172,8 @@ public class TestEspecialistaController implements Initializable {
         } else {
             cv = new cargadorVista();
             PrediagnosticoController pc = (PrediagnosticoController) cv.cambiarVista("/Center/Prediagnostico.fxml", mc.getPanelPrin());
-            pc.setResultados("dfsd");
+            pc.setCuestionario(cuestionario);
+            pc.cargarResultados();
         }
     }
 
