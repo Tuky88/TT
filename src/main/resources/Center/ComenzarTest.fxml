@@ -17,7 +17,7 @@
    <children>
       <SplitPane dividerPositions="0.5" layoutX="-1.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="510.0" prefWidth="1280.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <items>
-            <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="510.0" prefWidth="260.0">
+            <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="510.0" prefWidth="260.0">
                <children>
                   <GridPane layoutX="6.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="510.0" prefWidth="260.0" style="-fx-background-color: #4D92DF;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <columnConstraints>
@@ -35,67 +35,63 @@
                   </GridPane>
                </children>
             </AnchorPane>
-            <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="510.0" prefWidth="1020.0">
-               <children>
-                  <BorderPane fx:id="panelRight" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="510.0" prefWidth="1020.0">
-                     <center>
-                        <Pane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="510.0" prefWidth="1020.0" style="-fx-background-color: #FFFFFF;" BorderPane.alignment="CENTER">
-                           <children>
-                              <Label alignment="CENTER" layoutX="-3.0" prefHeight="36.0" prefWidth="1020.0" style="-fx-background-color: #4664b5;" text="Comenzar Test" textAlignment="CENTER" textFill="WHITE">
-                                 <font>
-                                    <Font name="System Italic" size="25.0" />
-                                 </font>
-                              </Label>
-                              <Label layoutX="322.0" layoutY="63.0" text="Selecciona a la persona que contestara el test">
-                                 <font>
-                                    <Font name="Arial" size="20.0" />
-                                 </font>
-                              </Label>
-                              <JFXButton fx:id="btnTespecialista" layoutX="445.0" layoutY="146.0" onAction="#abrirEspecialista" text="Especialista">
-                                 <font>
-                                    <Font name="Baskerville Old Face" size="25.0" />
-                                 </font>
-                                 <ripplerFill>
-                                    <LinearGradient endX="1.0" endY="1.0">
-                                       <stops>
-                                          <Stop color="#b3dae8" />
-                                          <Stop color="WHITE" offset="1.0" />
-                                       </stops>
-                                    </LinearGradient>
-                                 </ripplerFill>
-                              </JFXButton>
-                              <JFXButton fx:id="btnTpaciente" layoutX="460.0" layoutY="221.0" onAction="#abrirPaciente" text="Paciente">
-                                 <font>
-                                    <Font name="Baskerville Old Face" size="25.0" />
-                                 </font>
-                                 <ripplerFill>
-                                    <LinearGradient endX="1.0" endY="1.0">
-                                       <stops>
-                                          <Stop color="#b3dae8" />
-                                          <Stop color="WHITE" offset="1.0" />
-                                       </stops>
-                                    </LinearGradient>
-                                 </ripplerFill>
-                              </JFXButton>
-                              <JFXButton fx:id="btnTacompañante" layoutX="433.0" layoutY="296.0" onAction="#abirAcompañante" text="Acompañante">
-                                 <font>
-                                    <Font name="Baskerville Old Face" size="25.0" />
-                                 </font>
-                                 <ripplerFill>
-                                    <LinearGradient endX="1.0" endY="1.0">
-                                       <stops>
-                                          <Stop color="#b3dae8" />
-                                          <Stop color="WHITE" offset="1.0" />
-                                       </stops>
-                                    </LinearGradient>
-                                 </ripplerFill>
-                              </JFXButton>
-                           </children>
-                        </Pane>
-                     </center>
-                  </BorderPane>
-               </children>
-            </AnchorPane>
+            <BorderPane fx:id="panelRight" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="510.0" prefWidth="1020.0">
+               <center>
+                  <Pane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="510.0" prefWidth="1020.0" style="-fx-background-color: #FFFFFF;" BorderPane.alignment="CENTER">
+                     <children>
+                        <Label alignment="CENTER" layoutX="-3.0" prefHeight="36.0" prefWidth="1020.0" style="-fx-background-color: #4664b5;" text="Comenzar Test" textAlignment="CENTER" textFill="WHITE">
+                           <font>
+                              <Font name="System Italic" size="25.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="322.0" layoutY="63.0" text="Selecciona a la persona que contestara el test">
+                           <font>
+                              <Font name="Arial" size="20.0" />
+                           </font>
+                        </Label>
+                        <JFXButton fx:id="btnTespecialista" layoutX="445.0" layoutY="146.0" onAction="#abrirEspecialista" text="Especialista">
+                           <font>
+                              <Font name="Baskerville Old Face" size="25.0" />
+                           </font>
+                           <ripplerFill>
+                              <LinearGradient endX="1.0" endY="1.0">
+                                 <stops>
+                                    <Stop color="#b3dae8" />
+                                    <Stop color="WHITE" offset="1.0" />
+                                 </stops>
+                              </LinearGradient>
+                           </ripplerFill>
+                        </JFXButton>
+                        <JFXButton fx:id="btnTpaciente" layoutX="460.0" layoutY="221.0" onAction="#abrirPaciente" text="Paciente">
+                           <font>
+                              <Font name="Baskerville Old Face" size="25.0" />
+                           </font>
+                           <ripplerFill>
+                              <LinearGradient endX="1.0" endY="1.0">
+                                 <stops>
+                                    <Stop color="#b3dae8" />
+                                    <Stop color="WHITE" offset="1.0" />
+                                 </stops>
+                              </LinearGradient>
+                           </ripplerFill>
+                        </JFXButton>
+                        <JFXButton fx:id="btnTacompañante" layoutX="433.0" layoutY="296.0" onAction="#abirAcompañante" text="Acompañante">
+                           <font>
+                              <Font name="Baskerville Old Face" size="25.0" />
+                           </font>
+                           <ripplerFill>
+                              <LinearGradient endX="1.0" endY="1.0">
+                                 <stops>
+                                    <Stop color="#b3dae8" />
+                                    <Stop color="WHITE" offset="1.0" />
+                                 </stops>
+                              </LinearGradient>
+                           </ripplerFill>
+                        </JFXButton>
+                     </children>
+                  </Pane>
+               </center>
+            </BorderPane>
          </items>
       </SplitPane>
    </children>
