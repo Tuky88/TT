@@ -11,6 +11,7 @@ import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXRadioButton;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -19,7 +20,9 @@ import javafx.scene.control.ProgressBar;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.ScrollBar;
 import javafx.scene.control.TableView;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.media.MediaView;
 
@@ -30,10 +33,12 @@ import javafx.scene.media.MediaView;
  */
 public class TestEspecialistaController implements Initializable {
 
+    PreguntaDAO pd;
     menuController mc;
     @FXML
     private TableView<?> listTEpreguntas;
-
+    @FXML
+    private GridPane  gridPane;
     @FXML
     private ScrollBar sbTEpreguntas;
 
@@ -64,12 +69,30 @@ public class TestEspecialistaController implements Initializable {
     @FXML
     private JFXRadioButton rbtnTEcs;
 
+    private int contadorPreguntas;
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+        rbtnTEnunca.setOnAction((event) -> {
+            contestarPregunta(1);
+        });
+        rbtnTEoca.setOnAction((event) -> {
+            contestarPregunta(2);
+        });
+        rbtnTEavc.setOnAction((event) -> {
+            contestarPregunta(3);
+        });
+        rbtnTEcs.setOnAction((event) -> {
+            contestarPregunta(4);
+        });
+        rbtnTEsiempre.setOnAction((event) -> {
+            contestarPregunta(5);
+        });
+        contadorPreguntas=1;
+        
     }
 
     public void cargarPregunta(Pregunta p) {
@@ -77,12 +100,60 @@ public class TestEspecialistaController implements Initializable {
     }
 
     void setMc(menuController c) {
-        mc=c;
+        mc = c;
     }
 
     void iniciarTest() {
-        PreguntaDAO pd = new PreguntaDAO();
+        pd = new PreguntaDAO();
         pd.cjm.conectar();
-        cargarPregunta(pd.getPregunta(1));
+        cargarPregunta(pd.getPregunta(contadorPreguntas));
+    }
+
+    public void registroPregunta(String t, String r) {
+        GridPane p = new GridPane();
+        Label pregunta = new Label(t);
+        Label respuesta = new Label(r);
+        p.addRow(0, pregunta);
+        p.addRow(1, respuesta);
+       int posicion=gridPane.impl_getRowCount();
+        gridPane.addRow(posicion, p);
+
+    }
+
+    void contestarPregunta(int valor) {
+
+        //AGREGAR A LA VISTA
+        registroPregunta(lblTEpregunta.getText(),getRespuesta(valor));
+        //SUMAR AL CUESTIONARIO 
+        contadorPreguntas++;
+        //TRAER NUEVA PREGUNTA
+        cargarPregunta(pd.getPregunta(contadorPreguntas));
+    }
+    
+    String getRespuesta(int valor)
+    {
+                String resp;
+        switch (valor) {
+            case 1:
+                resp = rbtnTEnunca.getText();
+                break;
+            case 2:
+                resp = rbtnTEoca.getText();
+                break;
+            case 3:
+                resp = rbtnTEavc.getText();
+                break;
+            case 4:
+                resp = rbtnTEcs.getText();
+                break;
+            case 5:
+                resp = rbtnTEsiempre.getText();
+                break;
+
+            default:
+                resp = "";
+
+        }
+        return resp;
     }
 }
