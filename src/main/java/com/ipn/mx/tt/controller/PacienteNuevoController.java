@@ -90,8 +90,7 @@ public class PacienteNuevoController implements Initializable {
     }
 
     public void hacerCuestionario(Paciente p) {
-        ComenzarTestController ctc = (ComenzarTestController) 
-                cv.cambiarVista("/Center/ComenzarTest.fxml", c.getPanelPrin());
+        ComenzarTestController ctc = (ComenzarTestController) cv.cambiarVista("/Center/ComenzarTest.fxml", c.getPanelPrin());
         ctc.setC(c);
     }
 
@@ -121,6 +120,8 @@ public class PacienteNuevoController implements Initializable {
 
             Paciente p = new Paciente(Nombre, Apellido, Sexo, Correo, Fecha, Direccion, Telefono, CURP);
             registrarPaciente(p);
+            CustomMessage cm = new CustomMessage("MENSAJE", "Registrado con éxito", 2);
+
             hacerCuestionario(p);
 
         } else {
