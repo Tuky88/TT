@@ -160,7 +160,7 @@ public class TestEspecialistaController implements Initializable {
 
     void contestarPregunta(int valor) {
 
-        if (contadorPreguntas < 5) {
+        if (contadorPreguntas < 61) {
             //AGREGAR A LA VISTA
             registroPregunta(txtpregunta.getText(), getRespuesta(valor));
             limpiarVista();

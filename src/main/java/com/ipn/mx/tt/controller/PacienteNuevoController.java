@@ -127,7 +127,6 @@ public class PacienteNuevoController implements Initializable {
             CustomMessage cm = new CustomMessage("ERROR", "Hubo un error en alguno de los campos...", 2);
 
         }
-        hacerCuestionario(new Paciente());
     }
 
 }
