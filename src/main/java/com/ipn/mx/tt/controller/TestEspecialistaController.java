@@ -5,26 +5,25 @@
  */
 package com.ipn.mx.tt.controller;
 
+import com.ipn.mx.tt.dao.CuestionarioPreguntaDAO;
 import com.ipn.mx.tt.dao.PreguntaDAO;
+import com.ipn.mx.tt.dao.SintomaPreguntaDAO;
+import com.ipn.mx.tt.dao.TrastornoSintomaDAO;
+import com.ipn.mx.tt.modelo.Cuestionario;
 import com.ipn.mx.tt.modelo.Pregunta;
+import com.ipn.mx.tt.util.cargadorVista;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXRadioButton;
 import java.net.URL;
 import java.util.ResourceBundle;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
-import javafx.scene.control.RadioButton;
 import javafx.scene.control.ScrollBar;
 import javafx.scene.control.TableView;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
-import javafx.scene.layout.Pane;
-import javafx.scene.media.MediaView;
 
 /**
  * FXML Controller class
@@ -33,12 +32,18 @@ import javafx.scene.media.MediaView;
  */
 public class TestEspecialistaController implements Initializable {
 
+    Cuestionario cuestionario;
+    cargadorVista cv;
+    int instrumento, pregunta, trastorno, sintoma, puntaje;
     PreguntaDAO pd;
+    CuestionarioPreguntaDAO cd;
+    SintomaPreguntaDAO spd;
+    TrastornoSintomaDAO tsd;
     menuController mc;
     @FXML
     private TableView<?> listTEpreguntas;
     @FXML
-    private GridPane  gridPane;
+    private GridPane gridPane;
     @FXML
     private ScrollBar sbTEpreguntas;
 
@@ -50,9 +55,6 @@ public class TestEspecialistaController implements Initializable {
 
     @FXML
     private ProgressBar pbTEprogeso;
-
-    @FXML
-    private JFXButton btnTEsiguiente;
 
     @FXML
     private JFXRadioButton rbtnTEoca;
@@ -70,6 +72,7 @@ public class TestEspecialistaController implements Initializable {
     private JFXRadioButton rbtnTEcs;
 
     private int contadorPreguntas;
+
     /**
      * Initializes the controller class.
      */
@@ -91,12 +94,22 @@ public class TestEspecialistaController implements Initializable {
         rbtnTEsiempre.setOnAction((event) -> {
             contestarPregunta(5);
         });
-        contadorPreguntas=1;
-        
+        contadorPreguntas = 1;
+        cuestionario = new Cuestionario();
+
     }
 
     public void cargarPregunta(Pregunta p) {
         lblTEpregunta.setText(p.getId() + ".-" + p.getTexto());
+        pregunta = p.getId();
+        instrumento = cd.buscarCuestionario(pregunta);
+        // int tipo=id.tipoCuestionario(pregunta);
+        if (instrumento == 1) {
+            rbtnTEavc.setVisible(true);
+        } else {
+
+            rbtnTEavc.setVisible(false);
+        }
     }
 
     void setMc(menuController c) {
@@ -105,49 +118,76 @@ public class TestEspecialistaController implements Initializable {
 
     void iniciarTest() {
         pd = new PreguntaDAO();
-        pd.cjm.conectar();
+        cd = new CuestionarioPreguntaDAO();
+        spd = new SintomaPreguntaDAO();
+        tsd = new TrastornoSintomaDAO();
+        cd.conectar();
+        pd.conectar();
+        spd.conectar();
+        tsd.conectar();
+        System.out.println("BANDERA");
         cargarPregunta(pd.getPregunta(contadorPreguntas));
     }
 
     public void registroPregunta(String t, String r) {
         GridPane p = new GridPane();
-        Label pregunta = new Label(t);
+        Label preguntaL = new Label(t);
         Label respuesta = new Label(r);
-        p.addRow(0, pregunta);
+        p.addRow(0, preguntaL);
         p.addRow(1, respuesta);
-       int posicion=gridPane.impl_getRowCount();
+        int posicion = gridPane.impl_getRowCount();
         gridPane.addRow(posicion, p);
 
     }
 
+    public void limpiarVista() {
+        rbtnTEavc.setSelected(false);
+        rbtnTEnunca.setSelected(false);
+        rbtnTEcs.setSelected(false);
+        rbtnTEoca.setSelected(false);
+        rbtnTEsiempre.setSelected(false);
+    }
+
     void contestarPregunta(int valor) {
 
-        //AGREGAR A LA VISTA
-        registroPregunta(lblTEpregunta.getText(),getRespuesta(valor));
-        //SUMAR AL CUESTIONARIO 
-        contadorPreguntas++;
-        //TRAER NUEVA PREGUNTA
-        cargarPregunta(pd.getPregunta(contadorPreguntas));
+        if (contadorPreguntas < 10) {
+            //AGREGAR A LA VISTA
+            registroPregunta(lblTEpregunta.getText(), getRespuesta(valor));
+            limpiarVista();
+            //SUMAR AL CUESTIONARIO 
+            contadorPreguntas++;
+            sumarATrastorno();
+            //TRAER NUEVA PREGUNTA
+            cargarPregunta(pd.getPregunta(contadorPreguntas));
+        } else {
+            cv = new cargadorVista();
+            PrediagnosticoController pc = (PrediagnosticoController) cv.cambiarVista("/Center/Prediagnostico.fxml", mc.getPanelPrin());
+            pc.setC(cuestionario);
+        }
     }
-    
-    String getRespuesta(int valor)
-    {
-                String resp;
+
+    String getRespuesta(int valor) {
+        String resp;
         switch (valor) {
             case 1:
                 resp = rbtnTEnunca.getText();
+                puntaje = 1;
                 break;
             case 2:
                 resp = rbtnTEoca.getText();
+                puntaje = 2;
                 break;
             case 3:
                 resp = rbtnTEavc.getText();
+                puntaje = 3;
                 break;
             case 4:
                 resp = rbtnTEcs.getText();
+                puntaje = 4;
                 break;
             case 5:
                 resp = rbtnTEsiempre.getText();
+                puntaje = 5;
                 break;
 
             default:
@@ -155,5 +195,14 @@ public class TestEspecialistaController implements Initializable {
 
         }
         return resp;
+    }
+
+    private void sumarATrastorno() {
+        sintoma = spd.buscarSintoma(pregunta);
+        trastorno = tsd.buscarTrastorno(sintoma);
+        System.out.println("/Instrumento:/" + instrumento + "/Sintoma/" + sintoma + "/Trastorno/" + trastorno
+                + "/Pregunta:/" + pregunta + "/Valor:/" + puntaje);
+        cuestionario.calificarPregunta(instrumento, trastorno, puntaje);
+
     }
 }

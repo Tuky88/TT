@@ -5,6 +5,7 @@
  */
 package com.ipn.mx.tt.controller;
 
+import com.ipn.mx.tt.util.cargadorVista;
 import com.jfoenix.controls.JFXButton;
 import java.io.IOException;
 import java.net.URL;
@@ -25,6 +26,7 @@ import javafx.scene.layout.BorderPane;
  */
 public class PacienteController implements Initializable {
  menuController  c;
+ cargadorVista cv;
 
     public menuController getC() {
         return c;
@@ -45,8 +47,12 @@ public class PacienteController implements Initializable {
 
     @FXML
     void abrirPacienteN(ActionEvent event) {
-        PacienteNuevoController pnc= (PacienteNuevoController) abrirMenu("/Center/PacienteNuevo.fxml");
+        PacienteNuevoController pnc= (PacienteNuevoController) 
+                cv.cambiarVista("/Center/PacienteNuevo.fxml",panelRight);
         pnc.setC(c);
+        btnTpacientenuevo.setDisable(true);
+        btnTpacienteregistrado.setDisable(false);
+        
         
     }
 
@@ -56,25 +62,15 @@ public class PacienteController implements Initializable {
     }
     @FXML
     void abrirPacienteR(ActionEvent event) {
-        abrirMenu("/Center/PacienteConRegistro.fxml");
+        cv.cambiarVista("/Center/PacienteConRegistro.fxml",panelRight);
+                btnTpacientenuevo.setDisable(false);
+        btnTpacienteregistrado.setDisable(true);
     }
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        
+        cv=new cargadorVista();
         // TODO
     }
 
-    public Object abrirMenu(String menu) {
-        Object o = null;
-        try {
-            FXMLLoader fx = new FXMLLoader(getClass().getResource(menu));
-            Parent root = fx.load();
-            panelRight.setCenter(root);
-            o = fx.getController();
-        } catch (IOException ex) {
-            Logger.getLogger(ConfiguracionesController.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        return o;
-    }
 }

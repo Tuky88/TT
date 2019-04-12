@@ -13,5 +13,20 @@ public class Instrumento {
     
     private Trastorno[] trastornos;
     
+    public Instrumento()
+    {
+        trastornos=new Trastorno[10];
+        for (int i = 0; i < 8; i++) {
+            trastornos[i]=new Trastorno();
+        }
+    }
+   public void sumarPuntaje(int trastorno,int puntaje)
+   {
+       trastornos[trastorno].sumar(puntaje);
+   }
+   public int getTrastorno(int trastorno)
+   {
+       return trastornos[trastorno].getPuntaje();
+   }
     
 }

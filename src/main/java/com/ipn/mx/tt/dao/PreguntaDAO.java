@@ -21,7 +21,7 @@ public class PreguntaDAO {
 
     private Charset UTF_8 = Charset.forName("UTF-8");
     private Charset ISO = Charset.forName("ISO-8859-1");
-    public ConexionJavaMongo cjm;
+    private ConexionJavaMongo cjm;
     String base, coleccion;
 
     public PreguntaDAO(String base, String coleccion) {
@@ -29,6 +29,10 @@ public class PreguntaDAO {
         this.coleccion = coleccion;
         cjm = new ConexionJavaMongo(base, coleccion);
 
+    }
+    public void conectar()
+    {
+        this.cjm.conectar();
     }
 
     public PreguntaDAO() {

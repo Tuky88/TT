@@ -5,22 +5,13 @@
  */
 package com.ipn.mx.tt.controller;
 
+import com.ipn.mx.tt.modelo.Cuestionario;
 import com.jfoenix.controls.JFXButton;
-import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.TableView;
-import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.Pane;
 
 /**
  * FXML Controller class
@@ -33,6 +24,7 @@ public class PrediagnosticoController implements Initializable {
      * Initializes the controller class.
      */
  
+    Cuestionario c;
        @FXML
     private JFXButton btnPrecomendaciones;
 
@@ -77,11 +69,22 @@ public class PrediagnosticoController implements Initializable {
 
     @FXML
     private Label os50;
+
+    public Cuestionario getC() {
+        return c;
+    }
+
+    public void setC(Cuestionario c) {
+        this.c = c;
+    }
     
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+        ihsdq.setText(String.valueOf(12));
+        c.toString();
+//        is50.setText(String.valueOf(c.getTrastorno(1, 1)));
     }
 
     

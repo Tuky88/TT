@@ -29,13 +29,12 @@ public class testerPrueba {
             String linea;
             BufferedReader br = new BufferedReader(fr);
 
-             pd.cjm.conectar();
+            pd.conectar();
             while ((linea = br.readLine()) != null) {
-                String[] div=linea.split("//");
-                System.out.println(div[0] +"----"+ div[1]);
+                String[] div = linea.split("//");
+                System.out.println(div[0] + "----" + div[1]);
                 pd.insertarPregunta(new Pregunta(Integer.valueOf(div[0]), div[1]));
             }
-            pd.cjm.cerrarConexion();
         } catch (FileNotFoundException ex) {
             Logger.getLogger(testerPrueba.class.getName()).log(Level.SEVERE, null, ex);
         } finally {

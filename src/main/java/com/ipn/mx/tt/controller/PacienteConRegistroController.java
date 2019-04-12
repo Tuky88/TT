@@ -5,13 +5,14 @@
  */
 package com.ipn.mx.tt.controller;
 
+import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXTextField;
+import com.jfoenix.controls.JFXTreeTableView;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TableView;
+import javafx.scene.input.KeyEvent;
 
 /**
  * FXML Controller class
@@ -19,20 +20,25 @@ import javafx.scene.control.TableView;
  * @author garci
  */
 public class PacienteConRegistroController implements Initializable {
-@FXML
-    private Button btnTcguardar;
 
     @FXML
-    private PasswordField txtTrnombre;
+    private JFXButton btnPriniciar;
 
     @FXML
-    private TableView<?> tblTpacientes;
-    /**
-     * Initializes the controller class.
-     */
+    private JFXTextField txtPrnombre;
+
+    @FXML
+    private JFXTreeTableView<?> tabla;
+
+    @FXML
+    void buscarPaciente(KeyEvent event) {
+        System.out.println("");
+    }
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-    }    
+    }
     
+
 }

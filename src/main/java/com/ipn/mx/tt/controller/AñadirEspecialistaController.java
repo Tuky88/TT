@@ -17,13 +17,15 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
+
 /**
  * FXML Controller class
  *
  * @author garci
  */
 public class AñadirEspecialistaController implements Initializable {
- @FXML
+
+    @FXML
     private JFXButton btnCacguardar;
 
     @FXML
@@ -32,7 +34,7 @@ public class AñadirEspecialistaController implements Initializable {
     @FXML
     private JFXTextField txtCaapellido;
 
-      @FXML
+    @FXML
     private JFXPasswordField txtCapass;
 
     @FXML
@@ -43,13 +45,15 @@ public class AñadirEspecialistaController implements Initializable {
 
     @FXML
     private JFXTextField txtCacorreo;
+
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-    }    
+    }
+
     @FXML
     void cargarUsuario(ActionEvent event) {
         Usuario u;
@@ -60,18 +64,17 @@ public class AñadirEspecialistaController implements Initializable {
             String usuario = txtCausuario.getText();
             String correo = txtCacorreo.getText();
             if (nombre.length() > 3 && apellido.length() > 3 && usuario.length() > 3 && correo.length() > 3) {
-                u=new Usuario(usuario, cc, nombre, apellido, correo);
-                UsuarioDAO ud= new UsuarioDAO();
+                u = new Usuario(usuario, cc, nombre, apellido, correo);
+                UsuarioDAO ud = new UsuarioDAO();
                 ud.insertarUsuario(u);
                 Alert a = new Alert(Alert.AlertType.NONE, "CARGADO CON EXITO", ButtonType.OK);
                 a.show();
             } else {
                 Alert a = new Alert(Alert.AlertType.NONE, "LOS CAMPOS NO PUEDEN ESTAR VACÍOS", ButtonType.OK);
                 a.show();
-                
+
             }
-        } else
-        {
+        } else {
             Alert a = new Alert(Alert.AlertType.NONE, "LAS CONTRASEÑAS NO COINCIDEN", ButtonType.OK);
             a.show();
         }

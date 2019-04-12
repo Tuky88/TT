@@ -69,7 +69,7 @@ public class TestPacientePreguntasController implements Initializable {
     }
     void iniciarTest() {
         PreguntaDAO pd=new PreguntaDAO();
-        pd.cjm.conectar();
+        pd.conectar();
         cargarPregunta(pd.getPregunta(1));
     }
 

@@ -10,6 +10,24 @@ package com.ipn.mx.tt.modelo;
  * @author Axel Reyes
  */
 public class Trastorno {
-    private String nombre;
+
     private int puntaje;
+
+    public Trastorno() {
+        puntaje = 0;
+    }
+
+    public void sumar(int i) {
+        puntaje += i;
+    }
+
+    public int getPuntaje() {
+        return puntaje;
+    }
+
+    public void setPuntaje(int puntaje) {
+        this.puntaje = puntaje;
+    }
+    
+
 }
