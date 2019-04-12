@@ -17,6 +17,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableView;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
@@ -32,12 +33,50 @@ public class PrediagnosticoController implements Initializable {
      * Initializes the controller class.
      */
  
-    @FXML
-    private TableView<?> tblPtrastornos;
+       @FXML
+    private JFXButton btnPrecomendaciones;
 
     @FXML
-    private JFXButton btnPrecomendaciones;
+    private Label ihsdq;
+
     @FXML
+    private Label rchsdq;
+
+    @FXML
+    private Label pihsdq;
+
+    @FXML
+    private Label ahsdq;
+
+    @FXML
+    private Label hhsdq;
+
+    @FXML
+    private Label nhsdq;
+
+    @FXML
+    private Label ohsdq;
+
+    @FXML
+    private Label is50;
+
+    @FXML
+    private Label rcs50;
+
+    @FXML
+    private Label pis50;
+
+    @FXML
+    private Label as50;
+
+    @FXML
+    private Label hs50;
+
+    @FXML
+    private Label ns50;
+
+    @FXML
+    private Label os50;
     
 
     @Override
