@@ -30,22 +30,24 @@
                               <Font name="Arial" size="21.0" />
                            </font>
                         </TextArea>
-                        <JFXButton fx:id="btnPrecomendaciones" layoutX="498.0" layoutY="458.0" prefHeight="38.0" prefWidth="227.0" style="-fx-background-color: #B1F4AD;" text="Recomendaciones" />
-                        <GridPane layoutX="36.0" layoutY="122.0" prefHeight="119.0" prefWidth="954.0">
+                        <JFXButton fx:id="btnPrecomendaciones" layoutX="688.0" layoutY="458.0" prefHeight="38.0" prefWidth="227.0" style="-fx-background-color: #B1F4AD;" text="Recomendaciones" />
+                        <GridPane layoutX="33.0" layoutY="152.0" prefHeight="134.0" prefWidth="954.0">
                            <columnConstraints>
                               <ColumnConstraints hgrow="SOMETIMES" maxWidth="179.0" minWidth="10.0" prefWidth="103.0" />
                               <ColumnConstraints hgrow="SOMETIMES" maxWidth="194.0" minWidth="10.0" prefWidth="109.0" />
-                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="284.0" minWidth="10.0" prefWidth="166.0" />
-                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="312.0" minWidth="10.0" prefWidth="97.0" />
-                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="360.0" minWidth="10.0" prefWidth="77.0" />
-                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="436.0" minWidth="10.0" prefWidth="139.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="284.0" minWidth="10.0" prefWidth="155.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="312.0" minWidth="10.0" prefWidth="106.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="360.0" minWidth="10.0" prefWidth="96.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="436.0" minWidth="10.0" prefWidth="118.0" />
                               <ColumnConstraints hgrow="SOMETIMES" maxWidth="436.0" minWidth="10.0" prefWidth="134.0" />
                               <ColumnConstraints hgrow="SOMETIMES" maxWidth="436.0" minWidth="10.0" prefWidth="141.0" />
                            </columnConstraints>
                            <rowConstraints>
                               <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                               <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="51.0" minHeight="10.0" prefHeight="35.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="40.0" minHeight="9.0" prefHeight="15.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="27.0" minHeight="0.0" prefHeight="21.0" vgrow="SOMETIMES" />
                            </rowConstraints>
                            <children>
                               <Label prefHeight="23.0" prefWidth="95.0" text="Insomnio" GridPane.columnIndex="1">
@@ -107,9 +109,27 @@
                               <Label fx:id="hs50" prefHeight="30.0" prefWidth="71.0" GridPane.columnIndex="5" GridPane.rowIndex="2" />
                               <Label fx:id="ns50" prefHeight="30.0" prefWidth="71.0" GridPane.columnIndex="6" GridPane.rowIndex="2" />
                               <Label fx:id="os50" prefHeight="30.0" prefWidth="71.0" GridPane.columnIndex="7" GridPane.rowIndex="2" />
+                              <Label prefHeight="23.0" prefWidth="95.0" text="Inicio:" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                                 <font>
+                                    <Font name="Century Gothic Bold" size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label prefHeight="23.0" prefWidth="95.0" text="Termino:" GridPane.columnIndex="3" GridPane.rowIndex="4">
+                                 <font>
+                                    <Font name="Century Gothic Bold" size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label prefHeight="23.0" prefWidth="95.0" text="Duración:" GridPane.columnIndex="5" GridPane.rowIndex="4">
+                                 <font>
+                                    <Font name="Century Gothic Bold" size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="lblTermino" prefHeight="21.0" prefWidth="98.0" GridPane.columnIndex="4" GridPane.rowIndex="4" />
+                              <Label fx:id="lblInicio" prefHeight="21.0" prefWidth="153.0" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+                              <Label fx:id="lblDuracion" prefHeight="21.0" prefWidth="128.0" GridPane.columnIndex="6" GridPane.rowIndex="4" />
                            </children>
                         </GridPane>
-                        <TextArea layoutX="43.0" layoutY="255.0" prefHeight="154.0" prefWidth="872.0" promptText="Comentarios" />
+                        <TextArea layoutX="43.0" layoutY="336.0" prefHeight="109.0" prefWidth="872.0" promptText="Comentarios" />
                      </children>
                   </Pane>
                </children>

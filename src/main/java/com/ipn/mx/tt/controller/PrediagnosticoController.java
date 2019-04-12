@@ -8,7 +8,10 @@ package com.ipn.mx.tt.controller;
 import com.ipn.mx.tt.modelo.Cuestionario;
 import com.jfoenix.controls.JFXButton;
 import java.net.URL;
+import java.text.SimpleDateFormat;
+import java.time.Instant;
 import java.util.ResourceBundle;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
@@ -68,6 +71,14 @@ public class PrediagnosticoController implements Initializable {
 
     @FXML
     private Label os50;
+    @FXML
+    private Label lblTermino;
+
+    @FXML
+    private Label lblInicio;
+
+    @FXML
+    private Label lblDuracion;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -99,7 +110,12 @@ public class PrediagnosticoController implements Initializable {
         ns50.setText("" + cuestionario.getTrastorno(2, 6));
         ohsdq.setText("" + cuestionario.getTrastorno(1, 7));
         os50.setText("" + cuestionario.getTrastorno(2, 7));
-
+        
+        SimpleDateFormat dt = new SimpleDateFormat("hh:mm:ss"); 
+        SimpleDateFormat dt1 = new SimpleDateFormat("mm:ss"); 
+        lblDuracion.setText(dt.format(cuestionario.getDuracion()));
+        lblInicio.setText(dt.format(cuestionario.getInicioCuestionario()));
+        lblTermino.setText(dt1.format(cuestionario.getFinCuestionario()));
     }
 
 }
