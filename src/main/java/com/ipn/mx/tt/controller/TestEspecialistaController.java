@@ -25,6 +25,7 @@ import javafx.scene.control.ScrollBar;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 
@@ -75,6 +76,8 @@ public class TestEspecialistaController implements Initializable {
     
     @FXML
     private ScrollPane scrollE;
+     @FXML
+    private ImageView loading;
     
  
 

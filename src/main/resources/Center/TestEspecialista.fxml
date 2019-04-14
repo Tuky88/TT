@@ -8,6 +8,8 @@
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
@@ -61,41 +63,46 @@
                                  </font>
                               </Label>
                               <ProgressBar fx:id="pbTEprogeso" layoutX="135.0" layoutY="412.0" prefHeight="31.0" prefWidth="628.0" progress="0.0" />
-                              <JFXRadioButton fx:id="rbtnTEnunca" layoutX="154.0" layoutY="357.0" text="Nunca">
+                              <JFXRadioButton fx:id="rbtnTEnunca" layoutX="125.0" layoutY="356.0" text="Nunca">
                                  <font>
-                                    <Font size="15.0" />
+                                    <Font size="20.0" />
                                  </font>
                                  <toggleGroup>
                                     <ToggleGroup fx:id="grupoPregunta" />
                                  </toggleGroup>
                               </JFXRadioButton>
-                              <JFXRadioButton fx:id="rbtnTEoca" layoutX="258.0" layoutY="356.0" text="Ocasionalmente" toggleGroup="$grupoPregunta">
+                              <JFXRadioButton fx:id="rbtnTEoca" layoutX="251.0" layoutY="357.0" text="Ocasionalmente" toggleGroup="$grupoPregunta">
                                  <font>
-                                    <Font size="15.0" />
+                                    <Font size="20.0" />
                                  </font>
                               </JFXRadioButton>
-                              <JFXRadioButton fx:id="rbtnTEavc" layoutX="408.0" layoutY="356.0" text="A veces" toggleGroup="$grupoPregunta">
+                              <JFXRadioButton fx:id="rbtnTEavc" layoutX="449.0" layoutY="356.0" text="A veces" toggleGroup="$grupoPregunta">
                                  <font>
-                                    <Font size="15.0" />
+                                    <Font size="20.0" />
                                  </font>
                               </JFXRadioButton>
-                              <JFXRadioButton fx:id="rbtnTEcs" layoutX="526.0" layoutY="356.0" text="Casi siempre" toggleGroup="$grupoPregunta">
+                              <JFXRadioButton fx:id="rbtnTEcs" layoutX="584.0" layoutY="357.0" text="Casi siempre" toggleGroup="$grupoPregunta">
                                  <font>
-                                    <Font size="15.0" />
+                                    <Font size="20.0" />
                                  </font>
                               </JFXRadioButton>
-                              <JFXRadioButton fx:id="rbtnTEsiempre" layoutX="660.0" layoutY="357.0" text="Siempre" toggleGroup="$grupoPregunta">
+                              <JFXRadioButton fx:id="rbtnTEsiempre" layoutX="763.0" layoutY="356.0" text="Siempre" toggleGroup="$grupoPregunta">
                                  <font>
-                                    <Font size="15.0" />
+                                    <Font size="20.0" />
                                  </font>
                               </JFXRadioButton>
-                              <Pane layoutX="52.0" layoutY="138.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="174.0" prefWidth="938.0">
+                              <Pane layoutX="52.0" layoutY="138.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="170.0" prefWidth="940.0">
                                  <children>
-                                    <JFXTextArea fx:id="txtpregunta" editable="false" labelFloat="true" prefHeight="171.0" prefWidth="939.0">
+                                    <JFXTextArea fx:id="txtpregunta" editable="false" labelFloat="true" prefHeight="170.0" prefWidth="940.0">
                                        <font>
                                           <Font name="Century Gothic" size="28.0" />
                                        </font>
                                     </JFXTextArea>
+                                    <ImageView fitHeight="83.0" fitWidth="99.0" layoutX="386.0" layoutY="35.0">
+                                       <image>
+                                          <Image url="@../imagenes/Loading.gif" />
+                                       </image>
+                                    </ImageView>
                                  </children>
                               </Pane>
                            </children>

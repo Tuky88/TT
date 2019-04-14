@@ -6,6 +6,9 @@ package com.ipn.mx.tt.controller;
  * and open the template in the editor.
  */
 
+import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXComboBox;
+import com.jfoenix.controls.JFXTextField;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
@@ -24,19 +27,22 @@ import javafx.scene.control.TextField;
  */
 public class RecuperarcontraController implements Initializable {
  @FXML
-    private TextField txtCorreo;
-
-    @FXML
-    private Button btnEnviar;
-
-    @FXML
     private Label lblStatus1;
 
     @FXML
-    private PasswordField txtResseguridad;
+    private JFXButton btnEnviar;
 
     @FXML
-    private MenuButton cmbpreguntaseguridad;
+    private JFXButton btnCancelar;
+
+    @FXML
+    private JFXTextField txtCorreo;
+
+    @FXML
+    private JFXTextField txtResseguridad;
+
+    @FXML
+    private JFXComboBox<?> cmbpreguntaseguridad;
 
     @FXML
     void handleButtonAction(ActionEvent event) {

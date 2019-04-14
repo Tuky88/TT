@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXTextArea?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -23,11 +24,11 @@
                               <Font name="Century Gothic" size="25.0" />
                            </font>
                         </Label>
-                        <Label layoutX="26.0" layoutY="50.0" text="Prediagnóstico de los trastornos del dormir en el adultos">
+                        <JFXTextArea editable="false" layoutY="46.0" prefHeight="87.0" prefWidth="678.0" text="Prototipo de sistema experto para la detección y prediagnóstico de los trastornos del dormir en el adulto mayor" wrapText="true">
                            <font>
-                              <Font name="Century Gothic" size="18.0" />
+                              <Font name="Century Gothic" size="19.0" />
                            </font>
-                        </Label>
+                        </JFXTextArea>
                      </children>
                      <padding>
                         <Insets left="200.0" right="200.0" />
