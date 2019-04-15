@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXRadioButton?>
 <?import com.jfoenix.controls.JFXTextArea?>
 <?import javafx.geometry.Insets?>
@@ -62,7 +63,7 @@
                                     <Font name="Arial" size="25.0" />
                                  </font>
                               </Label>
-                              <ProgressBar fx:id="pbTEprogeso" layoutX="135.0" layoutY="412.0" prefHeight="31.0" prefWidth="628.0" progress="0.0" />
+                              <ProgressBar fx:id="pbTEprogeso" layoutX="144.0" layoutY="459.0" prefHeight="31.0" prefWidth="628.0" progress="0.0" />
                               <JFXRadioButton fx:id="rbtnTEnunca" layoutX="125.0" layoutY="356.0" text="Nunca">
                                  <font>
                                     <Font size="20.0" />
@@ -98,13 +99,14 @@
                                           <Font name="Century Gothic" size="28.0" />
                                        </font>
                                     </JFXTextArea>
-                                    <ImageView fitHeight="83.0" fitWidth="99.0" layoutX="386.0" layoutY="35.0">
-                                       <image>
-                                          <Image url="@../imagenes/Loading.gif" />
-                                       </image>
-                                    </ImageView>
                                  </children>
                               </Pane>
+                              <ImageView fitHeight="31.0" fitWidth="92.0" layoutX="242.0" layoutY="407.0">
+                                 <image>
+                                    <Image url="@../imagenes/regresar.png" />
+                                 </image>
+                              </ImageView>
+                              <JFXButton fx:id="regresar" layoutX="316.0" layoutY="409.0" prefHeight="27.0" prefWidth="86.0" style="-fx-background-color: #70CFB2;" text="Regresar" />
                            </children>
                         </Pane>
                      </center>

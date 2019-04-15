@@ -2,7 +2,10 @@
 
 <?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
@@ -21,13 +24,13 @@
                         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                      </columnConstraints>
                      <rowConstraints>
-                        <RowConstraints maxHeight="160.0" minHeight="10.0" prefHeight="62.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="160.0" minHeight="10.0" prefHeight="60.0" vgrow="SOMETIMES" />
                         <RowConstraints maxHeight="235.0" minHeight="10.0" prefHeight="60.0" vgrow="SOMETIMES" />
-                        <RowConstraints maxHeight="235.0" minHeight="10.0" prefHeight="70.0" vgrow="SOMETIMES" />
-                        <RowConstraints maxHeight="235.0" minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES" />
-                        <RowConstraints maxHeight="235.0" minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES" />
-                        <RowConstraints maxHeight="235.0" minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES" />
-                        <RowConstraints maxHeight="372.0" minHeight="10.0" prefHeight="222.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="235.0" minHeight="10.0" prefHeight="60.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="235.0" minHeight="10.0" prefHeight="50.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="235.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="235.0" minHeight="10.0" prefHeight="50.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="372.0" minHeight="10.0" prefHeight="200.0" vgrow="SOMETIMES" />
                      </rowConstraints>
                      <children>
                         <JFXTextField editable="false" focusTraversable="false" prefHeight="60.0" prefWidth="235.0" style="-fx-background-color: #FFFFFF;" text="Configuraciones" GridPane.rowIndex="1">
@@ -35,16 +38,40 @@
                               <Font name="Century Gothic" size="23.0" />
                            </font>
                         </JFXTextField>
-                        <JFXButton fx:id="btnCcuenta" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#abrirCuenta" prefHeight="40.0" prefWidth="261.0" style="-fx-background-color: #FFFFFF;" text="Cuenta" GridPane.rowIndex="3">
+                        <JFXButton fx:id="btnCcuenta" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#abrirCuenta" prefHeight="50.0" prefWidth="261.0" style="-fx-background-color: #FFFFFF;" text="Cuenta" GridPane.rowIndex="3">
                            <font>
                               <Font name="Arial" size="15.0" />
                            </font>
                         </JFXButton>
-                        <JFXButton fx:id="btnCañadir" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#abrirEspecialista" prefHeight="40.0" prefWidth="261.0" style="-fx-background-color: #FFFFFF;" text="Añadir especialista" GridPane.rowIndex="5">
+                        <JFXButton fx:id="btnCañadir" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#abrirEspecialista" prefHeight="50.0" prefWidth="261.0" style="-fx-background-color: #FFFFFF;" text="      Añadir especialista" GridPane.rowIndex="5">
                            <font>
                               <Font size="15.0" />
                            </font>
                         </JFXButton>
+                        <ImageView fitHeight="50.0" fitWidth="50.0" GridPane.halignment="RIGHT" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                           <image>
+                              <Image url="@../imagenes/confi.png" />
+                           </image>
+                           <GridPane.margin>
+                              <Insets right="10.0" />
+                           </GridPane.margin>
+                        </ImageView>
+                        <ImageView fitHeight="47.0" fitWidth="47.0" GridPane.halignment="LEFT" GridPane.rowIndex="3" GridPane.valignment="CENTER">
+                           <image>
+                              <Image url="@../imagenes/añadir.png" />
+                           </image>
+                           <GridPane.margin>
+                              <Insets left="30.0" />
+                           </GridPane.margin>
+                        </ImageView>
+                        <ImageView fitHeight="47.0" fitWidth="47.0" GridPane.halignment="LEFT" GridPane.rowIndex="5" GridPane.valignment="CENTER">
+                           <image>
+                              <Image url="@../imagenes/especialista.png" />
+                           </image>
+                           <GridPane.margin>
+                              <Insets left="30.0" />
+                           </GridPane.margin>
+                        </ImageView>
                      </children>
                   </GridPane>
                </children>

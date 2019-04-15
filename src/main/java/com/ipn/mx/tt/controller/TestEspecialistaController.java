@@ -78,6 +78,8 @@ public class TestEspecialistaController implements Initializable {
     private ScrollPane scrollE;
      @FXML
     private ImageView loading;
+     @FXML
+    private JFXButton regresar;
     
  
 

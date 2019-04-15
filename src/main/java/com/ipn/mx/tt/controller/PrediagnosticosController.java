@@ -43,11 +43,15 @@ public class PrediagnosticosController implements Initializable {
     @FXML
     void abrirHistorial(ActionEvent event) {
         abrirMenu("/Center/Historial.fxml");
+        btnPhistorial.setDisable(true);
+        btnPvalidar.setDisable(false);
     }
 
     @FXML
     void abrirValidar(ActionEvent event) {
         abrirMenu("/Center/Validar.fxml");
+        btnPhistorial.setDisable(false);
+        btnPvalidar.setDisable(true);
     }
 
     /**
