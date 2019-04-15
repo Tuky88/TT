@@ -45,32 +45,32 @@
                               <Font name="Arial" size="25.0" />
                            </font>
                         </Label>
-                        <JFXRadioButton fx:id="rbtnTPoca" layoutX="300.0" layoutY="375.0" text="Ocasionalmente">
+                        <JFXRadioButton fx:id="rbtnTPoca" layoutX="218.0" layoutY="375.0" text="Ocasionalmente">
                            <font>
-                              <Font size="15.0" />
+                              <Font size="20.0" />
                            </font>
                            <toggleGroup>
                               <ToggleGroup fx:id="grupoPregunta" />
                            </toggleGroup>
                         </JFXRadioButton>
-                        <JFXRadioButton fx:id="rbtnTPsiempre" layoutX="702.0" layoutY="376.0" text="Siempre" toggleGroup="$grupoPregunta">
+                        <JFXRadioButton fx:id="rbtnTPsiempre" layoutX="710.0" layoutY="375.0" text="Siempre" toggleGroup="$grupoPregunta">
                            <font>
-                              <Font size="15.0" />
+                              <Font size="20.0" />
                            </font>
                         </JFXRadioButton>
-                        <JFXRadioButton fx:id="rbtnTPnunca" layoutX="196.0" layoutY="376.0" text="Nunca" toggleGroup="$grupoPregunta">
+                        <JFXRadioButton fx:id="rbtnTPnunca" layoutX="108.0" layoutY="376.0" text="Nunca" toggleGroup="$grupoPregunta">
                            <font>
-                              <Font size="15.0" />
+                              <Font size="20.0" />
                            </font>
                         </JFXRadioButton>
-                        <JFXRadioButton fx:id="rbtnTPavc" layoutX="450.0" layoutY="375.0" text="A veces" toggleGroup="$grupoPregunta">
+                        <JFXRadioButton fx:id="rbtnTPavc" layoutX="414.0" layoutY="376.0" text="A veces" toggleGroup="$grupoPregunta">
                            <font>
-                              <Font size="15.0" />
+                              <Font size="20.0" />
                            </font>
                         </JFXRadioButton>
-                        <JFXRadioButton fx:id="rbtnTPcs" layoutX="568.0" layoutY="375.0" text="Casi siempre" toggleGroup="$grupoPregunta">
+                        <JFXRadioButton fx:id="rbtnTPcs" layoutX="540.0" layoutY="376.0" text="Casi siempre" toggleGroup="$grupoPregunta">
                            <font>
-                              <Font size="15.0" />
+                              <Font size="20.0" />
                            </font>
                         </JFXRadioButton>
                         <Pane layoutX="32.0" layoutY="97.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="170.0" prefWidth="940.0" style="-fx-background-color: #FFFFFF;">
