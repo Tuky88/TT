@@ -28,5 +28,10 @@ public class Instrumento {
    {
        return trastornos[trastorno].getPuntaje();
    }
+
+    void restarPuntaje(int trastorno, int puntaje) {
+        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        trastornos[trastorno].restar(puntaje);
+    }
     
 }

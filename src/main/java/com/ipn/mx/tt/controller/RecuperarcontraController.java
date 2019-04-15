@@ -5,7 +5,6 @@ package com.ipn.mx.tt.controller;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextField;
@@ -14,11 +13,7 @@ import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.MenuButton;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
 
 /**
  * FXML Controller class
@@ -26,7 +21,8 @@ import javafx.scene.control.TextField;
  * @author garci
  */
 public class RecuperarcontraController implements Initializable {
- @FXML
+
+    @FXML
     private Label lblStatus1;
 
     @FXML
@@ -48,12 +44,13 @@ public class RecuperarcontraController implements Initializable {
     void handleButtonAction(ActionEvent event) {
 
     }
+
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-    }    
-    
+    }
+
 }

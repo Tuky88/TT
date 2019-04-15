@@ -6,6 +6,7 @@
 package com.ipn.mx.tt.modelo;
 
 import java.util.Date;
+import java.util.LinkedList;
 
 /**
  *
@@ -15,13 +16,20 @@ public class Cuestionario {
     private int numCuestionario=0;
     private Instrumento s50,hsdr;
     private Date inicioCuestionario,duracion,finCuestionario;
+    private LinkedList Respuestas;
     
     public Cuestionario()
     {
         s50=new Instrumento();
         hsdr=new Instrumento();
         inicioCuestionario = new Date();
+        Respuestas =new LinkedList();
         System.out.println(inicioCuestionario.toString());
+    }
+    public void agregarRespuesta(int numeroRespuesta,int valorRespuesta)
+    {
+        Respuesta r=new Respuesta(numeroRespuesta, valorRespuesta);
+        Respuestas.add(r);
     }
     public void calificarPregunta(int instrumento,int trastorno,int puntaje)
     {
@@ -32,6 +40,18 @@ public class Cuestionario {
         else
         {
             hsdr.sumarPuntaje(trastorno, puntaje);
+        }
+        
+    }
+        public void quitarPregunta(int instrumento,int trastorno,int puntaje)
+    {
+        if(instrumento==1)
+        {
+            s50.restarPuntaje(trastorno, puntaje);
+        }
+        else
+        {
+            hsdr.restarPuntaje(trastorno, puntaje);
         }
         
     }

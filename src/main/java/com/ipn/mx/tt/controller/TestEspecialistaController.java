@@ -219,6 +219,7 @@ public class TestEspecialistaController implements Initializable {
         System.out.println("/Instrumento:/" + instrumento + "/Sintoma/" + sintoma + "/Trastorno/" + trastorno
                 + "/Pregunta:/" + pregunta + "/Valor:/" + puntaje);
         cuestionario.calificarPregunta(instrumento, trastorno, puntaje);
+        cuestionario.agregarRespuesta(pregunta, puntaje);
 
     }
 }
