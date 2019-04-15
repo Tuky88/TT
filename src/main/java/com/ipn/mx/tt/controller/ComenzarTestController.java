@@ -5,6 +5,8 @@
  */
 package com.ipn.mx.tt.controller;
 
+import com.ipn.mx.tt.modelo.Paciente;
+import com.ipn.mx.tt.util.CustomMessage;
 import com.ipn.mx.tt.util.cargadorVista;
 import com.jfoenix.controls.JFXButton;
 import java.net.URL;
@@ -20,27 +22,45 @@ import javafx.scene.layout.BorderPane;
  * @author garci
  */
 public class ComenzarTestController implements Initializable {
-
+    
+    boolean datosPaciente;
     menuController c;
     cargadorVista cv;
-
+    Paciente paciente;
+    
+    public boolean isDatosPaciente() {
+        return datosPaciente;
+    }
+    
+    public void setDatosPaciente(boolean datosPaciente) {
+        this.datosPaciente = datosPaciente;
+    }
+    
+    public Paciente getPaciente() {
+        return paciente;
+    }
+    
+    public void setPaciente(Paciente paciente) {
+        this.paciente = paciente;
+    }
+    
     public menuController getC() {
         return c;
     }
-
+    
     public void setC(menuController c) {
         this.c = c;
     }
-
+    
     @FXML
     private BorderPane panelRight;
-
+    
     @FXML
     private JFXButton btnTespecialista;
-
+    
     @FXML
     private JFXButton btnTpaciente;
-
+    
     @FXML
     private JFXButton btnTacompañante;
 
@@ -52,37 +72,42 @@ public class ComenzarTestController implements Initializable {
         // TODO
         cv = new cargadorVista();
     }
-
-
-
-    @FXML
-    void abirAcompañante(ActionEvent event) {
-
+    
+    public void abrirPaciente(int i) {
         TestPacienteController tpc
                 = (TestPacienteController) cv.cambiarVista("/Center/TestPaciente.fxml", c.getPanelPrin());
         tpc.setMc(c);
         tpc.setTipoCuestionario(2);
+        tpc.setPaciente(paciente);
+        
+        tpc.setDatosPaciente(datosPaciente);
+        if (datosPaciente) {
+            tpc.ponerPaciente();
+            tpc.clickComenzar();
+        }
         //1 .- Paciente
         //2 .- Acompañante
     }
-
+    
+    @FXML
+    void abirAcompañante(ActionEvent event) {
+        abrirPaciente(2);
+    }
+    
     @FXML
     void abrirEspecialista(ActionEvent event) {
-
+        
         TestEspecialistaController tec
                 = (TestEspecialistaController) cv.cambiarVista("/Center/TestEspecialista.fxml", c.getPanelPrin());
         tec.setMc(c);
         tec.iniciarTest();
         
     }
-
+    
     @FXML
     void abrirPaciente(ActionEvent event) {
-        TestPacienteController tpc
-                = (TestPacienteController) cv.cambiarVista("/Center/TestPaciente.fxml", c.getPanelPrin());
-        tpc.setMc(c);
-        tpc.setTipoCuestionario(1);
+        abrirPaciente(1);
         
     }
-
+    
 }

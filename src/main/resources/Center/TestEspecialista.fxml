@@ -58,11 +58,6 @@
                                     <Font name="System Italic" size="25.0" />
                                  </font>
                               </Label>
-                              <Label layoutX="251.0" layoutY="67.0" text="Instrucciones para contestar el Test">
-                                 <font>
-                                    <Font name="Arial" size="25.0" />
-                                 </font>
-                              </Label>
                               <ProgressBar fx:id="pbTEprogeso" layoutX="144.0" layoutY="459.0" prefHeight="31.0" prefWidth="628.0" progress="0.0" />
                               <JFXRadioButton fx:id="rbtnTEnunca" layoutX="125.0" layoutY="356.0" text="Nunca">
                                  <font>
@@ -107,6 +102,16 @@
                                  </image>
                               </ImageView>
                               <JFXButton fx:id="regresar" layoutX="316.0" layoutY="409.0" onAction="#regresarPregunta" prefHeight="27.0" prefWidth="86.0" style="-fx-background-color: #70CFB2;" text="Regresar" />
+                              <Label layoutX="35.0" layoutY="37.0" prefHeight="17.0" prefWidth="269.0" text="INSTRUCCIONES">
+                                 <font>
+                                    <Font name="System Bold" size="28.0" />
+                                 </font>
+                              </Label>
+                              <JFXTextArea layoutX="20.0" layoutY="69.0" prefHeight="69.0" prefWidth="966.0" text="Responda en qué medida cada afirmación le ha sido aplicable durante las últimas 4 semanas.&#10;No omita preguntas.&#10;Intente contestar lo más sinceramente posible." wrapText="true">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </JFXTextArea>
                            </children>
                         </Pane>
                      </center>

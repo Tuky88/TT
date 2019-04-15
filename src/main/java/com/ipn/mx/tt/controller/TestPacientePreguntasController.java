@@ -10,6 +10,7 @@ import com.ipn.mx.tt.dao.PreguntaDAO;
 import com.ipn.mx.tt.dao.SintomaPreguntaDAO;
 import com.ipn.mx.tt.dao.TrastornoSintomaDAO;
 import com.ipn.mx.tt.modelo.Cuestionario;
+import com.ipn.mx.tt.modelo.Paciente;
 import com.ipn.mx.tt.modelo.Pregunta;
 import com.ipn.mx.tt.util.ThreadPregunta;
 import com.ipn.mx.tt.util.cargadorVista;
@@ -30,6 +31,7 @@ import javafx.scene.control.ToggleGroup;
  */
 public class TestPacientePreguntasController implements Initializable {
 
+    Paciente paciente;
     Cuestionario cuestionario;
     cargadorVista cv;
     int instrumento, pregunta, trastorno, sintoma, puntaje;
@@ -57,6 +59,16 @@ public class TestPacientePreguntasController implements Initializable {
         this.tipoCuestionario = tipoCuestionario;
     }
 
+    public Paciente getPaciente() {
+        return paciente;
+    }
+
+    public void setPaciente(Paciente paciente) {
+        this.paciente = paciente;
+    }
+
+    @FXML
+    private Label lblPaciente;
     @FXML
     private JFXRadioButton rbtnTPoca;
 
@@ -101,8 +113,13 @@ public class TestPacientePreguntasController implements Initializable {
         });
         contadorPreguntas = 1;
         cuestionario = new Cuestionario();
+        
     }
 
+    public void ponerPaciente()
+    {
+        lblPaciente.setText(lblPaciente.getText()+" "+ paciente.getNombre());
+    }
     public void cargarPregunta(Pregunta p) {
         txtpregunta.setText(p.getId() + ".-" + p.getTexto());
         pregunta = p.getId();
@@ -125,7 +142,7 @@ public class TestPacientePreguntasController implements Initializable {
         pd.conectar();
         spd.conectar();
         tsd.conectar();
-        cargarPregunta(pd.getPregunta(contadorPreguntas,getTipoCuestionario()));
+        cargarPregunta(pd.getPregunta(contadorPreguntas, getTipoCuestionario()));
     }
 
     void contestarPregunta(int valor) {
@@ -140,7 +157,7 @@ public class TestPacientePreguntasController implements Initializable {
             contadorPreguntas++;
             sumarATrastorno();
             //TRAER NUEVA PREGUNTA
-            cargarPregunta(pd.getPregunta(contadorPreguntas,getTipoCuestionario()));
+            cargarPregunta(pd.getPregunta(contadorPreguntas, getTipoCuestionario()));
         } else {
             cuestionario.getFinCuestionario();
             cuestionario.getDuracion();

@@ -20,12 +20,12 @@
                <children>
                   <Pane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="510.0" prefWidth="1020.0" style="-fx-background-color: #FFFFFF;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <children>
-                        <Label alignment="CENTER" layoutX="2.0" layoutY="-1.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="38.0" prefWidth="1020.0" style="-fx-background-color: #4664b5;" text="Bienvenido paciente" textAlignment="CENTER" textFill="WHITE">
+                        <Label fx:id="lblPaciente" alignment="CENTER" layoutX="2.0" layoutY="-1.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="38.0" prefWidth="1020.0" style="-fx-background-color: #4664b5;" text="Bienvenido " textAlignment="CENTER" textFill="WHITE">
                            <font>
                               <Font name="System Italic" size="25.0" />
                            </font>
                         </Label>
-                        <ImageView fitHeight="60.0" fitWidth="69.0" layoutX="883.0" layoutY="274.0">
+                        <ImageView fitHeight="60.0" fitWidth="69.0" layoutX="882.0" layoutY="422.0">
                            <image>
                               <Image url="@../imagenes/audio.jpg" />
                            </image>
@@ -38,11 +38,6 @@
                         <Label layoutX="152.0" layoutY="436.0" text="Ayuda">
                            <font>
                               <Font name="Arial" size="26.0" />
-                           </font>
-                        </Label>
-                        <Label layoutX="314.0" layoutY="67.0" text="Instrucciones para contestar el Test">
-                           <font>
-                              <Font name="Arial" size="25.0" />
                            </font>
                         </Label>
                         <JFXRadioButton fx:id="rbtnTPoca" layoutX="218.0" layoutY="375.0" text="Ocasionalmente">
@@ -73,9 +68,9 @@
                               <Font size="20.0" />
                            </font>
                         </JFXRadioButton>
-                        <Pane layoutX="32.0" layoutY="97.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="170.0" prefWidth="940.0" style="-fx-background-color: #FFFFFF;">
+                        <Pane layoutX="31.0" layoutY="186.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="154.0" prefWidth="940.0" style="-fx-background-color: #FFFFFF;">
                            <children>
-                              <JFXTextArea fx:id="txtpregunta" editable="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="170.0" prefWidth="940.0" style="-fx-background-color: #FFFFFF;">
+                              <JFXTextArea fx:id="txtpregunta" editable="false" layoutY="35.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="135.0" prefWidth="940.0" style="-fx-background-color: #FFFFFF;">
                                  <font>
                                     <Font name="Century Gothic" size="28.0" />
                                  </font>
@@ -84,6 +79,16 @@
                         </Pane>
                      </children>
                   </Pane>
+                  <Label layoutX="25.0" layoutY="41.0" prefHeight="17.0" prefWidth="269.0" text="INSTRUCCIONES">
+                     <font>
+                        <Font name="System Bold" size="28.0" />
+                     </font>
+                  </Label>
+                  <JFXTextArea layoutX="25.0" layoutY="77.0" prefHeight="105.0" prefWidth="966.0" text="Responda en qué medida cada afirmación le ha sido aplicable durante las últimas 4 semanas.&#10;No omita preguntas.&#10;Intente contestar lo más sinceramente posible.&#10;Aunque no sepa sobre usted (por ejemplo, si ronca o si se mueve con sus piernas),indique lo que ha escuchado de las personas que le rodean o cómo cree que es." wrapText="true">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </JFXTextArea>
                </children>
             </AnchorPane>
         </items>

@@ -14,17 +14,11 @@ import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXDatePicker;
 import com.jfoenix.controls.JFXRadioButton;
 import com.jfoenix.controls.JFXTextField;
-import java.io.IOException;
 import java.net.URL;
-import java.time.format.DateTimeFormatter;
 import java.util.ResourceBundle;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.layout.AnchorPane;
 
@@ -92,6 +86,11 @@ public class PacienteNuevoController implements Initializable {
     public void hacerCuestionario(Paciente p) {
         ComenzarTestController ctc = (ComenzarTestController) cv.cambiarVista("/Center/ComenzarTest.fxml", c.getPanelPrin());
         ctc.setC(c);
+        ctc.setPaciente(p);
+        ctc.setDatosPaciente(true);
+        
+        
+
     }
 
     void registrarPaciente(Paciente p) {
@@ -119,15 +118,22 @@ public class PacienteNuevoController implements Initializable {
                 && !Direccion.equals("") && !Telefono.equals("")) {
 
             Paciente p = new Paciente(Nombre, Apellido, Sexo, Correo, Fecha, Direccion, Telefono, CURP);
-            registrarPaciente(p);
+            // registrarPaciente(p);
             CustomMessage cm = new CustomMessage("MENSAJE", "Registrado con éxito", 2);
+            CustomMessage cm1 = new CustomMessage("MENSAJE", "¿Desea realizar el Cuestionario?", 4);
 
-            hacerCuestionario(p);
+            if (cm1.getMessage().getButtonData().equals(ButtonType.OK.getButtonData())) {
+                
+                hacerCuestionario(p);
+            } else {
+                CustomMessage cm2 = new CustomMessage("MENSAJE", "El cuestionario se guardó para más tarde", 2);
+            }
 
         } else {
             CustomMessage cm = new CustomMessage("ERROR", "Hubo un error en alguno de los campos...", 2);
 
         }
+        
     }
 
 }
