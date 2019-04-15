@@ -17,6 +17,7 @@ import com.jfoenix.controls.JFXRadioButton;
 import com.jfoenix.controls.JFXTextArea;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
@@ -221,5 +222,9 @@ public class TestEspecialistaController implements Initializable {
         cuestionario.calificarPregunta(instrumento, trastorno, puntaje);
         cuestionario.agregarRespuesta(pregunta, puntaje);
 
+    }
+    private void regresarPregunta(ActionEvent ae)
+    {
+        cuestionario.quitarPregunta(instrumento, trastorno, puntaje);
     }
 }
