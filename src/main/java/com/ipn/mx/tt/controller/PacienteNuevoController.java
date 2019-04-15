@@ -118,7 +118,7 @@ public class PacienteNuevoController implements Initializable {
                 && !Direccion.equals("") && !Telefono.equals("")) {
 
             Paciente p = new Paciente(Nombre, Apellido, Sexo, Correo, Fecha, Direccion, Telefono, CURP);
-            // registrarPaciente(p);
+             registrarPaciente(p);
             CustomMessage cm = new CustomMessage("MENSAJE", "Registrado con éxito", 2);
             CustomMessage cm1 = new CustomMessage("MENSAJE", "¿Desea realizar el Cuestionario?", 4);
 
