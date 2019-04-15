@@ -12,6 +12,7 @@ import com.ipn.mx.tt.dao.TrastornoSintomaDAO;
 import com.ipn.mx.tt.modelo.Cuestionario;
 import com.ipn.mx.tt.modelo.Pregunta;
 import com.ipn.mx.tt.util.CustomMessage;
+import com.ipn.mx.tt.util.ThreadPregunta;
 import com.ipn.mx.tt.util.cargadorVista;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXRadioButton;
@@ -166,8 +167,11 @@ public class TestEspecialistaController implements Initializable {
 
     void contestarPregunta(int valor) {
 
-        if (contadorPreguntas < 61) {
+        if (contadorPreguntas < 4) {
+            ThreadPregunta tp = new ThreadPregunta(5, rbtnTEcs, rbtnTEavc, rbtnTEnunca, rbtnTEoca, rbtnTEsiempre, regresar);
+            tp.runClock();
             //AGREGAR A LA VISTA
+
             registroPregunta(txtpregunta.getText(), getRespuesta(valor));
             limpiarVista();
             //SUMAR AL CUESTIONARIO 
@@ -179,9 +183,10 @@ public class TestEspecialistaController implements Initializable {
             cuestionario.getFinCuestionario();
             cuestionario.getDuracion();
             cv = new cargadorVista();
-            PrediagnosticoController pc = (PrediagnosticoController) cv.cambiarVista("/Center/Prediagnostico.fxml", mc.getPanelPrin());
-            pc.setCuestionario(cuestionario);
-            pc.cargarResultados();
+            TestEspecialistaFinalizadoController telp=(TestEspecialistaFinalizadoController)
+                    cv.cambiarVista("/Center/TestEspecialistaFinalizado.fxml", mc.getPanelPrin());
+            telp.setCuestionario(cuestionario);
+            telp.setMc(mc);
         }
     }
 
@@ -233,6 +238,9 @@ public class TestEspecialistaController implements Initializable {
 
             cargarPregunta(pd.getPregunta(contadorPreguntas - 1));
             restarATrastorno();
+        } else {
+            CustomMessage cm = new CustomMessage("ERROR", "No hay pregunta Anterior...", 2);
+
         }
     }
 
@@ -250,11 +258,9 @@ public class TestEspecialistaController implements Initializable {
 
             cargarPregunta(pd.getPregunta(contadorPreguntas - 1));
             restarATrastorno();
-        }
-        else
-        {
-            CustomMessage cm=new CustomMessage("ERROR", "No hay pregunta Anterior...", 2);
-            
+        } else {
+            CustomMessage cm = new CustomMessage("ERROR", "No hay pregunta Anterior...", 2);
+
         }
     }
 }
