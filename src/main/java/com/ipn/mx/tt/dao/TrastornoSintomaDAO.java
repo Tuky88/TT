@@ -15,7 +15,7 @@ import com.mongodb.DBObject;
  * @author Axel Reyes
  */
 public class TrastornoSintomaDAO {
-        
+
     ConexionJavaMongo cjm;
     String base, coleccion;
 
@@ -41,11 +41,14 @@ public class TrastornoSintomaDAO {
         double resp = 0;
         DBObject query = new BasicDBObject("_idSintoma", Double.valueOf(id));
         DBCursor cursor = cjm.getMongoCollection().find(query);
-
+        System.out.println("TRASTORNOS ENCONTRADOS:" +cursor.size());
         if (cursor.hasNext()) {
+            
             DBObject jo = cursor.one();
             if (jo != null) {
                 resp = (Double) jo.get("_idTrastorno");
+            } else {
+                System.out.println("NO SE ENCONTRÓ EL TRASTORNO");
             }
 
         }

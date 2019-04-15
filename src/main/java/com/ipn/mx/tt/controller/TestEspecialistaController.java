@@ -11,6 +11,7 @@ import com.ipn.mx.tt.dao.SintomaPreguntaDAO;
 import com.ipn.mx.tt.dao.TrastornoSintomaDAO;
 import com.ipn.mx.tt.modelo.Cuestionario;
 import com.ipn.mx.tt.modelo.Pregunta;
+import com.ipn.mx.tt.util.CustomMessage;
 import com.ipn.mx.tt.util.cargadorVista;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXRadioButton;
@@ -27,6 +28,7 @@ import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 
@@ -45,7 +47,7 @@ public class TestEspecialistaController implements Initializable {
     SintomaPreguntaDAO spd;
     TrastornoSintomaDAO tsd;
     menuController mc;
-  
+
     @FXML
     private GridPane gridPane;
     @FXML
@@ -74,15 +76,13 @@ public class TestEspecialistaController implements Initializable {
 
     @FXML
     private JFXRadioButton rbtnTEcs;
-    
+
     @FXML
     private ScrollPane scrollE;
-     @FXML
+    @FXML
     private ImageView loading;
-     @FXML
+    @FXML
     private JFXButton regresar;
-    
- 
 
     private int contadorPreguntas;
 
@@ -225,8 +225,36 @@ public class TestEspecialistaController implements Initializable {
         cuestionario.agregarRespuesta(pregunta, puntaje);
 
     }
-    private void regresarPregunta(ActionEvent ae)
-    {
+
+    @FXML
+    private void regresarPregunta(ActionEvent ae) {
+
+        if (contadorPreguntas > 1) {
+
+            cargarPregunta(pd.getPregunta(contadorPreguntas - 1));
+            restarATrastorno();
+        }
+    }
+
+    public void restarATrastorno() {
+        sintoma = spd.buscarSintoma(pregunta);
+        trastorno = tsd.buscarTrastorno(sintoma);
         cuestionario.quitarPregunta(instrumento, trastorno, puntaje);
+        contadorPreguntas--;
+    }
+
+    @FXML
+    void regresarImg(MouseEvent event) {
+
+        if (contadorPreguntas > 1) {
+
+            cargarPregunta(pd.getPregunta(contadorPreguntas - 1));
+            restarATrastorno();
+        }
+        else
+        {
+            CustomMessage cm=new CustomMessage("ERROR", "No hay pregunta Anterior...", 2);
+            
+        }
     }
 }

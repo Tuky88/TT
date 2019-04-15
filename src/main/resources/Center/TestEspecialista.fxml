@@ -101,12 +101,12 @@
                                     </JFXTextArea>
                                  </children>
                               </Pane>
-                              <ImageView fitHeight="31.0" fitWidth="92.0" layoutX="242.0" layoutY="407.0">
+                              <ImageView fx:id="imgRegresar" fitHeight="31.0" fitWidth="92.0" layoutX="242.0" layoutY="407.0" onMouseClicked="#regresarImg">
                                  <image>
                                     <Image url="@../imagenes/regresar.png" />
                                  </image>
                               </ImageView>
-                              <JFXButton fx:id="regresar" layoutX="316.0" layoutY="409.0" prefHeight="27.0" prefWidth="86.0" style="-fx-background-color: #70CFB2;" text="Regresar" />
+                              <JFXButton fx:id="regresar" layoutX="316.0" layoutY="409.0" onAction="#regresarPregunta" prefHeight="27.0" prefWidth="86.0" style="-fx-background-color: #70CFB2;" text="Regresar" />
                            </children>
                         </Pane>
                      </center>

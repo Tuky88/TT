@@ -41,13 +41,18 @@ public class SintomaPreguntaDAO {
         double resp = 0;
         DBObject query = new BasicDBObject("_idPregunta", Double.valueOf(id));
         DBCursor cursor = cjm.getMongoCollection().find(query);
-
+        
+        System.out.println("SINTOMAS ENCONTRADOS:" +cursor.size());
         if (cursor.hasNext()) {
             DBObject jo = cursor.one();
             if (jo != null) {
                 resp = (Double) jo.get("_idSintoma");
             }
 
+        }
+        else
+        {
+            System.out.println("NO SE ENCONTRÓ EL SINTOMA");
         }
         return (int) resp;
     }

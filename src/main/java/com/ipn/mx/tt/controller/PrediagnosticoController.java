@@ -113,9 +113,9 @@ public class PrediagnosticoController implements Initializable {
         
         SimpleDateFormat dt = new SimpleDateFormat("hh:mm:ss"); 
         SimpleDateFormat dt1 = new SimpleDateFormat("mm:ss"); 
-        lblDuracion.setText(dt.format(cuestionario.getDuracion()));
+        lblDuracion.setText(dt1.format(cuestionario.getDuracion()) + "minutos");
         lblInicio.setText(dt.format(cuestionario.getInicioCuestionario()));
-        lblTermino.setText(dt1.format(cuestionario.getFinCuestionario()));
+        lblTermino.setText(dt.format(cuestionario.getFinCuestionario()));
     }
 
 }
