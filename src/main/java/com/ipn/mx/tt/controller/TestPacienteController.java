@@ -22,6 +22,8 @@ import javafx.scene.layout.AnchorPane;
  */
 public class TestPacienteController implements Initializable {
 
+    int tipoCuestionario;
+
     cargadorVista cv;
     menuController mc;
 
@@ -32,6 +34,14 @@ public class TestPacienteController implements Initializable {
     private JFXTextField txtTPnumero;
     @FXML
     private AnchorPane panelT;
+
+    public int getTipoCuestionario() {
+        return tipoCuestionario;
+    }
+
+    public void setTipoCuestionario(int tipoCuestionario) {
+        this.tipoCuestionario = tipoCuestionario;
+    }
 
     public menuController getMc() {
         return mc;
@@ -47,9 +57,9 @@ public class TestPacienteController implements Initializable {
     @FXML
     void iniciarTest(ActionEvent event) {
         TestPacientePreguntasController tppc = (TestPacientePreguntasController) cv.cambiarVista("/Center/TestPacientePreguntas.fxml", mc.getPanelPrin());
-       tppc.setMc(mc);
+        tppc.setMc(mc);
+        tppc.setTipoCuestionario(tipoCuestionario);
         tppc.iniciarTest();
-        
 
     }
 

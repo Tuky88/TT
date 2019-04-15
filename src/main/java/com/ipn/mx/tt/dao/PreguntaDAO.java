@@ -56,14 +56,14 @@ public class PreguntaDAO {
 
     }
 
-    public Pregunta getPregunta(int i) {
+    public Pregunta getPregunta(int i,int tipo) {
 
         DBObject query = new BasicDBObject("_idPregunta", i);
         DBCursor cursor = cjm.getMongoCollection().find(query);
         Pregunta p;
         if (cursor.hasNext()) {
             DBObject jo = cursor.one();
-            p = new Pregunta(jo);
+            p = new Pregunta(jo,tipo);
         } else {
             p = new Pregunta();
         }

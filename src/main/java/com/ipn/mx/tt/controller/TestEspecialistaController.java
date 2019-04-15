@@ -139,8 +139,7 @@ public class TestEspecialistaController implements Initializable {
         pd.conectar();
         spd.conectar();
         tsd.conectar();
-        System.out.println("BANDERA");
-        cargarPregunta(pd.getPregunta(contadorPreguntas));
+        cargarPregunta(pd.getPregunta(contadorPreguntas, 1));
     }
 
     public void registroPregunta(String t, String r) {
@@ -167,7 +166,7 @@ public class TestEspecialistaController implements Initializable {
 
     void contestarPregunta(int valor) {
 
-        if (contadorPreguntas < 4) {
+        if (contadorPreguntas < 61) {
             ThreadPregunta tp = new ThreadPregunta(5, rbtnTEcs, rbtnTEavc, rbtnTEnunca, rbtnTEoca, rbtnTEsiempre, regresar);
             tp.runClock();
             //AGREGAR A LA VISTA
@@ -178,13 +177,12 @@ public class TestEspecialistaController implements Initializable {
             contadorPreguntas++;
             sumarATrastorno();
             //TRAER NUEVA PREGUNTA
-            cargarPregunta(pd.getPregunta(contadorPreguntas));
+            cargarPregunta(pd.getPregunta(contadorPreguntas, 1));
         } else {
             cuestionario.getFinCuestionario();
             cuestionario.getDuracion();
             cv = new cargadorVista();
-            TestEspecialistaFinalizadoController telp=(TestEspecialistaFinalizadoController)
-                    cv.cambiarVista("/Center/TestEspecialistaFinalizado.fxml", mc.getPanelPrin());
+            TestEspecialistaFinalizadoController telp = (TestEspecialistaFinalizadoController) cv.cambiarVista("/Center/TestEspecialistaFinalizado.fxml", mc.getPanelPrin());
             telp.setCuestionario(cuestionario);
             telp.setMc(mc);
         }
@@ -236,7 +234,7 @@ public class TestEspecialistaController implements Initializable {
 
         if (contadorPreguntas > 1) {
 
-            cargarPregunta(pd.getPregunta(contadorPreguntas - 1));
+            cargarPregunta(pd.getPregunta(contadorPreguntas - 1, 1));
             restarATrastorno();
         } else {
             CustomMessage cm = new CustomMessage("ERROR", "No hay pregunta Anterior...", 2);
@@ -256,7 +254,7 @@ public class TestEspecialistaController implements Initializable {
 
         if (contadorPreguntas > 1) {
 
-            cargarPregunta(pd.getPregunta(contadorPreguntas - 1));
+            cargarPregunta(pd.getPregunta(contadorPreguntas - 1, 1));
             restarATrastorno();
         } else {
             CustomMessage cm = new CustomMessage("ERROR", "No hay pregunta Anterior...", 2);

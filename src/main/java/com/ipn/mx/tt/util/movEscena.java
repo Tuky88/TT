@@ -32,6 +32,7 @@ public class movEscena {
             Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
 
             window.setScene(s);
+            window.centerOnScreen();
             window.show();
             o = root.getController();
 

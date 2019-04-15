@@ -61,6 +61,9 @@ public class ComenzarTestController implements Initializable {
         TestPacienteController tpc
                 = (TestPacienteController) cv.cambiarVista("/Center/TestPaciente.fxml", c.getPanelPrin());
         tpc.setMc(c);
+        tpc.setTipoCuestionario(2);
+        //1 .- Paciente
+        //2 .- Acompañante
     }
 
     @FXML
@@ -78,6 +81,8 @@ public class ComenzarTestController implements Initializable {
         TestPacienteController tpc
                 = (TestPacienteController) cv.cambiarVista("/Center/TestPaciente.fxml", c.getPanelPrin());
         tpc.setMc(c);
+        tpc.setTipoCuestionario(1);
+        
     }
 
 }

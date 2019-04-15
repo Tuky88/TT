@@ -12,6 +12,7 @@ import com.mongodb.DBObject;
  * @author Axel Reyes
  */
 public class Pregunta {
+
     int Id;
     String Texto;
 
@@ -21,15 +22,21 @@ public class Pregunta {
     }
 
     public Pregunta() {
-    Texto="";
-    Id=0;
+        Texto = "";
+        Id = 0;
     }
-    
-    public Pregunta(DBObject dbo)
-    {
-        Id=(int)dbo.get("_idPregunta");
-        Texto=(String)dbo.get("texto");
+
+    public Pregunta(DBObject dbo, int tipo) {
+        Id = (int) dbo.get("_idPregunta");
+        System.out.println("Tipocuestionario:" +tipo);
+        if (tipo == 1) {
+            Texto = (String) dbo.get("texto");
+        } else {
+            
+            Texto = (String) dbo.get("texto_2");
+        }
     }
+
     public int getId() {
         return Id;
     }

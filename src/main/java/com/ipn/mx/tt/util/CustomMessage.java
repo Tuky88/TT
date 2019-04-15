@@ -7,6 +7,7 @@ package com.ipn.mx.tt.util;
 
 import java.util.Optional;
 import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonBar;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Dialog;
 import javafx.scene.image.Image;
@@ -42,6 +43,9 @@ public class CustomMessage {
                 am = new Alert(Alert.AlertType.ERROR, "");
                 break;
             case 3:
+                ButtonType YES = new ButtonType("SI", ButtonBar.ButtonData.OK_DONE);
+                ButtonType NO = new ButtonType("NO", ButtonBar.ButtonData.CANCEL_CLOSE);
+                am = new Alert(Alert.AlertType.CONFIRMATION, "",YES,NO);
                 break;
             default:
 
