@@ -39,6 +39,7 @@ public class RecuperarcontraController implements Initializable {
 
     @FXML
     private JFXComboBox<?> cmbpreguntaseguridad;
+    
 
     @FXML
     void handleButtonAction(ActionEvent event) {

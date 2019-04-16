@@ -52,6 +52,9 @@ public class CambiarcontraController implements Initializable {
 
     @FXML
     private JFXButton btnCcguardar;
+    
+        @FXML
+    private JFXButton btnCcancelar;
     /**
      * Initializes the controller class.
      */
