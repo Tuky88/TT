@@ -3,6 +3,7 @@ package com.ipn.mx.tt.controller;
 import com.ipn.mx.tt.dao.UsuarioDAO;
 import com.ipn.mx.tt.modelo.Usuario;
 import com.ipn.mx.tt.util.CustomMessage;
+import com.ipn.mx.tt.util.Loader;
 import com.ipn.mx.tt.util.movEscena;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXPasswordField;
@@ -17,8 +18,10 @@ import javafx.scene.control.Label;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
+import javafx.stage.Stage;
 
 public class LoginController implements Initializable {
 
@@ -38,7 +41,8 @@ public class LoginController implements Initializable {
 
     @FXML
     private JFXButton btnAcceder;
-
+    @FXML
+    private AnchorPane login;
     @FXML
     void btnActionPrueba(ActionEvent event) {
 //        UsuarioDAO udao = new UsuarioDAO();
@@ -68,7 +72,10 @@ public class LoginController implements Initializable {
 
             }
         } else {
-           // alertMessage.alert(0, "ERROR", "LOS CAMPOS NO PUEDEN ESTAR VACIOS");
+            CustomMessage cm=new CustomMessage("ERROR","LOS CAMPOS NO PUEDEN ESTAR VACIOS", 2);
+           // alertMessage.alert(0, "ERROR", "");
+//                       Loader l=new Loader((Stage)login.getScene().getWindow(),5);
+//            l.start();
         }
     }
 

@@ -5,6 +5,7 @@
  */
 package com.ipn.mx.tt.controller;
 
+import com.ipn.mx.tt.util.Validador;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
 import com.jfoenix.controls.JFXTreeTableView;
@@ -21,6 +22,7 @@ import javafx.scene.input.KeyEvent;
  */
 public class PacienteConRegistroController implements Initializable {
 
+    Validador v;
     @FXML
     private JFXButton btnPriniciar;
 
@@ -32,7 +34,11 @@ public class PacienteConRegistroController implements Initializable {
 
     @FXML
     void buscarPaciente(KeyEvent event) {
-        System.out.println("");
+        String busqueda=v.validarTF(txtPrnombre);
+        if(busqueda.length()>3)
+        {
+            System.out.println(busqueda);
+        }
     }
 
     @Override

@@ -19,19 +19,20 @@ import com.jfoenix.controls.JFXRadioButton;
 import com.jfoenix.controls.JFXTextArea;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
-import javafx.scene.control.ScrollBar;
-import javafx.scene.control.ScrollPane;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.ToggleGroup;
+import javafx.scene.control.TreeItem;
+import javafx.scene.control.TreeTableColumn;
+import javafx.scene.control.TreeTableView;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.GridPane;
+import javafx.util.Callback;
 
 /**
  * FXML Controller class
@@ -48,29 +49,28 @@ public class TestEspecialistaController implements Initializable {
     SintomaPreguntaDAO spd;
     TrastornoSintomaDAO tsd;
     menuController mc;
+    private int contadorPreguntas;
 
     @FXML
-    private GridPane gridPane;
+    private TreeTableView<String> tablaRespuesta;
+
     @FXML
-    private ScrollBar sbTEpreguntas;
+    private TreeTableColumn<String, String> columnaRespuesta;
 
     @FXML
     private BorderPane panelRight;
 
     @FXML
-    private JFXTextArea txtpregunta;
-
-    @FXML
     private ProgressBar pbTEprogeso;
 
     @FXML
-    private JFXRadioButton rbtnTEoca;
-
-    @FXML
-    private JFXRadioButton rbtnTEsiempre;
-
-    @FXML
     private JFXRadioButton rbtnTEnunca;
+
+    @FXML
+    private ToggleGroup grupoPregunta;
+
+    @FXML
+    private JFXRadioButton rbtnTEoca;
 
     @FXML
     private JFXRadioButton rbtnTEavc;
@@ -79,19 +79,23 @@ public class TestEspecialistaController implements Initializable {
     private JFXRadioButton rbtnTEcs;
 
     @FXML
-    private ScrollPane scrollE;
+    private JFXRadioButton rbtnTEsiempre;
+
     @FXML
-    private ImageView loading;
+    private JFXTextArea txtpregunta;
+
+    @FXML
+    private ImageView imgRegresar;
+
     @FXML
     private JFXButton regresar;
-
-    private int contadorPreguntas;
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        
         // TODO
         rbtnTEnunca.setOnAction((event) -> {
             contestarPregunta(1);
@@ -110,7 +114,14 @@ public class TestEspecialistaController implements Initializable {
         });
         contadorPreguntas = 1;
         cuestionario = new Cuestionario();
-
+        TreeItem<String> itemRaiz = new TreeItem<>("RESPUESTAS");
+        itemRaiz.setExpanded(true);
+        tablaRespuesta.setRoot(itemRaiz);
+        
+        columnaRespuesta.setCellValueFactory((TreeTableColumn.CellDataFeatures<String, String> param) -> {
+            return new SimpleStringProperty(param.getValue().getValue());
+        });
+       
     }
 
     public void cargarPregunta(Pregunta p) {
@@ -139,20 +150,17 @@ public class TestEspecialistaController implements Initializable {
         pd.conectar();
         spd.conectar();
         tsd.conectar();
+        
         cargarPregunta(pd.getPregunta(contadorPreguntas, 1));
     }
 
     public void registroPregunta(String t, String r) {
-        GridPane p = new GridPane();
-        Label preguntaL = new Label(t);
-        Label respuesta = new Label(r);
-        p.addRow(0, preguntaL);
-        p.addRow(1, respuesta);
-        int posicion = gridPane.impl_getRowCount();
-        gridPane.addRow(posicion, p);
-        scrollE.setContent(gridPane);
-        scrollE.setVbarPolicy(ScrollPane.ScrollBarPolicy.AS_NEEDED);
-        scrollE.setPannable(true);
+
+        TreeItem<String> itemPregunta = new TreeItem<>(t);
+        TreeItem<String> itemRespuesta = new TreeItem<>(r);
+        itemPregunta.getChildren().addAll(itemRespuesta);
+        itemPregunta.setExpanded(true);
+        tablaRespuesta.getRoot().getChildren().addAll(itemPregunta);
 
     }
 
@@ -167,8 +175,8 @@ public class TestEspecialistaController implements Initializable {
     void contestarPregunta(int valor) {
 
         if (contadorPreguntas < 61) {
-            ThreadPregunta tp = new ThreadPregunta(5, rbtnTEcs, rbtnTEavc, rbtnTEnunca, rbtnTEoca, rbtnTEsiempre, regresar);
-            tp.runClock();
+            ThreadPregunta tp = new ThreadPregunta(1, rbtnTEcs, rbtnTEavc, rbtnTEnunca, rbtnTEoca, rbtnTEsiempre, regresar);
+            //tp.runClock();
             //AGREGAR A LA VISTA
 
             registroPregunta(txtpregunta.getText(), getRespuesta(valor));
