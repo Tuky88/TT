@@ -34,7 +34,8 @@
             <JFXPasswordField fx:id="txtCpass" layoutX="430.0" layoutY="125.0" prefHeight="25.0" prefWidth="225.0" style="-fx-background-color: #FFFFFF;" />
             <JFXPasswordField fx:id="txtCnpass" layoutX="430.0" layoutY="176.0" prefHeight="25.0" prefWidth="225.0" style="-fx-background-color: #FFFFFF;" />
             <JFXPasswordField fx:id="txtCrnpass" layoutX="430.0" layoutY="219.0" prefHeight="25.0" prefWidth="225.0" style="-fx-background-color: #FFFFFF;" />
-            <JFXButton fx:id="btnCcguardar" buttonType="RAISED" layoutX="443.0" layoutY="289.0" onAction="#cambiarContraseña" prefHeight="36.0" prefWidth="148.0" ripplerFill="#c1e1b8" style="-fx-background-color: #FFFFFF;" text="Guardar" />
+            <JFXButton fx:id="btnCcguardar" buttonType="RAISED" layoutX="529.0" layoutY="288.0" onAction="#cambiarContraseña" prefHeight="36.0" prefWidth="148.0" ripplerFill="#c1e1b8" style="-fx-background-color: #FFFFFF;" text="Guardar" />
+            <JFXButton fx:id="btnCcancelar" buttonType="RAISED" layoutX="330.0" layoutY="288.0" onAction="#cambiarContraseña" prefHeight="36.0" prefWidth="148.0" ripplerFill="#c1e1b8" style="-fx-background-color: #F76969;" text="Cancelar" />
          </children>
       </Pane>
    </children>

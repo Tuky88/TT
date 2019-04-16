@@ -35,14 +35,9 @@
             <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="510.0" prefWidth="1020.0" style="-fx-background-color: #FFFFFF;">
                <children>
                   <BorderPane fx:id="panelRight" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="510.0" prefWidth="1020.0">
-                     <center>
+                     <bottom>
                         <Pane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="510.0" prefWidth="1020.0" style="-fx-background-color: #FFFFFF;" BorderPane.alignment="CENTER">
                            <children>
-                              <Label alignment="CENTER" layoutX="3.0" layoutY="-1.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="38.0" prefWidth="1020.0" style="-fx-background-color: #4664b5;" text="Bienvenido paciente" textAlignment="CENTER" textFill="WHITE">
-                                 <font>
-                                    <Font name="System Italic" size="25.0" />
-                                 </font>
-                              </Label>
                               <ProgressBar fx:id="pbTEprogeso" layoutX="144.0" layoutY="459.0" prefHeight="31.0" prefWidth="628.0" progress="0.0" />
                               <JFXRadioButton fx:id="rbtnTEnunca" layoutX="125.0" layoutY="356.0" text="Nunca">
                                  <font>
@@ -72,34 +67,34 @@
                                     <Font size="20.0" />
                                  </font>
                               </JFXRadioButton>
-                              <Pane layoutX="52.0" layoutY="138.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="170.0" prefWidth="940.0">
+                              <Pane layoutX="11.0" layoutY="198.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="142.0" prefWidth="981.0">
                                  <children>
-                                    <JFXTextArea fx:id="txtpregunta" editable="false" labelFloat="true" prefHeight="170.0" prefWidth="940.0">
+                                    <JFXTextArea fx:id="txtpregunta" editable="false" labelFloat="true" layoutY="23.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="114.0" prefWidth="982.0">
                                        <font>
                                           <Font name="Century Gothic" size="28.0" />
                                        </font>
                                     </JFXTextArea>
                                  </children>
                               </Pane>
-                              <ImageView fx:id="imgRegresar" fitHeight="31.0" fitWidth="92.0" layoutX="242.0" layoutY="407.0" onMouseClicked="#regresarImg">
+                              <ImageView fx:id="imgRegresar" fitHeight="31.0" fitWidth="92.0" layoutX="387.0" layoutY="406.0" onMouseClicked="#regresarImg">
                                  <image>
                                     <Image url="@../imagenes/regresar.png" />
                                  </image>
                               </ImageView>
-                              <JFXButton fx:id="regresar" layoutX="316.0" layoutY="409.0" onAction="#regresarPregunta" prefHeight="27.0" prefWidth="86.0" style="-fx-background-color: #70CFB2;" text="Regresar" />
-                              <Label layoutX="35.0" layoutY="37.0" prefHeight="17.0" prefWidth="269.0" text="INSTRUCCIONES">
+                              <JFXButton fx:id="regresar" layoutX="461.0" layoutY="408.0" onAction="#regresarPregunta" prefHeight="27.0" prefWidth="86.0" style="-fx-background-color: #70CFB2;" text="Regresar" />
+                              <Label alignment="CENTER" layoutX="351.0" layoutY="14.0" prefHeight="17.0" prefWidth="269.0" text="INSTRUCCIONES">
                                  <font>
-                                    <Font name="System Bold" size="28.0" />
+                                    <Font name="System Bold" size="24.0" />
                                  </font>
                               </Label>
-                              <JFXTextArea layoutX="20.0" layoutY="69.0" prefHeight="69.0" prefWidth="966.0" text="Responda en qué medida cada afirmación le ha sido aplicable durante las últimas 4 semanas.&#10;No omita preguntas.&#10;Intente contestar lo más sinceramente posible." wrapText="true">
+                              <JFXTextArea editable="false" layoutX="20.0" layoutY="54.0" prefHeight="132.0" prefWidth="966.0" text="-Responda en qué medida cada afirmación le ha sido aplicable durante las últimas 4 semanas.&#10;-No omita preguntas.&#10;-Intente contestar lo más sinceramente posible." wrapText="true">
                                  <font>
-                                    <Font size="14.0" />
+                                    <Font name="Century Gothic" size="20.0" />
                                  </font>
                               </JFXTextArea>
                            </children>
                         </Pane>
-                     </center>
+                     </bottom>
                   </BorderPane>
                </children>
             </AnchorPane>
