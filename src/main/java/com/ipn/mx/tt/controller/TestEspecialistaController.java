@@ -179,7 +179,7 @@ public class TestEspecialistaController implements Initializable {
 
         if (contadorPreguntas < 61) {
             ThreadPregunta tp = new ThreadPregunta(3, rbtnTEcs, rbtnTEavc, rbtnTEnunca, rbtnTEoca, rbtnTEsiempre, regresar);
-            tp.runClock();
+            //tp.runClock();
             //AGREGAR A LA VISTA
 
             registroPregunta(txtpregunta.getText(), getRespuesta(valor));
@@ -241,16 +241,15 @@ public class TestEspecialistaController implements Initializable {
     private void sumarATrastorno() {
         sintoma = spd.buscarSintoma(pregunta);
 
-        for (int i = 0; i < sintoma.size(); i++) {
-            int numeroSintoma = (int) sintoma.get(i);
-            trastorno = tsd.buscarTrastorno(numeroSintoma);
-            for (int j = 0; j < trastorno.size(); j++) {
-                int numeroTrastorno = (int) trastorno.get(j);
-                System.out.println("/Instrumento:/" + instrumento + "/Sintoma/" + numeroSintoma + "/Trastorno/" + numeroTrastorno
-                        + "/Pregunta:/" + pregunta + "/Valor:/" + puntaje);
-                cuestionario.calificarPregunta(instrumento, (int) numeroTrastorno, puntaje);
-                cuestionario.agregarRespuesta(pregunta, puntaje);
-            }
+        int numeroSintoma = (int) sintoma.get(0);
+        trastorno = tsd.buscarTrastorno(numeroSintoma);
+        for (int j = 0; j < trastorno.size(); j++) {
+            int numeroTrastorno = (int) trastorno.get(j);
+            System.out.println("/Instrumento:/" + instrumento + "/Sintoma/" + numeroSintoma + "/Trastorno/" + numeroTrastorno
+                    + "/Pregunta:/" + pregunta + "/Valor:/" + puntaje);
+            cuestionario.calificarPregunta(instrumento, (int) numeroTrastorno, puntaje);
+            cuestionario.agregarRespuesta(pregunta, puntaje);
+
         }
 
     }
