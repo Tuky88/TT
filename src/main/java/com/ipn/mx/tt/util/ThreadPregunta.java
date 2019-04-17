@@ -53,7 +53,7 @@ public class ThreadPregunta {
                     r4.setDisable(true);
                     r5.setDisable(true);
                 });
-                Thread.sleep(Time * 1000);
+                Thread.sleep( 1000);
                 r1.setDisable(false);
                 r2.setDisable(false);
                 r3.setDisable(false);

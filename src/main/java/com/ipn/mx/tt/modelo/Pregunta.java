@@ -28,11 +28,10 @@ public class Pregunta {
 
     public Pregunta(DBObject dbo, int tipo) {
         Id = (int) dbo.get("_idPregunta");
-        System.out.println("Tipocuestionario:" +tipo);
         if (tipo == 1) {
             Texto = (String) dbo.get("texto");
         } else {
-            
+
             Texto = (String) dbo.get("texto_2");
         }
     }

@@ -6,7 +6,6 @@
 package com.ipn.mx.tt.dao;
 
 import com.ipn.mx.tt.modelo.Pregunta;
-import com.ipn.mx.tt.modelo.Usuario;
 import com.ipn.mx.tt.util.ConexionJavaMongo;
 import com.mongodb.BasicDBObject;
 import com.mongodb.DBCursor;

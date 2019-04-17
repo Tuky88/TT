@@ -9,6 +9,7 @@ import com.ipn.mx.tt.util.ConexionJavaMongo;
 import com.mongodb.BasicDBObject;
 import com.mongodb.DBCursor;
 import com.mongodb.DBObject;
+import java.util.LinkedList;
 
 /**
  *
@@ -36,22 +37,17 @@ public class TrastornoSintomaDAO {
         this.cjm.conectar();
     }
 
-    public int buscarTrastorno(int id) {
-
-        double resp = 0;
+    public LinkedList buscarTrastorno(int id) {
+        LinkedList ls = new LinkedList();
+        Double resp;
         DBObject query = new BasicDBObject("_idSintoma", Double.valueOf(id));
         DBCursor cursor = cjm.getMongoCollection().find(query);
-        System.out.println("TRASTORNOS ENCONTRADOS:" +cursor.size());
-        if (cursor.hasNext()) {
-            
-            DBObject jo = cursor.one();
-            if (jo != null) {
-                resp = (Double) jo.get("_idTrastorno");
-            } else {
-                System.out.println("NO SE ENCONTRÓ EL TRASTORNO");
-            }
+        for (int i = 0; i < cursor.size(); i++) {
 
+            DBObject jo = cursor.next();
+            resp = (Double) jo.get("_idTrastorno");
+            ls.add(resp.intValue());
         }
-        return (int) resp;
+        return ls;
     }
 }

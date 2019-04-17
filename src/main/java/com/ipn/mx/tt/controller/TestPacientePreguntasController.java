@@ -14,10 +14,10 @@ import com.ipn.mx.tt.modelo.Paciente;
 import com.ipn.mx.tt.modelo.Pregunta;
 import com.ipn.mx.tt.util.ThreadPregunta;
 import com.ipn.mx.tt.util.cargadorVista;
-import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXRadioButton;
 import com.jfoenix.controls.JFXTextArea;
 import java.net.URL;
+import java.util.LinkedList;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -34,7 +34,8 @@ public class TestPacientePreguntasController implements Initializable {
     Paciente paciente;
     Cuestionario cuestionario;
     cargadorVista cv;
-    int instrumento, pregunta, trastorno, sintoma, puntaje;
+    int instrumento, pregunta, puntaje;
+    LinkedList sintoma, trastorno;
     int tipoCuestionario;
     PreguntaDAO pd;
     CuestionarioPreguntaDAO cd;
@@ -113,13 +114,14 @@ public class TestPacientePreguntasController implements Initializable {
         });
         contadorPreguntas = 1;
         cuestionario = new Cuestionario();
-        
+        sintoma = new LinkedList();
+        trastorno = new LinkedList();
     }
 
-    public void ponerPaciente()
-    {
-        lblPaciente.setText(lblPaciente.getText()+" "+ paciente.getNombre());
+    public void ponerPaciente() {
+        lblPaciente.setText(lblPaciente.getText() + " " + paciente.getNombre());
     }
+
     public void cargarPregunta(Pregunta p) {
         txtpregunta.setText(p.getId() + ".-" + p.getTexto());
         pregunta = p.getId();
@@ -148,7 +150,7 @@ public class TestPacientePreguntasController implements Initializable {
     void contestarPregunta(int valor) {
 
         if (contadorPreguntas < 61) {
-            ThreadPregunta tp = new ThreadPregunta(5, rbtnTPavc, rbtnTPcs, rbtnTPnunca, rbtnTPoca, rbtnTPsiempre);
+            ThreadPregunta tp = new ThreadPregunta(3, rbtnTPavc, rbtnTPcs, rbtnTPnunca, rbtnTPoca, rbtnTPsiempre);
             tp.runClock();
             //AGREGAR A LA VISTA
             limpiarVista();
@@ -210,11 +212,18 @@ public class TestPacientePreguntasController implements Initializable {
 
     private void sumarATrastorno() {
         sintoma = spd.buscarSintoma(pregunta);
-        trastorno = tsd.buscarTrastorno(sintoma);
-        System.out.println("/Instrumento:/" + instrumento + "/Sintoma/" + sintoma + "/Trastorno/" + trastorno
-                + "/Pregunta:/" + pregunta + "/Valor:/" + puntaje);
-        cuestionario.calificarPregunta(instrumento, trastorno, puntaje);
-        cuestionario.agregarRespuesta(pregunta, puntaje);
+
+        for (int i = 0; i < sintoma.size(); i++) {
+            int numeroSintoma = (int) sintoma.get(i);
+            trastorno = tsd.buscarTrastorno(numeroSintoma);
+            for (int j = 0; j < trastorno.size(); j++) {
+                int numeroTrastorno = (int) trastorno.get(j);
+                System.out.println("/Instrumento:/" + instrumento + "/Sintoma/" + numeroSintoma + "/Trastorno/" + numeroTrastorno
+                        + "/Pregunta:/" + pregunta + "/Valor:/" + puntaje);
+                cuestionario.calificarPregunta(instrumento, (int) numeroTrastorno, puntaje);
+                cuestionario.agregarRespuesta(pregunta, puntaje);
+            }
+        }
 
     }
 }

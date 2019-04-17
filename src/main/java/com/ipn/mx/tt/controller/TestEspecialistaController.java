@@ -18,6 +18,7 @@ import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXRadioButton;
 import com.jfoenix.controls.JFXTextArea;
 import java.net.URL;
+import java.util.LinkedList;
 import java.util.ResourceBundle;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.value.ObservableValue;
@@ -43,7 +44,8 @@ public class TestEspecialistaController implements Initializable {
 
     Cuestionario cuestionario;
     cargadorVista cv;
-    int instrumento, pregunta, trastorno, sintoma, puntaje;
+    int instrumento, pregunta, puntaje;
+    LinkedList sintoma, trastorno;
     PreguntaDAO pd;
     CuestionarioPreguntaDAO cd;
     SintomaPreguntaDAO spd;
@@ -95,7 +97,7 @@ public class TestEspecialistaController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        
+
         // TODO
         rbtnTEnunca.setOnAction((event) -> {
             contestarPregunta(1);
@@ -117,11 +119,11 @@ public class TestEspecialistaController implements Initializable {
         TreeItem<String> itemRaiz = new TreeItem<>("RESPUESTAS");
         itemRaiz.setExpanded(true);
         tablaRespuesta.setRoot(itemRaiz);
-        
+
         columnaRespuesta.setCellValueFactory((TreeTableColumn.CellDataFeatures<String, String> param) -> {
             return new SimpleStringProperty(param.getValue().getValue());
         });
-       
+
     }
 
     public void cargarPregunta(Pregunta p) {
@@ -150,7 +152,8 @@ public class TestEspecialistaController implements Initializable {
         pd.conectar();
         spd.conectar();
         tsd.conectar();
-        
+        sintoma = new LinkedList();
+        trastorno = new LinkedList();
         cargarPregunta(pd.getPregunta(contadorPreguntas, 1));
     }
 
@@ -175,8 +178,8 @@ public class TestEspecialistaController implements Initializable {
     void contestarPregunta(int valor) {
 
         if (contadorPreguntas < 61) {
-            ThreadPregunta tp = new ThreadPregunta(1, rbtnTEcs, rbtnTEavc, rbtnTEnunca, rbtnTEoca, rbtnTEsiempre, regresar);
-            //tp.runClock();
+            ThreadPregunta tp = new ThreadPregunta(3, rbtnTEcs, rbtnTEavc, rbtnTEnunca, rbtnTEoca, rbtnTEsiempre, regresar);
+            tp.runClock();
             //AGREGAR A LA VISTA
 
             registroPregunta(txtpregunta.getText(), getRespuesta(valor));
@@ -213,11 +216,19 @@ public class TestEspecialistaController implements Initializable {
                 break;
             case 4:
                 resp = rbtnTEcs.getText();
-                puntaje = 4;
+                if (instrumento == 1) {
+                    puntaje = 4;
+                } else {
+                    puntaje = 3;
+                }
                 break;
             case 5:
                 resp = rbtnTEsiempre.getText();
-                puntaje = 5;
+                if (instrumento == 1) {
+                    puntaje = 5;
+                } else {
+                    puntaje = 4;
+                }
                 break;
 
             default:
@@ -229,11 +240,18 @@ public class TestEspecialistaController implements Initializable {
 
     private void sumarATrastorno() {
         sintoma = spd.buscarSintoma(pregunta);
-        trastorno = tsd.buscarTrastorno(sintoma);
-        System.out.println("/Instrumento:/" + instrumento + "/Sintoma/" + sintoma + "/Trastorno/" + trastorno
-                + "/Pregunta:/" + pregunta + "/Valor:/" + puntaje);
-        cuestionario.calificarPregunta(instrumento, trastorno, puntaje);
-        cuestionario.agregarRespuesta(pregunta, puntaje);
+
+        for (int i = 0; i < sintoma.size(); i++) {
+            int numeroSintoma = (int) sintoma.get(i);
+            trastorno = tsd.buscarTrastorno(numeroSintoma);
+            for (int j = 0; j < trastorno.size(); j++) {
+                int numeroTrastorno = (int) trastorno.get(j);
+                System.out.println("/Instrumento:/" + instrumento + "/Sintoma/" + numeroSintoma + "/Trastorno/" + numeroTrastorno
+                        + "/Pregunta:/" + pregunta + "/Valor:/" + puntaje);
+                cuestionario.calificarPregunta(instrumento, (int) numeroTrastorno, puntaje);
+                cuestionario.agregarRespuesta(pregunta, puntaje);
+            }
+        }
 
     }
 
@@ -252,8 +270,8 @@ public class TestEspecialistaController implements Initializable {
 
     public void restarATrastorno() {
         sintoma = spd.buscarSintoma(pregunta);
-        trastorno = tsd.buscarTrastorno(sintoma);
-        cuestionario.quitarPregunta(instrumento, trastorno, puntaje);
+        //      trastorno = tsd.buscarTrastorno(sintoma);
+//        cuestionario.quitarPregunta(instrumento, trastorno, puntaje);
         contadorPreguntas--;
     }
 

@@ -9,13 +9,14 @@ import com.ipn.mx.tt.util.ConexionJavaMongo;
 import com.mongodb.BasicDBObject;
 import com.mongodb.DBCursor;
 import com.mongodb.DBObject;
+import java.util.LinkedList;
 
 /**
  *
  * @author Axel Reyes
  */
 public class SintomaPreguntaDAO {
-    
+
     ConexionJavaMongo cjm;
     String base, coleccion;
 
@@ -36,24 +37,19 @@ public class SintomaPreguntaDAO {
         this.cjm.conectar();
     }
 
-    public int buscarSintoma(int id) {
-
-        double resp = 0;
+    public LinkedList buscarSintoma(int id) {
+        LinkedList ls = new LinkedList();
+        Double resp;
         DBObject query = new BasicDBObject("_idPregunta", Double.valueOf(id));
         DBCursor cursor = cjm.getMongoCollection().find(query);
-        
-        System.out.println("SINTOMAS ENCONTRADOS:" +cursor.size());
-        if (cursor.hasNext()) {
-            DBObject jo = cursor.one();
-            if (jo != null) {
-                resp = (Double) jo.get("_idSintoma");
-            }
 
+        for (int i = 0; i < cursor.size(); i++) {
+
+            DBObject jo = cursor.next();
+
+            resp = (Double) jo.get("_idSintoma");
+            ls.add(resp.intValue());
         }
-        else
-        {
-            System.out.println("NO SE ENCONTRÓ EL SINTOMA");
-        }
-        return (int) resp;
+        return ls;
     }
 }
