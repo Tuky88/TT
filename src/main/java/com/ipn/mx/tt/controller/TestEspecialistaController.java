@@ -240,11 +240,11 @@ public class TestEspecialistaController implements Initializable {
 
     private void sumarATrastorno() {
         sintoma = test.getSintoma(pregunta);
-        System.out.println("Sintomas:" + sintoma.size());
+  //      System.out.println("Sintomas:" + sintoma.size());
         //System.out.println(sintoma.toString());
         sintoma.forEach((sintomaLoop) -> {
             SintomaPregunta sp = (SintomaPregunta) sintomaLoop;
-            System.out.println(sp.toString());
+//            System.out.println(sp.toString());
             int numeroSintoma = sp.getSintoma();
             trastorno = test.getTrastorno(numeroSintoma);
             trastorno.forEach((trastornoLoop) -> {
