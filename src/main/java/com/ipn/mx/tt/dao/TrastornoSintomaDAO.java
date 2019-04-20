@@ -10,6 +10,7 @@ import com.mongodb.BasicDBObject;
 import com.mongodb.DBCursor;
 import com.mongodb.DBObject;
 import java.util.LinkedList;
+import java.util.List;
 
 /**
  *
@@ -33,6 +34,10 @@ public class TrastornoSintomaDAO {
 
     }
 
+    public TrastornoSintomaDAO(DBObject dbObject) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
     public void conectar() {
         this.cjm.conectar();
     }
@@ -49,5 +54,11 @@ public class TrastornoSintomaDAO {
             ls.add(resp.intValue());
         }
         return ls;
+    }
+
+    public List traerTrastornos() {
+        DBCursor cursor = cjm.getMongoCollection().find();
+
+        return cursor.toArray();
     }
 }

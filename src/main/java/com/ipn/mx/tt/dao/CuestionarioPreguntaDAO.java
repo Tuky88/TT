@@ -10,6 +10,8 @@ import com.ipn.mx.tt.util.ConexionJavaMongo;
 import com.mongodb.BasicDBObject;
 import com.mongodb.DBCursor;
 import com.mongodb.DBObject;
+import java.util.LinkedList;
+import java.util.List;
 
 /**
  *
@@ -46,10 +48,17 @@ public class CuestionarioPreguntaDAO {
         if (cursor.hasNext()) {
             DBObject jo = cursor.one();
             if (jo != null) {
-                resp =Integer.valueOf((String) jo.get("_idCuestionario"));
+                resp = Integer.valueOf((String) jo.get("_idCuestionario"));
             }
 
         }
         return resp;
+    }
+
+    public List getCuestionario() {
+        //    throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+                DBCursor cursor = cjm.getMongoCollection().find();
+                
+        return cursor.toArray();
     }
 }

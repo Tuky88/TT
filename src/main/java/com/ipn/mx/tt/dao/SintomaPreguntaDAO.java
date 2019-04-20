@@ -10,6 +10,7 @@ import com.mongodb.BasicDBObject;
 import com.mongodb.DBCursor;
 import com.mongodb.DBObject;
 import java.util.LinkedList;
+import java.util.List;
 
 /**
  *
@@ -52,4 +53,12 @@ public class SintomaPreguntaDAO {
         }
         return ls;
     }
+
+    public List traerSintomas() {
+
+        DBCursor cursor = cjm.getMongoCollection().find();
+
+        return cursor.toArray();
+    }
+
 }

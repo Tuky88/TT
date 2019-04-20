@@ -11,6 +11,8 @@ import com.mongodb.BasicDBObject;
 import com.mongodb.DBCursor;
 import com.mongodb.DBObject;
 import java.nio.charset.Charset;
+import java.util.LinkedList;
+import java.util.List;
 
 /**
  *
@@ -68,5 +70,12 @@ public class PreguntaDAO {
         }
 
         return p;
+    }
+
+    public List getPreguntas(int tipo) {
+        List ls;
+        DBCursor cursor = cjm.getMongoCollection().find();
+        ls=cursor.toArray();
+        return ls;
     }
 }

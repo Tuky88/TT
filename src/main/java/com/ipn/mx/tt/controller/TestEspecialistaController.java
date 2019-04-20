@@ -11,6 +11,9 @@ import com.ipn.mx.tt.dao.SintomaPreguntaDAO;
 import com.ipn.mx.tt.dao.TrastornoSintomaDAO;
 import com.ipn.mx.tt.modelo.Cuestionario;
 import com.ipn.mx.tt.modelo.Pregunta;
+import com.ipn.mx.tt.modelo.SintomaPregunta;
+import com.ipn.mx.tt.modelo.Test;
+import com.ipn.mx.tt.modelo.TrastornoSintoma;
 import com.ipn.mx.tt.util.CustomMessage;
 import com.ipn.mx.tt.util.ThreadPregunta;
 import com.ipn.mx.tt.util.cargadorVista;
@@ -21,7 +24,6 @@ import java.net.URL;
 import java.util.LinkedList;
 import java.util.ResourceBundle;
 import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -33,7 +35,6 @@ import javafx.scene.control.TreeTableView;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
-import javafx.util.Callback;
 
 /**
  * FXML Controller class
@@ -44,13 +45,11 @@ public class TestEspecialistaController implements Initializable {
 
     Cuestionario cuestionario;
     cargadorVista cv;
+    int tipoCuestionario;
     int instrumento, pregunta, puntaje;
     LinkedList sintoma, trastorno;
-    PreguntaDAO pd;
-    CuestionarioPreguntaDAO cd;
-    SintomaPreguntaDAO spd;
-    TrastornoSintomaDAO tsd;
     menuController mc;
+    Test test;
     private int contadorPreguntas;
 
     @FXML
@@ -129,7 +128,7 @@ public class TestEspecialistaController implements Initializable {
     public void cargarPregunta(Pregunta p) {
         txtpregunta.setText(p.getId() + ".-" + p.getTexto());
         pregunta = p.getId();
-        instrumento = cd.buscarCuestionario(pregunta);
+        instrumento = test.getTipoCuestionario(pregunta);
         // int tipo=id.tipoCuestionario(pregunta);
         if (instrumento == 1) {
             rbtnTEavc.setVisible(true);
@@ -139,22 +138,23 @@ public class TestEspecialistaController implements Initializable {
         }
     }
 
+    public int getTipoCuestionario() {
+        return tipoCuestionario;
+    }
+
+    public void setTipoCuestionario(int tipoCuestionario) {
+        this.tipoCuestionario = tipoCuestionario;
+    }
+
     void setMc(menuController c) {
         mc = c;
     }
 
     void iniciarTest() {
-        pd = new PreguntaDAO();
-        cd = new CuestionarioPreguntaDAO();
-        spd = new SintomaPreguntaDAO();
-        tsd = new TrastornoSintomaDAO();
-        cd.conectar();
-        pd.conectar();
-        spd.conectar();
-        tsd.conectar();
         sintoma = new LinkedList();
         trastorno = new LinkedList();
-        cargarPregunta(pd.getPregunta(contadorPreguntas, 1));
+        test = new Test(tipoCuestionario);
+        cargarPregunta(test.getPregunta(contadorPreguntas));
     }
 
     public void registroPregunta(String t, String r) {
@@ -179,7 +179,7 @@ public class TestEspecialistaController implements Initializable {
 
         if (contadorPreguntas < 61) {
             ThreadPregunta tp = new ThreadPregunta(3, rbtnTEcs, rbtnTEavc, rbtnTEnunca, rbtnTEoca, rbtnTEsiempre, regresar);
-            //tp.runClock();
+            tp.runClock();
             //AGREGAR A LA VISTA
 
             registroPregunta(txtpregunta.getText(), getRespuesta(valor));
@@ -188,7 +188,7 @@ public class TestEspecialistaController implements Initializable {
             contadorPreguntas++;
             sumarATrastorno();
             //TRAER NUEVA PREGUNTA
-            cargarPregunta(pd.getPregunta(contadorPreguntas, 1));
+            cargarPregunta(test.getPregunta(contadorPreguntas));
         } else {
             cuestionario.getFinCuestionario();
             cuestionario.getDuracion();
@@ -239,19 +239,23 @@ public class TestEspecialistaController implements Initializable {
     }
 
     private void sumarATrastorno() {
-        sintoma = spd.buscarSintoma(pregunta);
+        sintoma = test.getSintoma(pregunta);
+        System.out.println("Sintomas:" + sintoma.size());
+        //System.out.println(sintoma.toString());
+        sintoma.forEach((sintomaLoop) -> {
+            SintomaPregunta sp = (SintomaPregunta) sintomaLoop;
+            System.out.println(sp.toString());
+            int numeroSintoma = sp.getSintoma();
+            trastorno = test.getTrastorno(numeroSintoma);
+            trastorno.forEach((trastornoLoop) -> {
+                TrastornoSintoma ts = (TrastornoSintoma) trastornoLoop;
 
-        int numeroSintoma = (int) sintoma.get(0);
-        trastorno = tsd.buscarTrastorno(numeroSintoma);
-        for (int j = 0; j < trastorno.size(); j++) {
-            int numeroTrastorno = (int) trastorno.get(j);
-            System.out.println("/Instrumento:/" + instrumento + "/Sintoma/" + numeroSintoma + "/Trastorno/" + numeroTrastorno
-                    + "/Pregunta:/" + pregunta + "/Valor:/" + puntaje);
-            cuestionario.calificarPregunta(instrumento, (int) numeroTrastorno, puntaje);
-            cuestionario.agregarRespuesta(pregunta, puntaje);
-
-        }
-
+                System.out.println("/Instrumento:/" + instrumento + "/Sintoma/" + numeroSintoma + "/Trastorno/" + ts.getTrastorno()
+                        + "/Pregunta:/" + pregunta + "/Valor:/" + puntaje);
+                cuestionario.calificarPregunta(instrumento, ts.getTrastorno(), puntaje);
+                cuestionario.agregarRespuesta(pregunta, puntaje);
+            });
+        });
     }
 
     @FXML
@@ -259,7 +263,7 @@ public class TestEspecialistaController implements Initializable {
 
         if (contadorPreguntas > 1) {
 
-            cargarPregunta(pd.getPregunta(contadorPreguntas - 1, 1));
+            cargarPregunta(test.getPregunta(contadorPreguntas - 1));
             restarATrastorno();
         } else {
             CustomMessage cm = new CustomMessage("ERROR", "No hay pregunta Anterior...", 2);
@@ -268,10 +272,10 @@ public class TestEspecialistaController implements Initializable {
     }
 
     public void restarATrastorno() {
-        sintoma = spd.buscarSintoma(pregunta);
+//        sintoma = spd.buscarSintoma(pregunta);
         //      trastorno = tsd.buscarTrastorno(sintoma);
 //        cuestionario.quitarPregunta(instrumento, trastorno, puntaje);
-        contadorPreguntas--;
+        //      contadorPreguntas--;
     }
 
     @FXML
@@ -279,7 +283,7 @@ public class TestEspecialistaController implements Initializable {
 
         if (contadorPreguntas > 1) {
 
-            cargarPregunta(pd.getPregunta(contadorPreguntas - 1, 1));
+            cargarPregunta(test.getPregunta(contadorPreguntas - 1));
             restarATrastorno();
         } else {
             CustomMessage cm = new CustomMessage("ERROR", "No hay pregunta Anterior...", 2);

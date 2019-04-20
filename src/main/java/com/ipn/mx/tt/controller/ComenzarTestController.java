@@ -100,8 +100,8 @@ public class ComenzarTestController implements Initializable {
         TestEspecialistaController tec
                 = (TestEspecialistaController) cv.cambiarVista("/Center/TestEspecialista.fxml", c.getPanelPrin());
         tec.setMc(c);
+        tec.setTipoCuestionario(1);
         tec.iniciarTest();
-        
     }
     
     @FXML
