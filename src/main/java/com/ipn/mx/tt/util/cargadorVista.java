@@ -5,7 +5,6 @@
  */
 package com.ipn.mx.tt.util;
 
-import com.ipn.mx.tt.controller.ComenzarTestController;
 import com.ipn.mx.tt.controller.PacienteNuevoController;
 import java.io.IOException;
 import java.util.logging.Level;
@@ -45,6 +44,21 @@ public class cargadorVista {
             o = fx.getController();
             bp.setLeft(null);
             bp.setCenter(ap);
+
+        } catch (IOException ex) {
+            Logger.getLogger(PacienteNuevoController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return o;
+    }
+        public Object cambiarVistaIzq(String archivo, BorderPane bp) {
+        Object o = null;
+        try {
+            FXMLLoader fx = new FXMLLoader(getClass().getResource(archivo));
+
+            AnchorPane ap = fx.load();
+            o = fx.getController();
+            bp.setLeft(ap);
+            bp.setCenter(null);
 
         } catch (IOException ex) {
             Logger.getLogger(PacienteNuevoController.class.getName()).log(Level.SEVERE, null, ex);

@@ -7,22 +7,15 @@ package com.ipn.mx.tt.controller;
 
 import com.ipn.mx.tt.modelo.Usuario;
 import com.ipn.mx.tt.util.CustomMessage;
+import com.ipn.mx.tt.util.Reloj;
+import com.ipn.mx.tt.util.cargadorVista;
 import com.ipn.mx.tt.util.movEscena;
 import com.jfoenix.controls.JFXButton;
-import java.io.IOException;
 import java.net.URL;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.ResourceBundle;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javafx.application.Platform;
-import javafx.concurrent.Task;
 import javafx.event.Event;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.control.Tab;
@@ -37,8 +30,9 @@ import javafx.scene.layout.BorderPane;
  */
 public class menuController implements Initializable {
 
-    movEscena mov;
-    Usuario usuario;
+    private movEscena mov;
+    private Usuario usuario;
+    private cargadorVista cv;
 
     public Usuario getUsuario() {
         return usuario;
@@ -66,7 +60,7 @@ public class menuController implements Initializable {
 
     @FXML
     private Tab TabTest;
-       @FXML
+    @FXML
     private Tab TabPaciente;
 
     @FXML
@@ -99,142 +93,58 @@ public class menuController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-        mov = new movEscena();
-
-//        alertMessage = new AlertMessage();
-        runClock();
-        cambiarMenu("/Center/Inicio.fxml", 2);
+//        mov = new movEscena();
+        cv = new cargadorVista();
+        Reloj r = new Reloj(lblHora, lblFecha);
+        r.runClock();
+        cv.cambiarVista("/Center/Inicio.fxml", PanelPrin);
         TabInicio.setOnSelectionChanged((Event event) -> {
-            cambiarMenu("/Center/Inicio.fxml", 2);
+
+            CustomMessage cm = new CustomMessage("Advertencia", "¿Salir sin guardar?", 3);
+            if (cm.getMessage().getButtonData().equals(ButtonType.OK.getButtonData())) {
+
+                cv.cambiarVistaIzq("/Center/Inicio.fxml", PanelPrin);
+            } else {
+                event.consume();
+            }
+
         });
-        TabAcerca.setDisable(false);
-        TabAyuda.setDisable(false);
-        TabInicio.setDisable(true);
-        TabPrediagnostico.setDisable(false);
-        TabReporte.setDisable(false);
-        TabTest.setDisable(false);
-        TabPaciente.setDisable(false);
-        TabConfig.setDisable(false);
-        
+
         TabConfig.setOnSelectionChanged((Event event) -> {
-            ConfiguracionesController cc = (ConfiguracionesController) cambiarMenu("/Center/Configuraciones.fxml", 0);
+            ConfiguracionesController cc = (ConfiguracionesController) cv.cambiarVistaIzq("/Center/Configuraciones.fxml", PanelPrin);
             cc.setUsuario(usuario);
             cc.clickInicial();
             System.out.println(usuario.toString());
-            TabAcerca.setDisable(false);
-            TabAyuda.setDisable(false);
-            TabInicio.setDisable(false);
-            TabPrediagnostico.setDisable(false);
-            TabReporte.setDisable(false);
-            TabPaciente.setDisable(false);
-            TabTest.setDisable(false);
-            TabPaciente.setDisable(false);
-            TabConfig.setDisable(true);
 
         });
         TabPaciente.setOnSelectionChanged((Event event) -> {
-            PacienteController tc= (PacienteController) cambiarMenu("/Center/Paciente.fxml", 0);
+            PacienteController tc = (PacienteController) cv.cambiarVistaIzq("/Center/Paciente.fxml", PanelPrin);
             tc.setC(this);
             tc.clickMenu();
-            TabAcerca.setDisable(false);
-            TabAyuda.setDisable(false);
-            TabInicio.setDisable(false);
-            TabPrediagnostico.setDisable(false);
-            TabReporte.setDisable(false);
-            TabTest.setDisable(false);
-            TabConfig.setDisable(false);
-            TabTest.setDisable(false);
-            TabPaciente.setDisable(true);
+
         });
-         TabTest.setOnSelectionChanged((Event event) -> {
-            ComenzarTestController tc= (ComenzarTestController) cambiarMenu("/Center/ComenzarTest.fxml", 0);
+        TabTest.setOnSelectionChanged((Event event) -> {
+            ComenzarTestController tc = (ComenzarTestController) cv.cambiarVistaIzq("/Center/ComenzarTest.fxml", PanelPrin);
             tc.setC(this);
-            TabAcerca.setDisable(false);
-            TabAyuda.setDisable(false);
-            TabInicio.setDisable(false);
-            TabPrediagnostico.setDisable(false);
-            TabReporte.setDisable(false);
-            TabTest.setDisable(false);
-            TabConfig.setDisable(false);
-            TabTest.setDisable(true);
-            TabPaciente.setDisable(false);
+
         });
         TabReporte.setOnSelectionChanged((Event event) -> {
-            cambiarMenu("/Center/Reportes.fxml", 0);
-            TabAcerca.setDisable(false);
-            TabAyuda.setDisable(false);
-            TabInicio.setDisable(false);
-            TabPrediagnostico.setDisable(false);
-            TabReporte.setDisable(false);
-            TabTest.setDisable(false);
-            TabPaciente.setDisable(false);
-            TabConfig.setDisable(false);
-            TabReporte.setDisable(true);
+            cv.cambiarVistaIzq("/Center/Reportes.fxml", PanelPrin);
+
         });
         TabPrediagnostico.setOnSelectionChanged((Event event) -> {
-            cambiarMenu("/Center/Prediagnosticos.fxml", 0);
-            TabAcerca.setDisable(false);
-            TabAyuda.setDisable(false);
-            TabInicio.setDisable(false);
-            TabPrediagnostico.setDisable(false);
-            TabReporte.setDisable(false);
-            TabTest.setDisable(false);
-            TabPaciente.setDisable(false);
-            TabConfig.setDisable(false);
-            TabPrediagnostico.setDisable(true);
+            cv.cambiarVistaIzq("/Center/Prediagnosticos.fxml", PanelPrin);
+
         });
         TabAcerca.setOnSelectionChanged((Event event) -> {
-            cambiarMenu("/Center/Inicio.fxml", 2);
-            TabAcerca.setDisable(false);
-            TabAyuda.setDisable(false);
-            TabInicio.setDisable(false);
-            TabPrediagnostico.setDisable(false);
-            TabReporte.setDisable(false);
-            TabTest.setDisable(false);
-            TabConfig.setDisable(false);
-            TabPaciente.setDisable(false);
-            TabAcerca.setDisable(true);
+            cv.cambiarVistaIzq("/Center/Inicio.fxml", PanelPrin);
 
         });
         TabAyuda.setOnSelectionChanged((Event event) -> {
-            cambiarMenu("/Center/Inicio.fxml", 2);
-            TabAcerca.setDisable(false);
-            TabAyuda.setDisable(false);
-            TabInicio.setDisable(false);
-            TabPrediagnostico.setDisable(false);
-            TabReporte.setDisable(false);
-            TabTest.setDisable(false);
-            TabConfig.setDisable(false);
-            TabPaciente.setDisable(false);
-            TabAyuda.setDisable(true);
+            cv.cambiarVistaIzq("/Center/Inicio.fxml", PanelPrin);
+
         });
 
-    }
-
-    public void imprimir() {
-        System.out.println("oifodsjflksjdl");
-    }
-
-    public void runClock() {
-        Task task = new Task<Void>() {
-            @Override
-            public Void call() throws Exception {
-                while (true) {
-
-                    Platform.runLater(() -> {
-                        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy - HH:mm:ss");
-                        LocalDateTime now = LocalDateTime.now();
-                        String[] date = dtf.format(now).split("-");
-                        lblHora.setText(date[1]);
-                        lblFecha.setText(date[0]);
-                    });
-                    Thread.sleep(1000);
-                }
-            }
-        };
-        Thread th = new Thread(task);
-        th.setDaemon(true);
-        th.start();
     }
 
     @FXML
@@ -245,37 +155,6 @@ public class menuController implements Initializable {
         }
     }
 
-    public Object cambiarMenu(String menu, int tipo) {
-        Object o = null;
-        if (tipo == 99) {
-            PanelPrin.setLeft(null);
-        } else {
-            Parent root = null;
-            FXMLLoader fx = new FXMLLoader(getClass().getResource(menu));
-            try {
-
-                root = fx.load();
-                o = fx.getController();
-            } catch (IOException ex) {
-                Logger.getLogger(menuController.class.getName()).log(Level.SEVERE, null, ex);
-            }
-            if (tipo == 1) {
-                PanelPrin.setCenter(null);
-                PanelPrin.setCenter(root);
-            }
-            if (tipo == 2) {
-                PanelPrin.setCenter(null);
-                PanelPrin.setCenter(root);
-                PanelPrin.setLeft(null);
-            } else {
-                PanelPrin.setCenter(null);
-                PanelPrin.setLeft(root);
-            }
-
-        }
-        return o;
-    }
-
     public BorderPane getPanelPrin() {
         return PanelPrin;
     }
@@ -284,21 +163,4 @@ public class menuController implements Initializable {
         this.PanelPrin = PanelPrin;
     }
 
-    public Object abrirMenu(String menu) {
-        Object o = null;
-        try {
-            FXMLLoader fx = new FXMLLoader(getClass().getResource(menu));
-            Parent root = fx.load();
-            PanelPrin.setCenter(null);
-            PanelPrin.setCenter(root);
-            o = fx.getController();
-        } catch (IOException ex) {
-            Logger.getLogger(ConfiguracionesController.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        return o;
-    }
-
-    public void cambiarTexto() {
-        btnCerrarSesion.setText("TE VEO PRRO");
-    }
 }
