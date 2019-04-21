@@ -26,12 +26,13 @@ public class Test {
     TrastornoSintomaDAO tsd;
     List preguntas, tipoCuestionario, SintomaPregunta, TrastornoSintoma;
     int tipo;
+    int[] trastornos;
 
     public Test(int tipo) {
         pd = new PreguntaDAO();
         cpd = new CuestionarioPreguntaDAO();
         spd = new SintomaPreguntaDAO();
-        tsd=new TrastornoSintomaDAO();
+        tsd = new TrastornoSintomaDAO();
         this.tipo = tipo;
         pd.conectar();
         cpd.conectar();
@@ -41,7 +42,11 @@ public class Test {
         tipoCuestionario = cpd.getCuestionario();
         SintomaPregunta = spd.traerSintomas();
         TrastornoSintoma = tsd.traerTrastornos();
-        //System.out.println(SintomaPregunta.toString());
+        trastornos = new int[8];
+        for (int i = 0; i < 8; i++) {
+            trastornos[i] = 0;
+        }
+//System.out.println(SintomaPregunta.toString());
     }
 
     public Pregunta getPregunta(int i) {
@@ -79,5 +84,19 @@ public class Test {
             }
         });
         return ls;
+    }
+    public void levantarBandera(int trastorno)
+    {
+        trastornos[trastorno]=1;
+    }
+    public void reiniciarBanderas()
+    {
+        for (int i = 0; i < 8; i++) {
+            trastornos[i]=0;
+        }
+    }
+    public boolean banderaLevantada(int trastorno)
+    {
+        return trastornos[trastorno]!=0;
     }
 }

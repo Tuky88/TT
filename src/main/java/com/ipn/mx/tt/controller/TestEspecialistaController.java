@@ -5,10 +5,6 @@
  */
 package com.ipn.mx.tt.controller;
 
-import com.ipn.mx.tt.dao.CuestionarioPreguntaDAO;
-import com.ipn.mx.tt.dao.PreguntaDAO;
-import com.ipn.mx.tt.dao.SintomaPreguntaDAO;
-import com.ipn.mx.tt.dao.TrastornoSintomaDAO;
 import com.ipn.mx.tt.modelo.Cuestionario;
 import com.ipn.mx.tt.modelo.Pregunta;
 import com.ipn.mx.tt.modelo.SintomaPregunta;
@@ -43,13 +39,13 @@ import javafx.scene.layout.BorderPane;
  */
 public class TestEspecialistaController implements Initializable {
 
-    Cuestionario cuestionario;
-    cargadorVista cv;
-    int tipoCuestionario;
-    int instrumento, pregunta, puntaje;
-    LinkedList sintoma, trastorno;
-    menuController mc;
-    Test test;
+    private Cuestionario cuestionario;
+    private cargadorVista cv;
+    private int tipoCuestionario;
+    private int instrumento, pregunta, puntaje;
+    private LinkedList sintoma, trastorno;
+    private menuController mc;
+    private Test test;
     private int contadorPreguntas;
 
     @FXML
@@ -240,7 +236,7 @@ public class TestEspecialistaController implements Initializable {
 
     private void sumarATrastorno() {
         sintoma = test.getSintoma(pregunta);
-  //      System.out.println("Sintomas:" + sintoma.size());
+        //      System.out.println("Sintomas:" + sintoma.size());
         //System.out.println(sintoma.toString());
         sintoma.forEach((sintomaLoop) -> {
             SintomaPregunta sp = (SintomaPregunta) sintomaLoop;
@@ -250,12 +246,18 @@ public class TestEspecialistaController implements Initializable {
             trastorno.forEach((trastornoLoop) -> {
                 TrastornoSintoma ts = (TrastornoSintoma) trastornoLoop;
 
-                System.out.println("/Instrumento:/" + instrumento + "/Sintoma/" + numeroSintoma + "/Trastorno/" + ts.getTrastorno()
-                        + "/Pregunta:/" + pregunta + "/Valor:/" + puntaje);
-                cuestionario.calificarPregunta(instrumento, ts.getTrastorno(), puntaje);
-                cuestionario.agregarRespuesta(pregunta, puntaje);
+                if (test.banderaLevantada(ts.getTrastorno())) {
+                    System.out.println("YA SUMADO");
+                } else {
+                    test.levantarBandera(ts.getTrastorno());
+                    System.out.println("/Instrumento:/" + instrumento + "/Sintoma/" + numeroSintoma + "/Trastorno/" + ts.getTrastorno()
+                            + "/Pregunta:/" + pregunta + "/Valor:/" + puntaje);
+                    cuestionario.calificarPregunta(instrumento, ts.getTrastorno(), puntaje);
+                    cuestionario.agregarRespuesta(pregunta, puntaje);
+                }
             });
         });
+        test.reiniciarBanderas();
     }
 
     @FXML

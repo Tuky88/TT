@@ -12,6 +12,10 @@ import com.ipn.mx.tt.dao.TrastornoSintomaDAO;
 import com.ipn.mx.tt.modelo.Cuestionario;
 import com.ipn.mx.tt.modelo.Paciente;
 import com.ipn.mx.tt.modelo.Pregunta;
+import com.ipn.mx.tt.modelo.SintomaPregunta;
+import com.ipn.mx.tt.modelo.Test;
+import com.ipn.mx.tt.modelo.TrastornoSintoma;
+import com.ipn.mx.tt.util.CustomMessage;
 import com.ipn.mx.tt.util.ThreadPregunta;
 import com.ipn.mx.tt.util.cargadorVista;
 import com.jfoenix.controls.JFXRadioButton;
@@ -19,10 +23,15 @@ import com.jfoenix.controls.JFXTextArea;
 import java.net.URL;
 import java.util.LinkedList;
 import java.util.ResourceBundle;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.ToggleGroup;
+import javafx.scene.control.TreeItem;
+import javafx.scene.control.TreeTableColumn;
+import javafx.scene.input.MouseEvent;
 
 /**
  * FXML Controller class
@@ -31,17 +40,14 @@ import javafx.scene.control.ToggleGroup;
  */
 public class TestPacientePreguntasController implements Initializable {
 
-    Paciente paciente;
-    Cuestionario cuestionario;
-    cargadorVista cv;
-    int instrumento, pregunta, puntaje;
-    LinkedList sintoma, trastorno;
-    int tipoCuestionario;
-    PreguntaDAO pd;
-    CuestionarioPreguntaDAO cd;
-    SintomaPreguntaDAO spd;
-    TrastornoSintomaDAO tsd;
-    menuController mc;
+    private Paciente paciente;
+    private Cuestionario cuestionario;
+    private cargadorVista cv;
+    private int tipoCuestionario;
+    private int instrumento, pregunta, puntaje;
+    private LinkedList sintoma, trastorno;
+    private menuController mc;
+    private Test test;
     private int contadorPreguntas;
 
     public menuController getMc() {
@@ -94,8 +100,12 @@ public class TestPacientePreguntasController implements Initializable {
     /**
      * Initializes the controller class.
      */
+    /**
+     * Initializes the controller class.
+     */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+
         // TODO
         rbtnTPnunca.setOnAction((event) -> {
             contestarPregunta(1);
@@ -114,18 +124,13 @@ public class TestPacientePreguntasController implements Initializable {
         });
         contadorPreguntas = 1;
         cuestionario = new Cuestionario();
-        sintoma = new LinkedList();
-        trastorno = new LinkedList();
-    }
-
-    public void ponerPaciente() {
-        lblPaciente.setText(lblPaciente.getText() + " " + paciente.getNombre());
+        
     }
 
     public void cargarPregunta(Pregunta p) {
         txtpregunta.setText(p.getId() + ".-" + p.getTexto());
         pregunta = p.getId();
-        instrumento = cd.buscarCuestionario(pregunta);
+        instrumento = test.getTipoCuestionario(pregunta);
         // int tipo=id.tipoCuestionario(pregunta);
         if (instrumento == 1) {
             rbtnTPavc.setVisible(true);
@@ -136,30 +141,33 @@ public class TestPacientePreguntasController implements Initializable {
     }
 
     void iniciarTest() {
-        pd = new PreguntaDAO();
-        cd = new CuestionarioPreguntaDAO();
-        spd = new SintomaPreguntaDAO();
-        tsd = new TrastornoSintomaDAO();
-        cd.conectar();
-        pd.conectar();
-        spd.conectar();
-        tsd.conectar();
-        cargarPregunta(pd.getPregunta(contadorPreguntas, getTipoCuestionario()));
+        sintoma = new LinkedList();
+        trastorno = new LinkedList();
+        test = new Test(tipoCuestionario);
+        cargarPregunta(test.getPregunta(contadorPreguntas));
+    }
+
+    public void limpiarVista() {
+        rbtnTPavc.setSelected(false);
+        rbtnTPnunca.setSelected(false);
+        rbtnTPcs.setSelected(false);
+        rbtnTPoca.setSelected(false);
+        rbtnTPsiempre.setSelected(false);
     }
 
     void contestarPregunta(int valor) {
 
         if (contadorPreguntas < 61) {
-            ThreadPregunta tp = new ThreadPregunta(3, rbtnTPavc, rbtnTPcs, rbtnTPnunca, rbtnTPoca, rbtnTPsiempre);
+            ThreadPregunta tp = new ThreadPregunta(3, rbtnTPcs, rbtnTPavc, rbtnTPnunca, rbtnTPoca, rbtnTPsiempre);
             tp.runClock();
             //AGREGAR A LA VISTA
+            getRespuesta(valor);
             limpiarVista();
             //SUMAR AL CUESTIONARIO 
-            getRespuesta(valor);
             contadorPreguntas++;
             sumarATrastorno();
             //TRAER NUEVA PREGUNTA
-            cargarPregunta(pd.getPregunta(contadorPreguntas, getTipoCuestionario()));
+            cargarPregunta(test.getPregunta(contadorPreguntas));
         } else {
             cuestionario.getFinCuestionario();
             cuestionario.getDuracion();
@@ -168,7 +176,6 @@ public class TestPacientePreguntasController implements Initializable {
             telp.setCuestionario(cuestionario);
             telp.setMc(mc);
         }
-
     }
 
     String getRespuesta(int valor) {
@@ -188,11 +195,19 @@ public class TestPacientePreguntasController implements Initializable {
                 break;
             case 4:
                 resp = rbtnTPcs.getText();
-                puntaje = 4;
+                if (instrumento == 1) {
+                    puntaje = 4;
+                } else {
+                    puntaje = 3;
+                }
                 break;
             case 5:
                 resp = rbtnTPsiempre.getText();
-                puntaje = 5;
+                if (instrumento == 1) {
+                    puntaje = 5;
+                } else {
+                    puntaje = 4;
+                }
                 break;
 
             default:
@@ -202,28 +217,66 @@ public class TestPacientePreguntasController implements Initializable {
         return resp;
     }
 
-    public void limpiarVista() {
-        rbtnTPavc.setSelected(false);
-        rbtnTPnunca.setSelected(false);
-        rbtnTPcs.setSelected(false);
-        rbtnTPoca.setSelected(false);
-        rbtnTPsiempre.setSelected(false);
+    private void sumarATrastorno() {
+        sintoma = test.getSintoma(pregunta);
+        //      System.out.println("Sintomas:" + sintoma.size());
+        //System.out.println(sintoma.toString());
+        sintoma.forEach((sintomaLoop) -> {
+            SintomaPregunta sp = (SintomaPregunta) sintomaLoop;
+//            System.out.println(sp.toString());
+            int numeroSintoma = sp.getSintoma();
+            trastorno = test.getTrastorno(numeroSintoma);
+            trastorno.forEach((trastornoLoop) -> {
+                TrastornoSintoma ts = (TrastornoSintoma) trastornoLoop;
+
+                if (test.banderaLevantada(ts.getTrastorno())) {
+                    System.out.println("YA SUMADO");
+                } else {
+                    test.levantarBandera(ts.getTrastorno());
+                    System.out.println("/Instrumento:/" + instrumento + "/Sintoma/" + numeroSintoma + "/Trastorno/" + ts.getTrastorno()
+                            + "/Pregunta:/" + pregunta + "/Valor:/" + puntaje);
+                    cuestionario.calificarPregunta(instrumento, ts.getTrastorno(), puntaje);
+                    cuestionario.agregarRespuesta(pregunta, puntaje);
+                }
+            });
+        });
+        test.reiniciarBanderas();
     }
 
-    private void sumarATrastorno() {
-        sintoma = spd.buscarSintoma(pregunta);
+    @FXML
+    private void regresarPregunta(ActionEvent ae) {
 
-        for (int i = 0; i < sintoma.size(); i++) {
-            int numeroSintoma = (int) sintoma.get(i);
-            trastorno = tsd.buscarTrastorno(numeroSintoma);
-            for (int j = 0; j < trastorno.size(); j++) {
-                int numeroTrastorno = (int) trastorno.get(j);
-                System.out.println("/Instrumento:/" + instrumento + "/Sintoma/" + numeroSintoma + "/Trastorno/" + numeroTrastorno
-                        + "/Pregunta:/" + pregunta + "/Valor:/" + puntaje);
-                cuestionario.calificarPregunta(instrumento, (int) numeroTrastorno, puntaje);
-                cuestionario.agregarRespuesta(pregunta, puntaje);
-            }
+        if (contadorPreguntas > 1) {
+
+            cargarPregunta(test.getPregunta(contadorPreguntas - 1));
+            restarATrastorno();
+        } else {
+            CustomMessage cm = new CustomMessage("ERROR", "No hay pregunta Anterior...", 2);
+
         }
+    }
 
+    public void restarATrastorno() {
+//        sintoma = spd.buscarSintoma(pregunta);
+        //      trastorno = tsd.buscarTrastorno(sintoma);
+//        cuestionario.quitarPregunta(instrumento, trastorno, puntaje);
+        //      contadorPreguntas--;
+    }
+
+    @FXML
+    void regresarImg(MouseEvent event) {
+
+        if (contadorPreguntas > 1) {
+
+            cargarPregunta(test.getPregunta(contadorPreguntas - 1));
+            restarATrastorno();
+        } else {
+            CustomMessage cm = new CustomMessage("ERROR", "No hay pregunta Anterior...", 2);
+
+        }
+    }
+
+    public void ponerPaciente() {
+        this.lblPaciente.setText(this.lblPaciente.getText() + " " + paciente.getNombre());
     }
 }
