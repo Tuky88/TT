@@ -11,6 +11,8 @@ import com.ipn.mx.tt.util.ConexionJavaMongo;
 import com.mongodb.BasicDBObject;
 import com.mongodb.DBCursor;
 import com.mongodb.DBObject;
+import java.util.LinkedList;
+import java.util.List;
 
 /**
  *
@@ -54,8 +56,10 @@ public class PacienteDAO {
         System.out.println("Registro Agregado con éxito");
         cjm.cerrarConexion();
     }
+
     public Paciente buscarPaciente(String id) {
         cjm.conectar();
+        //db.users.find({name: /a/})
         DBObject query = new BasicDBObject("CURP", id);
         DBCursor cursor = cjm.getMongoCollection().find(query);
         Paciente paciente;
@@ -67,5 +71,12 @@ public class PacienteDAO {
         }
         cjm.cerrarConexion();
         return paciente;
+    }
+
+    public List buscarSimilar() {
+        cjm.conectar();
+        DBCursor cursor = cjm.getMongoCollection().find();
+
+        return cursor.toArray();
     }
 }

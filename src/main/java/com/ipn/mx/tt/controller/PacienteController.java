@@ -59,7 +59,8 @@ public class PacienteController implements Initializable {
     @FXML
     void abrirPacienteR(ActionEvent event) {
 
-        cv.cambiarVista("/Center/PacienteConRegistro.fxml",panelRight);
+        PacienteConRegistroController pcr=(PacienteConRegistroController)cv.cambiarVista("/Center/PacienteConRegistro.fxml",panelRight);
+        pcr.setC(c);
                 btnTpacientenuevo.setDisable(false);
         btnTpacienteregistrado.setDisable(true);
 

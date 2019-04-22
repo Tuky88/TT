@@ -100,13 +100,11 @@ public class menuController implements Initializable {
         cv.cambiarVista("/Center/Inicio.fxml", PanelPrin);
         TabInicio.setOnSelectionChanged((Event event) -> {
 
-            CustomMessage cm = new CustomMessage("Advertencia", "¿Salir sin guardar?", 3);
-            if (cm.getMessage().getButtonData().equals(ButtonType.OK.getButtonData())) {
+            //CustomMessage cm = new CustomMessage("Advertencia", "¿Salir sin guardar?", 3);
+            //if (cm.getMessage().getButtonData().equals(ButtonType.OK.getButtonData())) {
 
                 cv.cambiarVistaIzq("/Center/Inicio.fxml", PanelPrin);
-            } else {
-                event.consume();
-            }
+            
 
         });
 

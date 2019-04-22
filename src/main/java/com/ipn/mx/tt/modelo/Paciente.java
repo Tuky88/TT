@@ -6,6 +6,7 @@
 package com.ipn.mx.tt.modelo;
 
 import com.mongodb.DBObject;
+import java.util.Date;
 
 /**
  *
@@ -95,6 +96,14 @@ public class Paciente {
         this.Telefono = Telefono;
     }
 
+    public int getEdad() {
+        long ageInMillis = new Date().getTime() - new Date(Fecha).getTime();
+
+        Date age = new Date(ageInMillis);
+
+        return age.getYear();
+    }
+
     public Paciente(String Nombre, String Apellido, String Sexo, String Correo, String Fecha, String Direccion, String Telefono, String CURP) {
         this.Nombre = Nombre;
         this.Apellido = Apellido;
@@ -114,7 +123,12 @@ public class Paciente {
         this.Fecha = (String) dbo.get("Fecha");
         this.Direccion = (String) dbo.get("Direccion");
         this.Telefono = (String) dbo.get("Telefono");
-        this.CURP = (String) dbo.get("CURP");
+        this.CURP = (String) dbo.get("_CURP");
+    }
+    public Paciente(PacienteTabla pt)
+    {
+        this.Nombre=pt.getNombre().getValue();
+        this.CURP=pt.getCURP().getValue();
     }
 
 }
