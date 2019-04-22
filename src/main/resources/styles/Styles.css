@@ -1,3 +1,7 @@
 .button {
     -fx-font-weight: bold;
 }
+.img{
+    -fx-background-image:url("/imagenes/917733.jpg");
+    -fx-background-size: 100% 100%;
+}
