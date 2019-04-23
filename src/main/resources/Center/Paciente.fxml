@@ -42,12 +42,12 @@
                               <Insets />
                            </opaqueInsets>
                         </JFXTextField>
-                        <JFXButton fx:id="btnTpacientenuevo" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#abrirPacienteN" prefHeight="50.0" prefWidth="260.0" style="-fx-background-color: #FFFFFF;" text="  Paciente Nuevo" GridPane.rowIndex="3">
+                        <JFXButton fx:id="btnTpacientenuevo" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" onAction="#abrirPacienteN" prefHeight="50.0" prefWidth="260.0" style="-fx-background-color: #FFFFFF;" text="  Paciente Nuevo" GridPane.rowIndex="3">
                            <font>
                               <Font name="Arial" size="15.0" />
                            </font>
                         </JFXButton>
-                        <JFXButton fx:id="btnTpacienteregistrado" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#abrirPacienteR" prefHeight="50.0" prefWidth="260.0" style="-fx-background-color: #FFFFFF;" text="  Paciente Registrado" GridPane.rowIndex="5">
+                        <JFXButton fx:id="btnTpacienteregistrado" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" onAction="#abrirPacienteR" prefHeight="50.0" prefWidth="260.0" style="-fx-background-color: #FFFFFF;" text="  Paciente Registrado" GridPane.rowIndex="5">
                            <font>
                               <Font size="15.0" />
                            </font>
