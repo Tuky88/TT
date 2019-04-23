@@ -44,7 +44,7 @@ public class cargadorVista {
             o = fx.getController();
             bp.setLeft(null);
             bp.setCenter(ap);
-
+            bp.setRight(null);
         } catch (IOException ex) {
             Logger.getLogger(PacienteNuevoController.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -59,6 +59,7 @@ public class cargadorVista {
             o = fx.getController();
             bp.setLeft(ap);
             bp.setCenter(null);
+            bp.setRight(null);
 
         } catch (IOException ex) {
             Logger.getLogger(PacienteNuevoController.class.getName()).log(Level.SEVERE, null, ex);

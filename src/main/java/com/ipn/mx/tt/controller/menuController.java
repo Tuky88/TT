@@ -93,7 +93,7 @@ public class menuController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-//        mov = new movEscena();
+        mov = new movEscena();
         cv = new cargadorVista();
         Reloj r = new Reloj(lblHora, lblFecha);
         r.runClock();
@@ -102,44 +102,42 @@ public class menuController implements Initializable {
 
             //CustomMessage cm = new CustomMessage("Advertencia", "¿Salir sin guardar?", 3);
             //if (cm.getMessage().getButtonData().equals(ButtonType.OK.getButtonData())) {
-
-                cv.cambiarVistaIzq("/Center/Inicio.fxml", PanelPrin);
-            
+            cv.cambiarVista("/Center/Inicio.fxml", PanelPrin);
 
         });
 
         TabConfig.setOnSelectionChanged((Event event) -> {
-            ConfiguracionesController cc = (ConfiguracionesController) cv.cambiarVistaIzq("/Center/Configuraciones.fxml", PanelPrin);
+            ConfiguracionesController cc = (ConfiguracionesController) cv.cambiarVista("/Center/Configuraciones.fxml", PanelPrin);
             cc.setUsuario(usuario);
             cc.clickInicial();
             System.out.println(usuario.toString());
 
         });
         TabPaciente.setOnSelectionChanged((Event event) -> {
-            PacienteController tc = (PacienteController) cv.cambiarVistaIzq("/Center/Paciente.fxml", PanelPrin);
+            PacienteController tc = (PacienteController) cv.cambiarVista("/Center/Paciente.fxml", PanelPrin);
             tc.setC(this);
             tc.clickMenu();
 
         });
         TabTest.setOnSelectionChanged((Event event) -> {
-            ComenzarTestController tc = (ComenzarTestController) cv.cambiarVistaIzq("/Center/ComenzarTest.fxml", PanelPrin);
+            ComenzarTestController tc = (ComenzarTestController) cv.cambiarVista("/Center/ComenzarTest.fxml", PanelPrin);
             tc.setC(this);
 
         });
         TabReporte.setOnSelectionChanged((Event event) -> {
-            cv.cambiarVistaIzq("/Center/Reportes.fxml", PanelPrin);
+            cv.cambiarVista("/Center/Reportes.fxml", PanelPrin);
 
         });
         TabPrediagnostico.setOnSelectionChanged((Event event) -> {
-            cv.cambiarVistaIzq("/Center/Prediagnosticos.fxml", PanelPrin);
+            cv.cambiarVista("/Center/Prediagnosticos.fxml", PanelPrin);
 
         });
         TabAcerca.setOnSelectionChanged((Event event) -> {
-            cv.cambiarVistaIzq("/Center/Inicio.fxml", PanelPrin);
+            cv.cambiarVista("/Center/Inicio.fxml", PanelPrin);
 
         });
         TabAyuda.setOnSelectionChanged((Event event) -> {
-            cv.cambiarVistaIzq("/Center/Inicio.fxml", PanelPrin);
+            cv.cambiarVista("/Center/Inicio.fxml", PanelPrin);
 
         });
 
