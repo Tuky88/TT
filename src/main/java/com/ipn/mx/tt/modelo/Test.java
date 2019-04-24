@@ -7,6 +7,7 @@ package com.ipn.mx.tt.modelo;
 
 import com.ipn.mx.tt.dao.CuestionarioPreguntaDAO;
 import com.ipn.mx.tt.dao.PreguntaDAO;
+import com.ipn.mx.tt.dao.PreguntaEquivalenciaDAO;
 import com.ipn.mx.tt.dao.SintomaPreguntaDAO;
 import com.ipn.mx.tt.dao.TrastornoSintomaDAO;
 import com.mongodb.DBObject;
@@ -24,7 +25,8 @@ public class Test {
     CuestionarioPreguntaDAO cpd;
     SintomaPreguntaDAO spd;
     TrastornoSintomaDAO tsd;
-    List preguntas, tipoCuestionario, SintomaPregunta, TrastornoSintoma;
+    PreguntaEquivalenciaDAO ped;
+    List preguntas, tipoCuestionario, SintomaPregunta, TrastornoSintoma,equivalencias;
     int tipo;
     int[] trastornos;
 
@@ -33,15 +35,18 @@ public class Test {
         cpd = new CuestionarioPreguntaDAO();
         spd = new SintomaPreguntaDAO();
         tsd = new TrastornoSintomaDAO();
+        ped=new PreguntaEquivalenciaDAO();
         this.tipo = tipo;
         pd.conectar();
         cpd.conectar();
         spd.conectar();
         tsd.conectar();
+        ped.conectar();
         preguntas = pd.getPreguntas(tipo);
         tipoCuestionario = cpd.getCuestionario();
         SintomaPregunta = spd.traerSintomas();
         TrastornoSintoma = tsd.traerTrastornos();
+        equivalencias=ped.getEquivalencia();
         trastornos = new int[8];
         for (int i = 0; i < 8; i++) {
             trastornos[i] = 0;
@@ -98,5 +103,17 @@ public class Test {
     public boolean banderaLevantada(int trastorno)
     {
         return trastornos[trastorno]!=0;
+    }
+    public LinkedList obtenerEquivalente(int pregunta)
+    {
+        LinkedList ls=new LinkedList();
+        equivalencias.forEach((equivalencia)-> { 
+            PreguntaEquivalente pe=new PreguntaEquivalente((DBObject)equivalencia);
+            if(pe.getIdPregunta()==pregunta)
+            {
+                ls.add(pe);
+            }
+        });
+        return ls;
     }
 }
