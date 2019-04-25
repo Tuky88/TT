@@ -18,18 +18,18 @@
                   <Font name="System Italic" size="25.0" />
                </font>
             </Label>
-            <Label layoutX="250.0" layoutY="65.0" text="Nombre:">
+            <Label layoutX="337.0" layoutY="65.0" text="CURP:">
                <font>
                   <Font name="Arial" size="15.0" />
                </font>
             </Label>
-            <JFXButton fx:id="btnPriniciar" buttonType="RAISED" layoutX="491.0" layoutY="454.0" onAction="#iniciarTest" prefHeight="28.0" prefWidth="162.0" ripplerFill="WHITE" style="-fx-background-color: #B1F4AD;" text="Iniciar test">
+            <JFXButton fx:id="btnPriniciar" buttonType="RAISED" layoutX="415.0" layoutY="364.0" onAction="#iniciarTest" prefHeight="28.0" prefWidth="162.0" ripplerFill="WHITE" style="-fx-background-color: #B1F4AD;" text="Iniciar test">
                <font>
                   <Font name="Century Gothic" size="14.0" />
                </font>
             </JFXButton>
             <JFXTextField fx:id="txtPrnombre" layoutX="400.0" layoutY="61.0" onKeyReleased="#buscarPaciente" prefHeight="25.0" prefWidth="263.0" style="-fx-background-color: #FFFFFF;" />
-            <TableView fx:id="tabla" layoutX="301.0" layoutY="121.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="164.0" prefWidth="461.0">
+            <TableView fx:id="tabla" layoutX="84.0" layoutY="121.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="164.0" prefWidth="766.0">
                <columns>
                   <TableColumn fx:id="columnaCURP" prefWidth="170.0" text="CURP" />
                   <TableColumn fx:id="columnaNombre" prefWidth="185.0" text="NOMBRE" />
