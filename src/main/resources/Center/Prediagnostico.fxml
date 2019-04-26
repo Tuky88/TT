@@ -4,8 +4,6 @@
 <?import javafx.scene.chart.BarChart?>
 <?import javafx.scene.chart.CategoryAxis?>
 <?import javafx.scene.chart.NumberAxis?>
-<?import javafx.scene.chart.PieChart?>
-<?import javafx.scene.chart.StackedBarChart?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.control.TextArea?>
@@ -57,7 +55,7 @@
                               <Font name="Century Gothic Bold" size="12.0" />
                            </font>
                         </Label>
-                        <Label prefHeight="27.0" prefWidth="39.0" text="Ritmo " GridPane.rowIndex="2" GridPane.valignment="TOP">
+                        <Label prefHeight="27.0" prefWidth="39.0" text="Ritmo " textFill="WHITE" GridPane.rowIndex="2" GridPane.valignment="TOP">
                            <font>
                               <Font name="Century Gothic Bold" size="12.0" />
                            </font>
@@ -141,9 +139,9 @@
                               <Font name="Arial" size="21.0" />
                            </font>
                         </TextArea>
-                        <JFXButton fx:id="btnPrecomendaciones" layoutX="688.0" layoutY="458.0" prefHeight="38.0" prefWidth="227.0" style="-fx-background-color: #B1F4AD;" text="Siguiente" />
-                        <TextArea layoutX="43.0" layoutY="370.0" prefHeight="75.0" prefWidth="872.0" promptText="Comentarios" />
-                        <BarChart layoutX="14.0" layoutY="113.0" prefHeight="168.0" prefWidth="227.0">
+                        <JFXButton fx:id="btnPrecomendaciones" layoutX="911.0" layoutY="458.0" prefHeight="38.0" prefWidth="95.0" style="-fx-background-color: #B1F4AD;" text="Siguiente" />
+                        <TextArea layoutX="14.0" layoutY="421.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="75.0" prefWidth="872.0" promptText="Comentarios" />
+                        <BarChart fx:id="ginsomnio" disable="true" layoutX="14.0" layoutY="113.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="150.0" prefWidth="237.0" title="Insomnio">
                           <xAxis>
                             <CategoryAxis side="BOTTOM" />
                           </xAxis>
@@ -151,15 +149,54 @@
                             <NumberAxis side="LEFT" />
                           </yAxis>
                         </BarChart>
-                        <PieChart layoutX="273.0" layoutY="121.0" prefHeight="107.0" prefWidth="200.0" style="-fx-background-color: #FFFFFF;" title="Trastornos" />
-                        <StackedBarChart layoutX="552.0" layoutY="121.0" prefHeight="168.0" prefWidth="238.0">
-                          <xAxis>
-                            <CategoryAxis side="BOTTOM" />
-                          </xAxis>
-                          <yAxis>
-                            <NumberAxis side="LEFT" />
-                          </yAxis>
-                        </StackedBarChart>
+                        <BarChart fx:id="gritmo" disable="true" layoutX="251.0" layoutY="113.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="150.0" prefWidth="237.0" title="Ritmo Circadiano">
+                           <xAxis>
+                              <CategoryAxis side="BOTTOM" />
+                           </xAxis>
+                           <yAxis>
+                              <NumberAxis side="LEFT" />
+                           </yAxis>
+                        </BarChart>
+                        <BarChart fx:id="gpiernas" disable="true" layoutX="488.0" layoutY="113.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="150.0" prefWidth="237.0" title="RLS/PLMD">
+                           <xAxis>
+                              <CategoryAxis side="BOTTOM" />
+                           </xAxis>
+                           <yAxis>
+                              <NumberAxis side="LEFT" />
+                           </yAxis>
+                        </BarChart>
+                        <BarChart fx:id="gapnea" disable="true" layoutX="725.0" layoutY="113.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="150.0" prefWidth="237.0" title="Apnea">
+                           <xAxis>
+                              <CategoryAxis side="BOTTOM" />
+                           </xAxis>
+                           <yAxis>
+                              <NumberAxis side="LEFT" />
+                           </yAxis>
+                        </BarChart>
+                        <BarChart fx:id="ghiper" disable="true" layoutX="225.0" layoutY="255.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="150.0" prefWidth="129.0" title="Hipersomnia">
+                           <xAxis>
+                              <CategoryAxis side="BOTTOM" />
+                           </xAxis>
+                           <yAxis>
+                              <NumberAxis side="LEFT" />
+                           </yAxis>
+                        </BarChart>
+                        <BarChart fx:id="gnarcolepsia" disable="true" layoutX="354.0" layoutY="255.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="150.0" prefWidth="129.0" title="Narcolepsia">
+                           <xAxis>
+                              <CategoryAxis side="BOTTOM" />
+                           </xAxis>
+                           <yAxis>
+                              <NumberAxis side="LEFT" />
+                           </yAxis>
+                        </BarChart>
+                        <BarChart fx:id="gimpacto" disable="true" layoutX="498.0" layoutY="255.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="150.0" prefWidth="129.0" title="Otro">
+                           <xAxis>
+                              <CategoryAxis side="BOTTOM" />
+                           </xAxis>
+                           <yAxis>
+                              <NumberAxis side="LEFT" />
+                           </yAxis>
+                        </BarChart>
                      </children>
                   </Pane>
                </children>
