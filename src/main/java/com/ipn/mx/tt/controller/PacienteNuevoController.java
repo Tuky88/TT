@@ -39,21 +39,32 @@ public class PacienteNuevoController implements Initializable {
     public void setC(menuController c) {
         this.c = c;
     }
+
+    @FXML
+    private AnchorPane panelP;
+
     @FXML
     private JFXTextField txtPnCURP;
-    @FXML
-    private JFXButton btnPnregistrar;
 
     @FXML
     private JFXTextField txtPnnombre;
 
     @FXML
-    private AnchorPane panelP;
-    @FXML
     private JFXTextField txtPnapellido;
 
     @FXML
+    private JFXRadioButton rbPfemenino;
+
+
+
+    @FXML
+    private JFXRadioButton rbPmasculino;
+
+    @FXML
     private JFXTextField txtPncorreo;
+
+    @FXML
+    private JFXDatePicker datePn;
 
     @FXML
     private JFXTextField txtPndireccion;
@@ -62,13 +73,53 @@ public class PacienteNuevoController implements Initializable {
     private JFXTextField txtPntelefono;
 
     @FXML
-    private JFXRadioButton rbPfemenino;
+    private JFXButton btnPnregistrar;
 
     @FXML
-    private JFXRadioButton rbPmasculino;
+    private JFXTextField txtPnesco;
 
     @FXML
-    private JFXDatePicker datePn;
+    private JFXTextField txtPhorario;
+
+    @FXML
+    private JFXTextField txtPhorasl;
+
+    @FXML
+    private JFXTextField txtPhorasd;
+
+    @FXML
+    private JFXRadioButton rbPtrabajan;
+
+
+
+    @FXML
+    private JFXRadioButton rbPtrabajas;
+
+    @FXML
+    private JFXRadioButton rbPhorarioturnos;
+
+
+
+    @FXML
+    private JFXRadioButton rbPhorariof;
+
+    @FXML
+    private JFXRadioButton rbPls;
+
+  
+
+    @FXML
+    private JFXTextField txtPdescansos;
+
+    @FXML
+    private JFXRadioButton rbPlv;
+
+    
+
+    @FXML
+    private JFXRadioButton rbPhorarionof;
+
+
 
     /**
      * Initializes the controller class.
