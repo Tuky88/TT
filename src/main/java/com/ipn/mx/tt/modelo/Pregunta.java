@@ -20,6 +20,10 @@ public class Pregunta {
         this.Id = Id;
         this.Texto = Texto;
     }
+        public Pregunta(Double Id, String Texto) {
+        this.Id = Id.intValue();
+        this.Texto = Texto;
+    }
 
     public Pregunta() {
         Texto = "";

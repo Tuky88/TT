@@ -11,7 +11,6 @@ import com.ipn.mx.tt.dao.PreguntaEquivalenciaDAO;
 import com.ipn.mx.tt.dao.SintomaPreguntaDAO;
 import com.ipn.mx.tt.dao.TrastornoSintomaDAO;
 import com.mongodb.DBObject;
-import com.sun.org.apache.bcel.internal.generic.AALOAD;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Random;
@@ -22,6 +21,7 @@ import java.util.Random;
  */
 public class Test {
 
+    private Cuestionario cuestionario;
     PreguntaDAO pd;
     CuestionarioPreguntaDAO cpd;
     SintomaPreguntaDAO spd;
@@ -33,6 +33,7 @@ public class Test {
     int[] trastornos, numeracion;
 
     public Test(int tipo) {
+        cuestionario = new Cuestionario();
         pd = new PreguntaDAO();
         cpd = new CuestionarioPreguntaDAO();
         spd = new SintomaPreguntaDAO();
@@ -50,39 +51,65 @@ public class Test {
         TrastornoSintoma = tsd.traerTrastornos();
         equivalencias = ped.getEquivalencia();
         trastornos = new int[8];
-        tamañoCuestionario = 61;
+        tamañoCuestionario = 69;
         numeracion = new int[tamañoCuestionario];
         for (int i = 0; i < 8; i++) {
             trastornos[i] = 0;
         }
         for (int i = 0; i < tamañoCuestionario; i++) {
-            numeracion[i] = i+1;
+            numeracion[i] = i + 1;
         }
         obtenerNumeracion();
         contadorPreguntas = 1;
 //System.out.println(SintomaPregunta.toString());
     }
 
+    public Cuestionario getCuestionario() {
+        return cuestionario;
+    }
+
+    public void setCuestionario(Cuestionario cuestionario) {
+        this.cuestionario = cuestionario;
+    }
+
+    public void getFinCuestionario() {
+        cuestionario.getFinCuestionario();
+    }
+
+    public void getDuracion() {
+        cuestionario.getDuracion();
+    }
+
+    public void calificarPregunta(int instrumento, int trastorno, int puntaje) {
+        cuestionario.calificarPregunta(instrumento, trastorno, puntaje);
+    }
+
+    public void agregarRespuesta(int preguntaC, int puntaje) {
+        cuestionario.agregarRespuesta(preguntaC, puntaje);
+
+    }
+
     public void obtenerNumeracion() {
         Random rgen = new Random();  // Random number generator		
-        int size = 61-1+1;
-
         for (int i = 0; i < numeracion.length; i++) {
             int randomPosition = rgen.nextInt(numeracion.length);
             int temp = numeracion[i];
             numeracion[i] = numeracion[randomPosition];
             numeracion[randomPosition] = temp;
         }
-
-        for (int s : numeracion) {
-            System.out.println(s);
-        }
+        for(int s:numeracion)
+            System.out.print(s+",");
 
     }
 
     public Pregunta getPregunta(int i) {
-        Pregunta p = new Pregunta((DBObject) preguntas.get(i - 1), tipo);
-        return p;
+        if (i > 0) {
+            Pregunta p = new Pregunta((DBObject) preguntas.get(i - 1), tipo);
+            return p;
+        } else {
+            Pregunta p = new Pregunta(99, "FIN");
+            return p;
+        }
     }
 
     public int getTipoCuestionario(int i) {
@@ -136,7 +163,7 @@ public class Test {
         equivalencias.forEach((equivalencia) -> {
             PreguntaEquivalente pe = new PreguntaEquivalente((DBObject) equivalencia);
             if (pe.getIdPregunta() == pregunta) {
-                ls.add(pe);
+                ls.add(pe.getIdPreguntaEquivalente());
             }
         });
         return ls;
@@ -147,7 +174,18 @@ public class Test {
     }
 
     public int getSigPregunta() {
-        return numeracion[contadorPreguntas - 1];
+
+        if (contadorPreguntas > tamañoCuestionario) {
+            return -1;
+        } else {
+            if (!cuestionario.respuestaContestada(numeracion[contadorPreguntas - 1])) {
+                return numeracion[contadorPreguntas - 1];
+            } else {
+                //System.out.println("PREGUNTA PREVIAMENTE CONTESTADA: " + numeracion[contadorPreguntas - 1]);
+                sumarContadorPregunta();
+                return getSigPregunta();
+            }
+        }
     }
 
     public int getContadorPreguntas() {
@@ -159,6 +197,6 @@ public class Test {
     }
 
     public boolean cuestionarioCompletado() {
-        return contadorPreguntas == tamañoCuestionario;
+       return contadorPreguntas>tamañoCuestionario;
     }
 }

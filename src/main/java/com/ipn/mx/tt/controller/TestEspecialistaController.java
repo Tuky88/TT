@@ -10,7 +10,6 @@ import com.ipn.mx.tt.modelo.Pregunta;
 import com.ipn.mx.tt.modelo.SintomaPregunta;
 import com.ipn.mx.tt.modelo.Test;
 import com.ipn.mx.tt.modelo.TrastornoSintoma;
-import com.ipn.mx.tt.util.CustomMessage;
 import com.ipn.mx.tt.util.ThreadPregunta;
 import com.ipn.mx.tt.util.cargadorVista;
 import com.jfoenix.controls.JFXButton;
@@ -21,8 +20,6 @@ import java.text.DecimalFormat;
 import java.util.LinkedList;
 import java.util.ResourceBundle;
 import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -43,11 +40,10 @@ import javafx.scene.layout.BorderPane;
  */
 public class TestEspecialistaController implements Initializable {
 
-    private Cuestionario cuestionario;
     private cargadorVista cv;
     private int tipoCuestionario;
     private int instrumento, pregunta, puntaje;
-    private LinkedList sintoma, trastorno,preguntas;
+    private LinkedList sintoma, trastorno, preguntas;
     private menuController mc;
     private Test test;
     private int contadorPregunta;
@@ -116,7 +112,7 @@ public class TestEspecialistaController implements Initializable {
         rbtnTEsiempre.setOnAction((event) -> {
             contestarPregunta(5);
         });
-        cuestionario = new Cuestionario();
+        contadorPregunta=1;
         TreeItem<String> itemRaiz = new TreeItem<>("RESPUESTAS");
         itemRaiz.setExpanded(true);
         tablaRespuesta.setRoot(itemRaiz);
@@ -128,15 +124,19 @@ public class TestEspecialistaController implements Initializable {
     }
 
     public void cargarPregunta(Pregunta p) {
-        txtpregunta.setText(p.getId() + ".-" + p.getTexto());
-        pregunta = p.getId();
-        instrumento = test.getTipoCuestionario(pregunta);
-        // int tipo=id.tipoCuestionario(pregunta);
-        if (instrumento == 1) {
-            rbtnTEavc.setVisible(true);
-        } else {
 
-            rbtnTEavc.setVisible(false);
+        if (p.getId() > 0) {
+            txtpregunta.setText("("+p.getId()+")"+contadorPregunta + ".-" + p.getTexto());
+            pregunta = p.getId();
+            instrumento = test.getTipoCuestionario(pregunta);
+            // int tipo=id.tipoCuestionario(pregunta);
+            if (instrumento == 1) {
+                rbtnTEavc.setVisible(true);
+            } else {
+
+                rbtnTEavc.setVisible(false);
+            }
+            contadorPregunta++;
         }
     }
 
@@ -165,7 +165,7 @@ public class TestEspecialistaController implements Initializable {
         TreeItem<String> itemPregunta = new TreeItem<>(t);
         TreeItem<String> itemRespuesta = new TreeItem<>(r);
         itemPregunta.getChildren().addAll(itemRespuesta);
-        itemPregunta.setExpanded(true);
+        itemPregunta.setExpanded(false);
         tablaRespuesta.getRoot().getChildren().addAll(itemPregunta);
 
     }
@@ -182,22 +182,21 @@ public class TestEspecialistaController implements Initializable {
 
         if (!test.cuestionarioCompletado()) {
             ThreadPregunta tp = new ThreadPregunta(3, rbtnTEcs, rbtnTEavc, rbtnTEnunca, rbtnTEoca, rbtnTEsiempre, regresar);
-            tp.runClock();
+            //tp.runClock();
             //AGREGAR A LA VISTA
             registroPregunta(txtpregunta.getText(), getRespuesta(valor));
             limpiarVista();
             //SUMAR AL CUESTIONARIO 
-            test.sumarContadorPregunta();
             sumarATrastorno();
             //TRAER NUEVA PREGUNTA
 
             cargarPregunta(test.getPregunta(test.getSigPregunta()));
         } else {
-            cuestionario.getFinCuestionario();
-            cuestionario.getDuracion();
+            test.getFinCuestionario();
+            test.getDuracion();
             cv = new cargadorVista();
             TestEspecialistaFinalizadoController telp = (TestEspecialistaFinalizadoController) cv.cambiarVista("/Center/TestEspecialistaFinalizado.fxml", mc.getPanelPrin());
-            telp.setCuestionario(cuestionario);
+            telp.setCuestionario(test.getCuestionario());
             telp.setMc(mc);
         }
     }
@@ -242,31 +241,36 @@ public class TestEspecialistaController implements Initializable {
     }
 
     private void sumarATrastorno() {
-        
-        preguntas=test.obtenerEquivalente(pregunta);
+
+        preguntas = test.obtenerEquivalente(pregunta);
         preguntas.add(pregunta);
-        sintoma = test.getSintoma(pregunta);
+        //System.out.println(preguntas.size());
+        preguntas.forEach((preguntaLoop) -> {
+            int preguntaC = (int) preguntaLoop;
+            sintoma = test.getSintoma(preguntaC);
+            sintoma.forEach((sintomaLoop) -> {
+                SintomaPregunta sp = (SintomaPregunta) sintomaLoop;
+                int numeroSintoma = sp.getSintoma();
+                trastorno = test.getTrastorno(numeroSintoma);
+                trastorno.forEach((trastornoLoop) -> {
+                    TrastornoSintoma ts = (TrastornoSintoma) trastornoLoop;
 
-        sintoma.forEach((sintomaLoop) -> {
-            SintomaPregunta sp = (SintomaPregunta) sintomaLoop;
-            int numeroSintoma = sp.getSintoma();
-            trastorno = test.getTrastorno(numeroSintoma);
-            trastorno.forEach((trastornoLoop) -> {
-                TrastornoSintoma ts = (TrastornoSintoma) trastornoLoop;
-
-                if (test.banderaLevantada(ts.getTrastorno())) {
-                    System.out.println("YA SUMADO");
-                } else {
-                    test.levantarBandera(ts.getTrastorno());
-                    System.out.println("/Instrumento:/" + instrumento + "/Sintoma/" + numeroSintoma + "/Trastorno/" + ts.getTrastorno()
-                            + "/Pregunta:/" + pregunta + "/Valor:/" + puntaje);
-                    cuestionario.calificarPregunta(instrumento, ts.getTrastorno(), puntaje);
-                    cuestionario.agregarRespuesta(pregunta, puntaje);
-                    aumentarProgreso();
-                }
+                    if (test.banderaLevantada(ts.getTrastorno())) {
+                        //System.out.println("YA SUMADO:" + preguntaC);
+                    } else {
+                        test.levantarBandera(ts.getTrastorno());
+                        System.out.println("/Instrumento:/" + instrumento + "/Sintoma/" + numeroSintoma + "/Trastorno/" + ts.getTrastorno()
+                                + "/Pregunta:/" + preguntaC + "/Valor:/" + puntaje);
+                        test.calificarPregunta(instrumento, ts.getTrastorno(), puntaje);
+                        test.agregarRespuesta(preguntaC, puntaje);
+                        aumentarProgreso();
+                        test.sumarContadorPregunta();
+                    }
+                });
             });
+            test.reiniciarBanderas();
         });
-        test.reiniciarBanderas();
+
     }
 
     @FXML
@@ -304,7 +308,7 @@ public class TestEspecialistaController implements Initializable {
 
     private void aumentarProgreso() {
         DecimalFormat df2 = new DecimalFormat("#.##");
-        Double avance = test.getContadorPreguntas() * 0.0164;
+        Double avance = test.getContadorPreguntas() * 0.01449;
         pbTEprogeso.setProgress(avance);
         Double porcentaje = avance * 100;
         lblProgress.setText(df2.format(porcentaje) + "%");
