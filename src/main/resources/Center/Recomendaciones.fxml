@@ -31,7 +31,7 @@
                         </TableView>
                         <TableView fx:id="tblPtrastornos1" layoutX="111.0" layoutY="225.0" prefHeight="213.0" prefWidth="721.0">
                            <columns>
-                              <TableColumn fx:id="tblRrecomendaciones" prefWidth="582.0" text="Recomendaciones" />
+                              <TableColumn fx:id="tblRrecomendaciones" prefWidth="720.0" text="Recomendaciones" />
                            </columns>
                         </TableView>
                         <JFXButton fx:id="btnRimprimir" layoutX="130.0" layoutY="459.0" prefHeight="31.0" prefWidth="92.0" style="-fx-background-color: #9FB4AE;" text="Imprimir" />
