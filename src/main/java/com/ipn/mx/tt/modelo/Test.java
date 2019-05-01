@@ -51,7 +51,7 @@ public class Test {
         SintomaPregunta = spd.traerSintomas();
         TrastornoSintoma = tsd.traerTrastornos();
         equivalencias = ped.getEquivalencia();
-        numeroTrastornos=10;
+        numeroTrastornos = 10;
         trastornos = new int[10];
         tamañoCuestionario = 69;
         numeracion = new int[tamañoCuestionario];
@@ -82,7 +82,7 @@ public class Test {
         cuestionario.getDuracion();
     }
 
-    public void calificarPregunta(int instrumento, int trastorno, int puntaje) {
+    public void calificarPregunta(int instrumento, int trastorno, Double puntaje) {
         cuestionario.calificarPregunta(instrumento, trastorno, puntaje);
     }
 
@@ -117,9 +117,9 @@ public class Test {
     }
 
     public int getEntero(DBObject dbo) {
-        Double x=(Double) dbo.get("_idCuestionario");
+        Double x = (Double) dbo.get("_idCuestionario");
         int n;
-        n =x.intValue();
+        n = x.intValue();
         return n;
     }
 
@@ -198,10 +198,21 @@ public class Test {
     }
 
     public boolean cuestionarioCompletado() {
-       return contadorPreguntas>tamañoCuestionario;
+        return contadorPreguntas > tamañoCuestionario;
     }
-    public boolean respuestaContestada(int pregunta)
-    {
+
+    public boolean respuestaContestada(int pregunta) {
         return cuestionario.respuestaContestada(pregunta);
+    }
+
+    public Double puntajeEquivalente(int cuestionario, Double puntaje) {
+        Double resultado;
+        if (cuestionario == 1) {
+            resultado = ((3 * puntaje) / 4) + (1 / 4);
+
+        } else {
+            resultado = ((4 * puntaje) / 3) + (1 / 3);
+        }
+        return resultado;
     }
 }

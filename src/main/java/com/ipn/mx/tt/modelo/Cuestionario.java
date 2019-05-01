@@ -44,7 +44,7 @@ public class Cuestionario {
         Respuestas.add(r);
     }
 
-    public void calificarPregunta(int instrumento, int trastorno, int puntaje) {
+    public void calificarPregunta(int instrumento, int trastorno, Double puntaje) {
         if (instrumento == 1) {
             s50.sumarPuntaje(trastorno, puntaje);
         } else {

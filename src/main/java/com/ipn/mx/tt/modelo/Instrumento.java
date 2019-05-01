@@ -20,7 +20,7 @@ public class Instrumento {
             trastornos[i]=new Trastorno();
         }
     }
-   public void sumarPuntaje(int trastorno,int puntaje)
+   public void sumarPuntaje(int trastorno,Double puntaje)
    {
        trastornos[trastorno].sumar(puntaje);
    }

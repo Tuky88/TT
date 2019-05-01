@@ -185,12 +185,13 @@ public class TestEspecialistaController implements Initializable {
             //AGREGAR A LA VISTA
             registroPregunta(txtpregunta.getText(), getRespuesta(valor));
             limpiarVista();
-                        //SUMAR AL CUESTIONARIO 
+            //SUMAR AL CUESTIONARIO 
             sumarATrastorno();
             //TRAER NUEVA PREGUNTA
 
             cargarPregunta(test.getPregunta(test.getSigPregunta()));
-        } else {
+        }
+        if (test.cuestionarioCompletado()) {
             test.getFinCuestionario();
             test.getDuracion();
             cv = new cargadorVista();
@@ -239,38 +240,48 @@ public class TestEspecialistaController implements Initializable {
         return resp;
     }
 
+    public void sumarAPregunta(int preguntaContestada, Double valor) {
+        sintoma = test.getSintoma(preguntaContestada);
+        sintoma.forEach((sintomaLoop) -> {
+            SintomaPregunta sp = (SintomaPregunta) sintomaLoop;
+            int numeroSintoma = sp.getSintoma();
+            trastorno = test.getTrastorno(numeroSintoma);
+            trastorno.forEach((trastornoLoop) -> {
+                TrastornoSintoma ts = (TrastornoSintoma) trastornoLoop;
+
+                if (test.banderaLevantada(ts.getTrastorno())) {
+                    //System.out.println("YA SUMADO:" + preguntaC);
+                } else {
+                    if ((!test.respuestaContestada(preguntaContestada))
+                            || ((test.respuestaContestada(preguntaContestada)) && (preguntaContestada == 16 || preguntaContestada == 17))) {
+                        test.levantarBandera(ts.getTrastorno());
+                        System.out.println("/Instrumento:/" + instrumento + "/Sintoma/" + numeroSintoma + "/Trastorno/" + ts.getTrastorno()
+                                + "/Pregunta:/" + preguntaContestada + "/Valor:/" + valor);
+                        test.calificarPregunta(instrumento, ts.getTrastorno(), valor);
+                        test.agregarRespuesta(preguntaContestada, valor.intValue());
+                        aumentarProgreso();
+                    }
+                }
+            });
+        });
+        test.reiniciarBanderas();
+    }
+
     private void sumarATrastorno() {
+
+        sumarAPregunta(pregunta, new Double(puntaje));
         preguntas = test.obtenerEquivalente(pregunta);
-        preguntas.add(pregunta);
-        //System.out.println(preguntas.size());
+        if (preguntas.size() > 0) {
+            System.out.println("EQUIVALENCIA ENCONTRADA: " + preguntas.size());
+        }
         preguntas.forEach((preguntaLoop) -> {
             int preguntaC = (int) preguntaLoop;
-            sintoma = test.getSintoma(preguntaC);
-            sintoma.forEach((sintomaLoop) -> {
-                SintomaPregunta sp = (SintomaPregunta) sintomaLoop;
-                int numeroSintoma = sp.getSintoma();
-                trastorno = test.getTrastorno(numeroSintoma);
-                trastorno.forEach((trastornoLoop) -> {
-                    TrastornoSintoma ts = (TrastornoSintoma) trastornoLoop;
 
-                    if (test.banderaLevantada(ts.getTrastorno())) {
-                        //System.out.println("YA SUMADO:" + preguntaC);
-                    } else {
-                        if ((!test.respuestaContestada(preguntaC))
-                                || ((test.respuestaContestada(preguntaC)) && (preguntaC == 16 || preguntaC == 17))) {
-                            test.levantarBandera(ts.getTrastorno());
-                            System.out.println("/Instrumento:/" + instrumento + "/Sintoma/" + numeroSintoma + "/Trastorno/" + ts.getTrastorno()
-                                    + "/Pregunta:/" + preguntaC + "/Valor:/" + puntaje);
-                            test.calificarPregunta(instrumento, ts.getTrastorno(), puntaje);
-                            test.agregarRespuesta(preguntaC, puntaje);
-                            aumentarProgreso();
-                        }
-                    }
-                });
-            });
-            test.reiniciarBanderas();
+            sumarAPregunta(preguntaC, test.puntajeEquivalente(instrumento, new Double(puntaje)));
         });
         test.sumarContadorPregunta();
+        //System.out.println(preguntas.size());
+
     }
 
     @FXML

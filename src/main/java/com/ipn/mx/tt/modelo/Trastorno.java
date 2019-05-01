@@ -17,7 +17,7 @@ public class Trastorno {
         puntaje = 0;
     }
 
-    public void sumar(int i) {
+    public void sumar(Double i) {
         puntaje += i;
     }
 
