@@ -24,7 +24,6 @@ public class Cuestionario {
         hsdr = new Instrumento();
         inicioCuestionario = new Date();
         Respuestas = new LinkedList();
-        System.out.println(inicioCuestionario.toString());
     }
 
     public boolean respuestaContestada(int numeroPregunta) {
@@ -33,7 +32,7 @@ public class Cuestionario {
         for (int i = 0; i < Respuestas.size(); i++) {
             Respuesta archivo = (Respuesta) Respuestas.get(i);
             if (archivo.getNumeroPregunta() == r.getNumeroPregunta()) {
-               // System.out.println(archivo.getNumeroPregunta() +"//"+ r.getNumeroPregunta());
+                //System.out.println(archivo.getNumeroPregunta() +"//"+ r.getNumeroPregunta());
                 existe = true;
             }
         }

@@ -5,7 +5,6 @@
  */
 package com.ipn.mx.tt.controller;
 
-import com.ipn.mx.tt.modelo.Cuestionario;
 import com.ipn.mx.tt.modelo.Pregunta;
 import com.ipn.mx.tt.modelo.SintomaPregunta;
 import com.ipn.mx.tt.modelo.Test;
@@ -112,7 +111,7 @@ public class TestEspecialistaController implements Initializable {
         rbtnTEsiempre.setOnAction((event) -> {
             contestarPregunta(5);
         });
-        contadorPregunta=1;
+        contadorPregunta = 1;
         TreeItem<String> itemRaiz = new TreeItem<>("RESPUESTAS");
         itemRaiz.setExpanded(true);
         tablaRespuesta.setRoot(itemRaiz);
@@ -125,8 +124,8 @@ public class TestEspecialistaController implements Initializable {
 
     public void cargarPregunta(Pregunta p) {
 
-        if (p.getId() > 0) {
-            txtpregunta.setText("("+p.getId()+")"+contadorPregunta + ".-" + p.getTexto());
+        if (p.getId() > 0 && p.getId() != 99) {
+            txtpregunta.setText("(" + p.getId() + ")" + contadorPregunta + ".-" + p.getTexto());
             pregunta = p.getId();
             instrumento = test.getTipoCuestionario(pregunta);
             // int tipo=id.tipoCuestionario(pregunta);
@@ -186,7 +185,7 @@ public class TestEspecialistaController implements Initializable {
             //AGREGAR A LA VISTA
             registroPregunta(txtpregunta.getText(), getRespuesta(valor));
             limpiarVista();
-            //SUMAR AL CUESTIONARIO 
+                        //SUMAR AL CUESTIONARIO 
             sumarATrastorno();
             //TRAER NUEVA PREGUNTA
 
@@ -241,7 +240,6 @@ public class TestEspecialistaController implements Initializable {
     }
 
     private void sumarATrastorno() {
-
         preguntas = test.obtenerEquivalente(pregunta);
         preguntas.add(pregunta);
         //System.out.println(preguntas.size());
@@ -258,19 +256,21 @@ public class TestEspecialistaController implements Initializable {
                     if (test.banderaLevantada(ts.getTrastorno())) {
                         //System.out.println("YA SUMADO:" + preguntaC);
                     } else {
-                        test.levantarBandera(ts.getTrastorno());
-                        System.out.println("/Instrumento:/" + instrumento + "/Sintoma/" + numeroSintoma + "/Trastorno/" + ts.getTrastorno()
-                                + "/Pregunta:/" + preguntaC + "/Valor:/" + puntaje);
-                        test.calificarPregunta(instrumento, ts.getTrastorno(), puntaje);
-                        test.agregarRespuesta(preguntaC, puntaje);
-                        aumentarProgreso();
-                        test.sumarContadorPregunta();
+                        if ((!test.respuestaContestada(preguntaC))
+                                || ((test.respuestaContestada(preguntaC)) && (preguntaC == 16 || preguntaC == 17))) {
+                            test.levantarBandera(ts.getTrastorno());
+                            System.out.println("/Instrumento:/" + instrumento + "/Sintoma/" + numeroSintoma + "/Trastorno/" + ts.getTrastorno()
+                                    + "/Pregunta:/" + preguntaC + "/Valor:/" + puntaje);
+                            test.calificarPregunta(instrumento, ts.getTrastorno(), puntaje);
+                            test.agregarRespuesta(preguntaC, puntaje);
+                            aumentarProgreso();
+                        }
                     }
                 });
             });
             test.reiniciarBanderas();
         });
-
+        test.sumarContadorPregunta();
     }
 
     @FXML

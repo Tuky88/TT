@@ -31,6 +31,7 @@ public class Test {
     List preguntas, tipoCuestionario, SintomaPregunta, TrastornoSintoma, equivalencias;
     int tipo, tamañoCuestionario;
     int[] trastornos, numeracion;
+    int numeroTrastornos;
 
     public Test(int tipo) {
         cuestionario = new Cuestionario();
@@ -50,10 +51,11 @@ public class Test {
         SintomaPregunta = spd.traerSintomas();
         TrastornoSintoma = tsd.traerTrastornos();
         equivalencias = ped.getEquivalencia();
-        trastornos = new int[8];
+        numeroTrastornos=10;
+        trastornos = new int[10];
         tamañoCuestionario = 69;
         numeracion = new int[tamañoCuestionario];
-        for (int i = 0; i < 8; i++) {
+        for (int i = 0; i < numeroTrastornos; i++) {
             trastornos[i] = 0;
         }
         for (int i = 0; i < tamañoCuestionario; i++) {
@@ -97,8 +99,6 @@ public class Test {
             numeracion[i] = numeracion[randomPosition];
             numeracion[randomPosition] = temp;
         }
-        for(int s:numeracion)
-            System.out.print(s+",");
 
     }
 
@@ -117,8 +117,9 @@ public class Test {
     }
 
     public int getEntero(DBObject dbo) {
+        Double x=(Double) dbo.get("_idCuestionario");
         int n;
-        n = Integer.valueOf((String) dbo.get("_idCuestionario"));
+        n =x.intValue();
         return n;
     }
 
@@ -149,7 +150,7 @@ public class Test {
     }
 
     public void reiniciarBanderas() {
-        for (int i = 0; i < 8; i++) {
+        for (int i = 0; i < numeroTrastornos; i++) {
             trastornos[i] = 0;
         }
     }
@@ -198,5 +199,9 @@ public class Test {
 
     public boolean cuestionarioCompletado() {
        return contadorPreguntas>tamañoCuestionario;
+    }
+    public boolean respuestaContestada(int pregunta)
+    {
+        return cuestionario.respuestaContestada(pregunta);
     }
 }
