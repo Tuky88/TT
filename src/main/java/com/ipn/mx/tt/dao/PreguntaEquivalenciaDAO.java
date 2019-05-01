@@ -26,7 +26,7 @@ public class PreguntaEquivalenciaDAO {
 
     public PreguntaEquivalenciaDAO() {
         this.base = "TT";
-        this.coleccion = "PreguntaXEquivalencia";
+        this.coleccion = "Equivalencias";
         cjm = new ConexionJavaMongo(base, coleccion);
 
     }

@@ -16,11 +16,11 @@ public class Instrumento {
     public Instrumento()
     {
         trastornos=new Trastorno[10];
-        for (int i = 0; i < 8; i++) {
+        for (int i = 0; i < 10; i++) {
             trastornos[i]=new Trastorno();
         }
     }
-   public void sumarPuntaje(int trastorno,int puntaje)
+   public void sumarPuntaje(int trastorno,Double puntaje)
    {
        trastornos[trastorno].sumar(puntaje);
    }

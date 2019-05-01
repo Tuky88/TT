@@ -5,22 +5,18 @@
  */
 package com.ipn.mx.tt.controller;
 
-import com.ipn.mx.tt.dao.CuestionarioPreguntaDAO;
-import com.ipn.mx.tt.dao.PreguntaDAO;
-import com.ipn.mx.tt.dao.SintomaPreguntaDAO;
-import com.ipn.mx.tt.dao.TrastornoSintomaDAO;
-import com.ipn.mx.tt.modelo.Cuestionario;
 import com.ipn.mx.tt.modelo.Paciente;
 import com.ipn.mx.tt.modelo.Pregunta;
 import com.ipn.mx.tt.modelo.SintomaPregunta;
 import com.ipn.mx.tt.modelo.Test;
 import com.ipn.mx.tt.modelo.TrastornoSintoma;
-import com.ipn.mx.tt.util.CustomMessage;
 import com.ipn.mx.tt.util.ThreadPregunta;
 import com.ipn.mx.tt.util.cargadorVista;
+import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXRadioButton;
 import com.jfoenix.controls.JFXTextArea;
 import java.net.URL;
+import java.text.DecimalFormat;
 import java.util.LinkedList;
 import java.util.ResourceBundle;
 import javafx.beans.property.SimpleStringProperty;
@@ -28,10 +24,14 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
+import javafx.scene.control.ProgressBar;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.control.TreeItem;
 import javafx.scene.control.TreeTableColumn;
+import javafx.scene.control.TreeTableView;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.BorderPane;
 
 /**
  * FXML Controller class
@@ -40,53 +40,30 @@ import javafx.scene.input.MouseEvent;
  */
 public class TestPacientePreguntasController implements Initializable {
 
-    private Paciente paciente;
-    private Cuestionario cuestionario;
     private cargadorVista cv;
     private int tipoCuestionario;
     private int instrumento, pregunta, puntaje;
-    private LinkedList sintoma, trastorno;
+    private LinkedList sintoma, trastorno, preguntas;
     private menuController mc;
     private Test test;
-    private int contadorPreguntas;
+    private int contadorPregunta;
+    private Paciente paciente;
 
-    public menuController getMc() {
-        return mc;
-    }
-
-    public void setMc(menuController mc) {
-        this.mc = mc;
-    }
-
-    public int getTipoCuestionario() {
-        return tipoCuestionario;
-    }
-
-    public void setTipoCuestionario(int tipoCuestionario) {
-        this.tipoCuestionario = tipoCuestionario;
-    }
-
-    public Paciente getPaciente() {
-        return paciente;
-    }
-
-    public void setPaciente(Paciente paciente) {
-        this.paciente = paciente;
-    }
 
     @FXML
-    private Label lblPaciente;
+    private BorderPane panelRight;
+
+//    @FXML
+//    private ProgressBar pbTPprogeso;
+
     @FXML
-    private JFXRadioButton rbtnTPoca;
+    private JFXRadioButton rbtnTPnunca;
 
     @FXML
     private ToggleGroup grupoPregunta;
 
     @FXML
-    private JFXRadioButton rbtnTPsiempre;
-
-    @FXML
-    private JFXRadioButton rbtnTPnunca;
+    private JFXRadioButton rbtnTPoca;
 
     @FXML
     private JFXRadioButton rbtnTPavc;
@@ -95,11 +72,22 @@ public class TestPacientePreguntasController implements Initializable {
     private JFXRadioButton rbtnTPcs;
 
     @FXML
+    private JFXRadioButton rbtnTPsiempre;
+
+    @FXML
     private JFXTextArea txtpregunta;
 
-    /**
-     * Initializes the controller class.
-     */
+    @FXML
+    private ImageView imgRegresar;
+
+    @FXML
+    private JFXButton regresar;
+
+    @FXML
+    private Label lblProgress;
+        @FXML
+    private Label lblPaciente;
+
     /**
      * Initializes the controller class.
      */
@@ -122,30 +110,50 @@ public class TestPacientePreguntasController implements Initializable {
         rbtnTPsiempre.setOnAction((event) -> {
             contestarPregunta(5);
         });
-        contadorPreguntas = 1;
-        cuestionario = new Cuestionario();
-        
+        contadorPregunta = 1;
+
+
+
     }
 
     public void cargarPregunta(Pregunta p) {
-        txtpregunta.setText(p.getId() + ".-" + p.getTexto());
-        pregunta = p.getId();
-        instrumento = test.getTipoCuestionario(pregunta);
-        // int tipo=id.tipoCuestionario(pregunta);
-        if (instrumento == 1) {
-            rbtnTPavc.setVisible(true);
-        } else {
 
-            rbtnTPavc.setVisible(false);
+        if (p.getId() > 0 && p.getId() != 99) {
+            txtpregunta.setText("(" + p.getId() + ")" + contadorPregunta + ".-" + p.getTexto());
+            pregunta = p.getId();
+            instrumento = test.getTipoCuestionario(pregunta);
+            // int tipo=id.tipoCuestionario(pregunta);
+            if (instrumento == 1) {
+                rbtnTPavc.setVisible(true);
+            } else {
+
+                rbtnTPavc.setVisible(false);
+            }
+            contadorPregunta++;
         }
+    }
+
+    public int getTipoCuestionario() {
+        return tipoCuestionario;
+    }
+
+    public void setTipoCuestionario(int tipoCuestionario) {
+        this.tipoCuestionario = tipoCuestionario;
+    }
+
+    void setMc(menuController c) {
+        mc = c;
     }
 
     void iniciarTest() {
         sintoma = new LinkedList();
         trastorno = new LinkedList();
         test = new Test(tipoCuestionario);
-        cargarPregunta(test.getPregunta(contadorPreguntas));
+        cargarPregunta(test.getPregunta(test.getSigPregunta()));
+        //pbTPprogeso.setProgress(0.001);
     }
+
+
 
     public void limpiarVista() {
         rbtnTPavc.setSelected(false);
@@ -157,23 +165,24 @@ public class TestPacientePreguntasController implements Initializable {
 
     void contestarPregunta(int valor) {
 
-        if (contadorPreguntas < 61) {
-            ThreadPregunta tp = new ThreadPregunta(3, rbtnTPcs, rbtnTPavc, rbtnTPnunca, rbtnTPoca, rbtnTPsiempre);
-            tp.runClock();
+        if (!test.cuestionarioCompletado()) {
+            ThreadPregunta tp = new ThreadPregunta(3, rbtnTPcs, rbtnTPavc, rbtnTPnunca, rbtnTPoca, rbtnTPsiempre, regresar);
+            //tp.runClock();
             //AGREGAR A LA VISTA
             getRespuesta(valor);
             limpiarVista();
             //SUMAR AL CUESTIONARIO 
-            contadorPreguntas++;
             sumarATrastorno();
             //TRAER NUEVA PREGUNTA
-            cargarPregunta(test.getPregunta(contadorPreguntas));
-        } else {
-            cuestionario.getFinCuestionario();
-            cuestionario.getDuracion();
+
+            cargarPregunta(test.getPregunta(test.getSigPregunta()));
+        }
+        if (test.cuestionarioCompletado()) {
+            test.getFinCuestionario();
+            test.getDuracion();
             cv = new cargadorVista();
             TestEspecialistaFinalizadoController telp = (TestEspecialistaFinalizadoController) cv.cambiarVista("/Center/TestEspecialistaFinalizado.fxml", mc.getPanelPrin());
-            telp.setCuestionario(cuestionario);
+            telp.setCuestionario(test.getCuestionario());
             telp.setMc(mc);
         }
     }
@@ -217,43 +226,61 @@ public class TestPacientePreguntasController implements Initializable {
         return resp;
     }
 
-    private void sumarATrastorno() {
-        sintoma = test.getSintoma(pregunta);
-        //      System.out.println("Sintomas:" + sintoma.size());
-        //System.out.println(sintoma.toString());
+    public void sumarAPregunta(int preguntaContestada, Double valor) {
+        sintoma = test.getSintoma(preguntaContestada);
         sintoma.forEach((sintomaLoop) -> {
             SintomaPregunta sp = (SintomaPregunta) sintomaLoop;
-//            System.out.println(sp.toString());
             int numeroSintoma = sp.getSintoma();
             trastorno = test.getTrastorno(numeroSintoma);
             trastorno.forEach((trastornoLoop) -> {
                 TrastornoSintoma ts = (TrastornoSintoma) trastornoLoop;
 
                 if (test.banderaLevantada(ts.getTrastorno())) {
-                    System.out.println("YA SUMADO");
+                    //System.out.println("YA SUMADO:" + preguntaC);
                 } else {
-                    test.levantarBandera(ts.getTrastorno());
-                    System.out.println("/Instrumento:/" + instrumento + "/Sintoma/" + numeroSintoma + "/Trastorno/" + ts.getTrastorno()
-                            + "/Pregunta:/" + pregunta + "/Valor:/" + puntaje);
-                    cuestionario.calificarPregunta(instrumento, ts.getTrastorno(), puntaje);
-                    cuestionario.agregarRespuesta(pregunta, puntaje);
+                    if ((!test.respuestaContestada(preguntaContestada))
+                            || ((test.respuestaContestada(preguntaContestada)) && (preguntaContestada == 16 || preguntaContestada == 17))) {
+                        test.levantarBandera(ts.getTrastorno());
+                        System.out.println("/Instrumento:/" + instrumento + "/Sintoma/" + numeroSintoma + "/Trastorno/" + ts.getTrastorno()
+                                + "/Pregunta:/" + preguntaContestada + "/Valor:/" + valor);
+                        test.calificarPregunta(instrumento, ts.getTrastorno(), valor);
+                        test.agregarRespuesta(preguntaContestada, valor.intValue());
+                        //aumentarProgreso();
+                    }
                 }
             });
         });
         test.reiniciarBanderas();
     }
 
+    private void sumarATrastorno() {
+
+        sumarAPregunta(pregunta, new Double(puntaje));
+        preguntas = test.obtenerEquivalente(pregunta);
+        if (preguntas.size() > 0) {
+            System.out.println("EQUIVALENCIA ENCONTRADA: " + preguntas.size());
+        }
+        preguntas.forEach((preguntaLoop) -> {
+            int preguntaC = (int) preguntaLoop;
+
+            sumarAPregunta(preguntaC, test.puntajeEquivalente(instrumento, new Double(puntaje)));
+        });
+        test.sumarContadorPregunta();
+        //System.out.println(preguntas.size());
+
+    }
+
     @FXML
     private void regresarPregunta(ActionEvent ae) {
 
-        if (contadorPreguntas > 1) {
-
-            cargarPregunta(test.getPregunta(contadorPreguntas - 1));
-            restarATrastorno();
-        } else {
-            CustomMessage cm = new CustomMessage("ERROR", "No hay pregunta Anterior...", 2);
-
-        }
+//        if (contadorPreguntas > 1) {
+//
+//            cargarPregunta(test.getPregunta(contadorPreguntas - 1));
+//            restarATrastorno();
+//        } else {
+//            CustomMessage cm = new CustomMessage("ERROR", "No hay pregunta Anterior...", 2);
+//
+//        }
     }
 
     public void restarATrastorno() {
@@ -265,18 +292,30 @@ public class TestPacientePreguntasController implements Initializable {
 
     @FXML
     void regresarImg(MouseEvent event) {
+//
+//        if (contadorPreguntas > 1) {
+//
+//            cargarPregunta(test.getPregunta(contadorPreguntas - 1));
+//            restarATrastorno();
+//        } else {
+//            CustomMessage cm = new CustomMessage("ERROR", "No hay pregunta Anterior...", 2);
+//
+//        }
+    }
 
-        if (contadorPreguntas > 1) {
+//    private void aumentarProgreso() {
+//        DecimalFormat df2 = new DecimalFormat("#.##");
+//        Double avance = test.getContadorPreguntas() * 0.01449;
+//        pbTPprogeso.setProgress(avance);
+//        Double porcentaje = avance * 100;
+//        lblProgress.setText(df2.format(porcentaje) + "%");
+//    }
 
-            cargarPregunta(test.getPregunta(contadorPreguntas - 1));
-            restarATrastorno();
-        } else {
-            CustomMessage cm = new CustomMessage("ERROR", "No hay pregunta Anterior...", 2);
+    public void setPaciente(Paciente paciente) {
+        this.paciente = paciente;
+    }
 
+    void ponerPaciente() {
+    this.lblPaciente.setText(this.lblPaciente.getText() + " " + paciente.getNombre());
         }
-    }
-
-    public void ponerPaciente() {
-        this.lblPaciente.setText(this.lblPaciente.getText() + " " + paciente.getNombre());
-    }
 }

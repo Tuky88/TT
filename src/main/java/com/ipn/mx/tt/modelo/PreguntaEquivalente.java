@@ -19,8 +19,10 @@ public class PreguntaEquivalente {
         this.idPreguntaEquivalente = idPreguntaEquivalente;
     }
     public PreguntaEquivalente(DBObject dbo) {
-        this.idPregunta = (int) dbo.get("_idPregunta");
-        this.idPreguntaEquivalente = (int) dbo.get("_idEquivalente");
+        Double valor=(Double) dbo.get("_idPregunta");
+        this.idPregunta = valor.intValue();
+        Double valor1=(Double) dbo.get("_idEquivalente");
+        this.idPreguntaEquivalente = valor1.intValue();
     }
     
     

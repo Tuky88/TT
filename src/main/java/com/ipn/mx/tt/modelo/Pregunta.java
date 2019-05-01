@@ -20,6 +20,10 @@ public class Pregunta {
         this.Id = Id;
         this.Texto = Texto;
     }
+        public Pregunta(Double Id, String Texto) {
+        this.Id = Id.intValue();
+        this.Texto = Texto;
+    }
 
     public Pregunta() {
         Texto = "";
@@ -27,7 +31,8 @@ public class Pregunta {
     }
 
     public Pregunta(DBObject dbo, int tipo) {
-        Id = (int) dbo.get("_idPregunta");
+        Double x= (Double) dbo.get("_idPregunta");
+        Id = x.intValue();
         if (tipo == 1) {
             Texto = (String) dbo.get("texto");
         } else {

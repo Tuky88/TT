@@ -42,13 +42,14 @@ public class CuestionarioPreguntaDAO {
     public int buscarCuestionario(int id) {
 
         int resp = 0;
-        DBObject query = new BasicDBObject("_idPregunta", String.valueOf(id));
+        DBObject query = new BasicDBObject("_idPregunta", Double.valueOf(id));
         DBCursor cursor = cjm.getMongoCollection().find(query);
 
         if (cursor.hasNext()) {
             DBObject jo = cursor.one();
             if (jo != null) {
-                resp = Integer.valueOf((String) jo.get("_idCuestionario"));
+                Double x=(Double) jo.get("_idCuestionario");
+                resp = x.intValue();
             }
 
         }

@@ -13,56 +13,61 @@ import java.util.LinkedList;
  * @author Axel Reyes
  */
 public class Cuestionario {
-    private int numCuestionario=0;
-    private Instrumento s50,hsdr;
-    private Date inicioCuestionario,duracion,finCuestionario;
+
+    private int numCuestionario = 0;
+    private Instrumento s50, hsdr;
+    private Date inicioCuestionario, duracion, finCuestionario;
     private LinkedList Respuestas;
-    
-    public Cuestionario()
-    {
-        s50=new Instrumento();
-        hsdr=new Instrumento();
+
+    public Cuestionario() {
+        s50 = new Instrumento();
+        hsdr = new Instrumento();
         inicioCuestionario = new Date();
-        Respuestas =new LinkedList();
-        System.out.println(inicioCuestionario.toString());
+        Respuestas = new LinkedList();
     }
-    public void agregarRespuesta(int numeroRespuesta,int valorRespuesta)
-    {
-        Respuesta r=new Respuesta(numeroRespuesta, valorRespuesta);
+
+    public boolean respuestaContestada(int numeroPregunta) {
+        boolean existe = false;
+        Respuesta r = new Respuesta(numeroPregunta, 0);
+        for (int i = 0; i < Respuestas.size(); i++) {
+            Respuesta archivo = (Respuesta) Respuestas.get(i);
+            if (archivo.getNumeroPregunta() == r.getNumeroPregunta()) {
+                //System.out.println(archivo.getNumeroPregunta() +"//"+ r.getNumeroPregunta());
+                existe = true;
+            }
+        }
+        return existe;
+    }
+
+    public void agregarRespuesta(int numeroRespuesta, int valorRespuesta) {
+        Respuesta r = new Respuesta(numeroRespuesta, valorRespuesta);
         Respuestas.add(r);
     }
-    public void calificarPregunta(int instrumento,int trastorno,int puntaje)
-    {
-        if(instrumento==1)
-        {
+
+    public void calificarPregunta(int instrumento, int trastorno, Double puntaje) {
+        if (instrumento == 1) {
             s50.sumarPuntaje(trastorno, puntaje);
-        }
-        else
-        {
+        } else {
             hsdr.sumarPuntaje(trastorno, puntaje);
         }
-        
+
     }
-        public void quitarPregunta(int instrumento,int trastorno,int puntaje)
-    {
-        if(instrumento==1)
-        {
+
+    public void quitarPregunta(int instrumento, int trastorno, int puntaje) {
+        if (instrumento == 1) {
             s50.restarPuntaje(trastorno, puntaje);
-        }
-        else
-        {
+        } else {
             hsdr.restarPuntaje(trastorno, puntaje);
         }
-        
+
     }
-    public int getTrastorno(int instrumento,int trastorno)
-    {
-        if(instrumento==1)
-        {
+
+    public int getTrastorno(int instrumento, int trastorno) {
+        if (instrumento == 1) {
             return s50.getTrastorno(trastorno);
-        }
-        else
+        } else {
             return hsdr.getTrastorno(trastorno);
+        }
     }
 
     @Override
@@ -79,9 +84,9 @@ public class Cuestionario {
     }
 
     public Date getDuracion() {
-        System.out.println(finCuestionario.getTime()-inicioCuestionario.getTime());
-        duracion=new Date(finCuestionario.getTime()-inicioCuestionario.getTime());
-        
+        System.out.println(finCuestionario.getTime() - inicioCuestionario.getTime());
+        duracion = new Date(finCuestionario.getTime() - inicioCuestionario.getTime());
+
         return duracion;
     }
 
@@ -90,14 +95,12 @@ public class Cuestionario {
     }
 
     public Date getFinCuestionario() {
-        finCuestionario=new Date();
+        finCuestionario = new Date();
         return finCuestionario;
     }
 
     public void setFinCuestionario(Date finCuestionario) {
         this.finCuestionario = finCuestionario;
     }
-    
- 
-    
+
 }
