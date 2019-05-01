@@ -40,7 +40,7 @@ import javafx.scene.layout.BorderPane;
  * @author garci
  */
 public class TestEspecialistaController implements Initializable {
-
+    
     private cargadorVista cv;
     private int tipoCuestionario;
     private int instrumento, pregunta, puntaje;
@@ -48,49 +48,49 @@ public class TestEspecialistaController implements Initializable {
     private menuController mc;
     private Test test;
     private int contadorPregunta;
-
+    
     @FXML
     private TreeTableView<String> tablaRespuesta;
-
+    
     @FXML
     private TreeTableColumn<String, String> columnaRespuesta;
-
+    
     @FXML
     private BorderPane panelRight;
-
+    
     @FXML
     private ProgressBar pbTEprogeso;
-
+    
     @FXML
     private JFXRadioButton rbtnTEnunca;
-
+    
     @FXML
     private ToggleGroup grupoPregunta;
-
+    
     @FXML
     private JFXRadioButton rbtnTEoca;
-
+    
     @FXML
     private JFXRadioButton rbtnTEavc;
-
+    
     @FXML
     private JFXRadioButton rbtnTEcs;
-
+    
     @FXML
     private JFXRadioButton rbtnTEsiempre;
-
+    
     @FXML
     private JFXTextArea txtpregunta;
-
+    
     @FXML
     private ImageView imgRegresar;
-
+    
     @FXML
     private JFXButton regresar;
-
+    
     @FXML
     private Label lblProgress;
-
+    
     @FXML
     private JFXButton btnFinalizar;
 
@@ -120,16 +120,16 @@ public class TestEspecialistaController implements Initializable {
         TreeItem<String> itemRaiz = new TreeItem<>("RESPUESTAS");
         itemRaiz.setExpanded(true);
         tablaRespuesta.setRoot(itemRaiz);
-
+        
         columnaRespuesta.setCellValueFactory((TreeTableColumn.CellDataFeatures<String, String> param) -> {
             return new SimpleStringProperty(param.getValue().getValue());
         });
         btnFinalizar.setVisible(false);
-
+        
     }
-
+    
     public void cargarPregunta(Pregunta p) {
-
+        
         if (p.getId() > 0 && p.getId() != 99) {
             txtpregunta.setText("(" + p.getId() + ")" + contadorPregunta + ".-" + p.getTexto());
             pregunta = p.getId();
@@ -138,25 +138,25 @@ public class TestEspecialistaController implements Initializable {
             if (instrumento == 1) {
                 rbtnTEavc.setVisible(true);
             } else {
-
+                
                 rbtnTEavc.setVisible(false);
             }
             contadorPregunta++;
         }
     }
-
+    
     public int getTipoCuestionario() {
         return tipoCuestionario;
     }
-
+    
     public void setTipoCuestionario(int tipoCuestionario) {
         this.tipoCuestionario = tipoCuestionario;
     }
-
+    
     void setMc(menuController c) {
         mc = c;
     }
-
+    
     void iniciarTest() {
         sintoma = new LinkedList();
         trastorno = new LinkedList();
@@ -164,17 +164,17 @@ public class TestEspecialistaController implements Initializable {
         cargarPregunta(test.getPregunta(test.getSigPregunta()));
         pbTEprogeso.setProgress(0.001);
     }
-
+    
     public void registroPregunta(String t, String r) {
-
+        
         TreeItem<String> itemPregunta = new TreeItem<>(t);
         TreeItem<String> itemRespuesta = new TreeItem<>(r);
         itemPregunta.getChildren().addAll(itemRespuesta);
         itemPregunta.setExpanded(false);
         tablaRespuesta.getRoot().getChildren().addAll(itemPregunta);
-
+        
     }
-
+    
     public void limpiarVista() {
         rbtnTEavc.setSelected(false);
         rbtnTEnunca.setSelected(false);
@@ -182,9 +182,9 @@ public class TestEspecialistaController implements Initializable {
         rbtnTEoca.setSelected(false);
         rbtnTEsiempre.setSelected(false);
     }
-
+    
     void contestarPregunta(int valor) {
-
+        
         if (!test.cuestionarioCompletado()) {
             ThreadPregunta tp = new ThreadPregunta(3, rbtnTEcs, rbtnTEavc, rbtnTEnunca, rbtnTEoca, rbtnTEsiempre, regresar);
             //tp.runClock();
@@ -196,9 +196,7 @@ public class TestEspecialistaController implements Initializable {
             //TRAER NUEVA PREGUNTA
 
             cargarPregunta(test.getPregunta(test.getSigPregunta()));
-        }
-        else
-        {
+        } else {
             
             txtpregunta.setText("FIN DEL CUESTIONARIO, VERIFICA TUS RESPUESTAS ANTES DE EVALUAR.");
             rbtnTEavc.setDisable(true);
@@ -210,10 +208,9 @@ public class TestEspecialistaController implements Initializable {
             lblProgress.setText("100%");
             pbTEprogeso.setProgress(1);
         }
-       
-
+        
     }
-
+    
     String getRespuesta(int valor) {
         String resp;
         switch (valor) {
@@ -245,15 +242,16 @@ public class TestEspecialistaController implements Initializable {
                     puntaje = 4;
                 }
                 break;
-
+            
             default:
                 resp = "";
-
+            
         }
         return resp;
     }
-
+    
     public void sumarAPregunta(int preguntaContestada, Double valor) {
+        int instrumentoC=test.getTipoCuestionario(preguntaContestada);
         sintoma = test.getSintoma(preguntaContestada);
         sintoma.forEach((sintomaLoop) -> {
             SintomaPregunta sp = (SintomaPregunta) sintomaLoop;
@@ -261,16 +259,16 @@ public class TestEspecialistaController implements Initializable {
             trastorno = test.getTrastorno(numeroSintoma);
             trastorno.forEach((trastornoLoop) -> {
                 TrastornoSintoma ts = (TrastornoSintoma) trastornoLoop;
-
+                
                 if (test.banderaLevantada(ts.getTrastorno())) {
                     //System.out.println("YA SUMADO:" + preguntaC);
                 } else {
                     if ((!test.respuestaContestada(preguntaContestada))
                             || ((test.respuestaContestada(preguntaContestada)) && (preguntaContestada == 16 || preguntaContestada == 17))) {
                         test.levantarBandera(ts.getTrastorno());
-                        System.out.println("/Instrumento:/" + instrumento + "/Sintoma/" + numeroSintoma + "/Trastorno/" + ts.getTrastorno()
+                        System.out.println("/Instrumento:/" + instrumentoC + "/Sintoma/" + numeroSintoma + "/Trastorno/" + ts.getTrastorno()
                                 + "/Pregunta:/" + preguntaContestada + "/Valor:/" + valor);
-                        test.calificarPregunta(instrumento, ts.getTrastorno(), valor);
+                        test.calificarPregunta(instrumentoC, ts.getTrastorno(), valor);
                         test.agregarRespuesta(preguntaContestada, valor.intValue());
                         aumentarProgreso();
                     }
@@ -279,9 +277,9 @@ public class TestEspecialistaController implements Initializable {
         });
         test.reiniciarBanderas();
     }
-
+    
     private void sumarATrastorno() {
-
+        
         sumarAPregunta(pregunta, new Double(puntaje));
         preguntas = test.obtenerEquivalente(pregunta);
         if (preguntas.size() > 0) {
@@ -289,14 +287,14 @@ public class TestEspecialistaController implements Initializable {
         }
         preguntas.forEach((preguntaLoop) -> {
             int preguntaC = (int) preguntaLoop;
-
+            
             sumarAPregunta(preguntaC, test.puntajeEquivalente(instrumento, new Double(puntaje)));
         });
         test.sumarContadorPregunta();
         //System.out.println(preguntas.size());
 
     }
-
+    
     @FXML
     private void regresarPregunta(ActionEvent ae) {
 
@@ -309,30 +307,29 @@ public class TestEspecialistaController implements Initializable {
 //
 //        }
     }
-
+    
     @FXML
     void finalizarCuestionario(ActionEvent event) {
         
-        CustomMessage cm=new CustomMessage("Aviso", "Verifique sus respuestas antes de continuar \n"
-                + " ¿Está seguro de finalizar?" ,3);
-        if(cm.getMessage().getButtonData().equals(ButtonType.OK.getButtonData()))
-        {
-                test.getFinCuestionario();
-        test.getDuracion();
-        cv = new cargadorVista();
-        TestEspecialistaFinalizadoController telp = (TestEspecialistaFinalizadoController) cv.cambiarVista("/Center/TestEspecialistaFinalizado.fxml", mc.getPanelPrin());
-        telp.setCuestionario(test.getCuestionario());
-        telp.setMc(mc);
+        CustomMessage cm = new CustomMessage("Aviso", "Verifique sus respuestas antes de continuar \n"
+                + " ¿Está seguro de finalizar?", 3);
+        if (cm.getMessage().getButtonData().equals(ButtonType.OK.getButtonData())) {
+            test.getFinCuestionario();
+            test.getDuracion();
+            cv = new cargadorVista();
+            TestEspecialistaFinalizadoController telp = (TestEspecialistaFinalizadoController) cv.cambiarVista("/Center/TestEspecialistaFinalizado.fxml", mc.getPanelPrin());
+            telp.setCuestionario(test.getCuestionario());
+            telp.setMc(mc);
         }
     }
-
+    
     public void restarATrastorno() {
 //        sintoma = spd.buscarSintoma(pregunta);
         //      trastorno = tsd.buscarTrastorno(sintoma);
 //        cuestionario.quitarPregunta(instrumento, trastorno, puntaje);
         //      contadorPreguntas--;
     }
-
+    
     @FXML
     void regresarImg(MouseEvent event) {
 //
@@ -345,7 +342,7 @@ public class TestEspecialistaController implements Initializable {
 //
 //        }
     }
-
+    
     private void aumentarProgreso() {
         DecimalFormat df2 = new DecimalFormat("#.##");
         Double avance = test.getContadorPreguntas() * 0.01449;
