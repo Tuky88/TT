@@ -207,11 +207,14 @@ public class Test {
 
     public Double puntajeEquivalente(int cuestionario, Double puntaje) {
         Double resultado;
-        if (cuestionario == 1) {
-            resultado = ((3 * puntaje) / 4) + (1 / 4);
+        if (cuestionario == 2) {
+            resultado = 4*puntaje/3;
+            resultado-=0.333333333333333;
 
         } else {
-            resultado = ((4 * puntaje) / 3) + (1 / 3);
+            
+            resultado = 3*puntaje/4;
+            resultado+=0.25;
         }
         return resultado;
     }

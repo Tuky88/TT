@@ -9,6 +9,7 @@ import com.ipn.mx.tt.modelo.Pregunta;
 import com.ipn.mx.tt.modelo.SintomaPregunta;
 import com.ipn.mx.tt.modelo.Test;
 import com.ipn.mx.tt.modelo.TrastornoSintoma;
+import com.ipn.mx.tt.util.CustomMessage;
 import com.ipn.mx.tt.util.ThreadPregunta;
 import com.ipn.mx.tt.util.cargadorVista;
 import com.jfoenix.controls.JFXButton;
@@ -22,6 +23,7 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.control.ToggleGroup;
@@ -89,6 +91,9 @@ public class TestEspecialistaController implements Initializable {
     @FXML
     private Label lblProgress;
 
+    @FXML
+    private JFXButton btnFinalizar;
+
     /**
      * Initializes the controller class.
      */
@@ -119,6 +124,7 @@ public class TestEspecialistaController implements Initializable {
         columnaRespuesta.setCellValueFactory((TreeTableColumn.CellDataFeatures<String, String> param) -> {
             return new SimpleStringProperty(param.getValue().getValue());
         });
+        btnFinalizar.setVisible(false);
 
     }
 
@@ -191,14 +197,21 @@ public class TestEspecialistaController implements Initializable {
 
             cargarPregunta(test.getPregunta(test.getSigPregunta()));
         }
-        if (test.cuestionarioCompletado()) {
-            test.getFinCuestionario();
-            test.getDuracion();
-            cv = new cargadorVista();
-            TestEspecialistaFinalizadoController telp = (TestEspecialistaFinalizadoController) cv.cambiarVista("/Center/TestEspecialistaFinalizado.fxml", mc.getPanelPrin());
-            telp.setCuestionario(test.getCuestionario());
-            telp.setMc(mc);
+        else
+        {
+            
+            txtpregunta.setText("FIN DEL CUESTIONARIO, VERIFICA TUS RESPUESTAS ANTES DE EVALUAR.");
+            rbtnTEavc.setDisable(true);
+            rbtnTEcs.setDisable(true);
+            rbtnTEnunca.setDisable(true);
+            rbtnTEoca.setDisable(true);
+            rbtnTEsiempre.setDisable(true);
+            btnFinalizar.setVisible(true);
+            lblProgress.setText("100%");
+            pbTEprogeso.setProgress(1);
         }
+       
+
     }
 
     String getRespuesta(int valor) {
@@ -295,6 +308,22 @@ public class TestEspecialistaController implements Initializable {
 //            CustomMessage cm = new CustomMessage("ERROR", "No hay pregunta Anterior...", 2);
 //
 //        }
+    }
+
+    @FXML
+    void finalizarCuestionario(ActionEvent event) {
+        
+        CustomMessage cm=new CustomMessage("Aviso", "Verifique sus respuestas antes de continuar \n"
+                + " ¿Está seguro de finalizar?" ,3);
+        if(cm.getMessage().getButtonData().equals(ButtonType.OK.getButtonData()))
+        {
+                test.getFinCuestionario();
+        test.getDuracion();
+        cv = new cargadorVista();
+        TestEspecialistaFinalizadoController telp = (TestEspecialistaFinalizadoController) cv.cambiarVista("/Center/TestEspecialistaFinalizado.fxml", mc.getPanelPrin());
+        telp.setCuestionario(test.getCuestionario());
+        telp.setMc(mc);
+        }
     }
 
     public void restarATrastorno() {
