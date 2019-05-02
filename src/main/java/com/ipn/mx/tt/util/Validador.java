@@ -25,6 +25,13 @@ public class Validador {
             return "";
         }
     }
+    public String validars(String text) {
+        if (text.length() > 0) {
+            return text;
+        } else {
+            return "";
+        }
+    }
 
     public String validarDP(JFXDatePicker dp) {
         if (dp.getValue() != null) {

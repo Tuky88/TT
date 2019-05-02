@@ -8,78 +8,69 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.Pane?>
-<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane id="AnchorPane" fx:id="panelP" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="510.0" prefWidth="1020.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ipn.mx.tt.controller.PacienteNuevoController">
    <children>
-      <Pane prefHeight="510.0" prefWidth="1020.0" style="-fx-background-color: #FFFFFF;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <Pane prefHeight="510.0" prefWidth="1020.0" styleClass="r" stylesheets="@../styles/Styles.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <Label alignment="CENTER" prefHeight="36.0" prefWidth="1020.0" style="-fx-background-color: #4664b5;" text="Paciente Nuevo " textAlignment="CENTER" textFill="WHITE">
                <font>
                   <Font name="System Italic" size="25.0" />
                </font>
             </Label>
-            <VBox layoutX="327.0" layoutY="457.0" />
-            <Pane layoutY="59.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="402.0" prefWidth="472.0" style="-fx-background-color: #FFFFFF;">
-               <children>
-                  <Label layoutX="40.0" layoutY="73.0" text="Nombre:">
-                     <font>
-                        <Font name="Arial" size="15.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="40.0" layoutY="120.0" text="Apellidos:">
-                     <font>
-                        <Font name="Arial" size="15.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="40.0" layoutY="198.0" text="Correo:">
-                     <font>
-                        <Font name="Arial" size="15.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="40.0" layoutY="239.0" text="Fecha de nacimiento:">
-                     <font>
-                        <Font name="Arial" size="15.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="40.0" layoutY="326.0" text="Teléfono:">
-                     <font>
-                        <Font name="Arial" size="15.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="40.0" layoutY="281.0" text="Dirección:">
-                     <font>
-                        <Font name="Arial" size="15.0" />
-                     </font>
-                  </Label>
-                  <JFXTextField fx:id="txtPnCURP" layoutX="189.0" layoutY="31.0" prefHeight="25.0" prefWidth="263.0" style="-fx-background-color: #FFFFFF;" />
-                  <JFXTextField fx:id="txtPnnombre" layoutX="190.0" layoutY="69.0" prefHeight="25.0" prefWidth="263.0" style="-fx-background-color: #FFFFFF;" />
-                  <JFXTextField fx:id="txtPnapellido" layoutX="190.0" layoutY="116.0" prefHeight="25.0" prefWidth="263.0" style="-fx-background-color: #FFFFFF;" />
-                  <Label layoutX="40.0" layoutY="160.0" text="Sexo:">
-                     <font>
-                        <Font name="Arial" size="15.0" />
-                     </font>
-                  </Label>
-                  <JFXRadioButton fx:id="rbPfemenino" layoutX="339.0" layoutY="160.0" text="Femenino">
-                     <toggleGroup>
-                        <ToggleGroup fx:id="grupoPregunta" />
-                     </toggleGroup>
-                  </JFXRadioButton>
-                  <JFXRadioButton fx:id="rbPmasculino" layoutX="232.0" layoutY="160.0" text="Masculino" toggleGroup="$grupoPregunta" />
-                  <JFXTextField fx:id="txtPncorreo" layoutX="190.0" layoutY="194.0" prefHeight="25.0" prefWidth="263.0" style="-fx-background-color: #FFFFFF;" />
-                  <JFXDatePicker fx:id="datePn" defaultColor="#4664b5" layoutX="190.0" layoutY="235.0" prefHeight="25.0" prefWidth="263.0" style="-fx-background-color: #FFFFFF;" />
-                  <JFXTextField fx:id="txtPndireccion" layoutX="190.0" layoutY="277.0" prefHeight="25.0" prefWidth="263.0" style="-fx-background-color: #FFFFFF;" />
-                  <JFXTextField fx:id="txtPntelefono" layoutX="190.0" layoutY="322.0" prefHeight="25.0" prefWidth="263.0" style="-fx-background-color: #FFFFFF;" />
-                  <Label layoutX="42.0" layoutY="35.0" text="CURP:">
-                     <font>
-                        <Font name="Arial" size="15.0" />
-                     </font>
-                  </Label>
-               </children>
-            </Pane>
-            <JFXButton fx:id="btnPnregistrar" buttonType="RAISED" layoutX="228.0" layoutY="468.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#registrarPaciente" prefHeight="28.0" prefWidth="162.0" ripplerFill="WHITE" style="-fx-background-color: #B1F4AD;" text="Registrar">
+         </children>
+      </Pane>
+      <GridPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="510.0" prefWidth="1020.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="574.0" minWidth="10.0" prefWidth="509.0" />
+          <ColumnConstraints hgrow="ALWAYS" maxWidth="914.0" minWidth="10.0" prefWidth="511.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints maxHeight="43.0" minHeight="6.0" prefHeight="24.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="98.0" minHeight="10.0" prefHeight="34.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="96.0" minHeight="10.0" prefHeight="31.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="106.0" minHeight="10.0" prefHeight="31.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="113.0" minHeight="10.0" prefHeight="31.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="31.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="31.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="31.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="31.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="31.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="31.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <JFXTextField fx:id="txtPnCURP" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="263.0" style="-fx-background-color: #FFFFFF;" GridPane.halignment="RIGHT" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+               <GridPane.margin>
+                  <Insets right="30.0" />
+               </GridPane.margin>
+            </JFXTextField>
+            <Label text="CURP:" GridPane.halignment="LEFT" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+               <font>
+                  <Font name="Arial" size="15.0" />
+               </font>
+               <GridPane.margin>
+                  <Insets left="70.0" />
+               </GridPane.margin>
+            </Label>
+            <JFXTextField fx:id="txtPnnombre" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="263.0" style="-fx-background-color: #FFFFFF;" GridPane.halignment="RIGHT" GridPane.rowIndex="3" GridPane.valignment="CENTER">
+               <GridPane.margin>
+                  <Insets right="30.0" />
+               </GridPane.margin>
+            </JFXTextField>
+            <Label text="Nombre:" GridPane.rowIndex="3">
+               <font>
+                  <Font name="Arial" size="15.0" />
+               </font>
+               <GridPane.margin>
+                  <Insets left="70.0" />
+               </GridPane.margin>
+            </Label>
+            <JFXButton fx:id="btnPnregistrar" buttonType="RAISED" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#registrarPaciente" prefHeight="28.0" prefWidth="162.0" ripplerFill="WHITE" style="-fx-background-color: #B1F4AD;" text="Registrar" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="10" GridPane.valignment="CENTER">
                <font>
                   <Font name="Century Gothic" size="14.0" />
                </font>
@@ -87,91 +78,238 @@
                   <Insets bottom="20.0" />
                </opaqueInsets>
             </JFXButton>
-            <Pane layoutX="501.0" layoutY="54.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="449.0" prefWidth="450.0" style="-fx-background-color: #FFFFFF;">
-               <children>
-                  <Label layoutX="16.0" layoutY="279.0" text="Horario de trabajo:">
-                     <font>
-                        <Font name="Arial" size="15.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="18.0" layoutY="326.0" prefHeight="36.0" prefWidth="339.0" text="Promedio de horas de sueño en dias laborables:">
-                     <font>
-                        <Font name="Arial" size="15.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="18.0" layoutY="387.0" text="Promedio de horas de sueño en dias de descanso:">
-                     <font>
-                        <Font name="Arial" size="15.0" />
-                     </font>
-                  </Label>
-                  <JFXTextField fx:id="txtPnesco" layoutX="145.0" layoutY="25.0" prefHeight="25.0" prefWidth="263.0" style="-fx-background-color: #FFFFFF;" />
-                  <JFXTextField fx:id="txtPhorario" layoutX="147.0" layoutY="279.0" prefHeight="25.0" prefWidth="263.0" style="-fx-background-color: #FFFFFF;" />
-                  <JFXTextField fx:id="txtPhorasl" layoutX="361.0" layoutY="326.0" prefHeight="25.0" prefWidth="50.0" style="-fx-background-color: #FFFFFF;" />
-                  <JFXTextField fx:id="txtPhorasd" layoutX="361.0" layoutY="375.0" prefHeight="25.0" prefWidth="50.0" style="-fx-background-color: #FFFFFF;" />
-                  <Label layoutX="14.0" layoutY="37.0" text="Escolaridad:">
-                     <font>
-                        <Font name="Arial" size="15.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="59.0" layoutY="83.0" text="Trabaja:">
-                     <font>
-                        <Font name="Arial" size="15.0" />
-                     </font>
-                  </Label>
-                  <JFXRadioButton fx:id="rbPtrabajan" layoutX="214.0" layoutY="83.0" text="No">
-                     <toggleGroup>
-                        <ToggleGroup fx:id="grupoPregunta1" />
-                     </toggleGroup>
-                  </JFXRadioButton>
-                  <JFXRadioButton fx:id="rbPtrabajas" layoutX="135.0" layoutY="83.0" text="Sí">
-                     <toggleGroup>
-                        <ToggleGroup fx:id="grupoPregunta1" />
-                     </toggleGroup>
-                  </JFXRadioButton>
-                  <Label layoutX="55.0" layoutY="130.0" text="Horario:">
-                     <font>
-                        <Font name="Arial" size="15.0" />
-                     </font>
-                  </Label>
-                  <JFXRadioButton fx:id="rbPhorarioturnos" layoutX="212.0" layoutY="130.0" text="Por turnos">
-                     <toggleGroup>
-                        <ToggleGroup fx:id="grupoPregunta11" />
-                     </toggleGroup>
-                  </JFXRadioButton>
-                  <JFXRadioButton fx:id="rbPhorariof" layoutX="133.0" layoutY="130.0" text="Fijo">
-                     <toggleGroup>
-                        <ToggleGroup fx:id="grupoPregunta11" />
-                     </toggleGroup>
-                  </JFXRadioButton>
-                  <JFXRadioButton fx:id="rbPls" layoutX="281.0" layoutY="176.0" text="Lunes a Domingo">
-                     <toggleGroup>
-                        <ToggleGroup fx:id="grupoPregunta111" />
-                     </toggleGroup>
-                  </JFXRadioButton>
-                  <JFXRadioButton fx:id="rbPls" layoutX="149.0" layoutY="176.0" text="Lunes a Sabado">
-                     <toggleGroup>
-                        <ToggleGroup fx:id="grupoPregunta111" />
-                     </toggleGroup>
-                  </JFXRadioButton>
-                  <Label layoutX="16.0" layoutY="225.0" text="Dias de descanso:">
-                     <font>
-                        <Font name="Arial" size="15.0" />
-                     </font>
-                  </Label>
-                  <JFXTextField fx:id="txtPdescansos" layoutX="147.0" layoutY="225.0" prefHeight="25.0" prefWidth="263.0" style="-fx-background-color: #FFFFFF;" />
-                  <JFXRadioButton fx:id="rbPlv" layoutX="26.0" layoutY="176.0" text="Lunes a Viernes">
-                     <toggleGroup>
-                        <ToggleGroup fx:id="grupoPregunta1111" />
-                     </toggleGroup>
-                  </JFXRadioButton>
-                  <JFXRadioButton fx:id="rbPhorarionof" layoutX="312.0" layoutY="130.0" text="Sin horario fijo">
-                     <toggleGroup>
-                        <ToggleGroup fx:id="grupoPregunta112" />
-                     </toggleGroup>
-                  </JFXRadioButton>
-               </children>
-            </Pane>
+            <Label text="Teléfono:" GridPane.rowIndex="9">
+               <font>
+                  <Font name="Arial" size="15.0" />
+               </font>
+               <padding>
+                  <Insets left="70.0" />
+               </padding>
+            </Label>
+            <JFXTextField fx:id="txtPntelefono" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="263.0" style="-fx-background-color: #FFFFFF;" GridPane.halignment="RIGHT" GridPane.rowIndex="9">
+               <GridPane.margin>
+                  <Insets right="30.0" />
+               </GridPane.margin>
+            </JFXTextField>
+            <Label text="Dirección:" GridPane.rowIndex="8">
+               <font>
+                  <Font name="Arial" size="15.0" />
+               </font>
+               <GridPane.margin>
+                  <Insets left="70.0" />
+               </GridPane.margin>
+            </Label>
+            <JFXTextField fx:id="txtPndireccion" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="263.0" style="-fx-background-color: #FFFFFF;" GridPane.halignment="RIGHT" GridPane.rowIndex="8" GridPane.valignment="CENTER">
+               <GridPane.margin>
+                  <Insets right="30.0" />
+               </GridPane.margin>
+            </JFXTextField>
+            <Label text="Fecha de nacimiento:" GridPane.rowIndex="7">
+               <font>
+                  <Font name="Arial" size="15.0" />
+               </font>
+               <GridPane.margin>
+                  <Insets left="70.0" />
+               </GridPane.margin>
+            </Label>
+            <JFXDatePicker fx:id="datePn" defaultColor="#4664b5" prefHeight="25.0" prefWidth="263.0" style="-fx-background-color: #FFFFFF;" GridPane.halignment="RIGHT" GridPane.rowIndex="7">
+               <GridPane.margin>
+                  <Insets right="30.0" />
+               </GridPane.margin>
+            </JFXDatePicker>
+            <Label text="Correo:" GridPane.rowIndex="6">
+               <font>
+                  <Font name="Arial" size="15.0" />
+               </font>
+               <GridPane.margin>
+                  <Insets left="70.0" />
+               </GridPane.margin>
+            </Label>
+            <JFXTextField fx:id="txtPncorreo" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="263.0" style="-fx-background-color: #FFFFFF;" GridPane.halignment="RIGHT" GridPane.rowIndex="6">
+               <GridPane.margin>
+                  <Insets right="30.0" />
+               </GridPane.margin>
+            </JFXTextField>
+            <Label text="Sexo:" GridPane.rowIndex="5">
+               <font>
+                  <Font name="Arial" size="15.0" />
+               </font>
+               <GridPane.margin>
+                  <Insets left="70.0" />
+               </GridPane.margin>
+            </Label>
+            <JFXRadioButton fx:id="rbPmasculino" text="Masculino" GridPane.halignment="CENTER" GridPane.rowIndex="5">
+               <toggleGroup>
+                  <ToggleGroup fx:id="grupoPregunta" />
+               </toggleGroup>
+               <GridPane.margin>
+                  <Insets left="50.0" />
+               </GridPane.margin>
+            </JFXRadioButton>
+            <JFXRadioButton fx:id="rbPfemenino" text="Femenino" GridPane.halignment="RIGHT" GridPane.rowIndex="5">
+               <toggleGroup>
+                  <ToggleGroup fx:id="grupoPregunta" />
+               </toggleGroup>
+               <GridPane.margin>
+                  <Insets right="30.0" />
+               </GridPane.margin>
+            </JFXRadioButton>
+            <Label text="Apellidos:" GridPane.rowIndex="4">
+               <font>
+                  <Font name="Arial" size="15.0" />
+               </font>
+               <GridPane.margin>
+                  <Insets left="70.0" />
+               </GridPane.margin>
+            </Label>
+            <JFXTextField fx:id="txtPnapellido" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="25.0" prefWidth="263.0" style="-fx-background-color: #FFFFFF;" GridPane.halignment="RIGHT" GridPane.rowIndex="4">
+               <GridPane.margin>
+                  <Insets right="30.0" />
+               </GridPane.margin>
+            </JFXTextField>
+            <Label text="Escolaridad:" GridPane.columnIndex="1" GridPane.rowIndex="2">
+               <font>
+                  <Font name="Arial" size="15.0" />
+               </font>
+               <GridPane.margin>
+                  <Insets left="70.0" />
+               </GridPane.margin>
+            </Label>
+            <JFXTextField fx:id="txtPnesco" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="25.0" prefWidth="263.0" style="-fx-background-color: #FFFFFF;" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="2">
+               <GridPane.margin>
+                  <Insets right="70.0" />
+               </GridPane.margin>
+            </JFXTextField>
+            <Label text="Trabaja:" GridPane.columnIndex="1" GridPane.rowIndex="3">
+               <font>
+                  <Font name="Arial" size="15.0" />
+               </font>
+               <GridPane.margin>
+                  <Insets left="100.0" />
+               </GridPane.margin>
+            </Label>
+            <JFXRadioButton fx:id="rbPtrabajas" text="Sí" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="3">
+               <toggleGroup>
+                  <ToggleGroup fx:id="grupoPregunta1" />
+               </toggleGroup>
+               <GridPane.margin>
+                  <Insets />
+               </GridPane.margin>
+            </JFXRadioButton>
+            <JFXRadioButton fx:id="rbPtrabajan" text="No" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="3">
+               <toggleGroup>
+                  <ToggleGroup fx:id="grupoPregunta1" />
+               </toggleGroup>
+               <GridPane.margin>
+                  <Insets right="150.0" />
+               </GridPane.margin>
+            </JFXRadioButton>
+            <Label text="Horario:" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="4">
+               <font>
+                  <Font name="Arial" size="15.0" />
+               </font>
+               <padding>
+                  <Insets left="70.0" />
+               </padding>
+            </Label>
+            <JFXRadioButton fx:id="rbPhorariof" text="Fijo" GridPane.columnIndex="1" GridPane.rowIndex="4">
+               <toggleGroup>
+                  <ToggleGroup fx:id="grupoPregunta11" />
+               </toggleGroup>
+               <GridPane.margin>
+                  <Insets left="192.0" />
+               </GridPane.margin>
+            </JFXRadioButton>
+            <JFXRadioButton fx:id="rbPhorarioturnos" text="Por turnos" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="4">
+               <toggleGroup>
+                  <ToggleGroup fx:id="grupoPregunta11" />
+               </toggleGroup>
+               <GridPane.margin>
+                  <Insets left="90.0" />
+               </GridPane.margin>
+            </JFXRadioButton>
+            <JFXRadioButton fx:id="rbPhorarionof" text="Sin horario fijo" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="4">
+               <toggleGroup>
+                  <ToggleGroup fx:id="grupoPregunta112" />
+               </toggleGroup>
+               <GridPane.margin>
+                  <Insets right="50.0" />
+               </GridPane.margin>
+            </JFXRadioButton>
+            <JFXRadioButton fx:id="rbPlv" text="Lunes a Viernes" GridPane.columnIndex="1" GridPane.rowIndex="5">
+               <toggleGroup>
+                  <ToggleGroup fx:id="grupoPregunta1111" />
+               </toggleGroup>
+               <GridPane.margin>
+                  <Insets left="70.0" />
+               </GridPane.margin>
+            </JFXRadioButton>
+            <JFXRadioButton fx:id="rbPls" text="Lunes a Sabado" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="5">
+               <toggleGroup>
+                  <ToggleGroup fx:id="grupoPregunta111" />
+               </toggleGroup>
+            </JFXRadioButton>
+            <JFXRadioButton fx:id="rbPls" text="Lunes a Domingo" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="5">
+               <toggleGroup>
+                  <ToggleGroup fx:id="grupoPregunta111" />
+               </toggleGroup>
+               <GridPane.margin>
+                  <Insets right="60.0" />
+               </GridPane.margin>
+            </JFXRadioButton>
+            <Label text="Dias de descanso:" GridPane.columnIndex="1" GridPane.rowIndex="6">
+               <font>
+                  <Font name="Arial" size="15.0" />
+               </font>
+               <GridPane.margin>
+                  <Insets left="70.0" />
+               </GridPane.margin>
+            </Label>
+            <JFXTextField fx:id="txtPdescansos" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="25.0" prefWidth="263.0" style="-fx-background-color: #FFFFFF;" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="6">
+               <GridPane.margin>
+                  <Insets right="50.0" />
+               </GridPane.margin>
+            </JFXTextField>
+            <Label text="Horario de trabajo:" GridPane.columnIndex="1" GridPane.rowIndex="7">
+               <font>
+                  <Font name="Arial" size="15.0" />
+               </font>
+               <GridPane.margin>
+                  <Insets left="70.0" />
+               </GridPane.margin>
+            </Label>
+            <JFXTextField fx:id="txtPhorario" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="25.0" prefWidth="263.0" style="-fx-background-color: #FFFFFF;" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="7">
+               <GridPane.margin>
+                  <Insets right="50.0" />
+               </GridPane.margin>
+            </JFXTextField>
+            <Label prefHeight="36.0" prefWidth="339.0" text="Promedio de horas de sueño en dias laborables:" GridPane.columnIndex="1" GridPane.rowIndex="8">
+               <font>
+                  <Font name="Arial" size="15.0" />
+               </font>
+               <GridPane.margin>
+                  <Insets left="60.0" />
+               </GridPane.margin>
+            </Label>
+            <JFXTextField fx:id="txtPhorasl" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="25.0" prefWidth="50.0" style="-fx-background-color: #FFFFFF;" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="8">
+               <GridPane.margin>
+                  <Insets right="55.0" />
+               </GridPane.margin>
+            </JFXTextField>
+            <Label text="Promedio de horas de sueño en dias de descanso:" GridPane.columnIndex="1" GridPane.rowIndex="9">
+               <font>
+                  <Font name="Arial" size="15.0" />
+               </font>
+               <GridPane.margin>
+                  <Insets left="60.0" />
+               </GridPane.margin>
+            </Label>
+            <JFXTextField fx:id="txtPhorasd" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="25.0" prefWidth="50.0" style="-fx-background-color: #FFFFFF;" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="9">
+               <GridPane.margin>
+                  <Insets right="55.0" />
+               </GridPane.margin>
+            </JFXTextField>
          </children>
-      </Pane>
+      </GridPane>
    </children>
 </AnchorPane>

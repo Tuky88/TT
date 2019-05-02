@@ -26,6 +26,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.input.KeyEvent;
 import java.util.List;
 import javafx.event.ActionEvent;
+import static jdk.nashorn.internal.objects.NativeString.toUpperCase;
 
 /**
  * FXML Controller class
@@ -67,7 +68,9 @@ public class PacienteConRegistroController implements Initializable {
 
     @FXML
     void buscarPaciente(KeyEvent event) {
-        String busqueda = v.validarTF(txtPrnombre);
+        String curp= toUpperCase(txtPrnombre.getText());
+        
+        String busqueda = v.validars(curp);
         if (busqueda.length() > 2) {
             ol.clear();
             LinkedList ls = new LinkedList();

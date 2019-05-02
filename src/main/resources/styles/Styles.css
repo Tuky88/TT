@@ -1,7 +1,14 @@
-.button {
-    -fx-font-weight: bold;
-}
+
 .img{
     -fx-background-image:url("/imagenes/Captura.JPG");
+    -fx-background-size:100% 100%;
+}
+.l{
+    -fx-background-image:url("/imagenes/azul4.jpg");
+    -fx-background-size:100% 100%;
+}
+
+.r{
+    -fx-background-image:url("/imagenes/blanco.jpg");
     -fx-background-size:100% 100%;
 }
