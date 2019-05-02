@@ -11,21 +11,21 @@ package com.ipn.mx.tt.modelo;
  */
 public class Trastorno {
 
-    private int puntaje;
+    private Double puntaje;
 
     public Trastorno() {
-        puntaje = 0;
+        puntaje = 0.0;
     }
 
     public void sumar(Double i) {
         puntaje += i;
     }
 
-    public int getPuntaje() {
+    public Double getPuntaje() {
         return puntaje;
     }
 
-    public void setPuntaje(int puntaje) {
+    public void setPuntaje(Double puntaje) {
         this.puntaje = puntaje;
     }
 
