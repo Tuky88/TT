@@ -150,10 +150,10 @@ public class PrediagnosticoController implements Initializable {
         yAxisi.setLabel("Valor");
  
         XYChart.Series seriesih = new XYChart.Series();     
-        int ih=Integer.parseInt(ihsdq.getText());
+        double ih=Double.parseDouble(ihsdq.getText());
         seriesih.getData().add(new XYChart.Data("HSDQ",ih));
         XYChart.Series seriesis = new XYChart.Series();
-        int is=Integer.parseInt(is50.getText());
+        double is=Double.parseDouble(is50.getText());
         seriesis.getData().add(new XYChart.Data("S50",is));
         ginsomnio.getData().addAll(seriesih,seriesis);
         
@@ -163,10 +163,10 @@ public class PrediagnosticoController implements Initializable {
         yAxisr.setLabel("Valor");
  
         XYChart.Series seriesrh = new XYChart.Series();
-        int rh=Integer.parseInt(rchsdq.getText());
+        double rh=Double.parseDouble(rchsdq.getText());
         seriesrh.getData().add(new XYChart.Data("HSDQ",rh));
         XYChart.Series seriesrs = new XYChart.Series();
-        int rs=Integer.parseInt(rcs50.getText());
+        double rs=Double.parseDouble(rcs50.getText());
         seriesrs.getData().add(new XYChart.Data("S50",rs));
         gritmo.getData().addAll(seriesrh,seriesrs);
         
@@ -176,10 +176,10 @@ public class PrediagnosticoController implements Initializable {
         yAxipi.setLabel("Valor");
  
         XYChart.Series seriespih = new XYChart.Series();
-        int pih=Integer.parseInt(pihsdq.getText());
+        double pih=Double.parseDouble(pihsdq.getText());
         seriespih.getData().add(new XYChart.Data("HSDQ",pih));
         XYChart.Series seriespis = new XYChart.Series();
-        int pis=Integer.parseInt(pis50.getText());
+        double pis=Double.parseDouble(pis50.getText());
         seriespis.getData().add(new XYChart.Data("S50",pis));
         gpiernas.getData().addAll(seriespih,seriespis);
         
@@ -189,10 +189,10 @@ public class PrediagnosticoController implements Initializable {
         yAxiai.setLabel("Valor");
  
         XYChart.Series seriesah = new XYChart.Series();
-        int ah=Integer.parseInt(ahsdq.getText());
+        double ah=Double.parseDouble(ahsdq.getText());
         seriesah.getData().add(new XYChart.Data("HSDQ",ah));
         XYChart.Series seriesas = new XYChart.Series();
-        int as=Integer.parseInt(as50.getText());
+        double as=Double.parseDouble(as50.getText());
         seriesas.getData().add(new XYChart.Data("S50",as));
         gapnea.getData().addAll(seriesah,seriesas);
         
@@ -202,7 +202,7 @@ public class PrediagnosticoController implements Initializable {
         yAxihi.setLabel("Valor");
  
         XYChart.Series serieshh = new XYChart.Series();
-        int hh=Integer.parseInt(hhsdq.getText());
+        double hh=Double.parseDouble(hhsdq.getText());
         serieshh.getData().add(new XYChart.Data("HSDQ",hh));
         ghiper.getData().addAll(serieshh);
         
@@ -213,7 +213,7 @@ public class PrediagnosticoController implements Initializable {
  
 
         XYChart.Series seriesns = new XYChart.Series();
-        int ns=Integer.parseInt(ns50.getText());
+        double ns=Double.parseDouble(ns50.getText());
         seriesns.getData().add(new XYChart.Data("S50",ns));
         gnarcolepsia.getData().addAll(seriesns);
         
@@ -224,7 +224,7 @@ public class PrediagnosticoController implements Initializable {
  
 
         XYChart.Series seriesos = new XYChart.Series();
-        int os=Integer.parseInt(os50.getText());
+        double os=Double.parseDouble(os50.getText());
         seriesos.getData().add(new XYChart.Data("S50",os));
         gimpacto.getData().addAll(seriesos);
        
