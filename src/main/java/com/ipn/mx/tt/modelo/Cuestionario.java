@@ -62,7 +62,7 @@ public class Cuestionario {
 
     }
 
-    public int getTrastorno(int instrumento, int trastorno) {
+    public Double getTrastorno(int instrumento, int trastorno) {
         if (instrumento == 1) {
             return s50.getTrastorno(trastorno);
         } else {

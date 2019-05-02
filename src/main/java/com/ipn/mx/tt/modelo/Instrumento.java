@@ -24,7 +24,7 @@ public class Instrumento {
    {
        trastornos[trastorno].sumar(puntaje);
    }
-   public int getTrastorno(int trastorno)
+   public Double getTrastorno(int trastorno)
    {
        return trastornos[trastorno].getPuntaje();
    }

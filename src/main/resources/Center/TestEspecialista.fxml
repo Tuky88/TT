@@ -38,7 +38,7 @@
                      <bottom>
                         <Pane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="510.0" prefWidth="1020.0" style="-fx-background-color: #FFFFFF;" BorderPane.alignment="CENTER">
                            <children>
-                              <ProgressBar fx:id="pbTEprogeso" layoutX="144.0" layoutY="459.0" prefHeight="31.0" prefWidth="628.0" progress="1.0" />
+                              <ProgressBar fx:id="pbTEprogeso" layoutX="24.0" layoutY="459.0" prefHeight="31.0" prefWidth="681.0" progress="1.0" />
                               <JFXRadioButton fx:id="rbtnTEnunca" layoutX="125.0" layoutY="356.0" text="Nunca">
                                  <font>
                                     <Font size="20.0" />
@@ -92,11 +92,16 @@
                                     <Font name="Century Gothic" size="20.0" />
                                  </font>
                               </JFXTextArea>
-                              <Label fx:id="lblProgress" layoutX="798.0" layoutY="435.0" prefHeight="55.0" prefWidth="118.0">
+                              <Label fx:id="lblProgress" layoutX="713.0" layoutY="435.0" prefHeight="55.0" prefWidth="118.0">
                                  <font>
                                     <Font name="System Bold" size="24.0" />
                                  </font>
                               </Label>
+                              <JFXButton fx:id="btnFinalizar" buttonType="RAISED" layoutX="840.0" layoutY="406.0" onAction="#finalizarCuestionario" prefHeight="75.0" prefWidth="152.0" ripplerFill="#da0d0d" text="Finalizar" textAlignment="CENTER" textOverrun="WORD_ELLIPSIS" wrapText="true">
+                                 <font>
+                                    <Font size="24.0" />
+                                 </font>
+                              </JFXButton>
                            </children>
                         </Pane>
                      </bottom>
