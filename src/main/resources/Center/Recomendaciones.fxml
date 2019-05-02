@@ -18,7 +18,7 @@
                <children>
                   <Pane minWidth="-Infinity" prefHeight="424.0" prefWidth="840.0" style="-fx-background-color: #FFFFFF;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <children>
-                        <Label alignment="CENTER" layoutY="-1.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="38.0" prefWidth="1020.0" style="-fx-background-color: #4664b5;" text="Recomendaciones" textAlignment="CENTER" textFill="WHITE">
+                        <Label alignment="CENTER" layoutY="-1.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="38.0" prefWidth="1020.0" style="-fx-background-color: #4D92DF;" text="Recomendaciones" textAlignment="CENTER" textFill="WHITE">
                            <font>
                               <Font name="System Italic" size="25.0" />
                            </font>
@@ -31,7 +31,7 @@
                         </TableView>
                         <TableView fx:id="tblPtrastornos1" layoutX="111.0" layoutY="225.0" prefHeight="213.0" prefWidth="721.0">
                            <columns>
-                              <TableColumn fx:id="tblRrecomendaciones" prefWidth="582.0" text="Recomendaciones" />
+                              <TableColumn fx:id="tblRrecomendaciones" prefWidth="720.0" text="Recomendaciones" />
                            </columns>
                         </TableView>
                         <JFXButton fx:id="btnRimprimir" layoutX="130.0" layoutY="459.0" prefHeight="31.0" prefWidth="92.0" style="-fx-background-color: #9FB4AE;" text="Imprimir" />

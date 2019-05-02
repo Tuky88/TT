@@ -15,7 +15,7 @@
    <children>
       <Pane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="510.0" prefWidth="1020.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <Label alignment="CENTER" prefHeight="36.0" prefWidth="1020.0" style="-fx-background-color: #4664b5;" text="Historial" textAlignment="CENTER" textFill="WHITE">
+            <Label alignment="CENTER" prefHeight="36.0" prefWidth="1020.0" style="-fx-background-color: #4D92DF;" text="Historial" textAlignment="CENTER" textFill="WHITE">
                <font>
                   <Font name="System Italic" size="25.0" />
                </font>
@@ -33,7 +33,11 @@
             <TableColumn prefWidth="75.0" text="Edad" />
             <TableColumn prefWidth="115.0" text="Fecha de registro" />
             <TableColumn prefWidth="183.0" text="Trastorno prediagnósticado" />
+            <TableColumn prefWidth="183.0" text="Test " />
          </columns>
+         <columnResizePolicy>
+            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+         </columnResizePolicy>
       </TableView>
       <JFXTextField fx:id="txtPnombre" layoutX="406.0" layoutY="80.0" prefHeight="25.0" prefWidth="358.0" style="-fx-background-color: #FFFFFF;" />
       <JFXButton fx:id="btnPver1" layoutX="767.0" layoutY="451.0" prefHeight="36.0" prefWidth="122.0" style="-fx-background-color: #53b1ff;" text="Ver">

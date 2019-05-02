@@ -173,7 +173,7 @@
                               <NumberAxis side="LEFT" />
                            </yAxis>
                         </BarChart>
-                        <BarChart fx:id="ghiper" disable="true" layoutX="225.0" layoutY="255.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="150.0" prefWidth="129.0" title="Hipersomnia">
+                        <BarChart fx:id="ghiper" disable="true" layoutX="213.0" layoutY="255.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="150.0" prefWidth="107.0" title="Hipersomnia">
                            <xAxis>
                               <CategoryAxis side="BOTTOM" />
                            </xAxis>
@@ -181,7 +181,7 @@
                               <NumberAxis side="LEFT" />
                            </yAxis>
                         </BarChart>
-                        <BarChart fx:id="gnarcolepsia" disable="true" layoutX="354.0" layoutY="255.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="150.0" prefWidth="129.0" title="Narcolepsia">
+                        <BarChart fx:id="gnarcolepsia" disable="true" layoutX="354.0" layoutY="255.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="150.0" prefWidth="100.0" title="Narcolepsia">
                            <xAxis>
                               <CategoryAxis side="BOTTOM" />
                            </xAxis>
@@ -189,7 +189,7 @@
                               <NumberAxis side="LEFT" />
                            </yAxis>
                         </BarChart>
-                        <BarChart fx:id="gimpacto" disable="true" layoutX="498.0" layoutY="255.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="150.0" prefWidth="129.0" title="Otro">
+                        <BarChart fx:id="gimpacto" disable="true" layoutX="498.0" layoutY="263.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="150.0" prefWidth="100.0" title="Otro">
                            <xAxis>
                               <CategoryAxis side="BOTTOM" />
                            </xAxis>

@@ -11,7 +11,7 @@
 
 <AnchorPane id="AnchorPane" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="510.0" prefWidth="1020.0" style="-fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ipn.mx.tt.controller.PacienteConRegistroController">
    <children>
-      <Pane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="510.0" prefWidth="1020.0" style="-fx-background-color: #FFFFFF;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <Pane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="510.0" prefWidth="1020.0" styleClass="r" stylesheets="@../styles/Styles.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <Label alignment="CENTER" layoutX="-3.0" prefHeight="36.0" prefWidth="1020.0" style="-fx-background-color: #4664b5;" text="Paciente con registro" textAlignment="CENTER" textFill="WHITE">
                <font>
@@ -23,13 +23,13 @@
                   <Font name="Arial" size="15.0" />
                </font>
             </Label>
-            <JFXButton fx:id="btnPriniciar" buttonType="RAISED" layoutX="415.0" layoutY="364.0" onAction="#iniciarTest" prefHeight="28.0" prefWidth="162.0" ripplerFill="WHITE" style="-fx-background-color: #B1F4AD;" text="Iniciar test">
+            <JFXButton fx:id="btnPriniciar" buttonType="RAISED" layoutX="384.0" layoutY="343.0" onAction="#iniciarTest" prefHeight="28.0" prefWidth="162.0" ripplerFill="WHITE" style="-fx-background-color: #B1F4AD;" text="Iniciar test">
                <font>
                   <Font name="Century Gothic" size="14.0" />
                </font>
             </JFXButton>
             <JFXTextField fx:id="txtPrnombre" layoutX="400.0" layoutY="61.0" onKeyReleased="#buscarPaciente" prefHeight="25.0" prefWidth="263.0" style="-fx-background-color: #FFFFFF;" />
-            <TableView fx:id="tabla" layoutX="84.0" layoutY="121.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="164.0" prefWidth="766.0">
+            <TableView fx:id="tabla" layoutX="84.0" layoutY="121.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="86.0" prefWidth="766.0">
                <columns>
                   <TableColumn fx:id="columnaCURP" prefWidth="170.0" text="CURP" />
                   <TableColumn fx:id="columnaNombre" prefWidth="185.0" text="NOMBRE" />
