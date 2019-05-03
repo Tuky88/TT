@@ -68,8 +68,8 @@ public class PacienteConRegistroController implements Initializable {
 
     @FXML
     void buscarPaciente(KeyEvent event) {
-        String curp= toUpperCase(txtPrnombre.getText());
-        
+        String curp = toUpperCase(txtPrnombre.getText());
+
         String busqueda = v.validars(curp);
         if (busqueda.length() > 2) {
             ol.clear();
@@ -110,15 +110,30 @@ public class PacienteConRegistroController implements Initializable {
     void iniciarTest(ActionEvent event) {
         if (tabla.getSelectionModel().getSelectedItem() != null) {
             PacienteTabla pt = tabla.getSelectionModel().getSelectedItem();
-            Paciente paciente = new Paciente(pt);
+            pt.setOrigen(getPaciente(pt.getCURP().getValue()));
+
             ComenzarTestController ctc = (ComenzarTestController) cv.cambiarVista("/Center/ComenzarTest.fxml", c.getPanelPrin());
             ctc.setC(c);
-            ctc.setPaciente(paciente);
+            ctc.setPaciente(pt.getOrigen());
             ctc.setDatosPaciente(true);
+            System.out.println(pt.getOrigen().toString());
         } else {
 
             CustomMessage cm = new CustomMessage("Advertencia", "Seleccione un paciente", 0);
         }
+
+    }
+
+    public Paciente getPaciente(String curp) {
+        Paciente p = new Paciente();
+
+        for (int i = 0; i < 10; i++) {
+            p = new Paciente((DBObject)pacientes.get(i)) ;
+            if (p.getCURP().equals(curp)) {
+                break;
+            }
+        }
+        return p;
 
     }
 

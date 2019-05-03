@@ -17,10 +17,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
-import javafx.scene.control.Button;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.Pane;
 
 /**
  * FXML Controller class
@@ -30,41 +27,51 @@ import javafx.scene.layout.Pane;
 public class ConfiguracionesController implements Initializable {
 
     private Usuario usuario;
+    private menuController mc;
 
-  @FXML
+    @FXML
     private JFXButton btnCcuenta;
 
     @FXML
     private JFXButton btnCañadir;
-   
-     @FXML
+
+    @FXML
     private BorderPane panelRight;
+
+    public menuController getMc() {
+        return mc;
+    }
+
+    public void setMc(menuController mc) {
+        this.mc = mc;
+    }
+    
 
     @FXML
     void abrirCuenta(ActionEvent event) {
-        CuentaEspecialistaController cec=(CuentaEspecialistaController)
+        CuentaEspecialistaController cec = (CuentaEspecialistaController) 
                 abrirMenu("/Center/CuentaEspecialista.fxml");
         System.out.println(usuario.toString());
         cec.colocarDatos(usuario);
+        cec.setMc(mc);
         btnCcuenta.setDisable(true);
         btnCañadir.setDisable(false);
-        
-        
     }
-        @FXML
+
+    @FXML
     void abrirEspecialista(ActionEvent event) {
         abrirMenu("/Center/AñadirEspecialista.fxml");
-        
+
         btnCcuenta.setDisable(false);
         btnCañadir.setDisable(true);
     }
 
     public Object abrirMenu(String menu) {
-        Object o=null;
+        Object o = null;
         try {
-            FXMLLoader fx=new FXMLLoader(getClass().getResource(menu));
+            FXMLLoader fx = new FXMLLoader(getClass().getResource(menu));
             Parent root = fx.load();
-            o=fx.getController();
+            o = fx.getController();
             panelRight.setCenter(root);
 
         } catch (IOException ex) {
@@ -73,15 +80,15 @@ public class ConfiguracionesController implements Initializable {
         return o;
     }
 
-    public Usuario getUsuario()
-    {
+    public Usuario getUsuario() {
         return usuario;
     }
-    public void setUsuario(Usuario u)
-    {
-        this.usuario=u;
-        
+
+    public void setUsuario(Usuario u) {
+        this.usuario = u;
+
     }
+
     /**
      * Initializes the controller class.
      */
@@ -91,8 +98,8 @@ public class ConfiguracionesController implements Initializable {
     }
 
     void clickInicial() {
-       // throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    this.btnCcuenta.fire();
+        // throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        this.btnCcuenta.fire();
     }
 
 }

@@ -7,6 +7,8 @@ package com.ipn.mx.tt.controller;
 
 import com.ipn.mx.tt.dao.UsuarioDAO;
 import com.ipn.mx.tt.modelo.Usuario;
+import com.ipn.mx.tt.util.CustomMessage;
+import com.ipn.mx.tt.util.cargadorVista;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXPasswordField;
 import java.net.URL;
@@ -15,14 +17,10 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
-import javafx.scene.control.PasswordField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.Pane;
 
 /**
  * FXML Controller class
@@ -32,14 +30,8 @@ import javafx.scene.layout.Pane;
 public class CambiarcontraController implements Initializable {
 
     Usuario usuario;
-
-    public Usuario getUsuario() {
-        return usuario;
-    }
-
-    public void setUsuario(Usuario usuario) {
-        this.usuario = usuario;
-    }
+    menuController mc;
+    cargadorVista cv;
 
     @FXML
     private JFXPasswordField txtCpass;
@@ -52,25 +44,43 @@ public class CambiarcontraController implements Initializable {
 
     @FXML
     private JFXButton btnCcguardar;
-    
-        @FXML
+
+    @FXML
     private JFXButton btnCcancelar;
+
+    @FXML
+    private AnchorPane panelP;
+
     /**
      * Initializes the controller class.
      */
-
-
     @FXML
     private void CambiarContraseña(KeyEvent event) {
         if (event.getCode().equals(KeyCode.ENTER)) {
             cambiarContraseña();
-        } else { 
+        } else {
         }
     }
 
     @FXML
     void cambiarContraseña(ActionEvent event) {
         cambiarContraseña();
+    }
+
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
+
+    public menuController getMc() {
+        return mc;
+    }
+
+    public void setMc(menuController mc) {
+        this.mc = mc;
     }
 
     public void cambiarContraseña() {
@@ -83,29 +93,35 @@ public class CambiarcontraController implements Initializable {
 
                         Alert a = new Alert(Alert.AlertType.NONE, "Se actualizó la contraseña.", ButtonType.OK);
                         a.show();
+                        CustomMessage cm = new CustomMessage("AVISO", "Se actualizó la contraseña.", 0);
                     } else {
 
-                        Alert a = new Alert(Alert.AlertType.NONE, "No se pudo actualizar la contraseña..", ButtonType.OK);
-                        a.show();
+                        CustomMessage cm = new CustomMessage("ERROR", "No se pudo actualizar la contraseña...", 0);
                     }
                 } else {
 
-                    Alert a = new Alert(Alert.AlertType.NONE, "Las contraseña no coinciden.", ButtonType.OK);
-                    a.show();
+                    CustomMessage cm = new CustomMessage("ERROR", "Las contraseña no coinciden.", 0);
                 }
             } else {
-
-                Alert a = new Alert(Alert.AlertType.NONE, "Hay un error en tu contraseña.", ButtonType.OK);
-                a.show();
+                CustomMessage cm = new CustomMessage("ERROR", "Hay un error en tu contraseña.", 0);
             }
         } else {
-            Alert a = new Alert(Alert.AlertType.NONE, "Los campos no pueden estar vacíos.", ButtonType.OK);
-            a.show();
+            CustomMessage cm = new CustomMessage("ERROR", "Los campos no pueden estar vacíos.", 0);
         }
     }
+
+    @FXML
+    public void cancelar(ActionEvent event) {
+        CuentaEspecialistaController cec = (CuentaEspecialistaController) cv.cambiarVista("/Center/CuentaEspecialista.fxml", panelP);
+        System.out.println(usuario.toString());
+        cec.colocarDatos(usuario);
+        cec.setMc(mc);
+    }
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+        cv = new cargadorVista();
     }
 
 }
