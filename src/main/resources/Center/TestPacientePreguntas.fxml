@@ -82,13 +82,13 @@
                                     <Font name="Century Gothic" size="30.0" />
                                  </font>
                               </JFXTextArea>
-                              <ImageView fitHeight="48.0" fitWidth="55.0" layoutX="846.0" layoutY="115.0">
-                                 <image>
-                                    <Image url="@../imagenes/audio.jpg" />
-                                 </image>
-                              </ImageView>
                            </children>
                         </Pane>
+                        <ImageView fitHeight="48.0" fitWidth="55.0" layoutX="489.0" layoutY="358.0">
+                           <image>
+                              <Image url="@../imagenes/audio.jpg" />
+                           </image>
+                        </ImageView>
                      </children>
                   </Pane>
                </children>

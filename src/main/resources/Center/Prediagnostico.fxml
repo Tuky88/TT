@@ -140,8 +140,7 @@
                            </font>
                         </TextArea>
                         <JFXButton fx:id="btnPrecomendaciones" layoutX="911.0" layoutY="458.0" prefHeight="38.0" prefWidth="95.0" style="-fx-background-color: #B1F4AD;" text="Siguiente" />
-                        <TextArea layoutX="14.0" layoutY="421.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="75.0" prefWidth="872.0" promptText="Comentarios" />
-                        <BarChart fx:id="ginsomnio" disable="true" layoutX="14.0" layoutY="113.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="150.0" prefWidth="237.0" title="Insomnio">
+                        <BarChart fx:id="ginsomnio" disable="true" layoutX="14.0" layoutY="113.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="150.0" prefWidth="182.0" title="Insomnio">
                           <xAxis>
                             <CategoryAxis side="BOTTOM" />
                           </xAxis>
@@ -149,7 +148,7 @@
                             <NumberAxis side="LEFT" />
                           </yAxis>
                         </BarChart>
-                        <BarChart fx:id="gritmo" disable="true" layoutX="251.0" layoutY="113.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="150.0" prefWidth="237.0" title="Ritmo Circadiano">
+                        <BarChart fx:id="gritmo" disable="true" layoutX="14.0" layoutY="287.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="150.0" prefWidth="237.0" title="Ritmo Circadiano">
                            <xAxis>
                               <CategoryAxis side="BOTTOM" />
                            </xAxis>
@@ -173,7 +172,7 @@
                               <NumberAxis side="LEFT" />
                            </yAxis>
                         </BarChart>
-                        <BarChart fx:id="ghiper" disable="true" layoutX="213.0" layoutY="255.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="150.0" prefWidth="107.0" title="Hipersomnia">
+                        <BarChart fx:id="ghiper" disable="true" layoutX="381.0" layoutY="327.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="150.0" prefWidth="107.0" title="Hipersomnia">
                            <xAxis>
                               <CategoryAxis side="BOTTOM" />
                            </xAxis>
@@ -181,7 +180,7 @@
                               <NumberAxis side="LEFT" />
                            </yAxis>
                         </BarChart>
-                        <BarChart fx:id="gnarcolepsia" disable="true" layoutX="354.0" layoutY="255.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="150.0" prefWidth="100.0" title="Narcolepsia">
+                        <BarChart fx:id="gnarcolepsia" disable="true" layoutX="505.0" layoutY="346.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="150.0" prefWidth="100.0" title="Narcolepsia">
                            <xAxis>
                               <CategoryAxis side="BOTTOM" />
                            </xAxis>
@@ -189,7 +188,7 @@
                               <NumberAxis side="LEFT" />
                            </yAxis>
                         </BarChart>
-                        <BarChart fx:id="gimpacto" disable="true" layoutX="498.0" layoutY="263.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="150.0" prefWidth="100.0" title="Otro">
+                        <BarChart fx:id="gimpacto" disable="true" layoutX="595.0" layoutY="338.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="150.0" prefWidth="100.0" title="Otro">
                            <xAxis>
                               <CategoryAxis side="BOTTOM" />
                            </xAxis>
