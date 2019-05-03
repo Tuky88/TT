@@ -152,10 +152,17 @@ public class PrediagnosticoController implements Initializable {
         XYChart.Series seriesih = new XYChart.Series();     
         double ih=Double.parseDouble(ihsdq.getText());
         seriesih.getData().add(new XYChart.Data("HSDQ",ih));
+        XYChart.Series seriesihm = new XYChart.Series();     
+        double ihm=29.44;
+        seriesih.getData().add(new XYChart.Data("Minimo",ihm));
         XYChart.Series seriesis = new XYChart.Series();
         double is=Double.parseDouble(is50.getText());
         seriesis.getData().add(new XYChart.Data("S50",is));
-        ginsomnio.getData().addAll(seriesih,seriesis);
+         XYChart.Series seriesism = new XYChart.Series();
+        double ism=19;
+        seriesis.getData().add(new XYChart.Data("Minimo",ism));
+        ginsomnio.getData().addAll(seriesih,seriesihm,seriesis,seriesism);
+         
         
         CategoryAxis xAxisr = new CategoryAxis();
         NumberAxis yAxisr = new NumberAxis();

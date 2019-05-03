@@ -20,6 +20,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ButtonType;
+import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.AnchorPane;
 
 /**
@@ -31,6 +32,20 @@ public class PacienteNuevoController implements Initializable {
 
     menuController c;
     Validador validador;
+    @FXML
+    private ToggleGroup grupoPregunta;
+    @FXML
+    private ToggleGroup grupoPregunta1;
+    @FXML
+    private ToggleGroup grupoPregunta11;
+    @FXML
+    private ToggleGroup grupoPregunta112;
+    @FXML
+    private ToggleGroup grupoPregunta1111;
+    @FXML
+    private ToggleGroup grupoPregunta111;
+    @FXML
+    private JFXButton btnPnguardar;
 
     public menuController getC() {
         return c;
@@ -74,6 +89,7 @@ public class PacienteNuevoController implements Initializable {
 
     @FXML
     private JFXButton btnPnregistrar;
+    
 
     @FXML
     private JFXTextField txtPnesco;
