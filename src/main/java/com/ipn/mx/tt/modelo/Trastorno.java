@@ -11,10 +11,24 @@ package com.ipn.mx.tt.modelo;
  */
 public class Trastorno {
 
+    private int preguntas;
     private Double puntaje;
 
     public Trastorno() {
         puntaje = 0.0;
+        preguntas = 0;
+    }
+
+    public int getPreguntas() {
+        return preguntas;
+    }
+
+    public void setPreguntas(int preguntas) {
+        this.preguntas = preguntas;
+    }
+
+    public void aumentarPregunta() {
+        preguntas++;
     }
 
     public void sumar(Double i) {
@@ -31,8 +45,7 @@ public class Trastorno {
 
     void restar(int puntaje) {
         //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-        this.puntaje+=puntaje;
+        this.puntaje += puntaje;
     }
-    
 
 }

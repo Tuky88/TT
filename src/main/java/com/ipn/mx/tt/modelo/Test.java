@@ -6,6 +6,7 @@
 package com.ipn.mx.tt.modelo;
 
 import com.ipn.mx.tt.dao.CuestionarioPreguntaDAO;
+import com.ipn.mx.tt.dao.CutoffDAO;
 import com.ipn.mx.tt.dao.PreguntaDAO;
 import com.ipn.mx.tt.dao.PreguntaEquivalenciaDAO;
 import com.ipn.mx.tt.dao.SintomaPreguntaDAO;
@@ -27,8 +28,9 @@ public class Test {
     SintomaPreguntaDAO spd;
     TrastornoSintomaDAO tsd;
     PreguntaEquivalenciaDAO ped;
+    CutoffDAO cd;
     private int contadorPreguntas;
-    List preguntas, tipoCuestionario, SintomaPregunta, TrastornoSintoma, equivalencias;
+    List preguntas, tipoCuestionario, SintomaPregunta, TrastornoSintoma, equivalencias, cutoff;
     int tipo, tamañoCuestionario;
     int[] trastornos, numeracion;
     int numeroTrastornos;
@@ -40,7 +42,9 @@ public class Test {
         spd = new SintomaPreguntaDAO();
         tsd = new TrastornoSintomaDAO();
         ped = new PreguntaEquivalenciaDAO();
+        cd = new CutoffDAO();
         this.tipo = tipo;
+        cd.conectar();
         pd.conectar();
         cpd.conectar();
         spd.conectar();
@@ -51,6 +55,7 @@ public class Test {
         SintomaPregunta = spd.traerSintomas();
         TrastornoSintoma = tsd.traerTrastornos();
         equivalencias = ped.getEquivalencia();
+        cutoff = cd.getCutOff();
         numeroTrastornos = 10;
         trastornos = new int[10];
         tamañoCuestionario = 69;
@@ -208,13 +213,13 @@ public class Test {
     public Double puntajeEquivalente(int cuestionario, Double puntaje) {
         Double resultado;
         if (cuestionario == 2) {
-            resultado = 4*puntaje/3;
-            resultado-=0.333333333333333;
+            resultado = 4 * puntaje / 3;
+            resultado -= 0.333333333333333;
 
         } else {
-            
-            resultado = 3*puntaje/4;
-            resultado+=0.25;
+
+            resultado = 3 * puntaje / 4;
+            resultado += 0.25;
         }
         return resultado;
     }

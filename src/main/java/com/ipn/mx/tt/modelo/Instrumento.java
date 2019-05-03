@@ -23,10 +23,17 @@ public class Instrumento {
    public void sumarPuntaje(int trastorno,Double puntaje)
    {
        trastornos[trastorno].sumar(puntaje);
+       trastornos[trastorno].aumentarPregunta();
+       
+       
    }
    public Double getTrastorno(int trastorno)
    {
        return trastornos[trastorno].getPuntaje();
+   }
+      public int getPreguntasContestadas(int trastorno)
+   {
+       return trastornos[trastorno].getPreguntas();
    }
 
     void restarPuntaje(int trastorno, int puntaje) {
