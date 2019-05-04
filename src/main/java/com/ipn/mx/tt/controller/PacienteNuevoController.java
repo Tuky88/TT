@@ -14,12 +14,17 @@ import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXDatePicker;
 import com.jfoenix.controls.JFXRadioButton;
 import com.jfoenix.controls.JFXTextField;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ButtonType;
+import javafx.scene.control.Spinner;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.AnchorPane;
 
@@ -130,10 +135,15 @@ public class PacienteNuevoController implements Initializable {
     @FXML
     private JFXRadioButton rbPlv;
 
-    
+       @FXML
+    private Spinner<?> spnhoras;
+
+    @FXML
+    private JFXButton btnPnsiguiente;
 
     @FXML
     private JFXRadioButton rbPhorarionof;
+    
 
 
 
@@ -165,6 +175,18 @@ public class PacienteNuevoController implements Initializable {
         pd.insertarPaciente(p);
     }
 
+    @FXML
+    void peciente(ActionEvent event) {
+
+        try {
+            FXMLLoader fx = new FXMLLoader(getClass().getResource("/Center/PacienteNuevo2.fxml"));
+            AnchorPane ap = fx.load();
+            panelP.getChildren().setAll(ap);
+        } catch (IOException ex) {
+            Logger.getLogger(PacienteNuevoController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
     @FXML
     void registrarPaciente(ActionEvent event) {
 
