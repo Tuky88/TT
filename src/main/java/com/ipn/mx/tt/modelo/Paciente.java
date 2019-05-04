@@ -101,8 +101,8 @@ public class Paciente {
 //
 //        Date age = new Date(ageInMillis);
 
-       // return age.getYear();
-       return 23;
+        // return age.getYear();
+        return 23;
     }
 
     public Paciente(String Nombre, String Apellido, String Sexo, String Correo, String Fecha, String Direccion, String Telefono, String CURP) {
@@ -126,10 +126,10 @@ public class Paciente {
         this.Telefono = (String) dbo.get("Telefono");
         this.CURP = (String) dbo.get("_CURP");
     }
-    public Paciente(PacienteTabla pt)
-    {
-        this.Nombre=pt.getNombre().getValue();
-        this.CURP=pt.getCURP().getValue();
+
+    public Paciente(PacienteTabla pt) {
+        this.Nombre = pt.getNombre().getValue();
+        this.CURP = pt.getCURP().getValue();
     }
 
 }
