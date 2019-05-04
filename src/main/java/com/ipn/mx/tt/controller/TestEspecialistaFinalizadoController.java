@@ -14,6 +14,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ProgressBar;
+import com.ipn.mx.tt.controller.PrediagnosticoController;
 
 /**
  * FXML Controller class
@@ -59,10 +60,12 @@ public class TestEspecialistaFinalizadoController implements Initializable {
 
     @FXML
     private void mostrarPrediagnostico(ActionEvent ae) {
-        cv=new cargadorVista();
+        cv=new cargadorVista(); 
+        PrediagnosticoController p= new PrediagnosticoController();
         PrediagnosticoController pc = (PrediagnosticoController) cv.cambiarVista("/Center/Prediagnostico.fxml", mc.getPanelPrin());
         pc.setCuestionario(cuestionario);
         pc.cargarResultados();
         pc.startgrafica();
+        
     }
 }

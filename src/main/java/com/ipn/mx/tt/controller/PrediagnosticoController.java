@@ -159,29 +159,33 @@ public class PrediagnosticoController implements Initializable {
 
     public void startgrafica() {
         
-        CategoryAxis xAxisih = new CategoryAxis();
-        NumberAxis yAxisih = new NumberAxis();
-        xAxisih.setLabel("Preguntas");       
-        yAxisih.setLabel("Valor");
-        XYChart.Series seriesih = new XYChart.Series();     
-        double ih=Double.parseDouble(ihsdq.getText());
-        seriesih.getData().add(new XYChart.Data("HSDQ",ih));
-        XYChart.Series seriesihm = new XYChart.Series();     
+        CategoryAxis xAxisrih = new CategoryAxis();
+        NumberAxis yAxisrih = new NumberAxis();
+        xAxisrih.setLabel("Preguntas");       
+        yAxisrih.setLabel("Valor");
+ 
+        XYChart.Series seriesih = new XYChart.Series();
+        double ih=Double.parseDouble(rchsdq.getText());
+        seriesih.getData().add(new XYChart.Data("Obtenido",ih));
+        XYChart.Series seriesihm = new XYChart.Series();
         double ihm=29.44;
-        seriesih.getData().add(new XYChart.Data("Minimo",ihm));
+        seriesihm.getData().add(new XYChart.Data("Minimo",ihm));
         ginsomnioh.getData().addAll(seriesih,seriesihm);
         
         CategoryAxis xAxisis = new CategoryAxis();
         NumberAxis yAxisis = new NumberAxis();
         xAxisis.setLabel("Preguntas");       
         yAxisis.setLabel("Valor");
+ 
         XYChart.Series seriesis = new XYChart.Series();
-        double is=Double.parseDouble(is50.getText());
-        seriesis.getData().add(new XYChart.Data("S50",is));
-         XYChart.Series seriesism = new XYChart.Series();
+        double is=Double.parseDouble(rcs50.getText());
+        seriesis.getData().add(new XYChart.Data("Obtenido",is));
+        XYChart.Series seriesism = new XYChart.Series();
         double ism=19;
-        seriesis.getData().add(new XYChart.Data("Minimo",ism));
-        ginsomnios.getData().addAll(seriesis,seriesism); 
+        seriesism.getData().add(new XYChart.Data("Minimo",ism));
+        ginsomnios.getData().addAll(seriesis,seriesism);
+        
+        
         
         CategoryAxis xAxisrh = new CategoryAxis();
         NumberAxis yAxisrh = new NumberAxis();
@@ -190,7 +194,7 @@ public class PrediagnosticoController implements Initializable {
  
         XYChart.Series seriesrh = new XYChart.Series();
         double rh=Double.parseDouble(rchsdq.getText());
-        seriesrh.getData().add(new XYChart.Data("HSDQ",rh));
+        seriesrh.getData().add(new XYChart.Data("Obtenido",rh));
         XYChart.Series seriesrhm = new XYChart.Series();
         double rhm=20.46;
         seriesrhm.getData().add(new XYChart.Data("Minimo",rhm));
@@ -203,10 +207,10 @@ public class PrediagnosticoController implements Initializable {
  
         XYChart.Series seriesrs = new XYChart.Series();
         double rs=Double.parseDouble(rcs50.getText());
-        seriesrh.getData().add(new XYChart.Data("S50",rs));
+        seriesrs.getData().add(new XYChart.Data("Obtenido",rs));
         XYChart.Series seriesrsm = new XYChart.Series();
         double rsm=8;
-        seriesrhm.getData().add(new XYChart.Data("Minimo",rsm));
+        seriesrsm.getData().add(new XYChart.Data("Minimo",rsm));
         gritmos.getData().addAll(seriesrs,seriesrsm);
         
         CategoryAxis xAxipih = new CategoryAxis();
@@ -216,7 +220,7 @@ public class PrediagnosticoController implements Initializable {
  
         XYChart.Series seriespih = new XYChart.Series();
         double pih=Double.parseDouble(pihsdq.getText());
-        seriespih.getData().add(new XYChart.Data("HSDQ",pih));
+        seriespih.getData().add(new XYChart.Data("Obtenido",pih));
         XYChart.Series seriesphm = new XYChart.Series();
         double pihm=13.5;
         seriesphm.getData().add(new XYChart.Data("Minimo",pihm));
@@ -229,7 +233,7 @@ public class PrediagnosticoController implements Initializable {
  
         XYChart.Series seriespis = new XYChart.Series();
         double pis=Double.parseDouble(pis50.getText());
-        seriespis.getData().add(new XYChart.Data("S50",pis));
+        seriespis.getData().add(new XYChart.Data("Obtenido",pis));
         XYChart.Series seriespsm = new XYChart.Series();
         double pism=7;
         seriespsm.getData().add(new XYChart.Data("Minimo",pism));
@@ -242,7 +246,7 @@ public class PrediagnosticoController implements Initializable {
  
         XYChart.Series seriesah = new XYChart.Series();
         double ah=Double.parseDouble(ahsdq.getText());
-        seriesah.getData().add(new XYChart.Data("HSDQ",ah));
+        seriesah.getData().add(new XYChart.Data("Obtenido",ah));
         XYChart.Series seriesahm = new XYChart.Series();
         double ahm=11.48;
         seriesahm.getData().add(new XYChart.Data("Minimo",ahm));
@@ -255,7 +259,7 @@ public class PrediagnosticoController implements Initializable {
  
         XYChart.Series seriesas = new XYChart.Series();
         double as=Double.parseDouble(as50.getText());
-        seriesas.getData().add(new XYChart.Data("S50",as));
+        seriesas.getData().add(new XYChart.Data("Obtenido",as));
         XYChart.Series seriesasm = new XYChart.Series();
         double asm=15;
         seriesasm.getData().add(new XYChart.Data("Minimo",asm));
@@ -268,10 +272,10 @@ public class PrediagnosticoController implements Initializable {
  
         XYChart.Series serieshh = new XYChart.Series();
         double hh=Double.parseDouble(hhsdq.getText());
-        serieshh.getData().add(new XYChart.Data("HSDQ",hh));
+        serieshh.getData().add(new XYChart.Data("Obtenido",hh));
         XYChart.Series serieshm = new XYChart.Series();
         double hm=14.5;
-        seriesahm.getData().add(new XYChart.Data("Minimo",hm));
+        serieshm.getData().add(new XYChart.Data("Minimo",hm));
         ghiper.getData().addAll(serieshh,serieshm);
         
         CategoryAxis xAxini = new CategoryAxis();
@@ -282,7 +286,7 @@ public class PrediagnosticoController implements Initializable {
 
         XYChart.Series seriesns = new XYChart.Series();
         double ns=Double.parseDouble(ns50.getText());
-        seriesns.getData().add(new XYChart.Data("S50",ns));
+        seriesns.getData().add(new XYChart.Data("Obtenido",ns));
          XYChart.Series seriesnsm = new XYChart.Series();
         double nsm=7;
         seriesnsm.getData().add(new XYChart.Data("Minimo",nsm));
@@ -296,7 +300,7 @@ public class PrediagnosticoController implements Initializable {
 
         XYChart.Series seriesos = new XYChart.Series();
         double os=Double.parseDouble(os50.getText());
-        seriesos.getData().add(new XYChart.Data("S50",os));
+        seriesos.getData().add(new XYChart.Data("Obtenido",os));
          XYChart.Series seriesosm = new XYChart.Series();
         double osm=15;
         seriesosm.getData().add(new XYChart.Data("Minimo",osm));
