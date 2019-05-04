@@ -22,42 +22,48 @@
                   <Font name="Arial" size="15.0" />
                </font>
             </Label>
-            <Label layoutX="250.0" layoutY="163.0" text="Apellidos:">
+            <Label layoutX="250.0" layoutY="159.0" text="Apellidos:">
                <font>
                   <Font name="Arial" size="15.0" />
                </font>
             </Label>
-            <Label layoutX="250.0" layoutY="206.0" text="Correo:">
+            <Label layoutX="250.0" layoutY="283.0" text="Correo:">
                <font>
                   <Font name="Arial" size="15.0" />
                </font>
             </Label>
-            <Label layoutX="250.0" layoutY="247.0" text="Usuario:">
+            <Label layoutX="251.0" layoutY="204.0" text="Usuario:">
                <font>
                   <Font name="Arial" size="15.0" />
                </font>
             </Label>
-            <Label layoutX="250.0" layoutY="334.0" text="Repetir contraseña:">
+            <Label layoutX="250.0" layoutY="372.0" text="Repetir contraseña:">
                <font>
                   <Font name="Arial" size="15.0" />
                </font>
             </Label>
-            <Label layoutX="250.0" layoutY="289.0" text="Contraseña:">
+            <Label layoutX="250.0" layoutY="327.0" text="Contraseña:">
                <font>
                   <Font name="Arial" size="15.0" />
                </font>
             </Label>
-            <JFXButton fx:id="btnCacguardar" buttonType="RAISED" layoutX="501.0" layoutY="405.0" onAction="#cargarUsuario" prefHeight="28.0" prefWidth="162.0" ripplerFill="WHITE" style="-fx-background-color: #B1F4AD;" text="Guardar">
+            <JFXButton fx:id="btnCacguardar" buttonType="RAISED" layoutX="419.0" layoutY="429.0" onAction="#cargarUsuario" prefHeight="28.0" prefWidth="162.0" ripplerFill="WHITE" style="-fx-background-color: #B1F4AD;" text="Guardar">
                <font>
                   <Font name="Century Gothic" size="14.0" />
                </font>
             </JFXButton>
-            <JFXTextField fx:id="txtCanombre" layoutX="400.0" layoutY="112.0" prefHeight="25.0" prefWidth="263.0" style="-fx-background-color: #FFFFFF;" />
-            <JFXTextField fx:id="txtCaapellido" layoutX="400.0" layoutY="159.0" prefHeight="25.0" prefWidth="263.0" style="-fx-background-color: #FFFFFF;" />
-            <JFXTextField fx:id="txtCacorreo" layoutX="400.0" layoutY="202.0" prefHeight="25.0" prefWidth="263.0" style="-fx-background-color: #FFFFFF;" />
-            <JFXTextField fx:id="txtCausuario" layoutX="400.0" layoutY="243.0" prefHeight="25.0" prefWidth="263.0" style="-fx-background-color: #FFFFFF;" />
-            <JFXPasswordField fx:id="txtCapass" layoutX="400.0" layoutY="285.0" prefHeight="25.0" prefWidth="263.0" style="-fx-background-color: #FFFFFF;" />
-            <JFXPasswordField fx:id="txtCarpass" layoutX="400.0" layoutY="330.0" prefHeight="25.0" prefWidth="263.0" style="-fx-background-color: #FFFFFF;" />
+            <JFXTextField fx:id="txtCanombre" layoutX="400.0" layoutY="104.0" prefHeight="25.0" prefWidth="263.0" style="-fx-background-color: #FFFFFF;" />
+            <JFXTextField fx:id="txtCaapellido" layoutX="400.0" layoutY="147.0" prefHeight="25.0" prefWidth="263.0" style="-fx-background-color: #FFFFFF;" />
+            <JFXTextField fx:id="txtCacorreo" layoutX="400.0" layoutY="274.0" prefHeight="25.0" prefWidth="263.0" style="-fx-background-color: #FFFFFF;" />
+            <JFXTextField fx:id="txtCausuario" layoutX="400.0" layoutY="189.0" prefHeight="25.0" prefWidth="263.0" style="-fx-background-color: #FFFFFF;" />
+            <JFXPasswordField fx:id="txtCapass" layoutX="400.0" layoutY="316.0" prefHeight="25.0" prefWidth="263.0" style="-fx-background-color: #FFFFFF;" />
+            <JFXPasswordField fx:id="txtCarpass" layoutX="400.0" layoutY="359.0" prefHeight="25.0" prefWidth="263.0" style="-fx-background-color: #FFFFFF;" />
+            <Label layoutX="250.0" layoutY="245.0" text="No. empleado:">
+               <font>
+                  <Font name="Arial" size="15.0" />
+               </font>
+            </Label>
+            <JFXTextField fx:id="txtCanoempleado" layoutX="400.0" layoutY="235.0" prefHeight="25.0" prefWidth="263.0" style="-fx-background-color: #FFFFFF;" />
          </children>
       </Pane>
    </children>

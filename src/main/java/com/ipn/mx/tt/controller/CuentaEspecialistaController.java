@@ -53,6 +53,8 @@ public class CuentaEspecialistaController implements Initializable {
     private Pane panel;
     @FXML
     private JFXTextField txtCapellido;
+       @FXML
+    private JFXTextField txtCnoempleado;
     Usuario u;
     menuController mc;
 
