@@ -7,6 +7,7 @@ package com.ipn.mx.tt.controller;
 
 import com.ipn.mx.tt.dao.UsuarioDAO;
 import com.ipn.mx.tt.modelo.Usuario;
+import com.ipn.mx.tt.util.CustomMessage;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
@@ -55,6 +56,7 @@ public class CuentaEspecialistaController implements Initializable {
        @FXML
     private JFXTextField txtCnoempleado;
     Usuario u;
+    menuController mc;
 
     /**
      * Initializes the controller class.
@@ -73,6 +75,7 @@ public class CuentaEspecialistaController implements Initializable {
             AnchorPane ap = fx.load();
             CambiarcontraController cc = (CambiarcontraController) fx.getController();
             cc.setUsuario(u);
+            cc.setMc(mc);
             panelP.getChildren().setAll(ap);
         } catch (IOException ex) {
             Logger.getLogger(CuentaEspecialistaController.class.getName()).log(Level.SEVERE, null, ex);
@@ -86,11 +89,10 @@ public class CuentaEspecialistaController implements Initializable {
         Usuario u = new Usuario(txtCusuario.getText(), txtCnombre.getText(),
                 txtCapellido.getText(), txtCcorreo.getText());
         if (ud.actualizarDatos(u)) {
-            Alert a = new Alert(Alert.AlertType.NONE, "Se realizaron los cambios con exito", ButtonType.OK);
-            a.show();
+
+            CustomMessage cm = new CustomMessage("AVISO", "Se realizaron los cambios con exito", 0);
         } else {
-            Alert a = new Alert(Alert.AlertType.NONE, "No pudimos actualizar los datos", ButtonType.OK);
-            a.show();
+            CustomMessage cm = new CustomMessage("ERROR", "No pudimos actualizar los datos", 2);
 
         }
     }
@@ -103,5 +105,14 @@ public class CuentaEspecialistaController implements Initializable {
         this.txtCusuario.setText(u.getId());
         this.u = u;
     }
+
+    public menuController getMc() {
+        return mc;
+    }
+
+    public void setMc(menuController mc) {
+        this.mc = mc;
+    }
+    
 
 }

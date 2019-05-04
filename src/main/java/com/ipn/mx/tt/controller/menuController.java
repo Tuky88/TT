@@ -109,6 +109,7 @@ public class menuController implements Initializable {
         TabConfig.setOnSelectionChanged((Event event) -> {
             ConfiguracionesController cc = (ConfiguracionesController) cv.cambiarVista("/Center/Configuraciones.fxml", PanelPrin);
             cc.setUsuario(usuario);
+            cc.setMc(this);
             cc.clickInicial();
             System.out.println(usuario.toString());
 

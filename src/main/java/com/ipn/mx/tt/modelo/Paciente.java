@@ -97,11 +97,12 @@ public class Paciente {
     }
 
     public int getEdad() {
-        long ageInMillis = new Date().getTime() - new Date(Fecha).getTime();
+//        long ageInMillis = new Date().getTime() - new Date(Fecha).getTime();
+//
+//        Date age = new Date(ageInMillis);
 
-        Date age = new Date(ageInMillis);
-
-        return age.getYear();
+       // return age.getYear();
+       return 23;
     }
 
     public Paciente(String Nombre, String Apellido, String Sexo, String Correo, String Fecha, String Direccion, String Telefono, String CURP) {

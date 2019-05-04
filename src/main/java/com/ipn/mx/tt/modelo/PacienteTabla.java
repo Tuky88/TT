@@ -19,17 +19,28 @@ public class PacienteTabla {
     private StringProperty nombre;
     private StringProperty edad;
     private StringProperty CURP;
+    private Paciente origen;
 
-    public PacienteTabla(String CURP, String nombre, String edad) {
+    public PacienteTabla(String CURP, String nombre, String edad,Paciente origen) {
         this.CURP = new SimpleStringProperty(CURP);
         this.nombre = new SimpleStringProperty(nombre);
         this.edad = new SimpleStringProperty(edad);
+        this.origen=origen;
     }
 
+    public Paciente getOrigen() {
+        return origen;
+    }
+
+    public void setOrigen(Paciente origen) {
+        this.origen = origen;
+    }
+
+    
     public PacienteTabla(Paciente paciente) {
                 this.CURP = new SimpleStringProperty(paciente.getCURP());
         this.nombre = new SimpleStringProperty(paciente.getNombre());
-        this.edad = new SimpleStringProperty("19");
+        this.edad = new SimpleStringProperty(""+paciente.getEdad());
     }
 
     public StringProperty getNombre() {
