@@ -50,7 +50,8 @@ public class cargadorVista {
         }
         return o;
     }
-        public Object cambiarVistaIzq(String archivo, BorderPane bp) {
+
+    public Object cambiarVistaIzq(String archivo, BorderPane bp) {
         Object o = null;
         try {
             FXMLLoader fx = new FXMLLoader(getClass().getResource(archivo));

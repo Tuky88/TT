@@ -48,7 +48,7 @@ public class CuestionarioPreguntaDAO {
         if (cursor.hasNext()) {
             DBObject jo = cursor.one();
             if (jo != null) {
-                Double x=(Double) jo.get("_idCuestionario");
+                Double x = (Double) jo.get("_idCuestionario");
                 resp = x.intValue();
             }
 
@@ -58,8 +58,8 @@ public class CuestionarioPreguntaDAO {
 
     public List getCuestionario() {
         //    throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-                DBCursor cursor = cjm.getMongoCollection().find();
-                
+        DBCursor cursor = cjm.getMongoCollection().find();
+
         return cursor.toArray();
     }
 }

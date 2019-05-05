@@ -36,13 +36,14 @@ public class LoginController implements Initializable {
     @FXML
     private JFXTextField txtUser;
 
-       @FXML
+    @FXML
     private JFXPasswordField txtPass;
 
     @FXML
     private JFXButton btnAcceder;
     @FXML
     private AnchorPane login;
+
     @FXML
     void btnActionPrueba(ActionEvent event) {
 //        UsuarioDAO udao = new UsuarioDAO();
@@ -65,15 +66,15 @@ public class LoginController implements Initializable {
                 menuController o = (menuController) mov.cambiarEscena(e, "Menu.fxml");
                 o.setUsuario(user);
 
-                CustomMessage cm=new CustomMessage("BIENVENIDO","Bienvenido al sistema", 0);
+                CustomMessage cm = new CustomMessage("BIENVENIDO", "Bienvenido al sistema", 0);
                 //alertMessage.alert(0, "BIENVENIDO AL SISTEMA", "BIENVENIDO: " + user.getId());
             } else {
                 lblStatus.setText("Usuario o contraseña incorrecta");
 
             }
         } else {
-            CustomMessage cm=new CustomMessage("ERROR","LOS CAMPOS NO PUEDEN ESTAR VACIOS", 2);
-           // alertMessage.alert(0, "ERROR", "");
+            CustomMessage cm = new CustomMessage("ERROR", "LOS CAMPOS NO PUEDEN ESTAR VACIOS", 2);
+            // alertMessage.alert(0, "ERROR", "");
 //                       Loader l=new Loader((Stage)login.getScene().getWindow(),5);
 //            l.start();
         }

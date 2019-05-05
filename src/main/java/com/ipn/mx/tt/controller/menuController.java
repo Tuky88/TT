@@ -107,6 +107,7 @@ public class menuController implements Initializable {
         });
 
         TabConfig.setOnSelectionChanged((Event event) -> {
+            
             ConfiguracionesController cc = (ConfiguracionesController) cv.cambiarVista("/Center/Configuraciones.fxml", PanelPrin);
             cc.setUsuario(usuario);
             cc.setMc(this);
@@ -115,6 +116,7 @@ public class menuController implements Initializable {
 
         });
         TabPaciente.setOnSelectionChanged((Event event) -> {
+            
             PacienteController tc = (PacienteController) cv.cambiarVista("/Center/Paciente.fxml", PanelPrin);
             tc.setC(this);
             tc.clickMenu();

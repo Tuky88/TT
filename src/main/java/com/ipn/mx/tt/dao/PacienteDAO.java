@@ -6,12 +6,10 @@
 package com.ipn.mx.tt.dao;
 
 import com.ipn.mx.tt.modelo.Paciente;
-import com.ipn.mx.tt.modelo.Usuario;
 import com.ipn.mx.tt.util.ConexionJavaMongo;
 import com.mongodb.BasicDBObject;
 import com.mongodb.DBCursor;
 import com.mongodb.DBObject;
-import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -54,7 +52,7 @@ public class PacienteDAO {
         cjm.conectar();
         cjm.getMongoCollection().insert(convertirPaciente(p));
         System.out.println("Registro Agregado con éxito");
-        cjm.cerrarConexion();
+        
     }
 
     public Paciente buscarPaciente(String id) {

@@ -5,6 +5,7 @@
  */
 package com.ipn.mx.tt.controller;
 
+import com.ipn.mx.tt.modelo.InfoCuestionario;
 import com.ipn.mx.tt.modelo.Paciente;
 import com.ipn.mx.tt.util.cargadorVista;
 import com.jfoenix.controls.JFXButton;
@@ -30,6 +31,7 @@ public class TestPacienteController implements Initializable {
     Paciente paciente;
     cargadorVista cv;
     menuController mc;
+    private InfoCuestionario ic;
 
     @FXML
     private Label lblPaciente;
@@ -76,6 +78,15 @@ public class TestPacienteController implements Initializable {
     public void ponerPaciente() {
         lblPaciente.setText(lblPaciente.getText() + " " + paciente.getNombre());
     }
+
+    public InfoCuestionario getIc() {
+        return ic;
+    }
+
+    public void setIc(InfoCuestionario ic) {
+        this.ic = ic;
+    }
+    
     public void clickComenzar()
     {
         btnTPComenzar.fire();
@@ -89,7 +100,10 @@ public class TestPacienteController implements Initializable {
         tppc.iniciarTest();
         tppc.setPaciente(paciente);
         if(datosPaciente)
-            tppc.ponerPaciente();
+        {
+            tppc.setIc(ic);
+            tppc.ponerPaciente();  
+        }
     }
 
     @Override

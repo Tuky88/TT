@@ -6,6 +6,7 @@
 package com.ipn.mx.tt.controller;
 
 import com.ipn.mx.tt.modelo.Cuestionario;
+import com.ipn.mx.tt.modelo.InfoCuestionario;
 import com.ipn.mx.tt.modelo.Paciente;
 import com.ipn.mx.tt.modelo.Pregunta;
 import com.ipn.mx.tt.modelo.SintomaPregunta;
@@ -41,6 +42,7 @@ import javafx.scene.layout.BorderPane;
  */
 public class TestPacientePreguntasController implements Initializable {
 
+    private InfoCuestionario ic;
     private cargadorVista cv;
     private int tipoCuestionario;
     private int instrumento, pregunta, puntaje;
@@ -143,6 +145,15 @@ btnFinalizar.setVisible(false);
 
     }
 
+    public InfoCuestionario getIc() {
+        return ic;
+    }
+
+    public void setIc(InfoCuestionario ic) {
+        this.ic = ic;
+    }
+
+    
     public void cargarPregunta(Pregunta p) {
 
         if (p.getId() > 0 && p.getId() != 99) {
@@ -205,8 +216,9 @@ btnFinalizar.setVisible(false);
             cargarPregunta(test.getPregunta(test.getSigPregunta()));
         }
         if (test.cuestionarioCompletado()) {
-   
-          txtpregunta.setText("FIN DEL CUESTIONARIO, VERIFICA TUS RESPUESTAS ANTES DE EVALUAR.");
+            test.getFinCuestionario();
+            test.getDuracion();
+           txtpregunta.setText("FIN DEL CUESTIONARIO, VERIFICA TUS RESPUESTAS ANTES DE EVALUAR.");
             rbtnTPavc.setDisable(true);
             rbtnTPcs.setDisable(true);
             rbtnTPnunca.setDisable(true);
