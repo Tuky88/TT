@@ -11,6 +11,7 @@ import com.ipn.mx.tt.util.CustomMessage;
 import com.ipn.mx.tt.util.Validador;
 import com.ipn.mx.tt.util.cargadorVista;
 import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXDatePicker;
 import com.jfoenix.controls.JFXRadioButton;
 import com.jfoenix.controls.JFXTextField;
@@ -41,16 +42,8 @@ public class PacienteNuevoController implements Initializable {
     private ToggleGroup grupoPregunta;
     @FXML
     private ToggleGroup grupoPregunta1;
-    @FXML
-    private ToggleGroup grupoPregunta11;
-    @FXML
-    private ToggleGroup grupoPregunta112;
-    @FXML
-    private ToggleGroup grupoPregunta1111;
-    @FXML
-    private ToggleGroup grupoPregunta111;
-    @FXML
-    private JFXButton btnPnguardar;
+
+
 
     public menuController getC() {
         return c;
@@ -143,7 +136,8 @@ public class PacienteNuevoController implements Initializable {
 
     @FXML
     private JFXRadioButton rbPhorarionof;
-    
+          @FXML
+    private JFXComboBox<?> cbescolaridad;
 
 
 

@@ -5,6 +5,7 @@
  */
 package com.ipn.mx.tt.controller;
 
+import com.ipn.mx.tt.modelo.Cuestionario;
 import com.ipn.mx.tt.modelo.Pregunta;
 import com.ipn.mx.tt.modelo.SintomaPregunta;
 import com.ipn.mx.tt.modelo.Test;
@@ -48,6 +49,7 @@ public class TestEspecialistaController implements Initializable {
     private menuController mc;
     private Test test;
     private int contadorPregunta;
+        Cuestionario cuestionario;
     
     @FXML
     private TreeTableView<String> tablaRespuesta;
@@ -91,7 +93,7 @@ public class TestEspecialistaController implements Initializable {
     @FXML
     private Label lblProgress;
     
-    @FXML
+@FXML
     private JFXButton btnFinalizar;
 
     /**
@@ -156,7 +158,40 @@ public class TestEspecialistaController implements Initializable {
     void setMc(menuController c) {
         mc = c;
     }
+  
+  
+
+    public menuController getMc() {
+        return mc;
+    }
+
+  
+
     
+    public Cuestionario getCuestionario() {
+        return cuestionario;
+    }
+
+    public void setCuestionario(Cuestionario cuestionario) {
+        this.cuestionario = cuestionario;
+    }
+    
+     @FXML
+    private void mostrarPrediagnostico(ActionEvent ae) {
+        cv=new cargadorVista(); 
+        PrediagnosticoController p= new PrediagnosticoController();
+        PrediagnosticoController pc = (PrediagnosticoController) cv.cambiarVista("/Center/Prediagnostico.fxml", mc.getPanelPrin());
+        test.getFinCuestionario();
+            test.getDuracion();
+            
+            
+            setCuestionario(test.getCuestionario());
+            setMc(mc);
+        pc.setCuestionario(cuestionario);
+        pc.cargarResultados();
+        pc.startgrafica();
+        
+    }
     void iniciarTest() {
         sintoma = new LinkedList();
         trastorno = new LinkedList();
@@ -308,20 +343,7 @@ public class TestEspecialistaController implements Initializable {
 //        }
     }
     
-    @FXML
-    void finalizarCuestionario(ActionEvent event) {
-        
-        CustomMessage cm = new CustomMessage("Aviso", "Verifique sus respuestas antes de continuar \n"
-                + " ¿Está seguro de finalizar?", 3);
-        if (cm.getMessage().getButtonData().equals(ButtonType.OK.getButtonData())) {
-            test.getFinCuestionario();
-            test.getDuracion();
-            cv = new cargadorVista();
-            TestEspecialistaFinalizadoController telp = (TestEspecialistaFinalizadoController) cv.cambiarVista("/Center/TestEspecialistaFinalizado.fxml", mc.getPanelPrin());
-            telp.setCuestionario(test.getCuestionario());
-            telp.setMc(mc);
-        }
-    }
+    
     
     public void restarATrastorno() {
 //        sintoma = spd.buscarSintoma(pregunta);

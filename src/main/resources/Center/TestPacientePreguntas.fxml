@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXRadioButton?>
 <?import com.jfoenix.controls.JFXTextArea?>
 <?import javafx.scene.control.Label?>
@@ -17,16 +18,16 @@
         <items>
           <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="510.0" prefWidth="300.0" styleClass="l" stylesheets="@../styles/Styles.css">
                <children>
-                  <Label layoutX="14.0" layoutY="14.0" prefHeight="40.0" prefWidth="243.0" text="INSTRUCCIONES:" textFill="WHITE">
+                  <ImageView fitHeight="48.0" fitWidth="55.0" layoutX="130.0" layoutY="46.0">
+                     <image>
+                        <Image url="@../imagenes/ayuda.jpg" />
+                     </image>
+                  </ImageView>
+                  <Label layoutX="43.0" layoutY="52.0" text="Ayuda">
                      <font>
-                        <Font name="System Bold" size="28.0" />
+                        <Font name="Arial" size="26.0" />
                      </font>
                   </Label>
-                  <JFXTextArea editable="false" layoutX="5.0" layoutY="59.0" prefHeight="440.0" prefWidth="291.0" style="-fx-background-color: #FFFFFF;" text="-Responda en qué medida cada afirmación le ha sido aplicable durante las últimas 4 semanas.&#10;&#10;-No omita preguntas.&#10;&#10;-Intente contestar lo más sinceramente posible aunque no sepa sobre usted (por ejemplo, si ronca o si se mueve con sus piernas),indique lo que ha escuchado de las personas que le rodean o cómo cree que es." unFocusColor="WHITE" wrapText="true" AnchorPane.bottomAnchor="11.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="4.0" AnchorPane.topAnchor="59.0">
-                     <font>
-                        <Font size="20.0" />
-                     </font>
-                  </JFXTextArea>
                </children></AnchorPane>
           <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="510.0" prefWidth="980.0" style="-fx-background-color: #FFFFFF;">
                <children>
@@ -35,16 +36,6 @@
                         <Label fx:id="lblPaciente" alignment="CENTER" layoutX="2.0" layoutY="-1.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="38.0" prefWidth="1020.0" style="-fx-background-color: #4D92DF;" text="Bienvenido " textAlignment="CENTER" textFill="WHITE">
                            <font>
                               <Font name="System Italic" size="25.0" />
-                           </font>
-                        </Label>
-                        <ImageView fitHeight="48.0" fitWidth="55.0" layoutX="159.0" layoutY="367.0">
-                           <image>
-                              <Image url="@../imagenes/ayuda.jpg" />
-                           </image>
-                        </ImageView>
-                        <Label layoutX="72.0" layoutY="373.0" text="Ayuda">
-                           <font>
-                              <Font name="Arial" size="26.0" />
                            </font>
                         </Label>
                         <JFXRadioButton fx:id="rbtnTPoca" layoutX="188.0" layoutY="277.0" text="Ocasionalmente">
@@ -84,11 +75,12 @@
                               </JFXTextArea>
                            </children>
                         </Pane>
-                        <ImageView fitHeight="48.0" fitWidth="55.0" layoutX="489.0" layoutY="358.0">
+                        <ImageView fitHeight="48.0" fitWidth="55.0" layoutX="512.0" layoutY="423.0">
                            <image>
                               <Image url="@../imagenes/audio.jpg" />
                            </image>
                         </ImageView>
+                        <JFXButton fx:id="btnFinalizar" buttonType="RAISED" layoutX="621.0" layoutY="428.0" onAction="#mostrarPrediagnostico" prefHeight="38.0" prefWidth="138.0" ripplerFill="#79b1b1" style="-fx-background-color: #79b1b1;" text="Finalizar" />
                      </children>
                   </Pane>
                </children>

@@ -5,6 +5,7 @@
  */
 package com.ipn.mx.tt.controller;
 
+import com.ipn.mx.tt.modelo.Cuestionario;
 import com.ipn.mx.tt.modelo.Paciente;
 import com.ipn.mx.tt.modelo.Pregunta;
 import com.ipn.mx.tt.modelo.SintomaPregunta;
@@ -48,7 +49,7 @@ public class TestPacientePreguntasController implements Initializable {
     private Test test;
     private int contadorPregunta;
     private Paciente paciente;
-
+Cuestionario cuestionario;
 
     @FXML
     private BorderPane panelRight;
@@ -82,11 +83,37 @@ public class TestPacientePreguntasController implements Initializable {
 
     @FXML
     private JFXButton regresar;
+    
+    @FXML
+    private JFXButton btnFinalizar;
 
     @FXML
     private Label lblProgress;
         @FXML
     private Label lblPaciente;
+        public Cuestionario getCuestionario() {
+        return cuestionario;
+    }
+
+    public void setCuestionario(Cuestionario cuestionario) {
+        this.cuestionario = cuestionario;
+    }
+    @FXML
+    private void mostrarPrediagnostico(ActionEvent ae) {
+        cv=new cargadorVista(); 
+        PrediagnosticoController p= new PrediagnosticoController();
+        PrediagnosticoController pc = (PrediagnosticoController) cv.cambiarVista("/Center/Prediagnostico.fxml", mc.getPanelPrin());
+        test.getFinCuestionario();
+            test.getDuracion();
+            
+            
+            setCuestionario(test.getCuestionario());
+            setMc(mc);
+        pc.setCuestionario(cuestionario);
+        pc.cargarResultados();
+        pc.startgrafica();
+        
+    }
 
     /**
      * Initializes the controller class.
@@ -112,7 +139,7 @@ public class TestPacientePreguntasController implements Initializable {
         });
         contadorPregunta = 1;
 
-
+btnFinalizar.setVisible(false);
 
     }
 
@@ -178,12 +205,14 @@ public class TestPacientePreguntasController implements Initializable {
             cargarPregunta(test.getPregunta(test.getSigPregunta()));
         }
         if (test.cuestionarioCompletado()) {
-            test.getFinCuestionario();
-            test.getDuracion();
-            cv = new cargadorVista();
-            TestEspecialistaFinalizadoController telp = (TestEspecialistaFinalizadoController) cv.cambiarVista("/Center/TestEspecialistaFinalizado.fxml", mc.getPanelPrin());
-            telp.setCuestionario(test.getCuestionario());
-            telp.setMc(mc);
+   
+          txtpregunta.setText("FIN DEL CUESTIONARIO, VERIFICA TUS RESPUESTAS ANTES DE EVALUAR.");
+            rbtnTPavc.setDisable(true);
+            rbtnTPcs.setDisable(true);
+            rbtnTPnunca.setDisable(true);
+            rbtnTPoca.setDisable(true);
+            rbtnTPsiempre.setDisable(true);
+            btnFinalizar.setVisible(true);
         }
     }
 
@@ -227,6 +256,7 @@ public class TestPacientePreguntasController implements Initializable {
     }
 
     public void sumarAPregunta(int preguntaContestada, Double valor) {
+        int instrumentoC=test.getTipoCuestionario(preguntaContestada);
         sintoma = test.getSintoma(preguntaContestada);
         sintoma.forEach((sintomaLoop) -> {
             SintomaPregunta sp = (SintomaPregunta) sintomaLoop;
@@ -234,27 +264,26 @@ public class TestPacientePreguntasController implements Initializable {
             trastorno = test.getTrastorno(numeroSintoma);
             trastorno.forEach((trastornoLoop) -> {
                 TrastornoSintoma ts = (TrastornoSintoma) trastornoLoop;
-
+                
                 if (test.banderaLevantada(ts.getTrastorno())) {
                     //System.out.println("YA SUMADO:" + preguntaC);
                 } else {
                     if ((!test.respuestaContestada(preguntaContestada))
                             || ((test.respuestaContestada(preguntaContestada)) && (preguntaContestada == 16 || preguntaContestada == 17))) {
                         test.levantarBandera(ts.getTrastorno());
-                        System.out.println("/Instrumento:/" + instrumento + "/Sintoma/" + numeroSintoma + "/Trastorno/" + ts.getTrastorno()
+                        System.out.println("/Instrumento:/" + instrumentoC + "/Sintoma/" + numeroSintoma + "/Trastorno/" + ts.getTrastorno()
                                 + "/Pregunta:/" + preguntaContestada + "/Valor:/" + valor);
-                        test.calificarPregunta(instrumento, ts.getTrastorno(), valor);
+                        test.calificarPregunta(instrumentoC, ts.getTrastorno(), valor);
                         test.agregarRespuesta(preguntaContestada, valor.intValue());
-                        //aumentarProgreso();
                     }
                 }
             });
         });
         test.reiniciarBanderas();
     }
-
+    
     private void sumarATrastorno() {
-
+        
         sumarAPregunta(pregunta, new Double(puntaje));
         preguntas = test.obtenerEquivalente(pregunta);
         if (preguntas.size() > 0) {
@@ -262,7 +291,7 @@ public class TestPacientePreguntasController implements Initializable {
         }
         preguntas.forEach((preguntaLoop) -> {
             int preguntaC = (int) preguntaLoop;
-
+            
             sumarAPregunta(preguntaC, test.puntajeEquivalente(instrumento, new Double(puntaje)));
         });
         test.sumarContadorPregunta();

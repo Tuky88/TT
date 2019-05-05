@@ -25,15 +25,15 @@ public class MainApp extends Application {
         Scene scene = new Scene(root);
         scene.getStylesheets().add("org/kordamp/bootstrapfx/bootstrapfx.css");
 
-        Image image = new Image("/imagenes/brain.png");
+        Image image = new Image("/imagenes/logo.jpg");
         
         stage.getIcons().add(image);
-        stage.setTitle("TT 2018-A030");
+        stage.setTitle("SDST");
         stage.setScene(scene);
         stage.centerOnScreen();
         stage.show();
         this.stage.getIcons().add(image);
-        this.stage.setTitle("TT 2018-A030");
+        this.stage.setTitle("TTII SDST 2018-A030");
         this.stage.setScene(scene);
         this.stage.show();
 

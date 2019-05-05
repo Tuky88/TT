@@ -35,7 +35,7 @@
             <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="510.0" prefWidth="1020.0" style="-fx-background-color: #FFFFFF;">
                <children>
                   <BorderPane fx:id="panelRight" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="510.0" prefWidth="1020.0">
-                     <bottom>
+                     <center>
                         <Pane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="510.0" prefWidth="1020.0" style="-fx-background-color: #FFFFFF;" BorderPane.alignment="CENTER">
                            <children>
                               <ProgressBar fx:id="pbTEprogeso" layoutX="24.0" layoutY="459.0" prefHeight="31.0" prefWidth="681.0" progress="1.0" />
@@ -79,19 +79,15 @@
                                     <Font name="System Bold" size="24.0" />
                                  </font>
                               </Label>
-                              <JFXButton fx:id="btnFinalizar" buttonType="RAISED" layoutX="840.0" layoutY="406.0" onAction="#finalizarCuestionario" prefHeight="75.0" prefWidth="152.0" ripplerFill="#da0d0d" text="Finalizar" textAlignment="CENTER" textOverrun="WORD_ELLIPSIS" wrapText="true">
-                                 <font>
-                                    <Font size="24.0" />
-                                 </font>
-                              </JFXButton>
                               <JFXTextArea fx:id="txtpregunta" editable="false" labelFloat="true" layoutX="19.0" layoutY="162.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="114.0" prefWidth="982.0">
                                  <font>
                                     <Font name="Arial" size="28.0" />
                                  </font>
                               </JFXTextArea>
+                              <JFXButton fx:id="btnFinalizar" buttonType="RAISED" layoutX="844.0" layoutY="456.0" onAction="#mostrarPrediagnostico" prefHeight="38.0" prefWidth="138.0" ripplerFill="#79b1b1" style="-fx-background-color: #79b1b1;" text="Finalizar" />
                            </children>
                         </Pane>
-                     </bottom>
+                     </center>
                   </BorderPane>
                </children>
             </AnchorPane>

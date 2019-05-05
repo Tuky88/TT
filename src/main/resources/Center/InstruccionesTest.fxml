@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXTextArea?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ipn.mx.tt.controller.TestEspecialistaFinalizadoController">
+   <children>
+      <SplitPane dividerPositions="0.29797979797979796" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="510.0" prefWidth="1280.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <items>
+            <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="510.0" prefWidth="260.0" style="-fx-background-color: ;" styleClass="l" stylesheets="@../styles/Styles.css" />
+            <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="510.0" prefWidth="1020.0">
+               <children>
+                  <Pane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="510.0" prefWidth="1020.0" styleClass="r" stylesheets="@../styles/Styles.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <Label alignment="CENTER" layoutX="3.0" layoutY="-1.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="38.0" prefWidth="1020.0" style="-fx-background-color: #4D92DF;" text="Bienvenido" textAlignment="CENTER" textFill="WHITE">
+                           <font>
+                              <Font name="System Italic" size="25.0" />
+                           </font>
+                        </Label>
+                        <JFXTextArea editable="false" layoutX="14.0" layoutY="122.0" prefHeight="353.0" prefWidth="983.0" style="-fx-background-color: #FFFFFF;" text="-Responda en qué medida cada afirmación le ha sido aplicable durante las últimas 4 semanas.&#10;&#10;-No omita preguntas.&#10;&#10;-Intente contestar lo más sinceramente posible aunque no sepa sobre usted (por ejemplo, si ronca o si se mueve con sus piernas),indique lo que ha escuchado de las personas que le rodean o cómo cree que es." unFocusColor="WHITE" wrapText="true">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </JFXTextArea>
+                        <Label layoutX="378.0" layoutY="64.0" prefHeight="40.0" prefWidth="243.0" text="INSTRUCCIONES:" textFill="#16a2ff">
+                           <font>
+                              <Font name="System Bold" size="28.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </Pane>
+               </children>
+            </AnchorPane>
+         </items>
+      </SplitPane>
+   </children>
+</AnchorPane>
