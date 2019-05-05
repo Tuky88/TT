@@ -49,10 +49,11 @@ public class PacienteController implements Initializable {
     void abrirPacienteN(ActionEvent event) {
         PacienteNuevoController pnc= (PacienteNuevoController) 
                 cv.cambiarVista("/Center/PacienteNuevo.fxml",panelRight);
-
+        pnc.setC(c);
         pnc.configurarObjetos();
         btnTpacientenuevo.setDisable(true);
         btnTpacienteregistrado.setDisable(false);  
+        System.out.println(c.getUsuario().toString());
     }
     
     @FXML

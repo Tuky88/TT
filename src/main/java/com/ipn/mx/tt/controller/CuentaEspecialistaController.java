@@ -8,16 +8,13 @@ package com.ipn.mx.tt.controller;
 import com.ipn.mx.tt.dao.UsuarioDAO;
 import com.ipn.mx.tt.modelo.Usuario;
 import com.ipn.mx.tt.util.CustomMessage;
+import com.ipn.mx.tt.util.cargadorVista;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
-import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
@@ -29,6 +26,7 @@ import javafx.scene.layout.Pane;
  */
 public class CuentaEspecialistaController implements Initializable {
 
+    private cargadorVista cv;
     @FXML
     private JFXButton btnCguardar;
     @FXML
@@ -60,22 +58,16 @@ public class CuentaEspecialistaController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+        cv = new cargadorVista();
 
     }
 
     @FXML
     void cambiarContraseña(ActionEvent event) {
 
-        try {
-            FXMLLoader fx = new FXMLLoader(getClass().getResource("/Center/Cambiarcontra.fxml"));
-            AnchorPane ap = fx.load();
-            CambiarcontraController cc = (CambiarcontraController) fx.getController();
-            cc.setUsuario(u);
-            cc.setMc(mc);
-            panelP.getChildren().setAll(ap);
-        } catch (IOException ex) {
-            Logger.getLogger(CuentaEspecialistaController.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        CambiarcontraController cc = (CambiarcontraController) cv.cambiarVista("/Center/Cambiarcontra.fxml", panelP);
+        cc.setUsuario(u);
+        cc.setMc(mc);
     }
 
     @FXML

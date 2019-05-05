@@ -5,7 +5,9 @@
  */
 package com.ipn.mx.tt.controller;
 
+import com.ipn.mx.tt.dao.CuestionarioAplicadoDAO;
 import com.ipn.mx.tt.dao.PacienteDAO;
+import com.ipn.mx.tt.modelo.InfoCuestionario;
 import com.ipn.mx.tt.modelo.Paciente;
 import com.ipn.mx.tt.util.CustomMessage;
 import com.ipn.mx.tt.util.Validador;
@@ -36,6 +38,7 @@ import javafx.scene.layout.AnchorPane;
  */
 public class PacienteNuevoController implements Initializable {
 
+    private CuestionarioAplicadoDAO cad;
     menuController c;
     Validador validador;
     @FXML
@@ -146,14 +149,17 @@ public class PacienteNuevoController implements Initializable {
 
         validador = new Validador();
         cv = new cargadorVista();
+        cad = new CuestionarioAplicadoDAO();
+        cad.conectar();
         // TODO
     }
 
-    public void hacerCuestionario(Paciente p) {
+    public void hacerCuestionario(Paciente p,InfoCuestionario i) {
         ComenzarTestController ctc = (ComenzarTestController) cv.cambiarVista("/Center/ComenzarTest.fxml", c.getPanelPrin());
         ctc.setC(c);
         ctc.setPaciente(p);
         ctc.setDatosPaciente(true);
+        ctc.setIc(i);
 
     }
 
@@ -194,26 +200,31 @@ public class PacienteNuevoController implements Initializable {
                 && !Direccion.equals("") && !Telefono.equals("")) {
 
             Paciente p = new Paciente(Nombre, Apellido, Sexo, Correo, Fecha, Direccion, Telefono, CURP);
+
+            System.out.println(c.getUsuario().toString());
+            InfoCuestionario ic = new InfoCuestionario(cad.buscarSiguiente() + 1, 0.0, CURP, c.getUsuario().getId());
+            cad.insertarInfoCuestionario(ic);
             registrarPaciente(p);
             CustomMessage cm = new CustomMessage("MENSAJE", "Registrado con éxito", 2);
             CustomMessage cm1 = new CustomMessage("MENSAJE", "¿Desea realizar el Cuestionario?", 4);
 
             if (cm1.getMessage().getButtonData().equals(ButtonType.OK.getButtonData())) {
 
-                hacerCuestionario(p);
+                hacerCuestionario(p,ic);
             } else {
                 CustomMessage cm2 = new CustomMessage("MENSAJE", "El cuestionario se guardó para más tarde", 2);
             }
 
         } else {
-            CustomMessage cm = new CustomMessage("ERROR", "Hubo un error en alguno de los campos...", 2);
+            System.out.println(cad.buscarSiguiente());
+            //CustomMessage cm = new CustomMessage("ERROR", "Hubo un error en alguno de los campos...", 2);
 
         }
 
     }
 
     public void configurarObjetos() {
-        
+
         SpinnerValueFactory<Integer> svf = new SpinnerValueFactory.IntegerSpinnerValueFactory(1, 23, 7, 1);
         spnhoras.setValueFactory(svf);
     }

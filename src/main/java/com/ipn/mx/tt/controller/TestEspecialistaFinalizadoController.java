@@ -14,7 +14,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ProgressBar;
-import com.ipn.mx.tt.controller.PrediagnosticoController;
+import com.ipn.mx.tt.modelo.InfoCuestionario;
 
 /**
  * FXML Controller class
@@ -26,7 +26,17 @@ public class TestEspecialistaFinalizadoController implements Initializable {
     Cuestionario cuestionario;
     menuController mc;
     cargadorVista cv;
+    private InfoCuestionario ic;
 
+    public InfoCuestionario getIc() {
+        return ic;
+    }
+
+    public void setIc(InfoCuestionario ic) {
+        this.ic = ic;
+    }
+
+    
     public menuController getMc() {
         return mc;
     }
@@ -66,6 +76,7 @@ public class TestEspecialistaFinalizadoController implements Initializable {
         pc.setCuestionario(cuestionario);
         pc.cargarResultados();
         pc.startgrafica();
-        
+        if(ic!=null)
+        System.out.println(ic.getIdCuestionario());
     }
 }

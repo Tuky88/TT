@@ -6,6 +6,8 @@
 package com.ipn.mx.tt.dao;
 
 import com.ipn.mx.tt.util.ConexionJavaMongo;
+import com.mongodb.DBCursor;
+import java.util.List;
 
 /**
  *
@@ -15,14 +17,20 @@ public class DocumentoDAO {
 
     ConexionJavaMongo cjm;
     String base, coleccion;
+
     public DocumentoDAO(String base, String coleccion) {
         this.base = base;
         this.coleccion = coleccion;
         cjm = new ConexionJavaMongo(base, coleccion);
     }
-    public void conectar()
-    {
+
+    public void conectar() {
         cjm.conectar();
     }
-    
+
+    public List traerTodo() {
+        DBCursor cursor = cjm.getMongoCollection().find();
+
+        return cursor.toArray();
+    }
 }

@@ -5,6 +5,7 @@
  */
 package com.ipn.mx.tt.controller;
 
+import com.ipn.mx.tt.modelo.InfoCuestionario;
 import com.ipn.mx.tt.modelo.Paciente;
 import com.ipn.mx.tt.modelo.Pregunta;
 import com.ipn.mx.tt.modelo.SintomaPregunta;
@@ -40,6 +41,7 @@ import javafx.scene.layout.BorderPane;
  */
 public class TestPacientePreguntasController implements Initializable {
 
+    private InfoCuestionario ic;
     private cargadorVista cv;
     private int tipoCuestionario;
     private int instrumento, pregunta, puntaje;
@@ -116,6 +118,15 @@ public class TestPacientePreguntasController implements Initializable {
 
     }
 
+    public InfoCuestionario getIc() {
+        return ic;
+    }
+
+    public void setIc(InfoCuestionario ic) {
+        this.ic = ic;
+    }
+
+    
     public void cargarPregunta(Pregunta p) {
 
         if (p.getId() > 0 && p.getId() != 99) {
@@ -184,6 +195,7 @@ public class TestPacientePreguntasController implements Initializable {
             TestEspecialistaFinalizadoController telp = (TestEspecialistaFinalizadoController) cv.cambiarVista("/Center/TestEspecialistaFinalizado.fxml", mc.getPanelPrin());
             telp.setCuestionario(test.getCuestionario());
             telp.setMc(mc);
+            telp.setIc(ic);
         }
     }
 
