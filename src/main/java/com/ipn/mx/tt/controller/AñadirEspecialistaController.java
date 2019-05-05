@@ -7,6 +7,7 @@ package com.ipn.mx.tt.controller;
 
 import com.ipn.mx.tt.dao.UsuarioDAO;
 import com.ipn.mx.tt.modelo.Usuario;
+import com.ipn.mx.tt.util.CustomMessage;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
@@ -15,8 +16,6 @@ import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Alert;
-import javafx.scene.control.ButtonType;
 
 /**
  * FXML Controller class
@@ -45,8 +44,8 @@ public class AñadirEspecialistaController implements Initializable {
 
     @FXML
     private JFXTextField txtCacorreo;
-    
-        @FXML
+
+    @FXML
     private JFXTextField txtCanoempleado;
 
     /**
@@ -66,20 +65,18 @@ public class AñadirEspecialistaController implements Initializable {
             String apellido = txtCaapellido.getText();
             String usuario = txtCausuario.getText();
             String correo = txtCacorreo.getText();
-            if (nombre.length() > 3 && apellido.length() > 3 && usuario.length() > 3 && correo.length() > 3) {
-                u = new Usuario(usuario, cc, nombre, apellido, correo);
+            Double num = Double.valueOf(txtCanoempleado.getText());
+            if (nombre.length() > 3 && apellido.length() > 3
+                    && usuario.length() > 3 && correo.length() > 3 && (num != 0.0 && num.toString().length() > 3)) {
+                u = new Usuario(usuario, cc, nombre, apellido, correo, num);
                 UsuarioDAO ud = new UsuarioDAO();
                 ud.insertarUsuario(u);
-                Alert a = new Alert(Alert.AlertType.NONE, "CARGADO CON EXITO", ButtonType.OK);
-                a.show();
+                CustomMessage cm = new CustomMessage("CARGADO CON ÉXITO", "El usuario se agregó correctamente.", 1);
             } else {
-                Alert a = new Alert(Alert.AlertType.NONE, "LOS CAMPOS NO PUEDEN ESTAR VACÍOS", ButtonType.OK);
-                a.show();
-
+                CustomMessage cm = new CustomMessage("AVISO", "Los campos no pueden estar vacíos", 2);
             }
         } else {
-            Alert a = new Alert(Alert.AlertType.NONE, "LAS CONTRASEÑAS NO COINCIDEN", ButtonType.OK);
-            a.show();
+            CustomMessage cm = new CustomMessage("ERROR", "Las contraseñas no coinciden", 2);
         }
 
     }

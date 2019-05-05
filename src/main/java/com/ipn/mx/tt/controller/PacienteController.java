@@ -47,8 +47,10 @@ public class PacienteController implements Initializable {
 
     @FXML
     void abrirPacienteN(ActionEvent event) {
-        PacienteNuevoController pnc= (PacienteNuevoController) abrirMenu("/Center/PacienteNuevo.fxml");
+        PacienteNuevoController pnc= (PacienteNuevoController) 
+                cv.cambiarVista("/Center/PacienteNuevo.fxml",panelRight);
 
+        pnc.configurarObjetos();
         btnTpacientenuevo.setDisable(true);
         btnTpacienteregistrado.setDisable(false);  
     }
@@ -56,28 +58,16 @@ public class PacienteController implements Initializable {
     @FXML
     void abrirPacienteR(ActionEvent event) {
 
-        abrirMenu("/Center/PacienteConRegistro.fxml");
+        cv.cambiarVista("/Center/PacienteConRegistro.fxml",panelRight);
                 btnTpacientenuevo.setDisable(false);
         btnTpacienteregistrado.setDisable(true);
 
-    }
-    public Object abrirMenu(String menu) {
-        Object o=null;
-        try {
-            FXMLLoader fx=new FXMLLoader(getClass().getResource(menu));
-            Parent root = fx.load();
-            o=fx.getController();
-            panelRight.setCenter(root);
-
-        } catch (IOException ex) {
-            Logger.getLogger(ConfiguracionesController.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        return o;
     }
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+        cv=new cargadorVista();
     }
 public void clickMenu()
     {

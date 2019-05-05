@@ -38,7 +38,8 @@ public class UsuarioDAO {
 
         return new BasicDBObject("_id", u.getId()).append("contraseña", u.getContraseña())
                 .append("Nombre", u.getNombre()).append("Apellido", u.getApellido())
-                .append("Correo", u.getCorreo());
+                .append("Correo", u.getCorreo())
+                .append("numEmpleado", u.getNumEmpleado());
 
     }
 

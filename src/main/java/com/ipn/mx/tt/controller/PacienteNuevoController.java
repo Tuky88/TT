@@ -25,6 +25,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Spinner;
+import javafx.scene.control.SpinnerValueFactory;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.AnchorPane;
 
@@ -75,8 +76,6 @@ public class PacienteNuevoController implements Initializable {
     @FXML
     private JFXRadioButton rbPfemenino;
 
-
-
     @FXML
     private JFXRadioButton rbPmasculino;
 
@@ -94,7 +93,6 @@ public class PacienteNuevoController implements Initializable {
 
     @FXML
     private JFXButton btnPnregistrar;
-    
 
     @FXML
     private JFXTextField txtPnesco;
@@ -111,15 +109,11 @@ public class PacienteNuevoController implements Initializable {
     @FXML
     private JFXRadioButton rbPtrabajan;
 
-
-
     @FXML
     private JFXRadioButton rbPtrabajas;
 
     @FXML
     private JFXRadioButton rbPhorarioturnos;
-
-
 
     @FXML
     private JFXRadioButton rbPhorariof;
@@ -127,25 +121,20 @@ public class PacienteNuevoController implements Initializable {
     @FXML
     private JFXRadioButton rbPls;
 
-  
-
     @FXML
     private JFXTextField txtPdescansos;
 
     @FXML
     private JFXRadioButton rbPlv;
 
-       @FXML
-    private Spinner<?> spnhoras;
+    @FXML
+    private Spinner<Integer> spnhoras;
 
     @FXML
     private JFXButton btnPnsiguiente;
 
     @FXML
     private JFXRadioButton rbPhorarionof;
-    
-
-
 
     /**
      * Initializes the controller class.
@@ -165,8 +154,6 @@ public class PacienteNuevoController implements Initializable {
         ctc.setC(c);
         ctc.setPaciente(p);
         ctc.setDatosPaciente(true);
-        
-        
 
     }
 
@@ -186,7 +173,7 @@ public class PacienteNuevoController implements Initializable {
             Logger.getLogger(PacienteNuevoController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
+
     @FXML
     void registrarPaciente(ActionEvent event) {
 
@@ -207,12 +194,12 @@ public class PacienteNuevoController implements Initializable {
                 && !Direccion.equals("") && !Telefono.equals("")) {
 
             Paciente p = new Paciente(Nombre, Apellido, Sexo, Correo, Fecha, Direccion, Telefono, CURP);
-             registrarPaciente(p);
+            registrarPaciente(p);
             CustomMessage cm = new CustomMessage("MENSAJE", "Registrado con éxito", 2);
             CustomMessage cm1 = new CustomMessage("MENSAJE", "¿Desea realizar el Cuestionario?", 4);
 
             if (cm1.getMessage().getButtonData().equals(ButtonType.OK.getButtonData())) {
-                
+
                 hacerCuestionario(p);
             } else {
                 CustomMessage cm2 = new CustomMessage("MENSAJE", "El cuestionario se guardó para más tarde", 2);
@@ -222,7 +209,13 @@ public class PacienteNuevoController implements Initializable {
             CustomMessage cm = new CustomMessage("ERROR", "Hubo un error en alguno de los campos...", 2);
 
         }
+
+    }
+
+    public void configurarObjetos() {
         
+        SpinnerValueFactory<Integer> svf = new SpinnerValueFactory.IntegerSpinnerValueFactory(1, 23, 7, 1);
+        spnhoras.setValueFactory(svf);
     }
 
 }
