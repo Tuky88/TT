@@ -35,25 +35,25 @@ public class CuestionarioAplicadoDAO extends DocumentoDAO {
     }
 
     public DBObject convertirInfoCuestionario(InfoCuestionario info) {
-        return new BasicDBObject("_idCuestionario", info.getIdCuestionario())
+        return new BasicDBObject("_numCuestionario", info.getIdCuestionario())
                 .append("status", info.getStatus())
                 .append("Paciente", info.getPaciente())
                 .append("Especialista", info.getEspecialista());
     }
 
     public Double buscarSiguiente() {
-        DBObject dbo = new BasicDBObject("_idCuestionario", -1);
+        DBObject dbo = new BasicDBObject("_numCuestionario", -1);
         DBCursor cursor = cjm.getMongoCollection().find().sort(dbo).limit(1);
         if (cursor.hasNext()) {
-            return (Double) cursor.one().get("_idCuestionario");
+            return (Double) cursor.one().get("_numCuestionario");
         } else {
             return 0.0;
         }
 
     }
 
-    public Double status(Double cuestionario) {
-        DBObject dbo = new BasicDBObject("_idCuestionario", cuestionario);
+    public Double statusCuestionario(Double cuestionario) {
+        DBObject dbo = new BasicDBObject("_numCuestionario", cuestionario);
         DBCursor cursor = cjm.getMongoCollection().find(dbo);
         if (cursor.hasNext()) {
             return (Double) cursor.one().get("status");
@@ -61,6 +61,50 @@ public class CuestionarioAplicadoDAO extends DocumentoDAO {
             return 0.0;
         }
 
+    }
+
+    public Double numCuestionario(String curp) {
+        DBObject dbo = new BasicDBObject("Paciente", curp);
+        DBCursor cursor = cjm.getMongoCollection().find(dbo);
+        if (cursor.hasNext()) {
+            return (Double) cursor.one().get("_numCuestionario");
+        } else {
+            return 0.0;
+        }
+
+    }
+
+    public boolean cuestionarioPrevio(String curp) {
+        DBObject dbo = new BasicDBObject("Paciente", curp);
+        DBCursor cursor = cjm.getMongoCollection().find(dbo);
+        return cursor.hasNext();// return (String) cursor.one().get("_numCuestionario");
+
+    }
+
+    public Double cuestionarioPrevioStatus(String curp) {
+        DBObject dbo = new BasicDBObject("Paciente", curp);
+        DBCursor cursor = cjm.getMongoCollection().find(dbo);
+        return (Double) cursor.one().get("status");
+
+    }
+
+    public boolean actualizarDatos(Double numCuestionario, Double status) {
+
+        if (cuestionarioExiste(numCuestionario)) {
+            DBObject query = new BasicDBObject("_numCuestionario", numCuestionario);
+            cjm.getMongoCollection().update(query, new BasicDBObject("$set",
+                    new BasicDBObject("status", status)
+            ));
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    private boolean cuestionarioExiste(Double numCuestionario) {
+        DBObject query = new BasicDBObject("_numCuestionario", numCuestionario);
+        DBCursor cursor = cjm.getMongoCollection().find(query);
+        return cursor.hasNext();
     }
 
 }

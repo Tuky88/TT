@@ -69,11 +69,7 @@ public class UsuarioDAO {
     public boolean usuarioExiste(String usuario) {
         DBObject query = new BasicDBObject("_id", usuario);
         DBCursor cursor = cjm.getMongoCollection().find(query);
-        if (cursor.hasNext()) {
-            return true;
-        } else {
-            return false;
-        }
+        return cursor.hasNext();
     }
 
     public boolean actualizarDatos(Usuario text) {

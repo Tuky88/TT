@@ -16,23 +16,14 @@ import java.util.List;
  *
  * @author Axel Reyes
  */
-public class PacienteDAO {
-
-    ConexionJavaMongo cjm;
-    String base, coleccion;
+public class PacienteDAO extends DocumentoDAO {
 
     public PacienteDAO(String base, String coleccion) {
-        this.base = base;
-        this.coleccion = coleccion;
-        cjm = new ConexionJavaMongo(base, coleccion);
-
+        super(base, coleccion);
     }
 
     public PacienteDAO() {
-        this.base = "TT";
-        this.coleccion = "Paciente";
-        cjm = new ConexionJavaMongo(base, coleccion);
-
+        super("TT", "Paciente");
     }
 
     public DBObject convertirPaciente(Paciente p) {
@@ -49,14 +40,13 @@ public class PacienteDAO {
 
     public void insertarPaciente(Paciente p) {
 
-        cjm.conectar();
         cjm.getMongoCollection().insert(convertirPaciente(p));
         System.out.println("Registro Agregado con éxito");
-        
+
     }
 
     public Paciente buscarPaciente(String id) {
-        cjm.conectar();
+
         //db.users.find({name: /a/})
         DBObject query = new BasicDBObject("CURP", id);
         DBCursor cursor = cjm.getMongoCollection().find(query);
@@ -67,14 +57,24 @@ public class PacienteDAO {
         } else {
             paciente = new Paciente();
         }
-        cjm.cerrarConexion();
+
         return paciente;
     }
 
     public List buscarSimilar() {
-        cjm.conectar();
+
         DBCursor cursor = cjm.getMongoCollection().find();
 
         return cursor.toArray();
+    }
+
+    public boolean pacienteExiste(String curp) {
+        DBObject query = new BasicDBObject("_CURP", curp);
+        DBCursor cursor = cjm.getMongoCollection().find(query);
+        if (cursor.hasNext()) {
+            return true;
+        } else {
+            return false;
+        }
     }
 }

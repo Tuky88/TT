@@ -5,7 +5,9 @@
  */
 package com.ipn.mx.tt.controller;
 
+import com.ipn.mx.tt.dao.CuestionarioAplicadoDAO;
 import com.ipn.mx.tt.dao.PacienteDAO;
+import com.ipn.mx.tt.modelo.InfoCuestionario;
 import com.ipn.mx.tt.modelo.Paciente;
 import com.ipn.mx.tt.modelo.PacienteTabla;
 import com.ipn.mx.tt.util.CustomMessage;
@@ -34,42 +36,43 @@ import static jdk.nashorn.internal.objects.NativeString.toUpperCase;
  * @author garci
  */
 public class PacienteConRegistroController implements Initializable {
-
-    Validador v;
-    cargadorVista cv;
-    menuController c;
-
+    
+    private Validador v;
+    private cargadorVista cv;
+    private menuController c;
+    private CuestionarioAplicadoDAO cad;
+    
     public menuController getC() {
         return c;
     }
-
+    
     public void setC(menuController c) {
         this.c = c;
     }
-
+    
     private List pacientes;
     @FXML
     private JFXButton btnPriniciar;
-
+    
     @FXML
     private JFXTextField txtPrnombre;
-
+    
     @FXML
     private TableView<PacienteTabla> tabla;
     @FXML
     private TableColumn<PacienteTabla, String> columnaCURP;
-
+    
     @FXML
     private TableColumn<PacienteTabla, String> columnaNombre;
-
+    
     @FXML
     private TableColumn<PacienteTabla, String> columnaEdad;
     private ObservableList<PacienteTabla> ol;
-
+    
     @FXML
     void buscarPaciente(KeyEvent event) {
         String curp = toUpperCase(txtPrnombre.getText());
-
+        
         String busqueda = v.validars(curp);
         if (busqueda.length() > 2) {
             ol.clear();
@@ -90,51 +93,78 @@ public class PacienteConRegistroController implements Initializable {
             ol.clear();
         }
     }
-
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         v = new Validador();
         cv = new cargadorVista();
         pacientes = new LinkedList();
         PacienteDAO pd = new PacienteDAO();
+        cad = new CuestionarioAplicadoDAO();
+        cad.conectar();
+        pd.conectar();
         pacientes = pd.buscarSimilar();
         ol = FXCollections.observableArrayList();
-
+        
         columnaCURP.setCellValueFactory(cellData -> cellData.getValue().getCURP());
         columnaNombre.setCellValueFactory(cellData -> cellData.getValue().getNombre());
         columnaEdad.setCellValueFactory(cellData -> cellData.getValue().getEdad());
         tabla.setItems(ol);
     }
-
+    
     @FXML
     void iniciarTest(ActionEvent event) {
         if (tabla.getSelectionModel().getSelectedItem() != null) {
             PacienteTabla pt = tabla.getSelectionModel().getSelectedItem();
             pt.setOrigen(getPaciente(pt.getCURP().getValue()));
-
+            
             ComenzarTestController ctc = (ComenzarTestController) cv.cambiarVista("/Center/ComenzarTest.fxml", c.getPanelPrin());
             ctc.setC(c);
             ctc.setPaciente(pt.getOrigen());
             ctc.setDatosPaciente(true);
-            System.out.println(pt.getOrigen().toString());
+            if (!cad.cuestionarioPrevio(pt.getCURP().getValue())) {
+                System.out.println("dsfdsfsdfdsfd");
+                InfoCuestionario ic = new InfoCuestionario(cad.buscarSiguiente() + 1, 0.0, pt.getCURP().get(), c.getUsuario().getId());
+                cad.insertarInfoCuestionario(ic);
+                ctc.setIc(ic);
+            } else {
+                System.out.println("Cuestionario previo numCuestionario...");
+                Double statusCuestionario = cad.cuestionarioPrevioStatus(pt.getCURP().getValue());
+                InfoCuestionario ic;
+                switch (statusCuestionario.intValue()) {
+                    case 0:
+                        //CARGAR INFORMACIÓN DE CUESTIONARIO Y APLICAR
+                        ic = new InfoCuestionario(cad.numCuestionario(pt.getCURP().get()), 0.0, pt.getCURP().get(), c.getUsuario().getId());
+                        ctc.setIc(ic);
+                        break;
+                    case 1:
+                        //BUSCAR ORDEN DE CUESTIONARIO Y PREGUNTAS CONTESTADAS
+                        break;
+                    case 2:
+                        ic = new InfoCuestionario(cad.buscarSiguiente() + 1, 0.0, pt.getCURP().get(), c.getUsuario().getId());
+                        cad.insertarInfoCuestionario(ic);
+                        ctc.setIc(ic);
+                        break;
+                    //CREAR NUEVA INFO DE CUESTIONARIO Y APLICAR
+                }
+            }
         } else {
-
             CustomMessage cm = new CustomMessage("Advertencia", "Seleccione un paciente", 0);
         }
-
+        
     }
-
+    
     public Paciente getPaciente(String curp) {
         Paciente p = new Paciente();
-
+        
         for (int i = 0; i < 10; i++) {
-            p = new Paciente((DBObject)pacientes.get(i)) ;
+            p = new Paciente((DBObject) pacientes.get(i));
             if (p.getCURP().equals(curp)) {
                 break;
             }
         }
         return p;
-
+        
     }
-
+    
 }
