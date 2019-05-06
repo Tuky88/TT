@@ -51,13 +51,11 @@ public class TestPacientePreguntasController implements Initializable {
     private int contadorPregunta;
     private Paciente paciente;
 
-
     @FXML
     private BorderPane panelRight;
 
 //    @FXML
 //    private ProgressBar pbTPprogeso;
-
     @FXML
     private JFXRadioButton rbtnTPnunca;
 
@@ -87,7 +85,7 @@ public class TestPacientePreguntasController implements Initializable {
 
     @FXML
     private Label lblProgress;
-        @FXML
+    @FXML
     private Label lblPaciente;
 
     /**
@@ -114,8 +112,6 @@ public class TestPacientePreguntasController implements Initializable {
         });
         contadorPregunta = 1;
 
-
-
     }
 
     public InfoCuestionario getIc() {
@@ -126,7 +122,6 @@ public class TestPacientePreguntasController implements Initializable {
         this.ic = ic;
     }
 
-    
     public void cargarPregunta(Pregunta p) {
 
         if (p.getId() > 0 && p.getId() != 99) {
@@ -164,8 +159,6 @@ public class TestPacientePreguntasController implements Initializable {
         //pbTPprogeso.setProgress(0.001);
     }
 
-
-
     public void limpiarVista() {
         rbtnTPavc.setSelected(false);
         rbtnTPnunca.setSelected(false);
@@ -192,8 +185,8 @@ public class TestPacientePreguntasController implements Initializable {
             test.getFinCuestionario();
             test.getDuracion();
             cv = new cargadorVista();
-            TestEspecialistaFinalizadoController telp = (TestEspecialistaFinalizadoController) cv.cambiarVista("/Center/TestEspecialistaFinalizado.fxml", mc.getPanelPrin());
-            telp.setCuestionario(test.getCuestionario());
+            TestEspecialistaFinalizadoController telp
+                    = (TestEspecialistaFinalizadoController) cv.cambiarVista("/Center/TestEspecialistaFinalizado.fxml", mc.getPanelPrin());
             telp.setMc(mc);
             telp.setIc(ic);
         }
@@ -275,7 +268,8 @@ public class TestPacientePreguntasController implements Initializable {
         preguntas.forEach((preguntaLoop) -> {
             int preguntaC = (int) preguntaLoop;
 
-            sumarAPregunta(preguntaC, test.puntajeEquivalente(instrumento, new Double(puntaje)));
+            sumarAPregunta(preguntaC, test.puntajeEquivalente( test.getTipoCuestionario(pregunta),
+                    test.getTipoCuestionario(preguntaC), new Double(puntaje)));
         });
         test.sumarContadorPregunta();
         //System.out.println(preguntas.size());
@@ -322,12 +316,11 @@ public class TestPacientePreguntasController implements Initializable {
 //        Double porcentaje = avance * 100;
 //        lblProgress.setText(df2.format(porcentaje) + "%");
 //    }
-
     public void setPaciente(Paciente paciente) {
         this.paciente = paciente;
     }
 
     void ponerPaciente() {
-    this.lblPaciente.setText(this.lblPaciente.getText() + " " + paciente.getNombre());
-        }
+        this.lblPaciente.setText(this.lblPaciente.getText() + " " + paciente.getNombre());
+    }
 }

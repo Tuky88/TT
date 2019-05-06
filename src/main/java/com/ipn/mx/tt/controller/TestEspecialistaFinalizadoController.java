@@ -5,6 +5,7 @@
  */
 package com.ipn.mx.tt.controller;
 
+import com.ipn.mx.tt.dao.PreguntaContestadaDAO;
 import com.ipn.mx.tt.modelo.Cuestionario;
 import com.ipn.mx.tt.util.cargadorVista;
 import com.jfoenix.controls.JFXButton;
@@ -15,6 +16,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ProgressBar;
 import com.ipn.mx.tt.modelo.InfoCuestionario;
+import com.ipn.mx.tt.modelo.Test;
 
 /**
  * FXML Controller class
@@ -23,9 +25,12 @@ import com.ipn.mx.tt.modelo.InfoCuestionario;
  */
 public class TestEspecialistaFinalizadoController implements Initializable {
 
-    Cuestionario cuestionario;
-    menuController mc;
-    cargadorVista cv;
+
+    private menuController mc;
+    private cargadorVista cv;
+    private Test test;
+    private PreguntaContestadaDAO pcd;
+    
     private InfoCuestionario ic;
 
     public InfoCuestionario getIc() {
@@ -46,13 +51,7 @@ public class TestEspecialistaFinalizadoController implements Initializable {
     }
 
     
-    public Cuestionario getCuestionario() {
-        return cuestionario;
-    }
 
-    public void setCuestionario(Cuestionario cuestionario) {
-        this.cuestionario = cuestionario;
-    }
 
     @FXML
     private JFXButton btnTEprediagnostico;
@@ -66,17 +65,32 @@ public class TestEspecialistaFinalizadoController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+        cv=new cargadorVista();
+        pcd=new PreguntaContestadaDAO();
+        pcd.conectar();
     }
 
     @FXML
     private void mostrarPrediagnostico(ActionEvent ae) {
-        cv=new cargadorVista(); 
+        
+        pcd.guardarPreguntasContestadas(1.0,test.obtenerPreguntasContestadas());
         PrediagnosticoController p= new PrediagnosticoController();
         PrediagnosticoController pc = (PrediagnosticoController) cv.cambiarVista("/Center/Prediagnostico.fxml", mc.getPanelPrin());
-        pc.setCuestionario(cuestionario);
+        pc.setCuestionario(test.getCuestionario());
         pc.cargarResultados();
         pc.startgrafica();
+        
         if(ic!=null)
         System.out.println(ic.getIdCuestionario());
     }
+
+    public Test getTest() {
+        return test;
+    }
+
+    public void setTest(Test test) {
+        this.test = test;
+    }
+
+    
 }

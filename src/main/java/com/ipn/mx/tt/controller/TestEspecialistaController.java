@@ -297,7 +297,9 @@ public class TestEspecialistaController implements Initializable {
         preguntas.forEach((preguntaLoop) -> {
             int preguntaC = (int) preguntaLoop;
 
-            sumarAPregunta(preguntaC, test.puntajeEquivalente(instrumento, new Double(puntaje)));
+            sumarAPregunta(preguntaC, 
+                    test.puntajeEquivalente(test.getTipoCuestionario(pregunta),test.getTipoCuestionario(preguntaC)
+                            , new Double(puntaje)));
         });
         test.sumarContadorPregunta();
         //System.out.println(preguntas.size());
@@ -327,7 +329,7 @@ public class TestEspecialistaController implements Initializable {
             test.getDuracion();
             cv = new cargadorVista();
             TestEspecialistaFinalizadoController telp = (TestEspecialistaFinalizadoController) cv.cambiarVista("/Center/TestEspecialistaFinalizado.fxml", mc.getPanelPrin());
-            telp.setCuestionario(test.getCuestionario());
+            telp.setTest(test);
             telp.setMc(mc);
         }
     }

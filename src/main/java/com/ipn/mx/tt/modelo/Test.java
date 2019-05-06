@@ -92,8 +92,14 @@ public class Test {
     }
 
     public void agregarRespuesta(int preguntaC, int puntaje) {
-        cuestionario.agregarRespuesta(preguntaC, puntaje);
+        if (true) {
+            cuestionario.agregarRespuesta(preguntaC, puntaje);
+        }
 
+    }
+
+    public LinkedList obtenerPreguntasContestadas() {
+        return cuestionario.obtenerPreguntasContestadas();
     }
 
     public void obtenerNumeracion() {
@@ -210,17 +216,23 @@ public class Test {
         return cuestionario.respuestaContestada(pregunta);
     }
 
-    public Double puntajeEquivalente(int cuestionario, Double puntaje) {
+    public Double puntajeEquivalente(int cuestionario, int cuestionarioE, Double puntaje) {
         Double resultado;
-        if (cuestionario == 2) {
-            resultado = 4 * puntaje / 3;
-            resultado -= 0.333333333333333;
-
+        if (cuestionario == cuestionarioE) {
+            return puntaje;
         } else {
+            if (cuestionarioE == 1) {
+                resultado = 4 * puntaje / 3;
+                resultado -= 0.333333333333333;
 
-            resultado = 3 * puntaje / 4;
-            resultado += 0.25;
+            } else {
+
+                resultado = 3 * puntaje / 4;
+                resultado += 0.25;
+            }
+            return resultado;
         }
-        return resultado;
+
     }
+
 }

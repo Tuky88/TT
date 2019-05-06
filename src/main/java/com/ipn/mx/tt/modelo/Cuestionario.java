@@ -17,20 +17,20 @@ public class Cuestionario {
     private int numCuestionario = 0;
     private Instrumento s50, hsdr;
     private Date inicioCuestionario, duracion, finCuestionario;
-    private LinkedList Respuestas;
+    private LinkedList RespuestasContestadas;
 
     public Cuestionario() {
         s50 = new Instrumento();
         hsdr = new Instrumento();
         inicioCuestionario = new Date();
-        Respuestas = new LinkedList();
+        RespuestasContestadas = new LinkedList();
     }
 
     public boolean respuestaContestada(int numeroPregunta) {
         boolean existe = false;
         Respuesta r = new Respuesta(numeroPregunta, 0);
-        for (int i = 0; i < Respuestas.size(); i++) {
-            Respuesta archivo = (Respuesta) Respuestas.get(i);
+        for (int i = 0; i < RespuestasContestadas.size(); i++) {
+            Respuesta archivo = (Respuesta) RespuestasContestadas.get(i);
             if (archivo.getNumeroPregunta() == r.getNumeroPregunta()) {
                 //System.out.println(archivo.getNumeroPregunta() +"//"+ r.getNumeroPregunta());
                 existe = true;
@@ -41,7 +41,11 @@ public class Cuestionario {
 
     public void agregarRespuesta(int numeroRespuesta, int valorRespuesta) {
         Respuesta r = new Respuesta(numeroRespuesta, valorRespuesta);
-        Respuestas.add(r);
+        RespuestasContestadas.add(r);
+    }
+    public LinkedList obtenerPreguntasContestadas()
+    {
+        return RespuestasContestadas;
     }
 
     public void calificarPregunta(int instrumento, int trastorno, Double puntaje) {
