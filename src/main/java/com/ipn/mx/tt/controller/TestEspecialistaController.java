@@ -52,6 +52,7 @@ public class TestEspecialistaController implements Initializable {
     private int contadorPregunta;
     private InfoCuestionario ic;
 Cuestionario cuestionario;
+
     public InfoCuestionario getIc() {
         return ic;
     }
