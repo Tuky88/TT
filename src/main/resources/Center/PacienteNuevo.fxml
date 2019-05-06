@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
 <?import com.jfoenix.controls.JFXDatePicker?>
 <?import com.jfoenix.controls.JFXRadioButton?>
 <?import com.jfoenix.controls.JFXTextField?>
@@ -143,19 +144,16 @@
                </GridPane.margin>
             </Label>
             <JFXRadioButton fx:id="rbPmasculino" text="Masculino" GridPane.halignment="CENTER" GridPane.rowIndex="5">
-               <toggleGroup>
-                  <ToggleGroup fx:id="grupoPregunta" />
-               </toggleGroup>
                <GridPane.margin>
                   <Insets left="50.0" />
                </GridPane.margin>
-            </JFXRadioButton>
-            <JFXRadioButton fx:id="rbPfemenino" text="Femenino" GridPane.halignment="RIGHT" GridPane.rowIndex="5">
                <toggleGroup>
                   <ToggleGroup fx:id="grupoPregunta" />
                </toggleGroup>
+            </JFXRadioButton>
+            <JFXRadioButton fx:id="rbPfemenino" text="Femenino" toggleGroup="$grupoPregunta" GridPane.halignment="RIGHT" GridPane.rowIndex="5">
                <GridPane.margin>
-                  <Insets right="30.0" />
+                  <Insets right="60.0" />
                </GridPane.margin>
             </JFXRadioButton>
             <Label text="Apellidos:" GridPane.rowIndex="4">
@@ -179,36 +177,28 @@
                   <Insets left="80.0" />
                </GridPane.margin>
             </Label>
-            <JFXTextField fx:id="txtPnesco" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="25.0" prefWidth="263.0" style="-fx-background-color: #FFFFFF;" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="4">
-               <GridPane.margin>
-                  <Insets right="70.0" />
-               </GridPane.margin>
-            </JFXTextField>
             <Label text="Trabaja:" GridPane.columnIndex="1" GridPane.rowIndex="5">
                <font>
                   <Font name="Arial" size="15.0" />
                </font>
                <GridPane.margin>
-                  <Insets left="100.0" />
+                  <Insets left="80.0" />
                </GridPane.margin>
             </Label>
             <JFXRadioButton fx:id="rbPtrabajas" text="Sí" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="5">
+               <GridPane.margin>
+                  <Insets right="100.0" />
+               </GridPane.margin>
                <toggleGroup>
                   <ToggleGroup fx:id="grupoPregunta1" />
                </toggleGroup>
+            </JFXRadioButton>
+            <JFXRadioButton fx:id="rbPtrabajan" text="No" toggleGroup="$grupoPregunta1" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="5">
                <GridPane.margin>
-                  <Insets />
+                  <Insets left="30.0" />
                </GridPane.margin>
             </JFXRadioButton>
-            <JFXRadioButton fx:id="rbPtrabajan" text="No" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="5">
-               <toggleGroup>
-                  <ToggleGroup fx:id="grupoPregunta1" />
-               </toggleGroup>
-               <GridPane.margin>
-                  <Insets right="150.0" />
-               </GridPane.margin>
-            </JFXRadioButton>
-            <Label text="Promedio de horas de sueño por día:" GridPane.columnIndex="1" GridPane.rowIndex="6">
+            <Label fx:id="lblphoras" text="Promedio de horas de sueño por día:" GridPane.columnIndex="1" GridPane.rowIndex="6">
                <font>
                   <Font name="Arial" size="15.0" />
                </font>
@@ -232,14 +222,11 @@
                   <Insets left="240.0" />
                </GridPane.margin>
             </Spinner>
-            <JFXButton fx:id="btnPnsiguiente" buttonType="RAISED" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="28.0" prefWidth="162.0" ripplerFill="#6db1c5" style="-fx-background-color: #6db1c5;" text="Siguiente" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="10">
-               <font>
-                  <Font name="Century Gothic" size="14.0" />
-               </font>
-               <opaqueInsets>
-                  <Insets bottom="20.0" />
-               </opaqueInsets>
-            </JFXButton>
+            <JFXComboBox fx:id="cbescolaridad" prefHeight="25.0" prefWidth="177.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="4">
+               <GridPane.margin>
+                  <Insets />
+               </GridPane.margin>
+            </JFXComboBox>
          </children>
       </GridPane>
    </children>

@@ -7,6 +7,7 @@ package com.ipn.mx.tt.modelo;
 
 import com.ipn.mx.tt.dao.CuestionarioPreguntaDAO;
 import com.ipn.mx.tt.dao.CutoffDAO;
+import com.ipn.mx.tt.dao.PreguntaContestadaDAO;
 import com.ipn.mx.tt.dao.PreguntaDAO;
 import com.ipn.mx.tt.dao.PreguntaEquivalenciaDAO;
 import com.ipn.mx.tt.dao.SintomaPreguntaDAO;
@@ -28,6 +29,7 @@ public class Test {
     SintomaPreguntaDAO spd;
     TrastornoSintomaDAO tsd;
     PreguntaEquivalenciaDAO ped;
+    private PreguntaContestadaDAO pcd;
     CutoffDAO cd;
     private int contadorPreguntas;
     List preguntas, tipoCuestionario, SintomaPregunta, TrastornoSintoma, equivalencias, cutoff;
@@ -43,6 +45,7 @@ public class Test {
         tsd = new TrastornoSintomaDAO();
         ped = new PreguntaEquivalenciaDAO();
         cd = new CutoffDAO();
+        pcd= new PreguntaContestadaDAO();
         this.tipo = tipo;
         cd.conectar();
         pd.conectar();
@@ -50,6 +53,8 @@ public class Test {
         spd.conectar();
         tsd.conectar();
         ped.conectar();
+        pcd.conectar();
+        
         preguntas = pd.getPreguntas(tipo);
         tipoCuestionario = cpd.getCuestionario();
         SintomaPregunta = spd.traerSintomas();
@@ -92,7 +97,7 @@ public class Test {
     }
 
     public void agregarRespuesta(int preguntaC, int puntaje) {
-        if (true) {
+        if (!cuestionario.respuestaContestada(preguntaC)) {
             cuestionario.agregarRespuesta(preguntaC, puntaje);
         }
 
@@ -233,6 +238,10 @@ public class Test {
             return resultado;
         }
 
+    }
+
+    public void guardarCuestionario(Double numCuestionario) {
+    pcd.guardarPreguntasContestadas(numCuestionario, obtenerPreguntasContestadas());
     }
 
 }

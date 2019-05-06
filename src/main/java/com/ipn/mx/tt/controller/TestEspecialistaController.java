@@ -5,6 +5,7 @@
  */
 package com.ipn.mx.tt.controller;
 
+import com.ipn.mx.tt.modelo.Cuestionario;
 import com.ipn.mx.tt.modelo.InfoCuestionario;
 import com.ipn.mx.tt.modelo.Pregunta;
 import com.ipn.mx.tt.modelo.SintomaPregunta;
@@ -287,6 +288,18 @@ public class TestEspecialistaController implements Initializable {
         test.reiniciarBanderas();
     }
 
+    @FXML
+    private void mostrarPrediagnostico(ActionEvent ae) {
+        cv = new cargadorVista();
+        PrediagnosticoController pc = (PrediagnosticoController) cv.cambiarVista("/Center/Prediagnostico.fxml", mc.getPanelPrin());
+        test.getFinCuestionario();
+        test.getDuracion();
+        pc.setCuestionario(test.getCuestionario());
+        pc.cargarResultados();
+        pc.startgrafica();
+
+    }
+
     private void sumarATrastorno() {
 
         sumarAPregunta(pregunta, new Double(puntaje));
@@ -299,7 +312,7 @@ public class TestEspecialistaController implements Initializable {
 
             sumarAPregunta(preguntaC,
                     test.puntajeEquivalente(test.getTipoCuestionario(pregunta), test.getTipoCuestionario(preguntaC),
-                             new Double(puntaje)));
+                            new Double(puntaje)));
         });
         test.sumarContadorPregunta();
         //System.out.println(preguntas.size());
@@ -317,21 +330,6 @@ public class TestEspecialistaController implements Initializable {
 //            CustomMessage cm = new CustomMessage("ERROR", "No hay pregunta Anterior...", 2);
 //
 //        }
-    }
-
-    @FXML
-    void finalizarCuestionario(ActionEvent event) {
-
-        CustomMessage cm = new CustomMessage("Aviso", "Verifique sus respuestas antes de continuar \n"
-                + " ¿Está seguro de finalizar?", 3);
-        if (cm.getMessage().getButtonData().equals(ButtonType.OK.getButtonData())) {
-            test.getFinCuestionario();
-            test.getDuracion();
-            cv = new cargadorVista();
-            TestEspecialistaFinalizadoController telp = (TestEspecialistaFinalizadoController) cv.cambiarVista("/Center/TestEspecialistaFinalizado.fxml", mc.getPanelPrin());
-            telp.setTest(test);
-            telp.setMc(mc);
-        }
     }
 
     public void restarATrastorno() {

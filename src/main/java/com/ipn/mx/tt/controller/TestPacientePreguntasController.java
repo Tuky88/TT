@@ -5,6 +5,8 @@
  */
 package com.ipn.mx.tt.controller;
 
+import com.ipn.mx.tt.dao.PreguntaContestadaDAO;
+import com.ipn.mx.tt.modelo.Cuestionario;
 import com.ipn.mx.tt.modelo.InfoCuestionario;
 import com.ipn.mx.tt.modelo.Paciente;
 import com.ipn.mx.tt.modelo.Pregunta;
@@ -50,6 +52,7 @@ public class TestPacientePreguntasController implements Initializable {
     private Test test;
     private int contadorPregunta;
     private Paciente paciente;
+    
 
     @FXML
     private BorderPane panelRight;
@@ -84,9 +87,29 @@ public class TestPacientePreguntasController implements Initializable {
     private JFXButton regresar;
 
     @FXML
+    private JFXButton btnFinalizar;
+
+    @FXML
     private Label lblProgress;
     @FXML
     private Label lblPaciente;
+
+
+
+    @FXML
+    private void mostrarPrediagnostico(ActionEvent ae) {
+        
+        
+        cv = new cargadorVista();
+        PrediagnosticoController pc = (PrediagnosticoController) cv.cambiarVista("/Center/Prediagnostico.fxml", mc.getPanelPrin());
+        test.getFinCuestionario();
+        test.getDuracion();
+        test.guardarCuestionario(10.0);
+        pc.setCuestionario(test.getCuestionario());
+        pc.cargarResultados();
+        pc.startgrafica();
+
+    }
 
     /**
      * Initializes the controller class.
@@ -111,6 +134,8 @@ public class TestPacientePreguntasController implements Initializable {
             contestarPregunta(5);
         });
         contadorPregunta = 1;
+
+        btnFinalizar.setVisible(false);
 
     }
 
@@ -184,11 +209,13 @@ public class TestPacientePreguntasController implements Initializable {
         if (test.cuestionarioCompletado()) {
             test.getFinCuestionario();
             test.getDuracion();
-            cv = new cargadorVista();
-            TestEspecialistaFinalizadoController telp
-                    = (TestEspecialistaFinalizadoController) cv.cambiarVista("/Center/TestEspecialistaFinalizado.fxml", mc.getPanelPrin());
-            telp.setMc(mc);
-            telp.setIc(ic);
+            txtpregunta.setText("FIN DEL CUESTIONARIO, VERIFICA TUS RESPUESTAS ANTES DE EVALUAR.");
+            rbtnTPavc.setDisable(true);
+            rbtnTPcs.setDisable(true);
+            rbtnTPnunca.setDisable(true);
+            rbtnTPoca.setDisable(true);
+            rbtnTPsiempre.setDisable(true);
+            btnFinalizar.setVisible(true);
         }
     }
 
@@ -232,7 +259,11 @@ public class TestPacientePreguntasController implements Initializable {
     }
 
     public void sumarAPregunta(int preguntaContestada, Double valor) {
+        //Obtener instrumendo de pregunta
+        int instrumentoC = test.getTipoCuestionario(preguntaContestada);
+        //Obtener sintomas
         sintoma = test.getSintoma(preguntaContestada);
+        //for cada sintoma encontrado
         sintoma.forEach((sintomaLoop) -> {
             SintomaPregunta sp = (SintomaPregunta) sintomaLoop;
             int numeroSintoma = sp.getSintoma();
@@ -246,11 +277,10 @@ public class TestPacientePreguntasController implements Initializable {
                     if ((!test.respuestaContestada(preguntaContestada))
                             || ((test.respuestaContestada(preguntaContestada)) && (preguntaContestada == 16 || preguntaContestada == 17))) {
                         test.levantarBandera(ts.getTrastorno());
-                        System.out.println("/Instrumento:/" + instrumento + "/Sintoma/" + numeroSintoma + "/Trastorno/" + ts.getTrastorno()
+                        System.out.println("/Instrumento:/" + instrumentoC + "/Sintoma/" + numeroSintoma + "/Trastorno/" + ts.getTrastorno()
                                 + "/Pregunta:/" + preguntaContestada + "/Valor:/" + valor);
-                        test.calificarPregunta(instrumento, ts.getTrastorno(), valor);
+                        test.calificarPregunta(instrumentoC, ts.getTrastorno(), valor);
                         test.agregarRespuesta(preguntaContestada, valor.intValue());
-                        //aumentarProgreso();
                     }
                 }
             });
@@ -268,7 +298,7 @@ public class TestPacientePreguntasController implements Initializable {
         preguntas.forEach((preguntaLoop) -> {
             int preguntaC = (int) preguntaLoop;
 
-            sumarAPregunta(preguntaC, test.puntajeEquivalente( test.getTipoCuestionario(pregunta),
+            sumarAPregunta(preguntaC, test.puntajeEquivalente(test.getTipoCuestionario(pregunta),
                     test.getTipoCuestionario(preguntaC), new Double(puntaje)));
         });
         test.sumarContadorPregunta();
