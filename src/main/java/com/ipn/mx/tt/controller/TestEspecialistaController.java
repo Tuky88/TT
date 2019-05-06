@@ -278,12 +278,12 @@ public class TestEspecialistaController implements Initializable {
                         System.out.println("/Instrumento:/" + instrumentoC + "/Sintoma/" + numeroSintoma + "/Trastorno/" + ts.getTrastorno()
                                 + "/Pregunta:/" + preguntaContestada + "/Valor:/" + valor);
                         test.calificarPregunta(instrumentoC, ts.getTrastorno(), valor);
-                        test.agregarRespuesta(preguntaContestada, valor.intValue());
                         aumentarProgreso();
                     }
                 }
             });
         });
+        test.agregarRespuesta(preguntaContestada, valor.intValue());
         test.reiniciarBanderas();
     }
 
@@ -297,9 +297,9 @@ public class TestEspecialistaController implements Initializable {
         preguntas.forEach((preguntaLoop) -> {
             int preguntaC = (int) preguntaLoop;
 
-            sumarAPregunta(preguntaC, 
-                    test.puntajeEquivalente(test.getTipoCuestionario(pregunta),test.getTipoCuestionario(preguntaC)
-                            , new Double(puntaje)));
+            sumarAPregunta(preguntaC,
+                    test.puntajeEquivalente(test.getTipoCuestionario(pregunta), test.getTipoCuestionario(preguntaC),
+                             new Double(puntaje)));
         });
         test.sumarContadorPregunta();
         //System.out.println(preguntas.size());
