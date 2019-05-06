@@ -5,6 +5,7 @@
  */
 package com.ipn.mx.tt.modelo;
 
+import com.ipn.mx.tt.dao.CuestionarioAplicadoDAO;
 import com.ipn.mx.tt.dao.CuestionarioPreguntaDAO;
 import com.ipn.mx.tt.dao.CutoffDAO;
 import com.ipn.mx.tt.dao.PreguntaContestadaDAO;
@@ -26,6 +27,7 @@ public class Test {
     private Cuestionario cuestionario;
     PreguntaDAO pd;
     CuestionarioPreguntaDAO cpd;
+    CuestionarioAplicadoDAO cad;
     SintomaPreguntaDAO spd;
     TrastornoSintomaDAO tsd;
     PreguntaEquivalenciaDAO ped;
@@ -46,6 +48,7 @@ public class Test {
         ped = new PreguntaEquivalenciaDAO();
         cd = new CutoffDAO();
         pcd= new PreguntaContestadaDAO();
+        cad= new CuestionarioAplicadoDAO();
         this.tipo = tipo;
         cd.conectar();
         pd.conectar();
@@ -54,6 +57,7 @@ public class Test {
         tsd.conectar();
         ped.conectar();
         pcd.conectar();
+        cad.conectar();
         
         preguntas = pd.getPreguntas(tipo);
         tipoCuestionario = cpd.getCuestionario();
@@ -242,6 +246,7 @@ public class Test {
 
     public void guardarCuestionario(Double numCuestionario) {
     pcd.guardarPreguntasContestadas(numCuestionario, obtenerPreguntasContestadas());
+    cad.actualizarDatos(numCuestionario, 2.0);
     }
 
 }

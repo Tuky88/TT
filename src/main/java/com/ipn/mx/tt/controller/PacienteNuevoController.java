@@ -47,8 +47,6 @@ public class PacienteNuevoController implements Initializable {
     @FXML
     private ToggleGroup grupoPregunta1;
 
-
-
     public menuController getC() {
         return c;
     }
@@ -136,18 +134,21 @@ public class PacienteNuevoController implements Initializable {
      * Initializes the controller class.
      */
     cargadorVista cv;
+    PacienteDAO pd;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
 
+        pd = new PacienteDAO();
         validador = new Validador();
         cv = new cargadorVista();
+        pd.conectar();
         cad = new CuestionarioAplicadoDAO();
         cad.conectar();
         // TODO
     }
 
-    public void hacerCuestionario(Paciente p,InfoCuestionario i) {
+    public void hacerCuestionario(Paciente p, InfoCuestionario i) {
         ComenzarTestController ctc = (ComenzarTestController) cv.cambiarVista("/Center/ComenzarTest.fxml", c.getPanelPrin());
         ctc.setC(c);
         ctc.setPaciente(p);
@@ -157,7 +158,7 @@ public class PacienteNuevoController implements Initializable {
     }
 
     void registrarPaciente(Paciente p) {
-        PacienteDAO pd = new PacienteDAO();
+        pd = new PacienteDAO();
         pd.insertarPaciente(p);
     }
 
@@ -189,29 +190,35 @@ public class PacienteNuevoController implements Initializable {
         } else {
             Sexo = "M";
         }
-        if (!Nombre.equals("") && !Apellido.equals("") && !CURP.equals("") && !Correo.equals("") && !Fecha.equals("")
-                && !Direccion.equals("") && !Telefono.equals("")) {
+        if (!pd.pacienteExiste(CURP)) {
+            if (!Nombre.equals("") && !Apellido.equals("") && !CURP.equals("") && !Correo.equals("") && !Fecha.equals("")
+                    && !Direccion.equals("") && !Telefono.equals("")) {
 
-            Paciente p = new Paciente(Nombre, Apellido, Sexo, Correo, Fecha, Direccion, Telefono, CURP);
+                Paciente p = new Paciente(Nombre, Apellido, Sexo, Correo, Fecha, Direccion, Telefono, CURP);
 
-            System.out.println(c.getUsuario().toString());
-            InfoCuestionario ic = new InfoCuestionario(cad.buscarSiguiente() + 1, 0.0, CURP, c.getUsuario().getId());
-            cad.insertarInfoCuestionario(ic);
-            registrarPaciente(p);
-            CustomMessage cm = new CustomMessage("MENSAJE", "Registrado con éxito", 2);
-            CustomMessage cm1 = new CustomMessage("MENSAJE", "¿Desea realizar el Cuestionario?", 4);
+                System.out.println(c.getUsuario().toString());
+                InfoCuestionario ic = new InfoCuestionario(cad.buscarSiguiente() + 1, 0.0, CURP, c.getUsuario().getId());
+                cad.insertarInfoCuestionario(ic);
+                registrarPaciente(p);
+                CustomMessage cm = new CustomMessage("MENSAJE", "Registrado con éxito", 2);
+                CustomMessage cm1 = new CustomMessage("MENSAJE", "¿Desea realizar el Cuestionario?", 4);
 
-            if (cm1.getMessage().getButtonData().equals(ButtonType.OK.getButtonData())) {
+                if (cm1.getMessage().getButtonData().equals(ButtonType.OK.getButtonData())) {
 
-                hacerCuestionario(p,ic);
+                    hacerCuestionario(p, ic);
+                } else {
+                    CustomMessage cm2 = new CustomMessage("MENSAJE", "El cuestionario se guardó para más tarde", 2);
+                }
+
             } else {
-                CustomMessage cm2 = new CustomMessage("MENSAJE", "El cuestionario se guardó para más tarde", 2);
+
+                CustomMessage cm = new CustomMessage("ERROR", "Hubo un error en alguno de los campos...", 2);
+
             }
-
-        } else {
-            System.out.println(cad.buscarSiguiente());
-            //CustomMessage cm = new CustomMessage("ERROR", "Hubo un error en alguno de los campos...", 2);
-
+        }
+        else
+        {
+            CustomMessage cm = new CustomMessage("ERROR", "EL CURP ya esta registrado...", 2);
         }
 
     }
