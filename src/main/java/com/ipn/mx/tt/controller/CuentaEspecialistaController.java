@@ -43,6 +43,11 @@ public class CuentaEspecialistaController implements Initializable {
 
     @FXML
     private JFXTextField txtCusuario;
+        @FXML
+    private JFXTextField txtCtelefono;
+
+    @FXML
+    private JFXTextField txtChorario;
     @FXML
     private Pane panel;
     @FXML
