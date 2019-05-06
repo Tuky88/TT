@@ -293,7 +293,22 @@ Cuestionario cuestionario;
         });
         test.reiniciarBanderas();
     }
-
+ @FXML
+    private void mostrarPrediagnostico(ActionEvent ae) {
+        cv=new cargadorVista(); 
+        PrediagnosticoController p= new PrediagnosticoController();
+        PrediagnosticoController pc = (PrediagnosticoController) cv.cambiarVista("/Center/Prediagnostico.fxml", mc.getPanelPrin());
+        test.getFinCuestionario();
+            test.getDuracion();
+            
+            
+            setCuestionario(test.getCuestionario());
+            setMc(mc);
+        pc.setCuestionario(cuestionario);
+        pc.cargarResultados();
+        pc.startgrafica();
+        
+    }
     private void sumarATrastorno() {
 
         sumarAPregunta(pregunta, new Double(puntaje));
