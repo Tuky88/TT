@@ -52,7 +52,6 @@ public class TestPacientePreguntasController implements Initializable {
     private Test test;
     private int contadorPregunta;
     private Paciente paciente;
-    
 
     @FXML
     private BorderPane panelRight;
@@ -94,21 +93,12 @@ public class TestPacientePreguntasController implements Initializable {
     @FXML
     private Label lblPaciente;
 
+    public InfoCuestionario getIc() {
+        return ic;
+    }
 
-
-    @FXML
-    private void mostrarPrediagnostico(ActionEvent ae) {
-        
-        
-        cv = new cargadorVista();
-        PrediagnosticoController pc = (PrediagnosticoController) cv.cambiarVista("/Center/Prediagnostico.fxml", mc.getPanelPrin());
-        test.getFinCuestionario();
-        test.getDuracion();
-        test.guardarCuestionario(ic.getIdCuestionario());
-        pc.setCuestionario(test.getCuestionario());
-        pc.cargarResultados();
-        pc.startgrafica();
-
+    public void setIc(InfoCuestionario ic) {
+        this.ic = ic;
     }
 
     /**
@@ -139,12 +129,18 @@ public class TestPacientePreguntasController implements Initializable {
 
     }
 
-    public InfoCuestionario getIc() {
-        return ic;
-    }
+    @FXML
+    private void mostrarPrediagnostico(ActionEvent ae) {
 
-    public void setIc(InfoCuestionario ic) {
-        this.ic = ic;
+        cv = new cargadorVista();
+        PrediagnosticoController pc = (PrediagnosticoController) cv.cambiarVista("/Center/Prediagnostico.fxml", mc.getPanelPrin());
+        test.getFinCuestionario();
+        test.getDuracion();
+        test.guardarCuestionario(ic.getIdCuestionario());
+        pc.setCuestionario(test.getCuestionario());
+        pc.cargarResultados();
+        pc.startgrafica();
+
     }
 
     public void cargarPregunta(Pregunta p) {
@@ -209,7 +205,7 @@ public class TestPacientePreguntasController implements Initializable {
         if (test.cuestionarioCompletado()) {
             test.getFinCuestionario();
             test.getDuracion();
-            txtpregunta.setText("FIN DEL CUESTIONARIO, VERIFICA TUS RESPUESTAS ANTES DE EVALUAR.");
+            txtpregunta.setText("FIN DEL CUESTIONARIO");
             rbtnTPavc.setDisable(true);
             rbtnTPcs.setDisable(true);
             rbtnTPnunca.setDisable(true);
