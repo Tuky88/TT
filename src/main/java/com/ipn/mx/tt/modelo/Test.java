@@ -7,6 +7,7 @@ package com.ipn.mx.tt.modelo;
 
 import com.ipn.mx.tt.dao.CuestionarioAplicadoDAO;
 import com.ipn.mx.tt.dao.CuestionarioPreguntaDAO;
+import com.ipn.mx.tt.dao.CuestionarioTrastornoDAO;
 import com.ipn.mx.tt.dao.CutoffDAO;
 import com.ipn.mx.tt.dao.PreguntaContestadaDAO;
 import com.ipn.mx.tt.dao.PreguntaDAO;
@@ -25,14 +26,15 @@ import java.util.Random;
 public class Test {
 
     private Cuestionario cuestionario;
-    PreguntaDAO pd;
-    CuestionarioPreguntaDAO cpd;
-    CuestionarioAplicadoDAO cad;
-    SintomaPreguntaDAO spd;
-    TrastornoSintomaDAO tsd;
-    PreguntaEquivalenciaDAO ped;
+    private PreguntaDAO pd;
+    private CuestionarioPreguntaDAO cpd;
+    private CuestionarioAplicadoDAO cad;
+    private SintomaPreguntaDAO spd;
+    private TrastornoSintomaDAO tsd;
+    private PreguntaEquivalenciaDAO ped;
     private PreguntaContestadaDAO pcd;
-    CutoffDAO cd;
+    private CutoffDAO cd;
+    private CuestionarioTrastornoDAO ctd;
     private int contadorPreguntas;
     List preguntas, tipoCuestionario, SintomaPregunta, TrastornoSintoma, equivalencias, cutoff;
     int tipo, tamañoCuestionario;
@@ -47,9 +49,11 @@ public class Test {
         tsd = new TrastornoSintomaDAO();
         ped = new PreguntaEquivalenciaDAO();
         cd = new CutoffDAO();
-        pcd= new PreguntaContestadaDAO();
-        cad= new CuestionarioAplicadoDAO();
+        pcd = new PreguntaContestadaDAO();
+        cad = new CuestionarioAplicadoDAO();
+        ctd = new CuestionarioTrastornoDAO();
         this.tipo = tipo;
+        ctd.conectar();
         cd.conectar();
         pd.conectar();
         cpd.conectar();
@@ -58,7 +62,7 @@ public class Test {
         ped.conectar();
         pcd.conectar();
         cad.conectar();
-        
+
         preguntas = pd.getPreguntas(tipo);
         tipoCuestionario = cpd.getCuestionario();
         SintomaPregunta = spd.traerSintomas();
@@ -245,8 +249,10 @@ public class Test {
     }
 
     public void guardarCuestionario(Double numCuestionario) {
-    pcd.guardarPreguntasContestadas(numCuestionario, obtenerPreguntasContestadas());
-    cad.actualizarDatos(numCuestionario, 2.0);
+        pcd.guardarPreguntasContestadas(numCuestionario, obtenerPreguntasContestadas());
+        cad.actualizarDatos(numCuestionario, 2.0);
+        ctd.insertarTrastornos(1.0, numCuestionario, cuestionario);
+        ctd.insertarTrastornos(2.0, numCuestionario, cuestionario);
     }
 
 }
