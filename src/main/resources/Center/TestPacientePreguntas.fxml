@@ -18,14 +18,25 @@
         <items>
           <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="510.0" prefWidth="300.0" styleClass="l" stylesheets="@../styles/Styles.css">
                <children>
-                  <ImageView fitHeight="48.0" fitWidth="55.0" layoutX="130.0" layoutY="46.0">
+                  <ImageView fitHeight="38.0" fitWidth="42.0" layoutX="127.0" layoutY="103.0">
                      <image>
                         <Image url="@../imagenes/ayuda.jpg" />
                      </image>
                   </ImageView>
-                  <Label layoutX="43.0" layoutY="52.0" text="Ayuda">
+                  <Label layoutX="40.0" layoutY="109.0" text="Ayuda">
                      <font>
                         <Font name="Arial" size="26.0" />
+                     </font>
+                  </Label>
+                  <JFXTextArea fx:id="txtayuda" layoutX="12.0" layoutY="163.0" prefHeight="301.0" prefWidth="276.0" />
+                  <ImageView fitHeight="48.0" fitWidth="55.0" layoutX="207.0" layoutY="103.0">
+                     <image>
+                        <Image url="@../imagenes/audio.jpg" />
+                     </image>
+                  </ImageView>
+                  <Label layoutX="14.0" layoutY="47.0" prefHeight="48.0" prefWidth="251.0" style="-fx-background-color: #8AE5C6;" text="Modulo de Ayuda" textAlignment="CENTER" AnchorPane.bottomAnchor="415.0" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="47.0">
+                     <font>
+                        <Font size="27.0" />
                      </font>
                   </Label>
                </children></AnchorPane>
@@ -38,49 +49,49 @@
                               <Font name="System Italic" size="25.0" />
                            </font>
                         </Label>
-                        <JFXRadioButton fx:id="rbtnTPoca" layoutX="188.0" layoutY="277.0" text="Ocasionalmente">
+                        <JFXRadioButton fx:id="rbtnTPoca" layoutX="158.0" layoutY="375.0" text="Ocasionalmente">
                            <font>
-                              <Font size="20.0" />
+                              <Font size="23.0" />
                            </font>
                            <toggleGroup>
                               <ToggleGroup fx:id="grupoPregunta" />
                            </toggleGroup>
                         </JFXRadioButton>
-                        <JFXRadioButton fx:id="rbtnTPsiempre" layoutX="680.0" layoutY="277.0" text="Siempre" toggleGroup="$grupoPregunta">
+                        <JFXRadioButton fx:id="rbtnTPsiempre" layoutX="688.0" layoutY="375.0" text="Siempre" toggleGroup="$grupoPregunta">
                            <font>
-                              <Font size="20.0" />
+                              <Font size="23.0" />
                            </font>
                         </JFXRadioButton>
-                        <JFXRadioButton fx:id="rbtnTPnunca" layoutX="78.0" layoutY="278.0" text="Nunca" toggleGroup="$grupoPregunta">
+                        <JFXRadioButton fx:id="rbtnTPnunca" layoutX="37.0" layoutY="375.0" text="Nunca" toggleGroup="$grupoPregunta">
                            <font>
-                              <Font size="20.0" />
+                              <Font size="23.0" />
                            </font>
                         </JFXRadioButton>
-                        <JFXRadioButton fx:id="rbtnTPavc" layoutX="384.0" layoutY="278.0" text="A veces" toggleGroup="$grupoPregunta">
+                        <JFXRadioButton fx:id="rbtnTPavc" layoutX="373.0" layoutY="375.0" text="A veces" toggleGroup="$grupoPregunta">
                            <font>
-                              <Font size="20.0" />
+                              <Font size="23.0" />
                            </font>
                         </JFXRadioButton>
-                        <JFXRadioButton fx:id="rbtnTPcs" layoutX="510.0" layoutY="278.0" text="Casi siempre" toggleGroup="$grupoPregunta">
+                        <JFXRadioButton fx:id="rbtnTPcs" layoutX="512.0" layoutY="375.0" text="Casi siempre" toggleGroup="$grupoPregunta">
                            <font>
-                              <Font size="20.0" />
+                              <Font size="23.0" />
                            </font>
                         </JFXRadioButton>
-                        <Pane layoutX="14.0" layoutY="78.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="170.0" prefWidth="910.0" style="-fx-background-color: #FFFFFF;">
+                        <Pane layoutX="14.0" layoutY="162.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="210.0" prefWidth="910.0" style="-fx-background-color: #FFFFFF;">
                            <children>
-                              <JFXTextArea fx:id="txtpregunta" editable="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="163.0" prefWidth="901.0" style="-fx-background-color: #FFFFFF;">
+                              <JFXTextArea fx:id="txtpregunta" editable="false" layoutX="5.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="184.0" prefWidth="901.0" style="-fx-background-color: #FFFFFF;">
                                  <font>
-                                    <Font name="Century Gothic" size="30.0" />
+                                    <Font name="Century Gothic" size="32.0" />
                                  </font>
                               </JFXTextArea>
+                              <ImageView fitHeight="48.0" fitWidth="55.0" layoutX="807.0" layoutY="137.0">
+                                 <image>
+                                    <Image url="@../imagenes/audio.jpg" />
+                                 </image>
+                              </ImageView>
                            </children>
                         </Pane>
-                        <ImageView fitHeight="48.0" fitWidth="55.0" layoutX="512.0" layoutY="423.0">
-                           <image>
-                              <Image url="@../imagenes/audio.jpg" />
-                           </image>
-                        </ImageView>
-                        <JFXButton fx:id="btnFinalizar" buttonType="RAISED" layoutX="621.0" layoutY="428.0" onAction="#mostrarPrediagnostico" prefHeight="38.0" prefWidth="138.0" ripplerFill="#79b1b1" style="-fx-background-color: #79b1b1;" text="Finalizar" />
+                        <JFXButton fx:id="btnFinalizar" buttonType="RAISED" layoutX="321.0" layoutY="452.0" onAction="#mostrarPrediagnostico" prefHeight="38.0" prefWidth="138.0" ripplerFill="#79b1b1" style="-fx-background-color: #79b1b1;" text="Finalizar" />
                      </children>
                   </Pane>
                </children>

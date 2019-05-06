@@ -5,8 +5,10 @@
  */
 package com.ipn.mx.tt.controller;
 
+import com.jfoenix.controls.JFXButton;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 
 /**
@@ -15,11 +17,10 @@ import javafx.fxml.Initializable;
  * @author garci
  */
 public class InstruccionesTestController implements Initializable {
-
-    /**
-     * Initializes the controller class.
-     */
-    @Override
+     @FXML
+    private JFXButton btncomenzar;
+     
+      @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }    
