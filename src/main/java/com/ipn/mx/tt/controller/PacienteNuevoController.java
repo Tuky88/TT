@@ -152,14 +152,7 @@ public class PacienteNuevoController implements Initializable {
         // TODO
     }
 
-    public void hacerCuestionario(Paciente p, InfoCuestionario i) {
-        ComenzarTestController ctc = (ComenzarTestController) cv.cambiarVista("/Center/ComenzarTest.fxml", c.getPanelPrin());
-        ctc.setC(c);
-        ctc.setPaciente(p);
-        ctc.setDatosPaciente(true);
-        ctc.setIc(i);
 
-    }
 
     void registrarPaciente(Paciente p) {
         pd.insertarPaciente(p);
@@ -194,8 +187,11 @@ public class PacienteNuevoController implements Initializable {
                 if (cm1.getMessage().getButtonData().equals(ButtonType.OK.getButtonData())) {
                     //hacerCuestionario(p, ic);
                     PacienteNuevo2Controller pnc = (PacienteNuevo2Controller) cv.cambiarVista("/Center/PacienteNuevo2.fxml", bp);
+                    pnc.setPaciente(p);
+                    pnc.setIc(ic);
                 } else {
                     CustomMessage cm2 = new CustomMessage("MENSAJE", "El cuestionario se guardó para más tarde", 2);
+                    //GENERAR PDF O MOSTRAR EL NUMERO DE CUESTIONARIO ASIGNADO PARA APLICAR MÁS TARDE
                 }
             } else {
                 CustomMessage cm = new CustomMessage("ERROR", "Hubo un error en alguno de los campos...", 2);

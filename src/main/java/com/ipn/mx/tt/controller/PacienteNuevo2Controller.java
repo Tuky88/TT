@@ -5,9 +5,10 @@ package com.ipn.mx.tt.controller;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 import com.ipn.mx.tt.dao.PacienteDAO;
+import com.ipn.mx.tt.modelo.InfoCuestionario;
 import com.ipn.mx.tt.modelo.Paciente;
+import com.ipn.mx.tt.util.cargadorVista;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXRadioButton;
 import com.jfoenix.controls.JFXTextField;
@@ -28,7 +29,11 @@ import javafx.scene.layout.AnchorPane;
  */
 public class PacienteNuevo2Controller implements Initializable {
 
-     @FXML
+    private cargadorVista cv;
+    private menuController mc;
+    private Paciente paciente;
+    private InfoCuestionario infoCuestionario;
+    @FXML
     private AnchorPane panelP;
 
     @FXML
@@ -97,8 +102,6 @@ public class PacienteNuevo2Controller implements Initializable {
     @FXML
     private JFXRadioButton rbPtrabajan;
 
-
-    
     /**
      * Initializes the controller class.
      */
@@ -107,10 +110,25 @@ public class PacienteNuevo2Controller implements Initializable {
         // TODO
     }
 
-    
     @FXML
     public void comenzarCuestionario(ActionEvent event) {
-        
+
     }
-    
+
+    public void hacerCuestionario() {
+        ComenzarTestController ctc = (ComenzarTestController) cv.cambiarVista("/Center/ComenzarTest.fxml", mc.getPanelPrin());
+        ctc.setC(mc);
+        ctc.setPaciente(paciente);
+        ctc.setDatosPaciente(true);
+        ctc.setIc(infoCuestionario);
+
+    }
+
+    void setPaciente(Paciente p) {
+        paciente = p;
+    }
+
+    void setIc(InfoCuestionario ic) {
+        infoCuestionario = ic;
+    }
 }
