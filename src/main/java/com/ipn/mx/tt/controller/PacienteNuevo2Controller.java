@@ -16,6 +16,8 @@ import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Label;
+import javafx.scene.control.Spinner;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.AnchorPane;
 
@@ -30,7 +32,10 @@ public class PacienteNuevo2Controller implements Initializable {
     private AnchorPane panelP;
 
     @FXML
-    private JFXButton btnPnregistrar;
+    private JFXButton btnPnComenzar;
+
+    @FXML
+    private Label lblhorario;
 
     @FXML
     private JFXRadioButton rbPhorariof;
@@ -45,17 +50,28 @@ public class PacienteNuevo2Controller implements Initializable {
     private JFXRadioButton rbPhorarionof;
 
     @FXML
-    private ToggleGroup grupoPregunta1;
-
-    @FXML
     private JFXRadioButton rbPlv;
 
+    @FXML
+    private ToggleGroup grupoPregunta1;
 
     @FXML
     private JFXRadioButton rbPls;
 
     @FXML
+    private Label lbldias;
+
+    @FXML
+    private Label lblhoras;
+
+    @FXML
+    private Label lblphorass;
+
+    @FXML
     private JFXTextField txtPhorasl;
+
+    @FXML
+    private Label lblphorasdd;
 
     @FXML
     private JFXTextField txtPhorasd;
@@ -63,10 +79,26 @@ public class PacienteNuevo2Controller implements Initializable {
     @FXML
     private JFXButton btnPnguardar;
 
-    void registrarPaciente(Paciente p) {
-        PacienteDAO pd = new PacienteDAO();
-        pd.insertarPaciente(p);
-    }
+    @FXML
+    private Label lbltrabaja;
+
+    @FXML
+    private Label lblphoras;
+
+    @FXML
+    private Spinner<?> spnhoras;
+
+    @FXML
+    private JFXRadioButton rbPtrabajas;
+
+    @FXML
+    private ToggleGroup grupoPregunta11;
+
+    @FXML
+    private JFXRadioButton rbPtrabajan;
+
+
+    
     /**
      * Initializes the controller class.
      */

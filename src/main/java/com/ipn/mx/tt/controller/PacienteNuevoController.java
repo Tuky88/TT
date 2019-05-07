@@ -27,6 +27,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ButtonType;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.Spinner;
 import javafx.scene.control.SpinnerValueFactory;
 import javafx.scene.control.ToggleGroup;
@@ -129,6 +130,8 @@ public class PacienteNuevoController implements Initializable {
 
     @FXML
     private JFXRadioButton rbPhorarionof;
+    @FXML
+    private JFXComboBox<?> cbescolaridad;
 
     /**
      * Initializes the controller class.
@@ -225,8 +228,9 @@ public class PacienteNuevoController implements Initializable {
 
     public void configurarObjetos() {
 
-        SpinnerValueFactory<Integer> svf = new SpinnerValueFactory.IntegerSpinnerValueFactory(1, 23, 7, 1);
+        SpinnerValueFactory<Integer> svf = new SpinnerValueFactory.IntegerSpinnerValueFactory(1, 24, 6, 1);
         spnhoras.setValueFactory(svf);
+        
     }
 
 }
