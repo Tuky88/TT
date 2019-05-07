@@ -73,7 +73,9 @@ public class LoginController implements Initializable {
 
             }
         } else {
+            e.consume();
             CustomMessage cm = new CustomMessage("ERROR", "LOS CAMPOS NO PUEDEN ESTAR VACIOS", 2);
+
             // alertMessage.alert(0, "ERROR", "");
 //                       Loader l=new Loader((Stage)login.getScene().getWindow(),5);
 //            l.start();
