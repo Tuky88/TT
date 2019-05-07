@@ -72,8 +72,6 @@ public class menuController implements Initializable {
     @FXML
     private Tab TabAyuda;
 
-    @FXML
-    private Tab TabAcerca;
 
     @FXML
     void cerrarSesion(Event event) {
@@ -135,10 +133,7 @@ public class menuController implements Initializable {
             cv.cambiarVista("/Center/Prediagnosticos.fxml", PanelPrin);
 
         });
-        TabAcerca.setOnSelectionChanged((Event event) -> {
-            cv.cambiarVista("/Center/Inicio.fxml", PanelPrin);
-
-        });
+        
         TabAyuda.setOnSelectionChanged((Event event) -> {
             cv.cambiarVista("/Center/Inicio.fxml", PanelPrin);
 
