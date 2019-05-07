@@ -222,7 +222,7 @@
                   <Insets left="240.0" />
                </GridPane.margin>
             </Spinner>
-            <JFXComboBox fx:id="cbescolaridad" prefHeight="25.0" prefWidth="177.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="4">
+            <JFXComboBox fx:id="cbxescolaridad" prefHeight="25.0" prefWidth="177.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="4">
                <GridPane.margin>
                   <Insets />
                </GridPane.margin>

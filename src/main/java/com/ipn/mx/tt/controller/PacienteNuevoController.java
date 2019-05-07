@@ -132,7 +132,8 @@ public class PacienteNuevoController implements Initializable {
     @FXML
     private JFXRadioButton rbPhorarionof;
     @FXML
-    private JFXComboBox<?> cbescolaridad;
+    private JFXComboBox cbxescolaridad;
+    
     private BorderPane bp;
 
     /**
