@@ -7,7 +7,6 @@
 <?import com.jfoenix.controls.JFXTextField?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.Spinner?>
 <?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
@@ -46,12 +45,12 @@
             <RowConstraints minHeight="10.0" prefHeight="31.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <JFXTextField fx:id="txtPnCURP" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="263.0" style="-fx-background-color: #FFFFFF;" GridPane.halignment="RIGHT" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+            <JFXTextField fx:id="txtPnCURP" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="263.0" style="-fx-background-color: #FFFFFF;" GridPane.halignment="RIGHT" GridPane.rowIndex="3" GridPane.valignment="CENTER">
                <GridPane.margin>
                   <Insets right="30.0" />
                </GridPane.margin>
             </JFXTextField>
-            <Label text="CURP:" GridPane.halignment="LEFT" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+            <Label text="CURP:" GridPane.halignment="LEFT" GridPane.rowIndex="3" GridPane.valignment="CENTER">
                <font>
                   <Font name="Arial" size="15.0" />
                </font>
@@ -59,12 +58,12 @@
                   <Insets left="70.0" />
                </GridPane.margin>
             </Label>
-            <JFXTextField fx:id="txtPnnombre" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="263.0" style="-fx-background-color: #FFFFFF;" GridPane.halignment="RIGHT" GridPane.rowIndex="3" GridPane.valignment="CENTER">
+            <JFXTextField fx:id="txtPnnombre" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="263.0" style="-fx-background-color: #FFFFFF;" GridPane.halignment="RIGHT" GridPane.rowIndex="4" GridPane.valignment="CENTER">
                <GridPane.margin>
                   <Insets right="30.0" />
                </GridPane.margin>
             </JFXTextField>
-            <Label text="Nombre:" GridPane.rowIndex="3">
+            <Label text="Nombre:" GridPane.rowIndex="4">
                <font>
                   <Font name="Arial" size="15.0" />
                </font>
@@ -72,7 +71,7 @@
                   <Insets left="70.0" />
                </GridPane.margin>
             </Label>
-            <JFXButton fx:id="btnPnregistrar" buttonType="RAISED" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#registrarPaciente" prefHeight="28.0" prefWidth="162.0" ripplerFill="WHITE" style="-fx-background-color: #B1F4AD;" text="Registrar" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="9" GridPane.valignment="CENTER">
+            <JFXButton fx:id="btnPnregistrar" buttonType="RAISED" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#registrarPaciente" prefHeight="28.0" prefWidth="162.0" ripplerFill="WHITE" style="-fx-background-color: #B1F4AD;" text="Registrar" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="8" GridPane.valignment="CENTER">
                <font>
                   <Font name="Century Gothic" size="14.0" />
                </font>
@@ -83,7 +82,7 @@
                   <Insets right="70.0" />
                </GridPane.margin>
             </JFXButton>
-            <Label text="Teléfono:" GridPane.rowIndex="9">
+            <Label text="Teléfono:" GridPane.columnIndex="1" GridPane.rowIndex="5">
                <font>
                   <Font name="Arial" size="15.0" />
                </font>
@@ -91,12 +90,12 @@
                   <Insets left="70.0" />
                </padding>
             </Label>
-            <JFXTextField fx:id="txtPntelefono" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="263.0" style="-fx-background-color: #FFFFFF;" GridPane.halignment="RIGHT" GridPane.rowIndex="9">
+            <JFXTextField fx:id="txtPntelefono" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="263.0" style="-fx-background-color: #FFFFFF;" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="5">
                <GridPane.margin>
                   <Insets right="30.0" />
                </GridPane.margin>
             </JFXTextField>
-            <Label text="Dirección:" GridPane.rowIndex="8">
+            <Label text="Dirección:" GridPane.columnIndex="1" GridPane.rowIndex="4">
                <font>
                   <Font name="Arial" size="15.0" />
                </font>
@@ -104,12 +103,12 @@
                   <Insets left="70.0" />
                </GridPane.margin>
             </Label>
-            <JFXTextField fx:id="txtPndireccion" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="263.0" style="-fx-background-color: #FFFFFF;" GridPane.halignment="RIGHT" GridPane.rowIndex="8" GridPane.valignment="CENTER">
+            <JFXTextField fx:id="txtPndireccion" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="263.0" style="-fx-background-color: #FFFFFF;" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="4" GridPane.valignment="CENTER">
                <GridPane.margin>
                   <Insets right="30.0" />
                </GridPane.margin>
             </JFXTextField>
-            <Label text="Fecha de nacimiento:" GridPane.rowIndex="7">
+            <Label text="Fecha de nacimiento:" GridPane.columnIndex="1" GridPane.rowIndex="3">
                <font>
                   <Font name="Arial" size="15.0" />
                </font>
@@ -117,12 +116,12 @@
                   <Insets left="70.0" />
                </GridPane.margin>
             </Label>
-            <JFXDatePicker fx:id="datePn" defaultColor="#4664b5" prefHeight="25.0" prefWidth="263.0" style="-fx-background-color: #FFFFFF;" GridPane.halignment="RIGHT" GridPane.rowIndex="7">
+            <JFXDatePicker fx:id="datePn" defaultColor="#4664b5" prefHeight="25.0" prefWidth="263.0" style="-fx-background-color: #FFFFFF;" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="3">
                <GridPane.margin>
                   <Insets right="30.0" />
                </GridPane.margin>
             </JFXDatePicker>
-            <Label text="Correo:" GridPane.rowIndex="6">
+            <Label text="Correo:" GridPane.rowIndex="7">
                <font>
                   <Font name="Arial" size="15.0" />
                </font>
@@ -130,12 +129,12 @@
                   <Insets left="70.0" />
                </GridPane.margin>
             </Label>
-            <JFXTextField fx:id="txtPncorreo" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="263.0" style="-fx-background-color: #FFFFFF;" GridPane.halignment="RIGHT" GridPane.rowIndex="6">
+            <JFXTextField fx:id="txtPncorreo" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="263.0" style="-fx-background-color: #FFFFFF;" GridPane.halignment="RIGHT" GridPane.rowIndex="7">
                <GridPane.margin>
                   <Insets right="30.0" />
                </GridPane.margin>
             </JFXTextField>
-            <Label text="Sexo:" GridPane.rowIndex="5">
+            <Label text="Sexo:" GridPane.rowIndex="6">
                <font>
                   <Font name="Arial" size="15.0" />
                </font>
@@ -143,7 +142,7 @@
                   <Insets left="70.0" />
                </GridPane.margin>
             </Label>
-            <JFXRadioButton fx:id="rbPmasculino" text="Masculino" GridPane.halignment="CENTER" GridPane.rowIndex="5">
+            <JFXRadioButton fx:id="rbPmasculino" text="Masculino" GridPane.halignment="CENTER" GridPane.rowIndex="6">
                <GridPane.margin>
                   <Insets left="50.0" />
                </GridPane.margin>
@@ -151,12 +150,12 @@
                   <ToggleGroup fx:id="grupoPregunta" />
                </toggleGroup>
             </JFXRadioButton>
-            <JFXRadioButton fx:id="rbPfemenino" text="Femenino" toggleGroup="$grupoPregunta" GridPane.halignment="RIGHT" GridPane.rowIndex="5">
+            <JFXRadioButton fx:id="rbPfemenino" text="Femenino" toggleGroup="$grupoPregunta" GridPane.halignment="RIGHT" GridPane.rowIndex="6">
                <GridPane.margin>
                   <Insets right="60.0" />
                </GridPane.margin>
             </JFXRadioButton>
-            <Label text="Apellidos:" GridPane.rowIndex="4">
+            <Label text="Apellidos:" GridPane.rowIndex="5">
                <font>
                   <Font name="Arial" size="15.0" />
                </font>
@@ -164,46 +163,17 @@
                   <Insets left="70.0" />
                </GridPane.margin>
             </Label>
-            <JFXTextField fx:id="txtPnapellido" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="25.0" prefWidth="263.0" style="-fx-background-color: #FFFFFF;" GridPane.halignment="RIGHT" GridPane.rowIndex="4">
+            <JFXTextField fx:id="txtPnapellido" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="25.0" prefWidth="263.0" style="-fx-background-color: #FFFFFF;" GridPane.halignment="RIGHT" GridPane.rowIndex="5">
                <GridPane.margin>
                   <Insets right="30.0" />
                </GridPane.margin>
             </JFXTextField>
-            <Label text="Escolaridad:" GridPane.columnIndex="1" GridPane.rowIndex="4">
+            <Label text="Escolaridad:" GridPane.columnIndex="1" GridPane.rowIndex="6">
                <font>
                   <Font name="Arial" size="15.0" />
                </font>
                <GridPane.margin>
-                  <Insets left="80.0" />
-               </GridPane.margin>
-            </Label>
-            <Label text="Trabaja:" GridPane.columnIndex="1" GridPane.rowIndex="5">
-               <font>
-                  <Font name="Arial" size="15.0" />
-               </font>
-               <GridPane.margin>
-                  <Insets left="80.0" />
-               </GridPane.margin>
-            </Label>
-            <JFXRadioButton fx:id="rbPtrabajas" text="Sí" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="5">
-               <GridPane.margin>
-                  <Insets right="100.0" />
-               </GridPane.margin>
-               <toggleGroup>
-                  <ToggleGroup fx:id="grupoPregunta1" />
-               </toggleGroup>
-            </JFXRadioButton>
-            <JFXRadioButton fx:id="rbPtrabajan" text="No" toggleGroup="$grupoPregunta1" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="5">
-               <GridPane.margin>
-                  <Insets left="30.0" />
-               </GridPane.margin>
-            </JFXRadioButton>
-            <Label fx:id="lblphoras" text="Promedio de horas de sueño por día:" GridPane.columnIndex="1" GridPane.rowIndex="6">
-               <font>
-                  <Font name="Arial" size="15.0" />
-               </font>
-               <GridPane.margin>
-                  <Insets left="80.0" />
+                  <Insets left="70.0" />
                </GridPane.margin>
             </Label>
             <JFXButton fx:id="btnPnguardar" buttonType="RAISED" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#registrarPaciente" prefHeight="28.0" prefWidth="162.0" ripplerFill="WHITE" style="-fx-background-color: #B1F4AD;" text="Guardar" visible="false" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="10">
@@ -217,14 +187,9 @@
                   <Insets left="20.0" />
                </GridPane.margin>
             </JFXButton>
-            <Spinner fx:id="spnhoras" editable="true" prefHeight="25.0" prefWidth="83.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="6">
+            <JFXComboBox fx:id="cbxescolaridad" prefHeight="25.0" prefWidth="177.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="6">
                <GridPane.margin>
-                  <Insets left="240.0" />
-               </GridPane.margin>
-            </Spinner>
-            <JFXComboBox fx:id="cbxescolaridad" prefHeight="25.0" prefWidth="177.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="4">
-               <GridPane.margin>
-                  <Insets />
+                  <Insets left="100.0" />
                </GridPane.margin>
             </JFXComboBox>
          </children>

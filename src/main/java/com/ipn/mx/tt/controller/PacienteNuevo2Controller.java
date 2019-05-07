@@ -19,6 +19,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.Spinner;
+import javafx.scene.control.SpinnerValueFactory;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.AnchorPane;
 
@@ -33,7 +34,7 @@ public class PacienteNuevo2Controller implements Initializable {
     private menuController mc;
     private Paciente paciente;
     private InfoCuestionario infoCuestionario;
-    @FXML
+      @FXML
     private AnchorPane panelP;
 
     @FXML
@@ -82,16 +83,13 @@ public class PacienteNuevo2Controller implements Initializable {
     private JFXTextField txtPhorasd;
 
     @FXML
-    private JFXButton btnPnguardar;
-
-    @FXML
     private Label lbltrabaja;
 
     @FXML
     private Label lblphoras;
 
     @FXML
-    private Spinner<?> spnhoras;
+    private Spinner spnhoras;
 
     @FXML
     private JFXRadioButton rbPtrabajas;
@@ -107,6 +105,7 @@ public class PacienteNuevo2Controller implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        configurarObjetos();
         // TODO
     }
 
@@ -130,5 +129,12 @@ public class PacienteNuevo2Controller implements Initializable {
 
     void setIc(InfoCuestionario ic) {
         infoCuestionario = ic;
+    }
+    public void configurarObjetos() {
+
+        SpinnerValueFactory<Integer> svf = new SpinnerValueFactory.IntegerSpinnerValueFactory(1, 24, 6, 1);
+        spnhoras.setValueFactory(svf);
+        
+
     }
 }
