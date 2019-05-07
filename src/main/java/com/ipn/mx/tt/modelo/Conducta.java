@@ -10,16 +10,16 @@ package com.ipn.mx.tt.modelo;
  * @author Temp
  */
 public class Conducta {
+
     private boolean trabaja;
-private Double horarioTrabajo;
-private Double jornadaLaboral;
-private Double diasDeDescanso;
-private Double promedioHorasLaborales;
-private Double horasDeTrabajo;
-private Double promedioHorasDescanso;
+    private Double horarioTrabajo;
+    private Double jornadaLaboral;
+    private Double diasDeDescanso;
+    private Double promedioHorasLaborales;
+    private Double horasDeTrabajo;
+    private Double promedioHorasDescanso;
 
-
- public Conducta(boolean trabaja, Double horarioTrabajo, Double jornadaLaboral, Double diasDeDescanso, Double promedioHorasLaborales, Double horasDeTrabajo, Double promedioHorasDescanso) {
+    public Conducta(boolean trabaja, Double horarioTrabajo, Double jornadaLaboral, Double diasDeDescanso, Double promedioHorasLaborales, Double horasDeTrabajo, Double promedioHorasDescanso) {
         this.trabaja = trabaja;
         this.horarioTrabajo = horarioTrabajo;
         this.jornadaLaboral = jornadaLaboral;
@@ -28,6 +28,17 @@ private Double promedioHorasDescanso;
         this.horasDeTrabajo = horasDeTrabajo;
         this.promedioHorasDescanso = promedioHorasDescanso;
     }
+
+    public Conducta(Double horasDescanso) {
+        trabaja = false;
+        horarioTrabajo = 0.0;
+        jornadaLaboral = 0.0;
+        diasDeDescanso = 7.0;
+        promedioHorasLaborales = 0.0;
+        horasDeTrabajo = 0.0;
+        promedioHorasDescanso = horasDescanso;
+    }
+
     public boolean isTrabaja() {
         return trabaja;
     }
@@ -84,5 +95,4 @@ private Double promedioHorasDescanso;
         this.promedioHorasDescanso = promedioHorasDescanso;
     }
 
-    
 }
