@@ -23,44 +23,44 @@ public class PacienteController implements Initializable {
 
     menuController c;
     cargadorVista cv;
-    
+
     public menuController getC() {
         return c;
     }
-    
+
     public void setC(menuController c) {
         this.c = c;
     }
-    
+
     @FXML
     private JFXButton btnTpacientenuevo;
-    
+
     @FXML
     private JFXButton btnTpacienteregistrado;
-    
+
     @FXML
     private BorderPane panelRight;
-    
+
     @FXML
     void abrirPacienteN(ActionEvent event) {
         PacienteNuevoController pnc = (PacienteNuevoController) cv.cambiarVista("/Center/PacienteNuevo.fxml", panelRight);
         pnc.setC(c);
         pnc.configurarObjetos();
         btnTpacientenuevo.setDisable(true);
-        btnTpacienteregistrado.setDisable(false);        
+        btnTpacienteregistrado.setDisable(false);
         System.out.println(c.getUsuario().toString());
     }
-    
+
     @FXML
     void abrirPacienteR(ActionEvent event) {
-        
+
         PacienteConRegistroController pcrc = (PacienteConRegistroController) cv.cambiarVista("/Center/PacienteConRegistro.fxml", panelRight);
         pcrc.setC(c);
         btnTpacientenuevo.setDisable(false);
         btnTpacienteregistrado.setDisable(true);
-        
+
     }
-    
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO

@@ -262,14 +262,18 @@ public class TestEspecialistaController implements Initializable {
     }
 
     public void sumarAPregunta(int preguntaContestada, Double valor) {
+        //Obtener instrumendo de pregunta
         int instrumentoC = test.getTipoCuestionario(preguntaContestada);
+        //Obtener sintomas
         sintoma = test.getSintoma(preguntaContestada);
+        //for cada sintoma encontrado
         sintoma.forEach((sintomaLoop) -> {
             SintomaPregunta sp = (SintomaPregunta) sintomaLoop;
             int numeroSintoma = sp.getSintoma();
             trastorno = test.getTrastorno(numeroSintoma);
             trastorno.forEach((trastornoLoop) -> {
                 TrastornoSintoma ts = (TrastornoSintoma) trastornoLoop;
+
                 if (test.banderaLevantada(ts.getTrastorno())) {
                     //System.out.println("YA SUMADO:" + preguntaC);
                 } else {
@@ -279,15 +283,14 @@ public class TestEspecialistaController implements Initializable {
                         System.out.println("/Instrumento:/" + instrumentoC + "/Sintoma/" + numeroSintoma + "/Trastorno/" + ts.getTrastorno()
                                 + "/Pregunta:/" + preguntaContestada + "/Valor:/" + valor);
                         test.calificarPregunta(instrumentoC, ts.getTrastorno(), valor);
+                        test.agregarRespuesta(preguntaContestada, valor.intValue());
                         aumentarProgreso();
                     }
                 }
             });
         });
-        test.agregarRespuesta(preguntaContestada, valor.intValue());
         test.reiniciarBanderas();
     }
-
     @FXML
     private void mostrarPrediagnostico(ActionEvent ae) {
         cv = new cargadorVista();
@@ -310,9 +313,8 @@ public class TestEspecialistaController implements Initializable {
         preguntas.forEach((preguntaLoop) -> {
             int preguntaC = (int) preguntaLoop;
 
-            sumarAPregunta(preguntaC,
-                    test.puntajeEquivalente(test.getTipoCuestionario(pregunta), test.getTipoCuestionario(preguntaC),
-                            new Double(puntaje)));
+            sumarAPregunta(preguntaC, test.puntajeEquivalente(test.getTipoCuestionario(pregunta),
+                    test.getTipoCuestionario(preguntaC), new Double(puntaje)));
         });
         test.sumarContadorPregunta();
         //System.out.println(preguntas.size());
@@ -354,7 +356,7 @@ public class TestEspecialistaController implements Initializable {
 
     private void aumentarProgreso() {
         DecimalFormat df2 = new DecimalFormat("#.##");
-        Double avance = test.getContadorPreguntas() * 0.01449;
+        Double avance = test.getContadorPreguntas() * 0.01501;
         pbTEprogeso.setProgress(avance);
         Double porcentaje = avance * 100;
         lblProgress.setText(df2.format(porcentaje) + "%");

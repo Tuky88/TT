@@ -5,6 +5,7 @@
  */
 package com.ipn.mx.tt.controller;
 
+import com.ipn.mx.tt.util.cargadorVista;
 import com.jfoenix.controls.JFXButton;
 import java.io.IOException;
 import java.net.URL;
@@ -16,7 +17,6 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
-import javafx.scene.control.Button;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 
@@ -27,29 +27,29 @@ import javafx.scene.layout.Pane;
  */
 public class PrediagnosticosController implements Initializable {
 
+    private cargadorVista cv;
     @FXML
     private Pane panelLeft;
 
-     @FXML
+    @FXML
     private JFXButton btnPhistorial;
 
     @FXML
     private JFXButton btnPvalidar;
 
-    
     @FXML
     private BorderPane panelRight;
 
     @FXML
     void abrirHistorial(ActionEvent event) {
-        abrirMenu("/Center/Historial.fxml");
+        HistorialController hc = (HistorialController) cv.cambiarVista("/Center/Historial.fxml", panelRight);
         btnPhistorial.setDisable(true);
         btnPvalidar.setDisable(false);
     }
 
     @FXML
     void abrirValidar(ActionEvent event) {
-        abrirMenu("/Center/Validar.fxml");
+        ValidarController vc = (ValidarController) cv.cambiarVista("/Center/Validar.fxml", panelRight);
         btnPhistorial.setDisable(false);
         btnPvalidar.setDisable(true);
     }
@@ -60,15 +60,6 @@ public class PrediagnosticosController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-    }
-
-    public void abrirMenu(String menu) {
-        try {
-            Parent root = FXMLLoader.load(getClass().getResource(menu));
-            panelRight.setCenter(root);
-
-        } catch (IOException ex) {
-            Logger.getLogger(ConfiguracionesController.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        cv = new cargadorVista();
     }
 }
