@@ -27,11 +27,11 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ButtonType;
-import javafx.scene.control.ComboBox;
 import javafx.scene.control.Spinner;
 import javafx.scene.control.SpinnerValueFactory;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.BorderPane;
 
 /**
  * FXML Controller class
@@ -41,8 +41,9 @@ import javafx.scene.layout.AnchorPane;
 public class PacienteNuevoController implements Initializable {
 
     private CuestionarioAplicadoDAO cad;
-    menuController c;
-    Validador validador;
+    private menuController c;
+    private cargadorVista cv;
+    private Validador validador;
     @FXML
     private ToggleGroup grupoPregunta;
     @FXML
@@ -132,11 +133,11 @@ public class PacienteNuevoController implements Initializable {
     private JFXRadioButton rbPhorarionof;
     @FXML
     private JFXComboBox<?> cbescolaridad;
+    private BorderPane bp;
 
     /**
      * Initializes the controller class.
      */
-    cargadorVista cv;
     PacienteDAO pd;
 
     @Override
@@ -161,20 +162,7 @@ public class PacienteNuevoController implements Initializable {
     }
 
     void registrarPaciente(Paciente p) {
-        pd = new PacienteDAO();
         pd.insertarPaciente(p);
-    }
-
-    @FXML
-    void peciente(ActionEvent event) {
-
-        try {
-            FXMLLoader fx = new FXMLLoader(getClass().getResource("/Center/PacienteNuevo2.fxml"));
-            AnchorPane ap = fx.load();
-            panelP.getChildren().setAll(ap);
-        } catch (IOException ex) {
-            Logger.getLogger(PacienteNuevoController.class.getName()).log(Level.SEVERE, null, ex);
-        }
     }
 
     @FXML
@@ -198,29 +186,21 @@ public class PacienteNuevoController implements Initializable {
                     && !Direccion.equals("") && !Telefono.equals("")) {
 
                 Paciente p = new Paciente(Nombre, Apellido, Sexo, Correo, Fecha, Direccion, Telefono, CURP);
-
-                System.out.println(c.getUsuario().toString());
                 InfoCuestionario ic = new InfoCuestionario(cad.buscarSiguiente() + 1, 0.0, CURP, c.getUsuario().getId());
                 cad.insertarInfoCuestionario(ic);
                 registrarPaciente(p);
                 CustomMessage cm = new CustomMessage("MENSAJE", "Registrado con éxito", 2);
                 CustomMessage cm1 = new CustomMessage("MENSAJE", "¿Desea realizar el Cuestionario?", 4);
-
                 if (cm1.getMessage().getButtonData().equals(ButtonType.OK.getButtonData())) {
-
-                    hacerCuestionario(p, ic);
+                    //hacerCuestionario(p, ic);
+                    PacienteNuevo2Controller pnc = (PacienteNuevo2Controller) cv.cambiarVista("/Center/PacienteNuevo2.fxml", bp);
                 } else {
                     CustomMessage cm2 = new CustomMessage("MENSAJE", "El cuestionario se guardó para más tarde", 2);
                 }
-
             } else {
-
                 CustomMessage cm = new CustomMessage("ERROR", "Hubo un error en alguno de los campos...", 2);
-
             }
-        }
-        else
-        {
+        } else {
             CustomMessage cm = new CustomMessage("ERROR", "EL CURP ya esta registrado...", 2);
         }
 
@@ -230,7 +210,11 @@ public class PacienteNuevoController implements Initializable {
 
         SpinnerValueFactory<Integer> svf = new SpinnerValueFactory.IntegerSpinnerValueFactory(1, 24, 6, 1);
         spnhoras.setValueFactory(svf);
-        
+
+    }
+
+    void setBorder(BorderPane panelRight) {
+        bp = panelRight;
     }
 
 }

@@ -45,7 +45,7 @@
             <RowConstraints minHeight="10.0" prefHeight="31.0" vgrow="SOMETIMES" />
          </rowConstraints>
          <children>
-            <JFXButton fx:id="btnPnComenzar" buttonType="RAISED" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="28.0" prefWidth="162.0" ripplerFill="WHITE" style="-fx-background-color: #B1F4AD;" text="Comenzar" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="10" GridPane.valignment="CENTER">
+            <JFXButton fx:id="btnPnComenzar" buttonType="RAISED" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#comenzarCuestionario" prefHeight="28.0" prefWidth="162.0" ripplerFill="WHITE" style="-fx-background-color: #B1F4AD;" text="Comenzar" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="10" GridPane.valignment="CENTER">
                <font>
                   <Font name="Century Gothic" size="14.0" />
                </font>
@@ -139,17 +139,6 @@
                   <Insets right="55.0" />
                </GridPane.margin>
             </JFXTextField>
-            <JFXButton fx:id="btnPnguardar" buttonType="RAISED" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#registrarPaciente" prefHeight="28.0" prefWidth="162.0" ripplerFill="WHITE" style="-fx-background-color: #B1F4AD;" text="Guardar" visible="false" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="10">
-               <font>
-                  <Font name="Century Gothic" size="14.0" />
-               </font>
-               <opaqueInsets>
-                  <Insets bottom="20.0" />
-               </opaqueInsets>
-               <GridPane.margin>
-                  <Insets left="20.0" />
-               </GridPane.margin>
-            </JFXButton>
             <JFXComboBox GridPane.columnIndex="1" GridPane.rowIndex="6">
                <GridPane.margin>
                   <Insets left="210.0" />

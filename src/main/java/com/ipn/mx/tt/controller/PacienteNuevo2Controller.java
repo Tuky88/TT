@@ -105,6 +105,12 @@ public class PacienteNuevo2Controller implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-    }    
+    }
+
+    
+    @FXML
+    public void comenzarCuestionario(ActionEvent event) {
+        
+    }
     
 }
