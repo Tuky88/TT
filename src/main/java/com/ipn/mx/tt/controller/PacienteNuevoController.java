@@ -22,6 +22,8 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -136,6 +138,9 @@ public class PacienteNuevoController implements Initializable {
     
     private BorderPane bp;
 
+    ObservableList<String> items = FXCollections.observableArrayList("Sin estudios","Primaria",
+            "Secundaria","Preparatoria","Licenciatura","Maestria","Doctorado");
+    
     /**
      * Initializes the controller class.
      */
@@ -150,6 +155,8 @@ public class PacienteNuevoController implements Initializable {
         pd.conectar();
         cad = new CuestionarioAplicadoDAO();
         cad.conectar();
+     cbxescolaridad.setItems(items);
+        cbxescolaridad.setValue("Sin estudios");
         // TODO
     }
 
@@ -203,12 +210,7 @@ public class PacienteNuevoController implements Initializable {
 
     }
 
-    public void configurarObjetos() {
-
-        SpinnerValueFactory<Integer> svf = new SpinnerValueFactory.IntegerSpinnerValueFactory(1, 24, 6, 1);
-        spnhoras.setValueFactory(svf);
-
-    }
+    
 
     void setBorder(BorderPane panelRight) {
         bp = panelRight;
