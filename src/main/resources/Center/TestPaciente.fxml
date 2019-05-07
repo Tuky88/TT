@@ -23,23 +23,23 @@
                               <Font name="System Italic" size="25.0" />
                            </font>
                         </Label>
-                        <Label layoutX="251.0" layoutY="67.0" text="Instrucciones para contestar el Test">
+                        <Label layoutX="436.0" layoutY="67.0" text="Instrucciones">
                            <font>
                               <Font name="Arial" size="25.0" />
                            </font>
                         </Label>
-                        <TextArea editable="false" layoutX="219.0" layoutY="132.0" prefHeight="101.0" prefWidth="516.0" text="Bienvenido, introduce el número de paciente &#10;otorgado por tu especialista. ">
+                        <TextArea editable="false" layoutX="217.0" layoutY="108.0" prefHeight="123.0" prefWidth="592.0" text="Bienvenido, introduce el número de paciente otorgado &#10;por tu especialista y preciona el botón de comenzar &#10;para iniciar el test">
                            <font>
                               <Font name="Arial" size="23.0" />
                            </font>
                         </TextArea>
-                        <Label layoutX="273.0" layoutY="250.0" text="CURP">
+                        <Label layoutX="323.0" layoutY="273.0" text="Número:">
                            <font>
                               <Font name="Arial" size="18.0" />
                            </font>
                         </Label>
-                        <JFXButton fx:id="btnTPComenzar" buttonType="RAISED" layoutX="566.0" layoutY="337.0" onAction="#iniciarTest" prefHeight="30.0" prefWidth="125.0" ripplerFill="WHITE" style="-fx-background-color: #AECFDC;" text="Comenzar" />
-                        <JFXTextField fx:id="txtTPnumero" layoutX="350.0" layoutY="248.0" prefHeight="25.0" prefWidth="260.0" />
+                        <JFXButton fx:id="btnTPComenzar" buttonType="RAISED" layoutX="473.0" layoutY="347.0" onAction="#iniciarTest" prefHeight="30.0" prefWidth="125.0" ripplerFill="WHITE" style="-fx-background-color: #AECFDC;" text="Comenzar" />
+                        <JFXTextField fx:id="txtTPnumero" layoutX="400.0" layoutY="271.0" prefHeight="25.0" prefWidth="260.0" />
                      </children>
                   </Pane>
                </children>

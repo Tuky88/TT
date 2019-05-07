@@ -47,6 +47,11 @@ public class AñadirEspecialistaController implements Initializable {
 
     @FXML
     private JFXTextField txtCanoempleado;
+        @FXML
+    private JFXTextField txtAtelefono;
+
+    @FXML
+    private JFXTextField txtAhorario;
 
     /**
      * Initializes the controller class.

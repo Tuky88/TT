@@ -165,7 +165,7 @@ public class PrediagnosticoController implements Initializable {
         yAxisrih.setLabel("Valor");
  
         XYChart.Series seriesih = new XYChart.Series();
-        double ih=Double.parseDouble(rchsdq.getText());
+        double ih=Double.parseDouble(ihsdq.getText());
         seriesih.getData().add(new XYChart.Data("Obtenido",ih));
         XYChart.Series seriesihm = new XYChart.Series();
         double ihm=29.44;
@@ -178,7 +178,7 @@ public class PrediagnosticoController implements Initializable {
         yAxisis.setLabel("Valor");
  
         XYChart.Series seriesis = new XYChart.Series();
-        double is=Double.parseDouble(rcs50.getText());
+        double is=Double.parseDouble(is50.getText());
         seriesis.getData().add(new XYChart.Data("Obtenido",is));
         XYChart.Series seriesism = new XYChart.Series();
         double ism=19;
