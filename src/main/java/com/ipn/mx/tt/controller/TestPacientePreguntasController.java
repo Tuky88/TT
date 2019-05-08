@@ -123,12 +123,10 @@ public class TestPacientePreguntasController implements Initializable {
 
     @FXML
     private void mostrarPrediagnostico(ActionEvent ae) {
-
-        cv = new cargadorVista();
+cv = new cargadorVista();
         PrediagnosticoController pc = (PrediagnosticoController) cv.cambiarVista("/Center/Prediagnostico.fxml", mc.getPanelPrin());
         test.getFinCuestionario();
         test.getDuracion();
-        test.guardarCuestionario(ic.getIdCuestionario());
         pc.setCuestionario(test.getCuestionario());
         pc.cargarResultados();
         pc.startgrafica();

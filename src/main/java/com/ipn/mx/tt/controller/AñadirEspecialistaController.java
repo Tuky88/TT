@@ -9,6 +9,7 @@ import com.ipn.mx.tt.dao.UsuarioDAO;
 import com.ipn.mx.tt.modelo.Usuario;
 import com.ipn.mx.tt.util.CustomMessage;
 import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
 import java.net.URL;
@@ -52,6 +53,12 @@ public class AñadirEspecialistaController implements Initializable {
 
     @FXML
     private JFXTextField txtAhorario;
+    
+     @FXML
+    private JFXComboBox<?> cbxpregunta;
+
+    @FXML
+    private JFXTextField txtrespuesta;
 
     /**
      * Initializes the controller class.

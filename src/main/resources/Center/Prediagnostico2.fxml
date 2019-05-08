@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXTextArea?>
 <?import com.jfoenix.controls.JFXTextField?>
 <?import javafx.scene.control.Label?>
@@ -14,7 +15,20 @@
    <children>
       <SplitPane dividerPositions="0.29797979797979796" prefHeight="510.0" prefWidth="1280.0" style="-fx-background-color: #FFFFFF;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <items>
-            <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="510.0" prefWidth="260.0" style="-fx-background-color: #4D92DF;" />
+            <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="510.0" prefWidth="260.0" style="-fx-background-color: #4D92DF;">
+               <children>
+                  <TableView fx:id="tbthabitos" layoutY="73.0" prefHeight="401.0" prefWidth="260.0" AnchorPane.bottomAnchor="36.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="73.0">
+                    <columns>
+                      <TableColumn editable="false" prefWidth="157.0" text="Pregunta" />
+                      <TableColumn editable="false" prefWidth="102.0" text="Respuesta" />
+                    </columns>
+                  </TableView>
+                  <Label alignment="CENTER" layoutY="25.0" prefHeight="38.0" prefWidth="260.0" style="-fx-background-color: #FFFFFF;" text="Habitos de sueño" textFill="#44869a">
+                     <font>
+                        <Font size="22.0" />
+                     </font>
+                  </Label>
+               </children></AnchorPane>
             <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="510.0" prefWidth="1020.0" style="-fx-background-color: #FFFFFF;">
                <children>
                   <Pane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="510.0" prefWidth="1020.0" style="-fx-background-color: #FFFFFF;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
@@ -24,12 +38,12 @@
                               <Font name="System Italic" size="25.0" />
                            </font>
                         </Label>
-                        <JFXTextField alignment="CENTER" editable="false" layoutX="14.0" layoutY="37.0" prefHeight="38.0" prefWidth="316.0" text="Los sintomas encontrados son los siguientes:">
+                        <JFXTextField alignment="CENTER" editable="false" layoutX="14.0" layoutY="37.0" prefHeight="31.0" prefWidth="316.0" text="Los sintomas encontrados son los siguientes:">
                            <font>
                               <Font size="14.0" />
                            </font>
                         </JFXTextField>
-                        <TableView editable="true" layoutX="14.0" layoutY="75.0" prefHeight="298.0" prefWidth="408.0">
+                        <TableView fx:id="tblsintomas" editable="true" layoutX="14.0" layoutY="75.0" prefHeight="429.0" prefWidth="408.0">
                           <columns>
                             <TableColumn prefWidth="75.0" text="Sintoma" />
                             <TableColumn prefWidth="75.0" text="Trastorno" />
@@ -39,12 +53,12 @@
                               <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
                            </columnResizePolicy>
                         </TableView>
-                        <JFXTextField alignment="CENTER" editable="false" layoutX="435.0" layoutY="37.0" prefHeight="38.0" prefWidth="316.0" text="Valores de los trastornos encontrados">
+                        <JFXTextField alignment="CENTER" editable="false" layoutX="494.0" layoutY="37.0" prefHeight="31.0" prefWidth="316.0" text="Valores de los trastornos encontrados">
                            <font>
                               <Font size="14.0" />
                            </font>
                         </JFXTextField>
-                        <TableView editable="true" layoutX="435.0" layoutY="75.0" prefHeight="216.0" prefWidth="408.0">
+                        <TableView fx:id="tbltrastornos" editable="true" layoutX="493.0" layoutY="75.0" prefHeight="175.0" prefWidth="408.0">
                            <columns>
                               <TableColumn prefWidth="75.0" text="Trastorno" />
                               <TableColumn prefWidth="75.0" text="HSDQ" />
@@ -56,7 +70,17 @@
                               <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
                            </columnResizePolicy>
                         </TableView>
-                        <JFXTextArea layoutX="435.0" layoutY="309.0" prefHeight="185.0" prefWidth="574.0" promptText="Comentarios" />
+                        <JFXTextArea fx:id="txtcomentarios" layoutX="435.0" layoutY="255.0" prefHeight="185.0" prefWidth="574.0" promptText="Comentarios" />
+                        <JFXButton fx:id="btnrecomendaciones" layoutX="773.0" layoutY="458.0" prefHeight="38.0" prefWidth="128.0" ripplerFill="#ee896a" style="-fx-background-color: #ee896a;" text="Recomendaciones">
+                           <font>
+                              <Font size="13.0" />
+                           </font>
+                        </JFXButton>
+                        <JFXButton fx:id="btnregresar" layoutX="510.0" layoutY="458.0" prefHeight="38.0" prefWidth="128.0" ripplerFill="#a8ddab" style="-fx-background-color: #a8ddab;" text="Regresar" textFill="WHITE">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </JFXButton>
                      </children>
                   </Pane>
                </children>
