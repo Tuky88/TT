@@ -11,6 +11,7 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import javafx.scene.control.Spinner;
 
 /**
  *
@@ -23,6 +24,13 @@ public class Validador {
             return jf.getText();
         } else {
             return "";
+        }
+    }
+    public Double validarTFtoDouble(JFXTextField jf) {
+        if (jf.getText().length() > 0) {
+            return Double.valueOf(jf.getText());
+        } else {
+            return 0.0;
         }
     }
     public String validars(String text) {
@@ -41,6 +49,11 @@ public class Validador {
         } else {
             return "";
         }
+    }
+    public Double validarSp(Spinner sp)
+    {
+        Double d=new Double((Integer)sp.getValue());
+        return d;
     }
     
 }
