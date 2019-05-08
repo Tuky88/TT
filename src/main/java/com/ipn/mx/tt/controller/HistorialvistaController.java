@@ -7,7 +7,9 @@ package com.ipn.mx.tt.controller;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.TableView;
 
 /**
  * FXML Controller class
@@ -16,6 +18,11 @@ import javafx.fxml.Initializable;
  */
 public class HistorialvistaController implements Initializable {
 
+    @FXML
+    private TableView<?> tbltrastornos;
+
+    @FXML
+    private TableView<?> tbltest;
     /**
      * Initializes the controller class.
      */
