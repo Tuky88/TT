@@ -32,6 +32,7 @@ public class ConductaDAO extends DocumentoDAO{
                 .append("JornadaLaboral", cd.getJornadaLaboral())
                 .append("DiasDescanso", cd.getDiasDeDescanso())
                 .append("HorasTrabajo", cd.getHorasDeTrabajo())
+                .append("PromedioHoras", cd.getPromedioHoras())
                 .append("PromedioHorasL", cd.getPromedioHorasLaborales())
                 .append("PromedioHorasD", cd.getPromedioHorasDescanso());
         cjm.getMongoCollection().insert(dbo);

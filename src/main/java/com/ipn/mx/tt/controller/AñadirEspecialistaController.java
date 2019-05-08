@@ -8,6 +8,7 @@ package com.ipn.mx.tt.controller;
 import com.ipn.mx.tt.dao.UsuarioDAO;
 import com.ipn.mx.tt.modelo.Usuario;
 import com.ipn.mx.tt.util.CustomMessage;
+import com.ipn.mx.tt.util.Validador;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXPasswordField;
@@ -25,6 +26,8 @@ import javafx.fxml.Initializable;
  */
 public class AñadirEspecialistaController implements Initializable {
 
+    private Validador v;
+    private UsuarioDAO ud;
     @FXML
     private JFXButton btnCacguardar;
 
@@ -48,13 +51,13 @@ public class AñadirEspecialistaController implements Initializable {
 
     @FXML
     private JFXTextField txtCanoempleado;
-        @FXML
+    @FXML
     private JFXTextField txtAtelefono;
 
     @FXML
     private JFXTextField txtAhorario;
-    
-     @FXML
+
+    @FXML
     private JFXComboBox<?> cbxpregunta;
 
     @FXML
@@ -66,6 +69,8 @@ public class AñadirEspecialistaController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+        v = new Validador();
+        ud=new UsuarioDAO();
     }
 
     @FXML
@@ -73,15 +78,18 @@ public class AñadirEspecialistaController implements Initializable {
         Usuario u;
         String c1 = txtCapass.getText(), cc = txtCarpass.getText();
         if (c1.equals(cc)) {
-            String nombre = txtCanombre.getText();
-            String apellido = txtCaapellido.getText();
-            String usuario = txtCausuario.getText();
-            String correo = txtCacorreo.getText();
+            String nombre = v.validarTF(txtCanombre);
+            String apellido = v.validarTF(txtCaapellido);
+            String usuario = v.validarTF(txtCausuario);
+            String correo = v.validarTF(txtCacorreo);
+            String telefono = v.validarTF(txtAtelefono);
+            String horario = v.validarTF(txtCanombre);
             Double num = Double.valueOf(txtCanoempleado.getText());
             if (nombre.length() > 3 && apellido.length() > 3
-                    && usuario.length() > 3 && correo.length() > 3 && (num != 0.0 && num.toString().length() > 3)) {
-                u = new Usuario(usuario, cc, nombre, apellido, correo, num);
-                UsuarioDAO ud = new UsuarioDAO();
+                    && usuario.length() > 3 && correo.length() > 3
+                    && (num != 0.0 && num.toString().length() > 3)
+                    && horario.length() > 3 && telefono.length() > 3) {
+                u = new Usuario(usuario, cc, nombre, apellido, correo, num, telefono, horario);
                 ud.insertarUsuario(u);
                 CustomMessage cm = new CustomMessage("CARGADO CON ÉXITO", "El usuario se agregó correctamente.", 1);
             } else {

@@ -3,7 +3,6 @@ package com.ipn.mx.tt.controller;
 import com.ipn.mx.tt.dao.UsuarioDAO;
 import com.ipn.mx.tt.modelo.Usuario;
 import com.ipn.mx.tt.util.CustomMessage;
-import com.ipn.mx.tt.util.Loader;
 import com.ipn.mx.tt.util.movEscena;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXPasswordField;
@@ -21,11 +20,11 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
-import javafx.stage.Stage;
 
 public class LoginController implements Initializable {
 
-    movEscena mov;
+    private movEscena mov;
+    private UsuarioDAO udao;
 
     @FXML
     private Label lblStatus;
@@ -56,7 +55,6 @@ public class LoginController implements Initializable {
 
     public void iniciarSesion(Event e) {
 
-        UsuarioDAO udao = new UsuarioDAO();
         Usuario user;
         if (txtPass.getText().length() > 0 && txtUser.getText().length() > 0) {
 
@@ -107,6 +105,9 @@ public class LoginController implements Initializable {
         // TODO
         // lblStatus.setVisible(false);
         mov = new movEscena();
+        udao=new UsuarioDAO();
+        udao.conectar();
+        
         // txtPass.getStyleClass().setAll("btn", "btn-primary");
     }
 

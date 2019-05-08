@@ -6,6 +6,7 @@
 package com.ipn.mx.tt.util;
 
 import com.jfoenix.controls.JFXDatePicker;
+import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -54,6 +55,17 @@ public class Validador {
     {
         Double d=new Double((Integer)sp.getValue());
         return d;
+    }
+    public String validarPf(JFXPasswordField  jx)
+    {
+        if(jx.getText().length()>0)
+        {
+            return jx.getText();
+        }
+        else
+        {
+            return "";
+        }
     }
     
 }
