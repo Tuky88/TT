@@ -10,6 +10,7 @@ import com.ipn.mx.tt.modelo.Usuario;
 import com.ipn.mx.tt.util.CustomMessage;
 import com.ipn.mx.tt.util.cargadorVista;
 import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextField;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -54,6 +55,12 @@ public class CuentaEspecialistaController implements Initializable {
     private JFXTextField txtCapellido;
     @FXML
     private JFXTextField txtCnoempleado;
+       @FXML
+    private JFXComboBox<?> cbxpregunta;
+
+    @FXML
+    private JFXTextField txtrespuesta;
+    
     Usuario u;
     menuController mc;
 

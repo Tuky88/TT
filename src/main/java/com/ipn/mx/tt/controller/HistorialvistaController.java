@@ -5,38 +5,16 @@
  */
 package com.ipn.mx.tt.controller;
 
-import com.jfoenix.controls.JFXButton;
-import com.jfoenix.controls.JFXTextArea;
 import java.net.URL;
 import java.util.ResourceBundle;
-import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.TableView;
 
 /**
  * FXML Controller class
  *
  * @author Temp
  */
-public class Prediagnostico2Controller implements Initializable {
-        @FXML
-    private TableView<?> tbthabitos;
-
-    @FXML
-    private TableView<?> tblsintomas;
-
-    @FXML
-    private TableView<?> tbltrastornos;
-
-    @FXML
-    private JFXTextArea txtcomentarios;
-
-    @FXML
-    private JFXButton btnrecomendaciones;
-
-    @FXML
-    private JFXButton btnregresar;
-
+public class HistorialvistaController implements Initializable {
 
     /**
      * Initializes the controller class.
