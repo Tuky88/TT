@@ -29,9 +29,10 @@ import javafx.scene.layout.AnchorPane;
  */
 public class CambiarcontraController implements Initializable {
 
-    Usuario usuario;
-    menuController mc;
-    cargadorVista cv;
+    private Usuario usuario;
+    private menuController mc;
+    private cargadorVista cv;
+    private UsuarioDAO ud;
 
     @FXML
     private JFXPasswordField txtCpass;
@@ -86,13 +87,10 @@ public class CambiarcontraController implements Initializable {
     public void cambiarContraseña() {
         if (txtCnpass.getText().length() > 0 && txtCpass.getText().length() > 0 && txtCrnpass.getText().length() > 0) {
             if (txtCpass.getText().equals(usuario.getContraseña())) {
-                UsuarioDAO ud = new UsuarioDAO();
+
                 if (txtCnpass.getText().equals(txtCrnpass.getText())) {
                     usuario.setContraseña(txtCrnpass.getText());
                     if (ud.actualizarContraseña(usuario)) {
-
-                        Alert a = new Alert(Alert.AlertType.NONE, "Se actualizó la contraseña.", ButtonType.OK);
-                        a.show();
                         CustomMessage cm = new CustomMessage("AVISO", "Se actualizó la contraseña.", 0);
                     } else {
 
@@ -122,6 +120,7 @@ public class CambiarcontraController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
         cv = new cargadorVista();
+        ud = new UsuarioDAO();
     }
 
 }

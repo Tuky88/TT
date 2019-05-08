@@ -20,14 +20,34 @@ public class Usuario {
     String Apellido;
     String Correo;
     Double numEmpleado;
+    String Telefono;
+    String Horario;
 
-    public Usuario(String Id, String Contraseña, String Nombre, String Apellido, String Correo,Double numEmpleado) {
+    public Usuario(String Id, String Contraseña, String Nombre, String Apellido, String Correo, Double numEmpleado, String Telefono, String Horario) {
         this.Id = Id;
         this.Contraseña = Contraseña;
         this.Nombre = Nombre;
         this.Apellido = Apellido;
         this.Correo = Correo;
-        this.numEmpleado =numEmpleado;
+        this.numEmpleado = numEmpleado;
+        this.Telefono = Telefono;
+        this.Horario = Horario;
+    }
+
+    public String getTelefono() {
+        return Telefono;
+    }
+
+    public void setTelefono(String Telefono) {
+        this.Telefono = Telefono;
+    }
+
+    public String getHorario() {
+        return Horario;
+    }
+
+    public void setHorario(String Horario) {
+        this.Horario = Horario;
     }
 
     public String getNombre() {
@@ -57,9 +77,9 @@ public class Usuario {
     public Usuario(String Id, String Contraseña) {
         this.Id = Id;
         this.Contraseña = Contraseña;
-        this.Apellido="";
-        this.Correo="";
-        this.Nombre="";
+        this.Apellido = "";
+        this.Correo = "";
+        this.Nombre = "";
     }
 
     public Usuario(String Id, String Nombre, String Apellido, String Correo) {
@@ -68,7 +88,15 @@ public class Usuario {
         this.Apellido = Apellido;
         this.Correo = Correo;
     }
-    
+
+    public Usuario(String Id, String Nombre, String Apellido, String Correo, String Telefono, String Horario) {
+        this.Id = Id;
+        this.Nombre = Nombre;
+        this.Apellido = Apellido;
+        this.Correo = Correo;
+        this.Telefono = Telefono;
+        this.Horario = Horario;
+    }
 
     public Usuario() {
         Contraseña = "";
@@ -78,10 +106,12 @@ public class Usuario {
     public Usuario(DBObject dbo) {
         Id = (String) dbo.get("_id");
         Contraseña = (String) dbo.get("contraseña");
-        Apellido= (String )dbo.get("Apellido");
-        Nombre=(String) dbo.get("Nombre");
-        Correo=(String) dbo.get("Correo");
+        Apellido = (String) dbo.get("Apellido");
+        Nombre = (String) dbo.get("Nombre");
+        Correo = (String) dbo.get("Correo");
         numEmpleado = (Double) dbo.get("numEmpleado");
+        Telefono = (String) dbo.get("Telefono");
+        Horario = (String) dbo.get("Horario");
     }
 
     public String getId() {
@@ -110,10 +140,7 @@ public class Usuario {
 
     @Override
     public String toString() {
-        return "Usuario{" + "Id=" + Id + ", Contrase\u00f1a=" + Contraseña + ", Nombre=" + Nombre + ", Apellido=" + Apellido + ", Correo=" + Correo + ", numEmpleado=" + numEmpleado + '}';
+        return "Usuario{" + "Id=" + Id + ", Contrase\u00f1a=" + Contraseña + ", Nombre=" + Nombre + ", Apellido=" + Apellido + ", Correo=" + Correo + ", numEmpleado=" + numEmpleado + ", Telefono=" + Telefono + ", Horario=" + Horario + '}';
     }
-    
-
-    
 
 }

@@ -5,6 +5,7 @@
  */
 package com.ipn.mx.tt.controller;
 
+import com.ipn.mx.tt.dao.UsuarioDAO;
 import com.ipn.mx.tt.modelo.Usuario;
 import com.ipn.mx.tt.util.cargadorVista;
 import com.jfoenix.controls.JFXButton;
@@ -23,6 +24,7 @@ import javafx.scene.layout.BorderPane;
 public class ConfiguracionesController implements Initializable {
 
     private Usuario usuario;
+    private UsuarioDAO ud;
     private menuController mc;
     private cargadorVista cv;
 
@@ -42,13 +44,13 @@ public class ConfiguracionesController implements Initializable {
     public void setMc(menuController mc) {
         this.mc = mc;
     }
-    
 
     @FXML
     void abrirCuenta(ActionEvent event) {
-        CuentaEspecialistaController cec =
-                (CuentaEspecialistaController) 
-                cv.cambiarVista("/Center/CuentaEspecialista.fxml",panelRight);
+        CuentaEspecialistaController cec
+                = (CuentaEspecialistaController) cv.cambiarVista("/Center/CuentaEspecialista.fxml", panelRight);
+
+        usuario = ud.buscarUsuario(usuario.getId());
         System.out.println(usuario.toString());
         cec.colocarDatos(usuario);
         cec.setMc(mc);
@@ -58,13 +60,11 @@ public class ConfiguracionesController implements Initializable {
 
     @FXML
     void abrirEspecialista(ActionEvent event) {
-        cv.cambiarVista("/Center/AñadirEspecialista.fxml",panelRight);
+        cv.cambiarVista("/Center/AñadirEspecialista.fxml", panelRight);
 
         btnCcuenta.setDisable(false);
         btnCañadir.setDisable(true);
     }
-
-
 
     public Usuario getUsuario() {
         return usuario;
@@ -81,7 +81,9 @@ public class ConfiguracionesController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-        cv=new cargadorVista();
+        cv = new cargadorVista();
+        ud = new UsuarioDAO();
+        ud.conectar();
     }
 
     void clickInicial() {
