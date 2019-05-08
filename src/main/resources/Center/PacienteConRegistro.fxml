@@ -57,6 +57,9 @@
                <columnResizePolicy>
                   <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
                </columnResizePolicy>
+               <GridPane.margin>
+                  <Insets left="10.0" right="10.0" />
+               </GridPane.margin>
             </TableView>
             <JFXButton fx:id="btnPriniciar" buttonType="RAISED" onAction="#iniciarTest" prefHeight="28.0" prefWidth="162.0" ripplerFill="WHITE" style="-fx-background-color: #B1F4AD;" text="Iniciar test" GridPane.halignment="CENTER" GridPane.rowIndex="2">
                <font>

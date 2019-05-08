@@ -8,6 +8,7 @@ package com.ipn.mx.tt.controller;
 import com.ipn.mx.tt.modelo.Cuestionario;
 import com.jfoenix.controls.JFXButton;
 import java.net.URL;
+import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.time.Instant;
 import java.util.ResourceBundle;
@@ -135,20 +136,21 @@ public class PrediagnosticoController implements Initializable {
     }
 
     public void cargarResultados() {
-        ihsdq.setText("" + cuestionario.getTrastorno(1, 1));
-        is50.setText("" + cuestionario.getTrastorno(2, 1));
-        rchsdq.setText("" + cuestionario.getTrastorno(1, 2));
-        rcs50.setText("" + cuestionario.getTrastorno(2, 2));
-        pihsdq.setText("" + cuestionario.getTrastorno(1, 3));
-        pis50.setText("" + cuestionario.getTrastorno(2, 3));
-        ahsdq.setText("" + cuestionario.getTrastorno(1, 4));
-        as50.setText("" + cuestionario.getTrastorno(2, 4));
-        hhsdq.setText("" + cuestionario.getTrastorno(1, 5));
-        hs50.setText("" + cuestionario.getTrastorno(2, 5));
-        nhsdq.setText("" + cuestionario.getTrastorno(1, 6));
-        ns50.setText("" + cuestionario.getTrastorno(2, 6));
-        ohsdq.setText("" + cuestionario.getTrastorno(1, 7));
-        os50.setText("" + cuestionario.getTrastorno(2, 7));
+         DecimalFormat df = new DecimalFormat("#.00");
+        ihsdq.setText("" + df.format(cuestionario.getTrastorno(1, 1)));
+        is50.setText("" + df.format(cuestionario.getTrastorno(2, 1)));
+        rchsdq.setText("" + df.format(cuestionario.getTrastorno(1, 2)));
+        rcs50.setText("" + df.format(cuestionario.getTrastorno(2, 2)));
+        pihsdq.setText("" + df.format(cuestionario.getTrastorno(1, 3)));
+        pis50.setText("" + df.format(cuestionario.getTrastorno(2, 3)));
+        ahsdq.setText("" + df.format(cuestionario.getTrastorno(1, 4)));
+        as50.setText("" + df.format(cuestionario.getTrastorno(2, 4)));
+        hhsdq.setText("" + df.format(cuestionario.getTrastorno(1, 5)));
+        hs50.setText("" + df.format(cuestionario.getTrastorno(2, 5)));
+        nhsdq.setText("" + df.format(cuestionario.getTrastorno(1, 6)));
+        ns50.setText("" + df.format(cuestionario.getTrastorno(2, 6)));
+        ohsdq.setText("" + df.format(cuestionario.getTrastorno(1, 7)));
+        os50.setText("" + df.format(cuestionario.getTrastorno(2, 7)));
         
         SimpleDateFormat dt = new SimpleDateFormat("hh:mm:ss"); 
         SimpleDateFormat dt1 = new SimpleDateFormat("mm:ss"); 
