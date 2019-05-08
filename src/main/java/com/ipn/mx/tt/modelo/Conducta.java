@@ -15,28 +15,39 @@ public class Conducta {
     private Double horarioTrabajo;
     private Double jornadaLaboral;
     private Double diasDeDescanso;
+    private Double promedioHoras;
     private Double promedioHorasLaborales;
     private Double horasDeTrabajo;
     private Double promedioHorasDescanso;
 
-    public Conducta(boolean trabaja, Double horarioTrabajo, Double jornadaLaboral, Double diasDeDescanso, Double promedioHorasLaborales, Double horasDeTrabajo, Double promedioHorasDescanso) {
-        this.trabaja = trabaja;
-        this.horarioTrabajo = horarioTrabajo;
-        this.jornadaLaboral = jornadaLaboral;
-        this.diasDeDescanso = diasDeDescanso;
-        this.promedioHorasLaborales = promedioHorasLaborales;
-        this.horasDeTrabajo = horasDeTrabajo;
-        this.promedioHorasDescanso = promedioHorasDescanso;
-    }
-
-    public Conducta(Double horasDescanso) {
+    public Conducta(Double horas) {
         trabaja = false;
         horarioTrabajo = 0.0;
         jornadaLaboral = 0.0;
         diasDeDescanso = 7.0;
         promedioHorasLaborales = 0.0;
         horasDeTrabajo = 0.0;
-        promedioHorasDescanso = horasDescanso;
+        promedioHoras = horas;
+        promedioHorasDescanso = 0.0;
+    }
+
+    public Conducta(Double horarioTrabajo, Double jornadaLaboral, Double diasDeDescanso, Double promedioHoras, Double promedioHorasLaborales, Double horasDeTrabajo, Double promedioHorasDescanso) {
+        this.trabaja = true;
+        this.horarioTrabajo = horarioTrabajo;
+        this.jornadaLaboral = jornadaLaboral;
+        this.diasDeDescanso = diasDeDescanso;
+        this.promedioHoras = promedioHoras;
+        this.promedioHorasLaborales = promedioHorasLaborales;
+        this.horasDeTrabajo = horasDeTrabajo;
+        this.promedioHorasDescanso = promedioHorasDescanso;
+    }
+
+    public Double getPromedioHoras() {
+        return promedioHoras;
+    }
+
+    public void setPromedioHoras(Double promedioHoras) {
+        this.promedioHoras = promedioHoras;
     }
 
     public boolean isTrabaja() {
@@ -94,5 +105,11 @@ public class Conducta {
     public void setPromedioHorasDescanso(Double promedioHorasDescanso) {
         this.promedioHorasDescanso = promedioHorasDescanso;
     }
+
+    @Override
+    public String toString() {
+        return "Conducta{" + "trabaja=" + trabaja + ", horarioTrabajo=" + horarioTrabajo + ", jornadaLaboral=" + jornadaLaboral + ", diasDeDescanso=" + diasDeDescanso + ", promedioHoras=" + promedioHoras + ", promedioHorasLaborales=" + promedioHorasLaborales + ", horasDeTrabajo=" + horasDeTrabajo + ", promedioHorasDescanso=" + promedioHorasDescanso + '}';
+    }
+    
 
 }

@@ -17,20 +17,15 @@ import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXDatePicker;
 import com.jfoenix.controls.JFXRadioButton;
 import com.jfoenix.controls.JFXTextField;
-import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Spinner;
-import javafx.scene.control.SpinnerValueFactory;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
@@ -94,12 +89,12 @@ public class PacienteNuevoController implements Initializable {
 
     @FXML
     private JFXComboBox cbxescolaridad;
-    
+
     private BorderPane bp;
 
-    ObservableList<String> items = FXCollections.observableArrayList("Sin estudios","Primaria",
-            "Secundaria","Preparatoria","Licenciatura","Maestria","Doctorado");
-    
+    ObservableList<String> items = FXCollections.observableArrayList("Sin estudios", "Primaria",
+            "Secundaria", "Preparatoria", "Licenciatura", "Maestria", "Doctorado");
+
     /**
      * Initializes the controller class.
      */
@@ -114,14 +109,17 @@ public class PacienteNuevoController implements Initializable {
         pd.conectar();
         cad = new CuestionarioAplicadoDAO();
         cad.conectar();
-     cbxescolaridad.setItems(items);
-        cbxescolaridad.setValue("Sin estudios");
+        cbxescolaridad.setItems(items);
+        cbxescolaridad.setValue("-");
         // TODO
     }
 
-
-
-    void registrarPaciente(Paciente p) {
+    public void registrarPaciente(Paciente p,InfoCuestionario ic)
+    {
+        registrarPaciente(p);
+        cad.insertarInfoCuestionario(ic);
+    }
+    public void registrarPaciente(Paciente p) {
         pd.insertarPaciente(p);
     }
 
@@ -141,35 +139,31 @@ public class PacienteNuevoController implements Initializable {
         } else {
             Sexo = "M";
         }
-        if (!pd.pacienteExiste(CURP)) {
-            if (!Nombre.equals("") && !Apellido.equals("") && !CURP.equals("") && !Correo.equals("") && !Fecha.equals("")
-                    && !Direccion.equals("") && !Telefono.equals("")) {
-
-                Paciente p = new Paciente(Nombre, Apellido, Sexo, Correo, Fecha, Direccion, Telefono, CURP);
-                InfoCuestionario ic = new InfoCuestionario(cad.buscarSiguiente() + 1, 0.0, CURP, c.getUsuario().getId());
-                cad.insertarInfoCuestionario(ic);
-                registrarPaciente(p);
-                CustomMessage cm = new CustomMessage("MENSAJE", "Registrado con éxito", 2);
-                CustomMessage cm1 = new CustomMessage("MENSAJE", "¿Desea realizar el Cuestionario?", 4);
-                if (cm1.getMessage().getButtonData().equals(ButtonType.OK.getButtonData())) {
-                    //hacerCuestionario(p, ic);
+//        if (!pd.pacienteExiste(CURP)) {
+//            if (!Nombre.equals("") && !Apellido.equals("") && !CURP.equals("") && !Correo.equals("") && !Fecha.equals("")
+//                    && !Direccion.equals("") && !Telefono.equals("") && !cbxescolaridad.getValue().equals("-")) {
+//
+//                Paciente p = new Paciente(Nombre, Apellido, Sexo, Correo, Fecha, Direccion, Telefono, CURP);
+//                InfoCuestionario ic = new InfoCuestionario(cad.buscarSiguiente() + 1, 0.0, CURP, c.getUsuario().getId());
+//                registrarPaciente(p, ic);
+//                
+//                CustomMessage cm1 = new CustomMessage("MENSAJE", "¿Desea realizar el Cuestionario?", 4);
+//                if (cm1.getMessage().getButtonData().equals(ButtonType.OK.getButtonData())) {
                     PacienteNuevo2Controller pnc = (PacienteNuevo2Controller) cv.cambiarVista("/Center/PacienteNuevo2.fxml", bp);
-                    pnc.setPaciente(p);
-                    pnc.setIc(ic);
-                } else {
-                    CustomMessage cm2 = new CustomMessage("MENSAJE", "El cuestionario se guardó para más tarde", 2);
-                    //GENERAR PDF O MOSTRAR EL NUMERO DE CUESTIONARIO ASIGNADO PARA APLICAR MÁS TARDE
-                }
-            } else {
-                CustomMessage cm = new CustomMessage("ERROR", "Hubo un error en alguno de los campos...", 2);
-            }
-        } else {
-            CustomMessage cm = new CustomMessage("ERROR", "EL CURP ya esta registrado...", 2);
-        }
+//                    pnc.setPaciente(p);
+//                    pnc.setIc(ic);
+//                } else {
+//                    CustomMessage cm2 = new CustomMessage("MENSAJE", "El cuestionario se guardó para más tarde", 2);
+//                    GENERAR PDF O MOSTRAR EL NUMERO DE CUESTIONARIO ASIGNADO PARA APLICAR MÁS TARDE
+//                }
+//            } else {
+//                CustomMessage cm = new CustomMessage("ERROR", "Hubo un error en alguno de los campos...", 2);
+//            }
+//        } else {
+//            CustomMessage cm = new CustomMessage("ERROR", "EL CURP ya esta registrado...", 2);
+//        }
 
     }
-
-    
 
     void setBorder(BorderPane panelRight) {
         bp = panelRight;
