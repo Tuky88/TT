@@ -139,12 +139,12 @@
                   <Insets right="55.0" />
                </GridPane.margin>
             </JFXTextField>
-            <JFXComboBox GridPane.columnIndex="1" GridPane.rowIndex="6">
+            <JFXComboBox fx:id="cbxdiasd" GridPane.columnIndex="1" GridPane.rowIndex="6">
                <GridPane.margin>
                   <Insets left="210.0" />
                </GridPane.margin>
             </JFXComboBox>
-            <Spinner prefHeight="25.0" prefWidth="69.0" GridPane.columnIndex="1" GridPane.rowIndex="7">
+            <Spinner fx:id="spnhorastrabajo" prefHeight="25.0" prefWidth="69.0" GridPane.columnIndex="1" GridPane.rowIndex="7">
                <GridPane.margin>
                   <Insets left="200.0" />
                </GridPane.margin>

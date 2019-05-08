@@ -64,9 +64,12 @@ public class PacienteConRegistroController implements Initializable {
     
     @FXML
     private TableColumn<PacienteTabla, String> columnaNombre;
-    
+   
+    @FXML
+    private TableColumn<PacienteTabla, String> test;
     @FXML
     private TableColumn<PacienteTabla, String> columnaEdad;
+    
     private ObservableList<PacienteTabla> ol;
     
     @FXML

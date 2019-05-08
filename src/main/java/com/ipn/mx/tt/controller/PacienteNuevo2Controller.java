@@ -10,6 +10,7 @@ import com.ipn.mx.tt.modelo.InfoCuestionario;
 import com.ipn.mx.tt.modelo.Paciente;
 import com.ipn.mx.tt.util.cargadorVista;
 import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXRadioButton;
 import com.jfoenix.controls.JFXTextField;
 import java.net.URL;
@@ -67,6 +68,9 @@ public class PacienteNuevo2Controller implements Initializable {
     private JFXRadioButton rbPld;
 
     @FXML
+    private JFXRadioButton rbPld;
+
+    @FXML
     private Label lbldias;
 
     @FXML
@@ -83,6 +87,12 @@ public class PacienteNuevo2Controller implements Initializable {
 
     @FXML
     private JFXTextField txtPhorasd;
+
+    @FXML
+    private JFXComboBox cbxdiasd;
+
+    @FXML
+    private Spinner spnhorastrabajo;
 
     @FXML
     private Label lbltrabaja;
