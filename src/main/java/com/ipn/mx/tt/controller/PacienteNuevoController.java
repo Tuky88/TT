@@ -46,10 +46,6 @@ public class PacienteNuevoController implements Initializable {
     private menuController c;
     private cargadorVista cv;
     private Validador validador;
-    @FXML
-    private ToggleGroup grupoPregunta;
-    @FXML
-    private ToggleGroup grupoPregunta1;
 
     public menuController getC() {
         return c;
@@ -59,7 +55,7 @@ public class PacienteNuevoController implements Initializable {
         this.c = c;
     }
 
-    @FXML
+     @FXML
     private AnchorPane panelP;
 
     @FXML
@@ -69,70 +65,33 @@ public class PacienteNuevoController implements Initializable {
     private JFXTextField txtPnnombre;
 
     @FXML
-    private JFXTextField txtPnapellido;
-
-    @FXML
-    private JFXRadioButton rbPfemenino;
-
-    @FXML
-    private JFXRadioButton rbPmasculino;
-
-    @FXML
-    private JFXTextField txtPncorreo;
-
-    @FXML
-    private JFXDatePicker datePn;
-
-    @FXML
-    private JFXTextField txtPndireccion;
+    private JFXButton btnPnregistrar;
 
     @FXML
     private JFXTextField txtPntelefono;
 
     @FXML
-    private JFXButton btnPnregistrar;
+    private JFXTextField txtPndireccion;
 
     @FXML
-    private JFXTextField txtPnesco;
+    private JFXDatePicker datePn;
 
     @FXML
-    private JFXTextField txtPhorario;
+    private JFXTextField txtPncorreo;
 
     @FXML
-    private JFXTextField txtPhorasl;
+    private JFXRadioButton rbPmasculino;
+
+    
+    @FXML
+    private ToggleGroup grupoPregunta;
 
     @FXML
-    private JFXTextField txtPhorasd;
+    private JFXRadioButton rbPfemenino;
 
     @FXML
-    private JFXRadioButton rbPtrabajan;
+    private JFXTextField txtPnapellido;
 
-    @FXML
-    private JFXRadioButton rbPtrabajas;
-
-    @FXML
-    private JFXRadioButton rbPhorarioturnos;
-
-    @FXML
-    private JFXRadioButton rbPhorariof;
-
-    @FXML
-    private JFXRadioButton rbPls;
-
-    @FXML
-    private JFXTextField txtPdescansos;
-
-    @FXML
-    private JFXRadioButton rbPlv;
-
-    @FXML
-    private Spinner<Integer> spnhoras;
-
-    @FXML
-    private JFXButton btnPnsiguiente;
-
-    @FXML
-    private JFXRadioButton rbPhorarionof;
     @FXML
     private JFXComboBox cbxescolaridad;
     
