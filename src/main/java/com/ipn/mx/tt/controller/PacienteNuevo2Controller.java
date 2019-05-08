@@ -34,7 +34,7 @@ public class PacienteNuevo2Controller implements Initializable {
     private menuController mc;
     private Paciente paciente;
     private InfoCuestionario infoCuestionario;
-      @FXML
+    @FXML
     private AnchorPane panelP;
 
     @FXML
@@ -63,6 +63,8 @@ public class PacienteNuevo2Controller implements Initializable {
 
     @FXML
     private JFXRadioButton rbPls;
+    @FXML
+    private JFXRadioButton rbPld;
 
     @FXML
     private Label lbldias;
@@ -109,11 +111,6 @@ public class PacienteNuevo2Controller implements Initializable {
         // TODO
     }
 
-    @FXML
-    public void comenzarCuestionario(ActionEvent event) {
-
-    }
-
     public void hacerCuestionario() {
         ComenzarTestController ctc = (ComenzarTestController) cv.cambiarVista("/Center/ComenzarTest.fxml", mc.getPanelPrin());
         ctc.setC(mc);
@@ -130,11 +127,40 @@ public class PacienteNuevo2Controller implements Initializable {
     void setIc(InfoCuestionario ic) {
         infoCuestionario = ic;
     }
+
     public void configurarObjetos() {
 
         SpinnerValueFactory<Integer> svf = new SpinnerValueFactory.IntegerSpinnerValueFactory(1, 24, 6, 1);
         spnhoras.setValueFactory(svf);
-        
+
+    }
+
+    @FXML
+    public void trabaja(ActionEvent event) {
+        if (rbPtrabajan.isSelected()) {
+            lbldias.setVisible(false);
+            lblhorario.setVisible(false);
+            lblhoras.setVisible(false);
+            lblphoras.setVisible(false);
+            lblphorasdd.setVisible(false);
+            lblphorass.setVisible(false);
+            lbltrabaja.setVisible(false);
+            rbPhorariof.setVisible(false);
+            rbPhorarionof.setVisible(false);
+            rbPhorarioturnos.setVisible(false);
+            rbPls.setVisible(false);
+            rbPlv.setVisible(false);
+            rbPld.setVisible(false);
+            spnhoras.setVisible(false);
+            txtPhorasd.setVisible(false);
+            txtPhorasl.setVisible(false);
+        } else {
+            rbPhorarionof.setVisible(true);
+        }
+    }
+
+    @FXML
+    public void comenzarCuestionario(ActionEvent event) {
 
     }
 }

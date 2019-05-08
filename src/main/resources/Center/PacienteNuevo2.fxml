@@ -92,7 +92,7 @@
                   <Insets left="340.0" />
                </GridPane.margin>
             </JFXRadioButton>
-            <JFXRadioButton fx:id="rbPls" text="Lunes a Domingo" toggleGroup="$grupoPregunta1" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="5">
+            <JFXRadioButton fx:id="rbPld" text="Lunes a Domingo" toggleGroup="$grupoPregunta1" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="5">
                <GridPane.margin>
                   <Insets left="100.0" />
                </GridPane.margin>
@@ -178,7 +178,7 @@
                   <Insets left="70.0" />
                </GridPane.margin>
             </Label>
-            <JFXRadioButton fx:id="rbPtrabajas" text="Sí" GridPane.columnIndex="1" GridPane.rowIndex="2">
+            <JFXRadioButton fx:id="rbPtrabajas" onAction="#trabaja" text="Sí" GridPane.columnIndex="1" GridPane.rowIndex="2">
                <toggleGroup>
                   <ToggleGroup fx:id="grupoPregunta11" />
                </toggleGroup>
@@ -186,7 +186,7 @@
                   <Insets left="140.0" />
                </GridPane.margin>
             </JFXRadioButton>
-            <JFXRadioButton fx:id="rbPtrabajan" text="No" toggleGroup="$grupoPregunta11" GridPane.columnIndex="1" GridPane.rowIndex="2">
+            <JFXRadioButton fx:id="rbPtrabajan" onAction="#trabaja" text="No" toggleGroup="$grupoPregunta11" GridPane.columnIndex="1" GridPane.rowIndex="2">
                <GridPane.margin>
                   <Insets left="210.0" />
                </GridPane.margin>
