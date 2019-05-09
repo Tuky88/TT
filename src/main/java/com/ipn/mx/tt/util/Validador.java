@@ -5,6 +5,7 @@
  */
 package com.ipn.mx.tt.util;
 
+import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXDatePicker;
 import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
@@ -66,6 +67,10 @@ public class Validador {
         {
             return "";
         }
+    }
+
+    public String validarCbx(JFXComboBox<?> cbxpregunta) {
+        return (String) cbxpregunta.getValue();
     }
     
 }

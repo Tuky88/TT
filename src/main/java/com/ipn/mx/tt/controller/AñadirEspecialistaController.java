@@ -5,6 +5,7 @@
  */
 package com.ipn.mx.tt.controller;
 
+import com.ipn.mx.tt.dao.PreguntaSeguridadDAO;
 import com.ipn.mx.tt.dao.UsuarioDAO;
 import com.ipn.mx.tt.modelo.Usuario;
 import com.ipn.mx.tt.util.CustomMessage;
@@ -28,6 +29,7 @@ public class AñadirEspecialistaController implements Initializable {
 
     private Validador v;
     private UsuarioDAO ud;
+    private PreguntaSeguridadDAO psd;
     @FXML
     private JFXButton btnCacguardar;
 
@@ -70,7 +72,10 @@ public class AñadirEspecialistaController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
         v = new Validador();
-        ud=new UsuarioDAO();
+        ud = new UsuarioDAO();
+        psd = new PreguntaSeguridadDAO();
+        ud.conectar();
+        psd.conectar();
     }
 
     @FXML
@@ -85,12 +90,15 @@ public class AñadirEspecialistaController implements Initializable {
             String telefono = v.validarTF(txtAtelefono);
             String horario = v.validarTF(txtCanombre);
             Double num = Double.valueOf(txtCanoempleado.getText());
+            String preguntaS=v.validarCbx(cbxpregunta);
+            String respuesta= v.validarTF(txtrespuesta);
             if (nombre.length() > 3 && apellido.length() > 3
                     && usuario.length() > 3 && correo.length() > 3
                     && (num != 0.0 && num.toString().length() > 3)
                     && horario.length() > 3 && telefono.length() > 3) {
                 u = new Usuario(usuario, cc, nombre, apellido, correo, num, telefono, horario);
                 ud.insertarUsuario(u);
+                
                 CustomMessage cm = new CustomMessage("CARGADO CON ÉXITO", "El usuario se agregó correctamente.", 1);
             } else {
                 CustomMessage cm = new CustomMessage("AVISO", "Los campos no pueden estar vacíos", 2);
