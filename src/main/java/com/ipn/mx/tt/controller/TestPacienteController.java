@@ -5,8 +5,12 @@
  */
 package com.ipn.mx.tt.controller;
 
+import com.ipn.mx.tt.dao.CuestionarioAplicadoDAO;
+import com.ipn.mx.tt.dao.PacienteDAO;
 import com.ipn.mx.tt.modelo.InfoCuestionario;
 import com.ipn.mx.tt.modelo.Paciente;
+import com.ipn.mx.tt.util.CustomMessage;
+import com.ipn.mx.tt.util.Validador;
 import com.ipn.mx.tt.util.cargadorVista;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
@@ -16,6 +20,8 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 
 /**
@@ -25,14 +31,15 @@ import javafx.scene.layout.AnchorPane;
  */
 public class TestPacienteController implements Initializable {
 
-    int tipoCuestionario;
-
-    boolean datosPaciente;
-    Paciente paciente;
-    cargadorVista cv;
-    menuController mc;
+    private int tipoCuestionario;
+    private boolean datosPaciente;
+    private Paciente paciente;
+    private cargadorVista cv;
+    private menuController mc;
     private InfoCuestionario ic;
-
+    private Validador v;
+    private CuestionarioAplicadoDAO cad;
+    private PacienteDAO pd;
     @FXML
     private Label lblPaciente;
     @FXML
@@ -86,29 +93,73 @@ public class TestPacienteController implements Initializable {
     public void setIc(InfoCuestionario ic) {
         this.ic = ic;
     }
-    
-    public void clickComenzar()
-    {
+
+    public void clickComenzar() {
         btnTPComenzar.fire();
     }
 
     @FXML
-    void iniciarTest(ActionEvent event) {
+    public void iniciarTest(ActionEvent event) {
+
+        enterBoton();
+    }
+
+    @FXML
+    public void enterMenu(KeyEvent event) {
+        if (event.getCode().equals(KeyCode.ENTER)) {
+            enterBoton();
+        }
+    }
+
+    public void enterBoton() {
+        Double numCuestionario = v.validarTFtoDouble(txtTPnumero);
+        Double status = cad.statusCuestionario(numCuestionario);
+        //Traer Paciente con curp
+
+        if (cad.cuestionarioExiste(numCuestionario) && status != 2) {
+            //Llenar infoCuestionario
+            ic = cad.traerInfo(numCuestionario);
+            //Traer paciente
+            paciente = pd.buscarPaciente(ic.getPaciente());
+            System.out.println(paciente.toString());
+            System.out.println(ic.toString());
+
+            if (status == 0) {
+                //CREAR habitos de sueño y mandar  datos obtenidos
+                System.out.println("CUESTIONARIO SIN CONTESTAR");
+                //CUESTIONARIO NUEVO
+            }
+            if (status == 1) {
+                //CARGAR HABITOS DE SUEÑO Y ORDEN PREGUNTAS...
+                System.out.println("CUESTIONARIO EMPEZADO...");
+                //CUESTIONARIO EMPEZADO
+            }
+        } else {
+            CustomMessage cm = new CustomMessage("ERROR", "El numero de cuestionario no es válido, Solicite ayuda", 2);
+        }
+
+    }
+
+    public void cargarTest() {
         TestPacientePreguntasController tppc = (TestPacientePreguntasController) cv.cambiarVista("/Center/TestPacientePreguntas.fxml", mc.getPanelPrin());
         tppc.setMc(mc);
         tppc.setTipoCuestionario(tipoCuestionario);
         tppc.iniciarTest();
         tppc.setPaciente(paciente);
-        if(datosPaciente)
-        {
+        if (datosPaciente) {
             tppc.setIc(ic);
-            tppc.ponerPaciente();  
+            tppc.ponerPaciente();
         }
     }
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         cv = new cargadorVista();
+        v = new Validador();
+        cad = new CuestionarioAplicadoDAO();
+        pd = new PacienteDAO();
+        cad.conectar();
+        pd.conectar();
         // TODO
     }
 

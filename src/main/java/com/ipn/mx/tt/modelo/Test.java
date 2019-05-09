@@ -7,8 +7,8 @@ package com.ipn.mx.tt.modelo;
 
 import com.ipn.mx.tt.dao.CuestionarioAplicadoDAO;
 import com.ipn.mx.tt.dao.CuestionarioPreguntaDAO;
-import com.ipn.mx.tt.dao.CuestionarioTrastornoDAO;
 import com.ipn.mx.tt.dao.CutoffDAO;
+import com.ipn.mx.tt.dao.PrediagnosticoDAO;
 import com.ipn.mx.tt.dao.PreguntaContestadaDAO;
 import com.ipn.mx.tt.dao.PreguntaDAO;
 import com.ipn.mx.tt.dao.PreguntaEquivalenciaDAO;
@@ -34,7 +34,7 @@ public class Test {
     private PreguntaEquivalenciaDAO ped;
     private PreguntaContestadaDAO pcd;
     private CutoffDAO cd;
-    private CuestionarioTrastornoDAO ctd;
+    private PrediagnosticoDAO pred;
     private int contadorPreguntas;
     List preguntas, tipoCuestionario, SintomaPregunta, TrastornoSintoma, equivalencias, cutoff;
     int tipo, tamañoCuestionario;
@@ -51,9 +51,10 @@ public class Test {
         cd = new CutoffDAO();
         pcd = new PreguntaContestadaDAO();
         cad = new CuestionarioAplicadoDAO();
-        ctd = new CuestionarioTrastornoDAO();
+        pred = new PrediagnosticoDAO();
         this.tipo = tipo;
-        ctd.conectar();
+
+        pred.conectar();
         cd.conectar();
         pd.conectar();
         cpd.conectar();
@@ -131,7 +132,7 @@ public class Test {
             Pregunta p = new Pregunta((DBObject) preguntas.get(i - 1), tipo);
             return p;
         } else {
-            Pregunta p = new Pregunta(99, "FIN");
+            Pregunta p = new Pregunta(99, "FIN","");
             return p;
         }
     }
@@ -251,8 +252,8 @@ public class Test {
     public void guardarCuestionario(Double numCuestionario) {
         pcd.guardarPreguntasContestadas(numCuestionario, obtenerPreguntasContestadas());
         cad.actualizarDatos(numCuestionario, 2.0);
-        ctd.insertarTrastornos(1.0, numCuestionario, cuestionario);
-        ctd.insertarTrastornos(2.0, numCuestionario, cuestionario);
+        pred.insertarTrastornos(1.0, numCuestionario, cuestionario);
+        pred.insertarTrastornos(2.0, numCuestionario, cuestionario);
     }
 
 }

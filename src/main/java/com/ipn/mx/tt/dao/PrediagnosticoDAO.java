@@ -13,14 +13,14 @@ import com.mongodb.DBObject;
  *
  * @author Axel Reyes
  */
-public class CuestionarioTrastornoDAO extends DocumentoDAO {
+public class PrediagnosticoDAO extends DocumentoDAO {
 
-    public CuestionarioTrastornoDAO(String base, String coleccion) {
+    public PrediagnosticoDAO(String base, String coleccion) {
         super(base, coleccion);
     }
 
-    public CuestionarioTrastornoDAO() {
-        super("TT", "CuestionarioTrastorno");
+    public PrediagnosticoDAO() {
+        super("TT", "Prediagnostico");
     }
 
     public void insertarTrastornos(Double idCuestionario, Double numCuestionario, Cuestionario c) {

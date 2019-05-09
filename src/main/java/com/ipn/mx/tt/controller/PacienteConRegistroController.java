@@ -125,6 +125,7 @@ public class PacienteConRegistroController implements Initializable {
             ctc.setC(c);
             ctc.setPaciente(pt.getOrigen());
             ctc.setDatosPaciente(true);
+            ctc.ocultarEspecialista();
             if (!cad.cuestionarioPrevio(pt.getCURP().getValue())) {
                 System.out.println("dsfdsfsdfdsfd");
                 InfoCuestionario ic = new InfoCuestionario(cad.buscarSiguiente() + 1, 0.0, pt.getCURP().get(), c.getUsuario().getId());
