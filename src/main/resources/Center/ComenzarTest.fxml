@@ -71,7 +71,7 @@
                               <Cursor fx:constant="HAND" />
                            </cursor>
                         </JFXButton>
-                        <ImageView fitHeight="60.0" fitWidth="60.0" GridPane.halignment="LEFT" GridPane.rowIndex="3">
+                        <ImageView fx:id="imgEspecialista" fitHeight="60.0" fitWidth="60.0" GridPane.halignment="LEFT" GridPane.rowIndex="3">
                            <image>
                               <Image url="@../imagenes/especialistatest.png" />
                            </image>

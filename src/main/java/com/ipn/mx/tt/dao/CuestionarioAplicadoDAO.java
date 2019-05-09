@@ -51,6 +51,24 @@ public class CuestionarioAplicadoDAO extends DocumentoDAO {
         }
 
     }
+    public InfoCuestionario traerInfo(Double numCuestionario)
+    {
+        InfoCuestionario ic;
+        DBObject dbo = new BasicDBObject("_numCuestionario", numCuestionario);
+        DBCursor cursor = cjm.getMongoCollection().find(dbo);
+        if(cursor.hasNext())
+        {
+            String paciente=(String)dbo.get("Paciente");
+            String especialista=(String)dbo.get("Especialista");
+            Double status=(Double) dbo.get("status");
+            ic=new InfoCuestionario(numCuestionario, status, paciente, especialista);
+        }
+        else
+        {
+            ic=new InfoCuestionario();
+        }
+        return ic;
+    }
 
     public Double statusCuestionario(Double cuestionario) {
         DBObject dbo = new BasicDBObject("_numCuestionario", cuestionario);
@@ -101,7 +119,7 @@ public class CuestionarioAplicadoDAO extends DocumentoDAO {
         }
     }
 
-    private boolean cuestionarioExiste(Double numCuestionario) {
+    public boolean cuestionarioExiste(Double numCuestionario) {
         DBObject query = new BasicDBObject("_numCuestionario", numCuestionario);
         DBCursor cursor = cjm.getMongoCollection().find(query);
         return cursor.hasNext();

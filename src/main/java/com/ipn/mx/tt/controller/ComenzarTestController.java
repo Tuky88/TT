@@ -15,6 +15,7 @@ import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 
 /**
@@ -54,6 +55,11 @@ public class ComenzarTestController implements Initializable {
         this.paciente = paciente;
     }
 
+    public void ocultarEspecialista() {
+        this.btnTespecialista.setVisible(false);
+        this.imgEspecialista.setVisible(false);
+    }
+
     public menuController getC() {
         return c;
     }
@@ -73,6 +79,8 @@ public class ComenzarTestController implements Initializable {
 
     @FXML
     private JFXButton btnTacompañante;
+    @FXML
+    private ImageView imgEspecialista;
 
     /**
      * Initializes the controller class.
@@ -89,7 +97,7 @@ public class ComenzarTestController implements Initializable {
         tpc.setMc(c);
         tpc.setTipoCuestionario(i);
         tpc.setPaciente(paciente);
-
+        
         tpc.setDatosPaciente(datosPaciente);
         if (datosPaciente) {
             tpc.setIc(ic);
