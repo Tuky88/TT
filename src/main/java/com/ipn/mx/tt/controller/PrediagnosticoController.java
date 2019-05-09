@@ -6,6 +6,7 @@
 package com.ipn.mx.tt.controller;
 
 import com.ipn.mx.tt.modelo.Cuestionario;
+import com.ipn.mx.tt.util.cargadorVista;
 import com.jfoenix.controls.JFXButton;
 import java.net.URL;
 import java.text.DecimalFormat;
@@ -33,6 +34,7 @@ public class PrediagnosticoController implements Initializable {
      * Initializes the controller class.
      */
     Cuestionario cuestionario;
+    
     @FXML
     private JFXButton btnPrecomendaciones;
 
@@ -120,6 +122,9 @@ public class PrediagnosticoController implements Initializable {
 
     @FXML
     private BarChart<?, ?> gpiernass;
+      
+  
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
