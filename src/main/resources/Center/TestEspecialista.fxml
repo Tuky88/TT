@@ -70,7 +70,7 @@
                         </JFXButton>
                         <ProgressBar fx:id="pbTEprogeso" prefHeight="31.0" prefWidth="681.0" progress="1.0" GridPane.rowIndex="3">
                            <GridPane.margin>
-                              <Insets left="40.0" />
+                              <Insets left="60.0" />
                            </GridPane.margin>
                         </ProgressBar>
                         <JFXButton fx:id="regresar" onAction="#regresarPregunta" prefHeight="27.0" prefWidth="86.0" style="-fx-background-color: #70CFB2;" text="Regresar" GridPane.halignment="CENTER" GridPane.rowIndex="2" />

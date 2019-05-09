@@ -123,6 +123,7 @@ public class PacienteNuevoController implements Initializable {
         pd.insertarPaciente(p);
     }
 
+
     @FXML
     void registrarPaciente(ActionEvent event) {
 

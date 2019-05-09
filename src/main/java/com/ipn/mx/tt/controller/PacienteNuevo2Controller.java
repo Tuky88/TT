@@ -18,6 +18,8 @@ import com.jfoenix.controls.JFXRadioButton;
 import com.jfoenix.controls.JFXTextField;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -112,6 +114,9 @@ public class PacienteNuevo2Controller implements Initializable {
 
     @FXML
     private JFXRadioButton rbPtrabajan;
+    
+     ObservableList<String> items = FXCollections.observableArrayList("0", "1",
+            "2", "3", "4", "5", "6","7");
 
     /**
      * Initializes the controller class.
@@ -120,6 +125,26 @@ public class PacienteNuevo2Controller implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         configurarObjetos();
         v = new Validador();
+        cbxdiasd.setItems(items);
+        cbxdiasd.setValue("0");
+        cbxdiasd.setVisible(false);
+            lbldias.setVisible(false);
+            lblhorario.setVisible(false);
+            lblhoras.setVisible(false);
+            lblphorasdd.setVisible(false);
+            lblphorass.setVisible(false);
+            lblphoras.setVisible(false);
+            spnhoras.setVisible(false);
+            lbltrabaja.setVisible(false);
+            rbPhorariof.setVisible(false);
+            rbPhorarionof.setVisible(false);
+            rbPhorarioturnos.setVisible(false);
+            rbPls.setVisible(false);
+            rbPlv.setVisible(false);
+            rbPld.setVisible(false);
+            spnhorastrabajo.setVisible(false);
+            txtPhorasd.setVisible(false);
+            txtPhorasl.setVisible(false);
         // TODO
     }
 
@@ -149,6 +174,7 @@ public class PacienteNuevo2Controller implements Initializable {
 
     @FXML
     public void trabaja(ActionEvent event) {
+       
         if (rbPtrabajan.isSelected()) {
             cbxdiasd.setVisible(false);
             lbldias.setVisible(false);
@@ -166,6 +192,8 @@ public class PacienteNuevo2Controller implements Initializable {
             spnhorastrabajo.setVisible(false);
             txtPhorasd.setVisible(false);
             txtPhorasl.setVisible(false);
+            lblphoras.setVisible(true);
+            spnhoras.setVisible(true);
         } else {
             cbxdiasd.setVisible(true);
             lbldias.setVisible(true);
@@ -183,6 +211,8 @@ public class PacienteNuevo2Controller implements Initializable {
             spnhorastrabajo.setVisible(true);
             txtPhorasd.setVisible(true);
             txtPhorasl.setVisible(true);
+            lblphoras.setVisible(false);
+            spnhoras.setVisible(false);
         }
     }
 
