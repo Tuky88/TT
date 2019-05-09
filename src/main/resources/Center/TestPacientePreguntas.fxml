@@ -67,7 +67,7 @@
                               <Font size="21.0" />
                            </font>
                         </JFXTextArea>
-                        <JFXButton fx:id="btnFinalizar2" buttonType="RAISED" onAction="#mostrarPrediagnostico" prefHeight="38.0" prefWidth="138.0" ripplerFill="#2ebb9f" style="-fx-background-color: #2ebb9f;" text="GUARDAAR" textFill="WHITE" GridPane.halignment="CENTER" GridPane.rowIndex="3">
+                        <JFXButton fx:id="btnguardar" buttonType="RAISED" prefHeight="38.0" prefWidth="138.0" ripplerFill="#2ebb9f" style="-fx-background-color: #2ebb9f;" text="GUARDAR" textFill="WHITE" GridPane.halignment="CENTER" GridPane.rowIndex="3">
                            <font>
                               <Font size="13.0" />
                            </font>

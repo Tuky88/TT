@@ -79,6 +79,8 @@ public class TestPacientePreguntasController implements Initializable {
 
     @FXML
     private JFXButton btnFinalizar;
+    @FXML
+    private JFXButton btnguardar;
 
     @FXML
     private Label lblProgress;

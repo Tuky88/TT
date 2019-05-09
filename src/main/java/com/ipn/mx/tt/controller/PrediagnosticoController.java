@@ -146,10 +146,10 @@ public class PrediagnosticoController implements Initializable {
         ahsdq.setText("" + df.format(cuestionario.getTrastorno(1, 4)));
         as50.setText("" + df.format(cuestionario.getTrastorno(2, 4)));
         hhsdq.setText("" + df.format(cuestionario.getTrastorno(1, 5)));
-        hs50.setText("" + df.format(cuestionario.getTrastorno(2, 5)));
-        nhsdq.setText("" + df.format(cuestionario.getTrastorno(1, 6)));
+        hs50.setText("" + (cuestionario.getTrastorno(2, 5)));
+        nhsdq.setText("" + (cuestionario.getTrastorno(1, 6)));
         ns50.setText("" + df.format(cuestionario.getTrastorno(2, 6)));
-        ohsdq.setText("" + df.format(cuestionario.getTrastorno(1, 7)));
+        ohsdq.setText("" + (cuestionario.getTrastorno(1, 7)));
         os50.setText("" + df.format(cuestionario.getTrastorno(2, 7)));
         
         SimpleDateFormat dt = new SimpleDateFormat("hh:mm:ss"); 
