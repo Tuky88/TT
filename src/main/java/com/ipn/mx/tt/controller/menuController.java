@@ -135,7 +135,7 @@ public class menuController implements Initializable {
         });
         
         TabAyuda.setOnSelectionChanged((Event event) -> {
-            cv.cambiarVista("/Center/Inicio.fxml", PanelPrin);
+            cv.cambiarVista("/Center/Ayuda.fxml", PanelPrin);
 
         });
 

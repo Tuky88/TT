@@ -41,13 +41,13 @@
                       <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                     </columnConstraints>
                     <rowConstraints>
-                      <RowConstraints maxHeight="343.0" minHeight="10.0" prefHeight="343.0" vgrow="SOMETIMES" />
-                      <RowConstraints maxHeight="165.0" minHeight="10.0" prefHeight="53.0" vgrow="SOMETIMES" />
-                        <RowConstraints maxHeight="121.0" minHeight="10.0" prefHeight="57.0" vgrow="SOMETIMES" />
                       <RowConstraints maxHeight="121.0" minHeight="10.0" prefHeight="71.0" vgrow="SOMETIMES" />
+                      <RowConstraints maxHeight="343.0" minHeight="10.0" prefHeight="266.0" vgrow="SOMETIMES" />
+                      <RowConstraints maxHeight="165.0" minHeight="10.0" prefHeight="69.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="121.0" minHeight="10.0" prefHeight="108.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
-                        <ImageView fx:id="imgRegresar" fitHeight="31.0" fitWidth="92.0" onMouseClicked="#regresarImg" GridPane.halignment="CENTER" GridPane.rowIndex="2">
+                        <ImageView fx:id="imgRegresar" fitHeight="31.0" fitWidth="92.0" onMouseClicked="#regresarImg" GridPane.halignment="CENTER" GridPane.rowIndex="3">
                            <image>
                               <Image url="@../imagenes/regresar.png" />
                            </image>
@@ -55,7 +55,7 @@
                               <Insets right="160.0" />
                            </GridPane.margin>
                         </ImageView>
-                        <JFXTextArea fx:id="txtpregunta" editable="false" labelFloat="true" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" nodeOrientation="LEFT_TO_RIGHT" prefHeight="169.0" prefWidth="974.0" GridPane.valignment="BOTTOM">
+                        <JFXTextArea fx:id="txtpregunta" editable="false" labelFloat="true" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" nodeOrientation="LEFT_TO_RIGHT" prefHeight="169.0" prefWidth="974.0" GridPane.rowIndex="1" GridPane.valignment="BOTTOM">
                            <font>
                               <Font name="Arial" size="28.0" />
                            </font>
@@ -68,13 +68,13 @@
                               <Insets right="30.0" />
                            </GridPane.margin>
                         </JFXButton>
-                        <ProgressBar fx:id="pbTEprogeso" prefHeight="21.0" prefWidth="770.0" progress="1.0" GridPane.rowIndex="3" GridPane.valignment="TOP">
+                        <ProgressBar fx:id="pbTEprogeso" prefHeight="20.0" prefWidth="900.0" progress="1.0" GridPane.valignment="CENTER">
                            <GridPane.margin>
-                              <Insets left="60.0" />
+                              <Insets left="60.0" right="60.0" />
                            </GridPane.margin>
                         </ProgressBar>
-                        <JFXButton fx:id="regresar" onAction="#regresarPregunta" prefHeight="27.0" prefWidth="86.0" style="-fx-background-color: #70CFB2;" text="Regresar" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
-                        <JFXRadioButton fx:id="rbtnTEnunca" text="Nunca" GridPane.rowIndex="1">
+                        <JFXButton fx:id="regresar" onAction="#regresarPregunta" prefHeight="27.0" prefWidth="86.0" style="-fx-background-color: #70CFB2;" text="Regresar" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
+                        <JFXRadioButton fx:id="rbtnTEnunca" text="Nunca" GridPane.rowIndex="2">
                            <font>
                               <Font size="20.0" />
                            </font>
@@ -85,7 +85,7 @@
                               <ToggleGroup fx:id="grupoPregunta" />
                            </toggleGroup>
                         </JFXRadioButton>
-                        <JFXRadioButton fx:id="rbtnTEoca" text="Ocasionalmente" toggleGroup="$grupoPregunta" GridPane.rowIndex="1">
+                        <JFXRadioButton fx:id="rbtnTEoca" text="Ocasionalmente" toggleGroup="$grupoPregunta" GridPane.rowIndex="2">
                            <font>
                               <Font size="20.0" />
                            </font>
@@ -93,7 +93,7 @@
                               <Insets left="250.0" />
                            </GridPane.margin>
                         </JFXRadioButton>
-                        <JFXRadioButton fx:id="rbtnTEavc" text="A veces" toggleGroup="$grupoPregunta" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+                        <JFXRadioButton fx:id="rbtnTEavc" text="A veces" toggleGroup="$grupoPregunta" GridPane.halignment="CENTER" GridPane.rowIndex="2">
                            <font>
                               <Font size="20.0" />
                            </font>
@@ -101,7 +101,7 @@
                               <Insets />
                            </GridPane.margin>
                         </JFXRadioButton>
-                        <JFXRadioButton fx:id="rbtnTEcs" text="Casi siempre" toggleGroup="$grupoPregunta" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+                        <JFXRadioButton fx:id="rbtnTEcs" text="Casi siempre" toggleGroup="$grupoPregunta" GridPane.halignment="CENTER" GridPane.rowIndex="2">
                            <font>
                               <Font size="20.0" />
                            </font>
@@ -109,7 +109,7 @@
                               <Insets left="300.0" />
                            </GridPane.margin>
                         </JFXRadioButton>
-                        <JFXRadioButton fx:id="rbtnTEsiempre" text="Siempre" toggleGroup="$grupoPregunta" GridPane.halignment="RIGHT" GridPane.rowIndex="1">
+                        <JFXRadioButton fx:id="rbtnTEsiempre" text="Siempre" toggleGroup="$grupoPregunta" GridPane.halignment="RIGHT" GridPane.rowIndex="2">
                            <font>
                               <Font size="20.0" />
                            </font>
@@ -117,9 +117,9 @@
                               <Insets right="150.0" />
                            </GridPane.margin>
                         </JFXRadioButton>
-                        <Label fx:id="lblProgress" prefHeight="25.0" prefWidth="117.0" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="TOP">
+                        <Label fx:id="lblProgress" prefHeight="25.0" prefWidth="117.0" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                            <font>
-                              <Font name="System Bold" size="24.0" />
+                              <Font name="System Bold" size="15.0" />
                            </font>
                            <GridPane.margin>
                               <Insets />
