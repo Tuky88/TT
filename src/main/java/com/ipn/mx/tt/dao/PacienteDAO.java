@@ -57,7 +57,7 @@ public class PacienteDAO extends DocumentoDAO {
         } else {
             paciente = new Paciente();
         }
-
+        
         return paciente;
     }
 

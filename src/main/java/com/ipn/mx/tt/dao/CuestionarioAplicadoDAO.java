@@ -56,12 +56,11 @@ public class CuestionarioAplicadoDAO extends DocumentoDAO {
         InfoCuestionario ic;
         DBObject dbo = new BasicDBObject("_numCuestionario", numCuestionario);
         DBCursor cursor = cjm.getMongoCollection().find(dbo);
+        
         if(cursor.hasNext())
         {
-            String paciente=(String)dbo.get("Paciente");
-            String especialista=(String)dbo.get("Especialista");
-            Double status=(Double) dbo.get("status");
-            ic=new InfoCuestionario(numCuestionario, status, paciente, especialista);
+            DBObject jo = cursor.one();
+            ic=new InfoCuestionario(jo);
         }
         else
         {

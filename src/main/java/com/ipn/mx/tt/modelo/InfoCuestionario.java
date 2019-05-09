@@ -5,6 +5,8 @@
  */
 package com.ipn.mx.tt.modelo;
 
+import com.mongodb.DBObject;
+
 /**
  *
  * @author Axel Reyes
@@ -21,6 +23,16 @@ public class InfoCuestionario {
         this.status = status;
         this.paciente = paciente;
         this.Especialista = Especialista;
+    }
+
+    public InfoCuestionario(DBObject dbo) {
+        System.out.println(dbo.toString());
+        this.idCuestionario =(Double) dbo.get("_numCuestionario");
+        this.status = (Double) dbo.get("status");
+        this.paciente = (String) dbo.get("Paciente");
+        this.Especialista = (String) dbo.get("Especialista");
+        
+        System.out.println(toString());
     }
 
     public InfoCuestionario() {
@@ -66,6 +78,5 @@ public class InfoCuestionario {
     public String toString() {
         return "InfoCuestionario{" + "idCuestionario=" + idCuestionario + ", status=" + status + ", paciente=" + paciente + ", Especialista=" + Especialista + '}';
     }
-    
 
 }
