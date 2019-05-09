@@ -43,7 +43,7 @@
                               <Font name="Arial" size="15.0" />
                            </font>
                         </JFXButton>
-                        <JFXButton fx:id="btnPvalidar" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" onAction="#abrirValidar" prefHeight="50.0" prefWidth="261.0" style="-fx-background-color: #FFFFFF;" text="Validar" GridPane.rowIndex="5">
+                        <JFXButton fx:id="btnPvalidar" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" onAction="#abrirValidar" prefHeight="50.0" prefWidth="261.0" style="-fx-background-color: #FFFFFF;" text="Calificar" GridPane.rowIndex="5">
                            <font>
                               <Font size="15.0" />
                            </font>
