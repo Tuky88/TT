@@ -5,13 +5,12 @@
  */
 package com.ipn.mx.tt.controller;
 
-import com.ipn.mx.tt.modelo.Cuestionario;
 import com.ipn.mx.tt.modelo.InfoCuestionario;
+import com.ipn.mx.tt.modelo.Paciente;
 import com.ipn.mx.tt.modelo.Pregunta;
 import com.ipn.mx.tt.modelo.SintomaPregunta;
 import com.ipn.mx.tt.modelo.Test;
 import com.ipn.mx.tt.modelo.TrastornoSintoma;
-import com.ipn.mx.tt.util.CustomMessage;
 import com.ipn.mx.tt.util.ThreadPregunta;
 import com.ipn.mx.tt.util.cargadorVista;
 import com.jfoenix.controls.JFXButton;
@@ -25,7 +24,6 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.control.ToggleGroup;
@@ -128,6 +126,8 @@ public class TestEspecialistaController implements Initializable {
             contestarPregunta(5);
         });
         contadorPregunta = 1;
+
+        btnFinalizar.setVisible(false);
         TreeItem<String> itemRaiz = new TreeItem<>("RESPUESTAS");
         itemRaiz.setExpanded(true);
         tablaRespuesta.setRoot(itemRaiz);
@@ -135,7 +135,17 @@ public class TestEspecialistaController implements Initializable {
         columnaRespuesta.setCellValueFactory((TreeTableColumn.CellDataFeatures<String, String> param) -> {
             return new SimpleStringProperty(param.getValue().getValue());
         });
-        btnFinalizar.setVisible(false);
+    }
+
+    @FXML
+    private void mostrarPrediagnostico(ActionEvent ae) {
+        cv = new cargadorVista();
+        PrediagnosticoController pc = (PrediagnosticoController) cv.cambiarVista("/Center/Prediagnostico.fxml", mc.getPanelPrin());
+        test.getFinCuestionario();
+        test.getDuracion();
+        pc.setCuestionario(test.getCuestionario());
+        pc.cargarResultados();
+        pc.startgrafica();
 
     }
 
@@ -173,17 +183,8 @@ public class TestEspecialistaController implements Initializable {
         trastorno = new LinkedList();
         test = new Test(tipoCuestionario);
         cargarPregunta(test.getPregunta(test.getSigPregunta()));
+        //pbTPprogeso.setProgress(0.001);
         pbTEprogeso.setProgress(0.001);
-    }
-
-    public void registroPregunta(String t, String r) {
-
-        TreeItem<String> itemPregunta = new TreeItem<>(t);
-        TreeItem<String> itemRespuesta = new TreeItem<>(r);
-        itemPregunta.getChildren().addAll(itemRespuesta);
-        itemPregunta.setExpanded(false);
-        tablaRespuesta.getRoot().getChildren().addAll(itemPregunta);
-
     }
 
     public void limpiarVista() {
@@ -200,26 +201,29 @@ public class TestEspecialistaController implements Initializable {
             ThreadPregunta tp = new ThreadPregunta(3, rbtnTEcs, rbtnTEavc, rbtnTEnunca, rbtnTEoca, rbtnTEsiempre, regresar);
             //tp.runClock();
             //AGREGAR A LA VISTA
+
             registroPregunta(txtpregunta.getText(), getRespuesta(valor));
+
             limpiarVista();
             //SUMAR AL CUESTIONARIO 
             sumarATrastorno();
             //TRAER NUEVA PREGUNTA
 
             cargarPregunta(test.getPregunta(test.getSigPregunta()));
-        } else {
-
-            txtpregunta.setText("FIN DEL CUESTIONARIO, VERIFICA TUS RESPUESTAS ANTES DE EVALUAR.");
+        }
+        if (test.cuestionarioCompletado()) {
+            lblProgress.setText("100%");
+            pbTEprogeso.setProgress(1.0);
+            test.getFinCuestionario();
+            test.getDuracion();
+            txtpregunta.setText("FIN DEL CUESTIONARIO");
             rbtnTEavc.setDisable(true);
             rbtnTEcs.setDisable(true);
             rbtnTEnunca.setDisable(true);
             rbtnTEoca.setDisable(true);
             rbtnTEsiempre.setDisable(true);
             btnFinalizar.setVisible(true);
-            lblProgress.setText("100%");
-            pbTEprogeso.setProgress(1);
         }
-
     }
 
     String getRespuesta(int valor) {
@@ -284,22 +288,20 @@ public class TestEspecialistaController implements Initializable {
                                 + "/Pregunta:/" + preguntaContestada + "/Valor:/" + valor);
                         test.calificarPregunta(instrumentoC, ts.getTrastorno(), valor);
                         test.agregarRespuesta(preguntaContestada, valor.intValue());
-                        aumentarProgreso();
                     }
                 }
             });
         });
         test.reiniciarBanderas();
     }
-    @FXML
-    private void mostrarPrediagnostico(ActionEvent ae) {
-        cv = new cargadorVista();
-        PrediagnosticoController pc = (PrediagnosticoController) cv.cambiarVista("/Center/Prediagnostico.fxml", mc.getPanelPrin());
-        test.getFinCuestionario();
-        test.getDuracion();
-        pc.setCuestionario(test.getCuestionario());
-        pc.cargarResultados();
-        pc.startgrafica();
+
+    public void registroPregunta(String t, String r) {
+
+        TreeItem<String> itemPregunta = new TreeItem<>(t);
+        TreeItem<String> itemRespuesta = new TreeItem<>(r);
+        itemPregunta.getChildren().addAll(itemRespuesta);
+        itemPregunta.setExpanded(false);
+        tablaRespuesta.getRoot().getChildren().addAll(itemPregunta);
 
     }
 
@@ -317,6 +319,7 @@ public class TestEspecialistaController implements Initializable {
                     test.getTipoCuestionario(preguntaC), new Double(puntaje)));
         });
         test.sumarContadorPregunta();
+        aumentarProgreso();
         //System.out.println(preguntas.size());
 
     }
@@ -356,7 +359,7 @@ public class TestEspecialistaController implements Initializable {
 
     private void aumentarProgreso() {
         DecimalFormat df2 = new DecimalFormat("#.##");
-        Double avance = test.getContadorPreguntas() * 0.01501;
+        Double avance = test.getContadorPreguntas() * 0.01449;
         pbTEprogeso.setProgress(avance);
         Double porcentaje = avance * 100;
         lblProgress.setText(df2.format(porcentaje) + "%");

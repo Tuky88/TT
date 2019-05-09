@@ -87,6 +87,9 @@ public class TestPacientePreguntasController implements Initializable {
     @FXML
     private Label lblPaciente;
 
+    @FXML
+    private JFXTextArea txtayuda;
+
     public InfoCuestionario getIc() {
         return ic;
     }
@@ -125,7 +128,7 @@ public class TestPacientePreguntasController implements Initializable {
 
     @FXML
     private void mostrarPrediagnostico(ActionEvent ae) {
-cv = new cargadorVista();
+        cv = new cargadorVista();
         PrediagnosticoController pc = (PrediagnosticoController) cv.cambiarVista("/Center/Prediagnostico.fxml", mc.getPanelPrin());
         test.getFinCuestionario();
         test.getDuracion();
@@ -135,9 +138,16 @@ cv = new cargadorVista();
 
     }
 
+    @FXML
+    void mostrarAyuda(MouseEvent event) {
+        txtayuda.setVisible(true);
+    }
+
     public void cargarPregunta(Pregunta p) {
 
+        txtayuda.setVisible(false);
         if (p.getId() > 0 && p.getId() != 99) {
+            txtayuda.setText(p.getAyuda());
             txtpregunta.setText("(" + p.getId() + ")" + contadorPregunta + ".-" + p.getTexto());
             pregunta = p.getId();
             instrumento = test.getTipoCuestionario(pregunta);
