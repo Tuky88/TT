@@ -16,7 +16,7 @@ import javafx.fxml.Initializable;
  *
  * @author Temp
  */
-public class AyudaConfController implements Initializable {
+public class AyudaConfaController implements Initializable {
 
     /**
      * Initializes the controller class.
