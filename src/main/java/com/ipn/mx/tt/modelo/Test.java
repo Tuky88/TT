@@ -37,10 +37,10 @@ public class Test {
     private CutoffDAO cd;
     private PrediagnosticoDAO pred;
     private int contadorPreguntas;
-    List preguntas, tipoCuestionario, SintomaPregunta, TrastornoSintoma, equivalencias, cutoff;
-    int tipo, tamañoCuestionario;
-    int[] trastornos, numeracion;
-    int numeroTrastornos;
+    private List preguntas, tipoCuestionario, SintomaPregunta, TrastornoSintoma, equivalencias, cutoff;
+    private int tipo, tamañoCuestionario;
+    private int[] trastornos, numeracion;
+    private int numeroTrastornos;
 
     public Test(int tipo) {
         cuestionario = new Cuestionario();
@@ -248,6 +248,10 @@ public class Test {
             return resultado;
         }
 
+    }
+
+    public Respuesta obtenerRespuesta(Double numPregunta) {
+        return cuestionario.obtenerRespuesta(numPregunta.intValue());
     }
 
     public void guardarCuestionario(Double numCuestionario) {

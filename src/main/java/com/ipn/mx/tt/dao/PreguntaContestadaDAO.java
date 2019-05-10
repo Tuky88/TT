@@ -29,6 +29,7 @@ public class PreguntaContestadaDAO extends DocumentoDAO {
         List ln = new LinkedList();
         l.forEach((objectLista) -> {
             Respuesta r = (Respuesta) objectLista;
+            System.out.println(r.toString());
             DBObject dbo = new BasicDBObject("_numCuestionario", numCuestionario)
                     .append("_idPregunta", r.getNumeroPregunta() + 0.0)
                     .append("respuesta", r.getRespuesta() + 0.0);

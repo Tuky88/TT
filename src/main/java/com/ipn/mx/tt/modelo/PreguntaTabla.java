@@ -22,8 +22,29 @@ public class PreguntaTabla {
         this.pregunta=new SimpleStringProperty(pregunta);
         this.respuesta=new SimpleStringProperty(respuesta);
     }
+        public PreguntaTabla(Respuesta r)
+    {
+        this.pregunta=new SimpleStringProperty(String.valueOf(r.getNumeroPregunta()));
+        this.respuesta=new SimpleStringProperty(String.valueOf(r.getRespuesta()));
+        System.out.println(r.toString());
+    }
 
-    public String getPregunta() {
+    public StringProperty getPregunta() {
+        return pregunta;
+    }
+
+    public void setPregunta(StringProperty pregunta) {
+        this.pregunta = pregunta;
+    }
+
+    public StringProperty getRespuesta() {
+        return respuesta;
+    }
+
+    public void setRespuesta(StringProperty respuesta) {
+        this.respuesta = respuesta;
+    }
+    public String getPreguntaString() {
         return pregunta.getValue();
     }
 
@@ -31,12 +52,14 @@ public class PreguntaTabla {
         this.pregunta = new SimpleStringProperty(pregunta);
     }
 
-    public String getRespuesta() {
+    public String getRespuestaString() {
         return respuesta.getValue();
     }
 
     public void setRespuesta(String respuesta) {
         this.respuesta = new SimpleStringProperty(respuesta);
     }
+
+    
     
 }

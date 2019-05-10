@@ -143,6 +143,7 @@ public class TestEspecialistaController implements Initializable {
         PrediagnosticoController pc = (PrediagnosticoController) cv.cambiarVista("/Center/Prediagnostico.fxml", mc.getPanelPrin());
         test.getFinCuestionario();
         test.getDuracion();
+        test.guardarCuestionario(ic.getIdCuestionario());
         pc.setTest(test);
         pc.cargarResultados();
         pc.startgrafica();

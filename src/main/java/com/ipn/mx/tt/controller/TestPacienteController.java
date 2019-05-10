@@ -112,7 +112,9 @@ public class TestPacienteController implements Initializable {
     }
 
     public void enterBoton() {
-        if (!(v.validarTF(txtTPnumero).equals(""))) {
+        if(ic==null)
+        {
+                    if (!(v.validarTF(txtTPnumero).equals(""))) {
 
             Double numCuestionario = v.validarTFtoDouble(txtTPnumero);
             Double status = cad.statusCuestionario(numCuestionario);
@@ -142,6 +144,12 @@ public class TestPacienteController implements Initializable {
         } else {
             CustomMessage cm = new CustomMessage("ERROR", "INTRODUCE UN NUMERO", 2);
 
+        }
+
+        }
+        else
+        {
+            cargarTest();
         }
     }
 

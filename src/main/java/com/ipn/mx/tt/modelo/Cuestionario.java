@@ -43,8 +43,22 @@ public class Cuestionario {
         Respuesta r = new Respuesta(numeroRespuesta, valorRespuesta);
         RespuestasContestadas.add(r);
     }
-    public LinkedList obtenerPreguntasContestadas()
-    {
+
+    public Respuesta obtenerRespuesta(int numeroPregunta) {
+        Respuesta r = null;
+        for (int i = 1; i < RespuestasContestadas.size(); i++) {
+            Respuesta res = (Respuesta) RespuestasContestadas.get(i);
+            if (res.getNumeroPregunta() == numeroPregunta) {
+                r = res;
+                break;
+            }
+        }
+
+        return r;
+    }
+
+    public LinkedList obtenerPreguntasContestadas() {
+
         return RespuestasContestadas;
     }
 

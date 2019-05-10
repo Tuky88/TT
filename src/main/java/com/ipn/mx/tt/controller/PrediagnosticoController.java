@@ -329,6 +329,7 @@ public class PrediagnosticoController implements Initializable {
                 = (Prediagnostico2Controller) cv.cambiarVista("/Center/Prediagnostico2.fxml", mc.getPanelPrin());
         pc.setTest(test);
         pc.setMc(mc);
+        pc.ponerPreguntasHabitos();
         
     }
 }

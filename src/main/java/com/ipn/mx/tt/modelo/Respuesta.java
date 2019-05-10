@@ -35,4 +35,11 @@ public class Respuesta {
         this.respuesta = respuesta;
     }
 
+    @Override
+    public String toString() {
+        return "Respuesta{" + "numeroPregunta=" + numeroPregunta + ", respuesta=" + respuesta + '}';
+    }
+    
+    
+
 }

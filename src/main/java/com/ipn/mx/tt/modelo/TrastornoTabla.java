@@ -19,7 +19,56 @@ public class TrastornoTabla {
     private StringProperty s50;
     private StringProperty s50M;
 
-    public String getTrastorno() {
+    public TrastornoTabla(String Trastorno, String Hsdq, String HsdqM, String s50, String s50M) {
+        this.Trastorno = new SimpleStringProperty(Trastorno);
+        this.Hsdq = new SimpleStringProperty(Hsdq);
+        this.HsdqM = new SimpleStringProperty(HsdqM);
+        this.s50 = new SimpleStringProperty(s50);
+        this.s50M = new SimpleStringProperty(s50M);
+    }
+
+    
+    public StringProperty getTrastorno() {
+        return Trastorno;
+    }
+
+    public void setTrastorno(StringProperty Trastorno) {
+        this.Trastorno = Trastorno;
+    }
+
+    public StringProperty getHsdq() {
+        return Hsdq;
+    }
+
+    public void setHsdq(StringProperty Hsdq) {
+        this.Hsdq = Hsdq;
+    }
+
+    public StringProperty getHsdqM() {
+        return HsdqM;
+    }
+
+    public void setHsdqM(StringProperty HsdqM) {
+        this.HsdqM = HsdqM;
+    }
+
+    public StringProperty getS50() {
+        return s50;
+    }
+
+    public void setS50(StringProperty s50) {
+        this.s50 = s50;
+    }
+
+    public StringProperty getS50M() {
+        return s50M;
+    }
+
+    public void setS50M(StringProperty s50M) {
+        this.s50M = s50M;
+    }
+
+    public String getTrastornoString() {
         return Trastorno.getValue();
     }
 
@@ -27,7 +76,7 @@ public class TrastornoTabla {
         this.Trastorno = new SimpleStringProperty(Trastorno);
     }
 
-    public String getHsdq() {
+    public String getHsdqString() {
         return Hsdq.getValue();
     }
 
@@ -35,7 +84,7 @@ public class TrastornoTabla {
         this.Hsdq = new SimpleStringProperty(Hsdq);
     }
 
-    public String getHsdqM() {
+    public String getHsdqMString() {
         return HsdqM.getValue();
     }
 
@@ -43,7 +92,7 @@ public class TrastornoTabla {
         this.HsdqM = new SimpleStringProperty(HsdqM);
     }
 
-    public String getS50() {
+    public String getS50String() {
         return s50.getValue();
     }
 
@@ -51,7 +100,7 @@ public class TrastornoTabla {
         this.s50 = new SimpleStringProperty(s50);
     }
 
-    public String getS50M() {
+    public String getS50MString() {
         return s50M.getValue();
     }
 

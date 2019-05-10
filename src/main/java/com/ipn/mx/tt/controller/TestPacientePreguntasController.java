@@ -135,6 +135,7 @@ public class TestPacientePreguntasController implements Initializable {
         pc.setMc(mc);
         pc.setTest(test);
         pc.cargarResultados();
+        test.guardarCuestionario(ic.getIdCuestionario());
         pc.startgrafica();
 
     }

@@ -18,26 +18,40 @@ public class SintomaTrastornoTabla {
     private StringProperty Sintoma;
 
     public SintomaTrastornoTabla(String Trastorno, String Sintoma) {
-        this.Trastorno =new  SimpleStringProperty(Trastorno);
+        this.Trastorno = new SimpleStringProperty(Trastorno);
         this.Sintoma = new SimpleStringProperty(Sintoma);
     }
 
-    public String getTrastorno() {
+    public StringProperty getTrastorno() {
+        return Trastorno;
+    }
+
+    public void setTrastorno(StringProperty Trastorno) {
+        this.Trastorno = Trastorno;
+    }
+
+    public StringProperty getSintoma() {
+        return Sintoma;
+    }
+
+    public void setSintoma(StringProperty Sintoma) {
+        this.Sintoma = Sintoma;
+    }
+
+    public String getTrastornoString() {
         return Trastorno.getValue();
     }
 
     public void setTrastorno(String Trastorno) {
-        this.Trastorno = new  SimpleStringProperty(Trastorno);
+        this.Trastorno = new SimpleStringProperty(Trastorno);
     }
 
-    public String getSintoma() {
+    public String getSintomaString() {
         return Sintoma.getValue();
     }
 
     public void setSintoma(String Sintoma) {
         this.Sintoma = new SimpleStringProperty(Sintoma);
     }
-    
-    
 
 }
