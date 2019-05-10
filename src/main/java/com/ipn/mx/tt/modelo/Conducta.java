@@ -36,7 +36,7 @@ public class Conducta {
         this.horarioTrabajo = horarioTrabajo;
         this.jornadaLaboral = jornadaLaboral;
         this.diasDeDescanso = diasDeDescanso;
-        this.promedioHoras = promedioHoras;
+        this.promedioHoras = 0.0;
         this.promedioHorasLaborales = promedioHorasLaborales;
         this.horasDeTrabajo = horasDeTrabajo;
         this.promedioHorasDescanso = promedioHorasDescanso;

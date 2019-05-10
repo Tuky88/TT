@@ -5,15 +5,15 @@
  */
 package com.ipn.mx.tt.controller;
 
+import com.ipn.mx.tt.modelo.Test;
+import com.ipn.mx.tt.util.cargadorVista;
 import com.jfoenix.controls.JFXButton;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
-import javafx.scene.layout.Pane;
 
 /**
  * FXML Controller class
@@ -22,6 +22,27 @@ import javafx.scene.layout.Pane;
  */
 public class RecomendacionesController implements Initializable {
 
+    private menuController mc;
+    private cargadorVista cv;
+    private Test test;
+
+    public menuController getMc() {
+        return mc;
+    }
+
+    public void setMc(menuController mc) {
+        this.mc = mc;
+    }
+
+    public Test getTest() {
+        return test;
+    }
+
+    public void setTest(Test test) {
+        this.test = test;
+    }
+    
+    
  
     @FXML
     private TableView<?> tblRtrastornos;

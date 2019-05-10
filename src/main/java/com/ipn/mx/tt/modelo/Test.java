@@ -15,6 +15,7 @@ import com.ipn.mx.tt.dao.PreguntaEquivalenciaDAO;
 import com.ipn.mx.tt.dao.SintomaPreguntaDAO;
 import com.ipn.mx.tt.dao.TrastornoSintomaDAO;
 import com.mongodb.DBObject;
+import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Random;
@@ -93,12 +94,12 @@ public class Test {
         this.cuestionario = cuestionario;
     }
 
-    public void getFinCuestionario() {
-        cuestionario.getFinCuestionario();
+    public Date getFinCuestionario() {
+        return cuestionario.getFinCuestionario();
     }
 
-    public void getDuracion() {
-        cuestionario.getDuracion();
+    public Date getDuracion() {
+        return cuestionario.getDuracion();
     }
 
     public void calificarPregunta(int instrumento, int trastorno, Double puntaje) {
@@ -132,7 +133,7 @@ public class Test {
             Pregunta p = new Pregunta((DBObject) preguntas.get(i - 1), tipo);
             return p;
         } else {
-            Pregunta p = new Pregunta(99, "FIN","");
+            Pregunta p = new Pregunta(99, "FIN", "");
             return p;
         }
     }
@@ -256,4 +257,11 @@ public class Test {
         pred.insertarTrastornos(2.0, numCuestionario, cuestionario);
     }
 
+    public Date getInicioCuestionario() {
+        return cuestionario.getInicioCuestionario();
+    }
+
+    public Double getTrastorno(int instrumento, int trastorno) {
+        return cuestionario.getTrastorno(instrumento, trastorno);
+    }
 }

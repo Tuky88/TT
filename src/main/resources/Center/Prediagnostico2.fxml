@@ -17,10 +17,10 @@
          <items>
             <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="510.0" prefWidth="260.0" style="-fx-background-color: #4D92DF;">
                <children>
-                  <TableView fx:id="tbthabitos" layoutY="73.0" prefHeight="401.0" prefWidth="260.0" AnchorPane.bottomAnchor="36.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="73.0">
+                  <TableView fx:id="tbthabitos" layoutY="73.0" prefHeight="401.0" prefWidth="260.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="73.0">
                     <columns>
-                      <TableColumn editable="false" prefWidth="157.0" text="Pregunta" />
-                      <TableColumn editable="false" prefWidth="102.0" text="Respuesta" />
+                      <TableColumn fx:id="columnaPregunta" editable="false" prefWidth="171.0" text="Pregunta" />
+                      <TableColumn fx:id="columnaRespuesta" editable="false" prefWidth="88.0" text="Respuesta" />
                     </columns>
                   </TableView>
                   <Label alignment="CENTER" layoutY="25.0" prefHeight="38.0" prefWidth="260.0" style="-fx-background-color: #FFFFFF;" text="Habitos de sueño" textFill="#44869a">
@@ -45,8 +45,8 @@
                         </JFXTextField>
                         <TableView fx:id="tblsintomas" editable="true" layoutX="14.0" layoutY="75.0" prefHeight="429.0" prefWidth="408.0">
                           <columns>
-                            <TableColumn prefWidth="75.0" text="Sintoma" />
-                            <TableColumn prefWidth="75.0" text="Trastorno" />
+                            <TableColumn fx:id="columnaSintoma" prefWidth="75.0" text="Sintoma" />
+                            <TableColumn fx:id="columnaTrastorno" prefWidth="75.0" text="Trastorno" />
                           </columns>
                            <columnResizePolicy>
                               <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
@@ -57,25 +57,25 @@
                               <Font size="14.0" />
                            </font>
                         </JFXTextField>
-                        <TableView fx:id="tbltrastornos" editable="true" layoutX="493.0" layoutY="75.0" prefHeight="175.0" prefWidth="408.0">
+                        <TableView fx:id="tbltrastornos" editable="true" layoutX="437.0" layoutY="75.0" prefHeight="175.0" prefWidth="550.0">
                            <columns>
-                              <TableColumn prefWidth="75.0" text="Trastorno" />
-                              <TableColumn prefWidth="75.0" text="HSDQ" />
-                              <TableColumn prefWidth="75.0" text="Media" />
-                              <TableColumn prefWidth="75.0" text="S50" />
-                              <TableColumn prefWidth="75.0" text="Media" />
+                              <TableColumn fx:id="columnaTrastornoR" prefWidth="75.0" text="Trastorno" />
+                              <TableColumn fx:id="columnaHSDQ" prefWidth="75.0" text="HSDQ" />
+                              <TableColumn fx:id="columnaHM" prefWidth="75.0" text="Media" />
+                              <TableColumn fx:id="columnaS50" prefWidth="75.0" text="S50" />
+                              <TableColumn fx:id="columnaS50M" prefWidth="75.0" text="Media" />
                            </columns>
                            <columnResizePolicy>
                               <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
                            </columnResizePolicy>
                         </TableView>
                         <JFXTextArea fx:id="txtcomentarios" layoutX="435.0" layoutY="255.0" prefHeight="185.0" prefWidth="574.0" promptText="Comentarios" />
-                        <JFXButton fx:id="btnrecomendaciones" layoutX="773.0" layoutY="458.0" prefHeight="38.0" prefWidth="128.0" ripplerFill="#ee896a" style="-fx-background-color: #ee896a;" text="Recomendaciones">
+                        <JFXButton fx:id="btnrecomendaciones" layoutX="773.0" layoutY="458.0" onAction="#irRecomendaciones" prefHeight="38.0" prefWidth="128.0" ripplerFill="#ee896a" style="-fx-background-color: #ee896a;" text="Recomendaciones">
                            <font>
                               <Font size="13.0" />
                            </font>
                         </JFXButton>
-                        <JFXButton fx:id="btnregresar" layoutX="510.0" layoutY="458.0" prefHeight="38.0" prefWidth="128.0" ripplerFill="#a8ddab" style="-fx-background-color: #a8ddab;" text="Regresar" textFill="WHITE">
+                        <JFXButton fx:id="btnregresar" layoutX="510.0" layoutY="458.0" onAction="#regresarDiagnostico" prefHeight="38.0" prefWidth="128.0" ripplerFill="#a8ddab" style="-fx-background-color: #a8ddab;" text="Regresar" textFill="WHITE">
                            <font>
                               <Font size="15.0" />
                            </font>

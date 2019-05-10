@@ -36,46 +36,46 @@ import static jdk.nashorn.internal.objects.NativeString.toUpperCase;
  * @author garci
  */
 public class PacienteConRegistroController implements Initializable {
-    
+
     private Validador v;
     private cargadorVista cv;
     private menuController c;
     private CuestionarioAplicadoDAO cad;
-    
+
     public menuController getC() {
         return c;
     }
-    
+
     public void setC(menuController c) {
         this.c = c;
     }
-    
+
     private List pacientes;
     @FXML
     private JFXButton btnPriniciar;
-    
+
     @FXML
     private JFXTextField txtPrnombre;
-    
+
     @FXML
     private TableView<PacienteTabla> tabla;
     @FXML
     private TableColumn<PacienteTabla, String> columnaCURP;
-    
+
     @FXML
     private TableColumn<PacienteTabla, String> columnaNombre;
-   
+
     @FXML
     private TableColumn<PacienteTabla, String> test;
     @FXML
     private TableColumn<PacienteTabla, String> columnaEdad;
-    
+
     private ObservableList<PacienteTabla> ol;
-    
+
     @FXML
     void buscarPaciente(KeyEvent event) {
         String curp = toUpperCase(txtPrnombre.getText());
-        
+
         String busqueda = v.validars(curp);
         if (busqueda.length() > 2) {
             ol.clear();
@@ -96,7 +96,7 @@ public class PacienteConRegistroController implements Initializable {
             ol.clear();
         }
     }
-    
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         v = new Validador();
@@ -108,19 +108,19 @@ public class PacienteConRegistroController implements Initializable {
         pd.conectar();
         pacientes = pd.buscarSimilar();
         ol = FXCollections.observableArrayList();
-        
+
         columnaCURP.setCellValueFactory(cellData -> cellData.getValue().getCURP());
         columnaNombre.setCellValueFactory(cellData -> cellData.getValue().getNombre());
         columnaEdad.setCellValueFactory(cellData -> cellData.getValue().getEdad());
         tabla.setItems(ol);
     }
-    
+
     @FXML
     void iniciarTest(ActionEvent event) {
         if (tabla.getSelectionModel().getSelectedItem() != null) {
             PacienteTabla pt = tabla.getSelectionModel().getSelectedItem();
             pt.setOrigen(getPaciente(pt.getCURP().getValue()));
-            
+
             ComenzarTestController ctc = (ComenzarTestController) cv.cambiarVista("/Center/ComenzarTest.fxml", c.getPanelPrin());
             ctc.setC(c);
             ctc.setPaciente(pt.getOrigen());
@@ -155,12 +155,12 @@ public class PacienteConRegistroController implements Initializable {
         } else {
             CustomMessage cm = new CustomMessage("Advertencia", "Seleccione un paciente", 0);
         }
-        
+
     }
-    
+
     public Paciente getPaciente(String curp) {
         Paciente p = new Paciente();
-        
+
         for (int i = 0; i < 10; i++) {
             p = new Paciente((DBObject) pacientes.get(i));
             if (p.getCURP().equals(curp)) {
@@ -168,7 +168,7 @@ public class PacienteConRegistroController implements Initializable {
             }
         }
         return p;
-        
+
     }
-    
+
 }

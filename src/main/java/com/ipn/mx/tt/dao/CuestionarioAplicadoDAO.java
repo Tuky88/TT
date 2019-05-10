@@ -51,20 +51,17 @@ public class CuestionarioAplicadoDAO extends DocumentoDAO {
         }
 
     }
-    public InfoCuestionario traerInfo(Double numCuestionario)
-    {
+
+    public InfoCuestionario traerInfo(Double numCuestionario) {
         InfoCuestionario ic;
         DBObject dbo = new BasicDBObject("_numCuestionario", numCuestionario);
         DBCursor cursor = cjm.getMongoCollection().find(dbo);
-        
-        if(cursor.hasNext())
-        {
+
+        if (cursor.hasNext()) {
             DBObject jo = cursor.one();
-            ic=new InfoCuestionario(jo);
-        }
-        else
-        {
-            ic=new InfoCuestionario();
+            ic = new InfoCuestionario(jo);
+        } else {
+            ic = new InfoCuestionario();
         }
         return ic;
     }
