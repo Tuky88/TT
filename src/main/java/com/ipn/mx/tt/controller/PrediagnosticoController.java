@@ -349,5 +349,10 @@ public class PrediagnosticoController implements Initializable {
     public void darClickBotonGuardar() {
         System.out.println("Cuestionario guardado...");
         btnGuardar.fire();
+        btnGuardar.setDisable(true);
+    }
+
+    public void habilitarBotonGuardar() {
+        btnGuardar.setVisible(true);
     }
 }

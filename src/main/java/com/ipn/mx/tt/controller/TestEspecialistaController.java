@@ -148,6 +148,7 @@ public class TestEspecialistaController implements Initializable {
         pc.startgrafica();
         pc.setMc(mc);
         pc.setIc(ic);
+        pc.habilitarBotonGuardar();
     }
     
     public void cargarPregunta(Pregunta p) {
