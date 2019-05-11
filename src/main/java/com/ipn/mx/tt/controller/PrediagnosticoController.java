@@ -133,7 +133,7 @@ public class PrediagnosticoController implements Initializable {
 
     @FXML
     void guardarCuestionario(ActionEvent event) {
-
+        test.guardarCuestionario(ic.getIdCuestionario());
     }
 
     @Override

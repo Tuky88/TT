@@ -17,15 +17,14 @@ public class PreguntaTabla {
     private StringProperty pregunta;
     private StringProperty respuesta;
 
-    public PreguntaTabla(String pregunta,String respuesta)
-    {
-        this.pregunta=new SimpleStringProperty(pregunta);
-        this.respuesta=new SimpleStringProperty(respuesta);
+    public PreguntaTabla(String pregunta, String respuesta) {
+        this.pregunta = new SimpleStringProperty(pregunta);
+        this.respuesta = new SimpleStringProperty(respuesta);
     }
-        public PreguntaTabla(Respuesta r)
-    {
-        this.pregunta=new SimpleStringProperty(String.valueOf(r.getNumeroPregunta()));
-        this.respuesta=new SimpleStringProperty(String.valueOf(r.getRespuesta()));
+
+    public PreguntaTabla(Respuesta r) {
+        this.pregunta = new SimpleStringProperty(String.valueOf(r.getNumeroPregunta()));
+        this.respuesta = new SimpleStringProperty(String.valueOf(r.getRespuesta()));
         System.out.println(r.toString());
     }
 
@@ -38,12 +37,23 @@ public class PreguntaTabla {
     }
 
     public StringProperty getRespuesta() {
+        if (respuesta.getValue().equals("1")) {
+            respuesta.setValue("Nunca");
+        } else if (respuesta.getValue().equals("2")) {
+            respuesta.setValue("Casi nunca");
+        } else if (respuesta.getValue().equals("3")) {
+            respuesta.setValue("Casi siempre");
+        } else {
+            respuesta.setValue("Siempre");
+        }
+
         return respuesta;
     }
 
     public void setRespuesta(StringProperty respuesta) {
         this.respuesta = respuesta;
     }
+
     public String getPreguntaString() {
         return pregunta.getValue();
     }
@@ -60,6 +70,4 @@ public class PreguntaTabla {
         this.respuesta = new SimpleStringProperty(respuesta);
     }
 
-    
-    
 }

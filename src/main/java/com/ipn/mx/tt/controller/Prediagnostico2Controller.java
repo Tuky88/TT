@@ -155,7 +155,7 @@ public class Prediagnostico2Controller implements Initializable {
         columnaS50.setCellValueFactory(cellData -> cellData.getValue().getS50());
         columnaS50M.setCellValueFactory(cellData -> cellData.getValue().getS50M());
 
-        ptol.add(new PreguntaTabla("Muestra", "5"));
+        
         sttol.add(new SintomaTrastornoTabla("prueba", "prueba"));
         ttol.add(new TrastornoTabla("Prueba", "1", "2.5", "3", "2.5"));
 
