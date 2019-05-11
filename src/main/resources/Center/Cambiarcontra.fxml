@@ -13,9 +13,9 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" fx:id="panelP" prefHeight="510.0" prefWidth="1020.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ipn.mx.tt.controller.CambiarcontraController">
+<AnchorPane id="AnchorPane" fx:id="panelP" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="510.0" prefWidth="1020.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ipn.mx.tt.controller.CambiarcontraController">
    <children>
-      <BorderPane prefHeight="510.0" prefWidth="1020.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <BorderPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="510.0" prefWidth="1020.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <top>
             <Label alignment="CENTER" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" prefHeight="36.0" prefWidth="1020.0" style="-fx-background-color: #4D92DF;" text="Cuenta" textAlignment="CENTER" textFill="WHITE" BorderPane.alignment="CENTER">
                <font>
@@ -24,18 +24,18 @@
             </Label>
          </top>
          <center>
-            <GridPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="475.0" prefWidth="1020.0" BorderPane.alignment="CENTER">
-              <columnConstraints>
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-              </columnConstraints>
-              <rowConstraints>
-                <RowConstraints maxHeight="121.0" minHeight="10.0" prefHeight="90.0" vgrow="SOMETIMES" />
+            <GridPane prefHeight="475.0" prefWidth="1020.0" BorderPane.alignment="CENTER">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints maxHeight="121.0" minHeight="10.0" prefHeight="90.0" vgrow="SOMETIMES" />
                   <RowConstraints maxHeight="134.0" minHeight="10.0" prefHeight="49.0" vgrow="SOMETIMES" />
                   <RowConstraints maxHeight="135.0" minHeight="10.0" prefHeight="51.0" vgrow="SOMETIMES" />
                   <RowConstraints maxHeight="147.0" minHeight="10.0" prefHeight="48.0" vgrow="SOMETIMES" />
                   <RowConstraints maxHeight="90.0" minHeight="10.0" prefHeight="46.0" vgrow="SOMETIMES" />
-                <RowConstraints maxHeight="148.0" minHeight="10.0" prefHeight="148.0" vgrow="SOMETIMES" />
-              </rowConstraints>
+                  <RowConstraints maxHeight="148.0" minHeight="10.0" prefHeight="148.0" vgrow="SOMETIMES" />
+               </rowConstraints>
                <children>
                   <Label text="Contraseña actual:" GridPane.halignment="LEFT" GridPane.valignment="BOTTOM">
                      <font>
@@ -107,7 +107,7 @@
                         <Insets left="300.0" />
                      </GridPane.margin>
                   </JFXButton>
-                  <JFXButton fx:id="btnCcancelar" buttonType="RAISED" onAction="#cancelar" prefHeight="36.0" prefWidth="148.0" ripplerFill="#c1e1b8" style="-fx-background-color: #F76969;" text="Cancelar" GridPane.rowIndex="5" GridPane.valignment="BOTTOM">
+                  <JFXButton fx:id="btnCcancelar" buttonType="RAISED" onAction="#cancelar" prefHeight="36.0" prefWidth="148.0" ripplerFill="#c1e1b8" style="-fx-background-color: #F76969;" text="Cancelar" GridPane.rowIndex="5" GridPane.valignment="CENTER">
                      <GridPane.margin>
                         <Insets left="380.0" />
                      </GridPane.margin>

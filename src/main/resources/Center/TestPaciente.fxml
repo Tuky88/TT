@@ -38,7 +38,7 @@
                               <Font name="Arial" size="18.0" />
                            </font>
                         </Label>
-                        <JFXButton fx:id="btnTPComenzar" buttonType="RAISED" layoutX="473.0" layoutY="347.0" onAction="#iniciarTest" prefHeight="30.0" prefWidth="125.0" ripplerFill="WHITE" style="-fx-background-color: #AECFDC;" text="Comenzar" />
+                        <JFXButton fx:id="btnTPComenzar" buttonType="RAISED" layoutX="473.0" layoutY="347.0" onAction="#iniciarTest" prefHeight="30.0" prefWidth="125.0" ripplerFill="WHITE" style="-fx-background-color: #AECFDC;" text="Continuar" />
                         <JFXTextField fx:id="txtTPnumero" layoutX="400.0" layoutY="271.0" onKeyReleased="#enterMenu" prefHeight="25.0" prefWidth="260.0" />
                      </children>
                   </Pane>
