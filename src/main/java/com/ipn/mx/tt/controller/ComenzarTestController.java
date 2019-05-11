@@ -5,6 +5,7 @@
  */
 package com.ipn.mx.tt.controller;
 
+import com.ipn.mx.tt.dao.CuestionarioAplicadoDAO;
 import com.ipn.mx.tt.modelo.InfoCuestionario;
 import com.ipn.mx.tt.modelo.Paciente;
 import com.ipn.mx.tt.util.CustomMessage;
@@ -15,6 +16,7 @@ import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.ButtonType;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 
@@ -25,11 +27,12 @@ import javafx.scene.layout.BorderPane;
  */
 public class ComenzarTestController implements Initializable {
 
-    boolean datosPaciente;
-    menuController c;
-    cargadorVista cv;
-    Paciente paciente;
-    InfoCuestionario ic;
+    private boolean datosPaciente;
+    private menuController c;
+    private cargadorVista cv;
+    private Paciente paciente;
+    private InfoCuestionario ic;
+    private CuestionarioAplicadoDAO cad;
 
     public boolean isDatosPaciente() {
         return datosPaciente;
@@ -89,6 +92,8 @@ public class ComenzarTestController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
         cv = new cargadorVista();
+        cad = new CuestionarioAplicadoDAO();
+        cad.conectar();
     }
 
     public void abrirPaciente(int i) {
@@ -97,7 +102,7 @@ public class ComenzarTestController implements Initializable {
         tpc.setMc(c);
         tpc.setTipoCuestionario(i);
         tpc.setPaciente(paciente);
-        
+
         tpc.setDatosPaciente(datosPaciente);
         if (datosPaciente) {
             tpc.setIc(ic);
@@ -116,11 +121,24 @@ public class ComenzarTestController implements Initializable {
     @FXML
     void abrirEspecialista(ActionEvent event) {
 
+        CustomMessage cm = new CustomMessage("¿?", "¿Asignar el cuestionario a un paciente?", 3);
+        if (cm.getMessage().getButtonData().equals(ButtonType.OK.getButtonData())) {
+            // ABRIR PANEL BUSCAR/AGREGAR PACIENTE
+            System.out.println("TONTO");
+        } else {
+            System.out.println("Paciente generico...");
+            InfoCuestionario icg = new InfoCuestionario(cad.buscarSiguiente() + 1, c.getUsuario().getId());
+            ic = icg;
+            cad.insertarInfoCuestionario(icg);
+        }
         TestEspecialistaController tec
                 = (TestEspecialistaController) cv.cambiarVista("/Center/TestEspecialista.fxml", c.getPanelPrin());
         tec.setMc(c);
         tec.setTipoCuestionario(1);
         tec.iniciarTest();
+        if (ic != null) {
+            tec.setIc(ic);
+        }
     }
 
     @FXML

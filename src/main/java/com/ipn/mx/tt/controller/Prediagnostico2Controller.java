@@ -5,6 +5,7 @@
  */
 package com.ipn.mx.tt.controller;
 
+import com.ipn.mx.tt.modelo.InfoCuestionario;
 import com.ipn.mx.tt.modelo.Pregunta;
 import com.ipn.mx.tt.modelo.PreguntaTabla;
 import com.ipn.mx.tt.modelo.Respuesta;
@@ -36,6 +37,7 @@ public class Prediagnostico2Controller implements Initializable {
     private menuController mc;
     private cargadorVista cv;
     private Test test;
+    private InfoCuestionario ic;
     private ObservableList<PreguntaTabla> ptol;
     private ObservableList<SintomaTrastornoTabla> sttol;
     private ObservableList<TrastornoTabla> ttol;
@@ -93,6 +95,7 @@ public class Prediagnostico2Controller implements Initializable {
         pc.setMc(mc);
         pc.cargarResultados();
         pc.startgrafica();
+        pc.setIc(ic);
 
     }
 
@@ -105,6 +108,15 @@ public class Prediagnostico2Controller implements Initializable {
         
     }
 
+    public InfoCuestionario getIc() {
+        return ic;
+    }
+
+    public void setIc(InfoCuestionario ic) {
+        this.ic = ic;
+    }
+
+    
     public menuController getMc() {
         return mc;
     }

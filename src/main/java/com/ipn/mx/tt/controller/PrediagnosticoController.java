@@ -5,6 +5,7 @@
  */
 package com.ipn.mx.tt.controller;
 
+import com.ipn.mx.tt.modelo.InfoCuestionario;
 import com.ipn.mx.tt.modelo.Test;
 import com.ipn.mx.tt.util.cargadorVista;
 import com.jfoenix.controls.JFXButton;
@@ -35,6 +36,7 @@ public class PrediagnosticoController implements Initializable {
     private Test test;
     private cargadorVista cv;
     private menuController mc;
+    private InfoCuestionario ic;
 
     @FXML
     private AnchorPane panelPrin;
@@ -126,13 +128,26 @@ public class PrediagnosticoController implements Initializable {
     @FXML
     private BarChart<?, ?> gpiernass;
 
+    @FXML
+    private JFXButton btnGuardar;
+
+    @FXML
+    void guardarCuestionario(ActionEvent event) {
+
+    }
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         cv = new cargadorVista();
-// TODO
-        //c.toString();
-//        is50.setText(String.valueOf(c.getTrastorno(1, 1)));
+        btnGuardar.setVisible(false);
+    }
 
+    public InfoCuestionario getIc() {
+        return ic;
+    }
+
+    public void setIc(InfoCuestionario ic) {
+        this.ic = ic;
     }
 
     public Test getTest() {
@@ -151,7 +166,6 @@ public class PrediagnosticoController implements Initializable {
         this.mc = mc;
     }
 
-    
     public void cargarResultados() {
         DecimalFormat df = new DecimalFormat("#.00");
         ihsdq.setText("" + df.format(test.getTrastorno(1, 1)));
@@ -330,6 +344,10 @@ public class PrediagnosticoController implements Initializable {
         pc.setTest(test);
         pc.setMc(mc);
         pc.ponerPreguntasHabitos();
-        
+    }
+
+    public void darClickBotonGuardar() {
+        System.out.println("Cuestionario guardado...");
+        btnGuardar.fire();
     }
 }

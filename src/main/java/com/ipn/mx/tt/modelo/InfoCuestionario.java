@@ -34,6 +34,12 @@ public class InfoCuestionario {
         
         System.out.println(toString());
     }
+    public InfoCuestionario(Double idCuestionario, String Especialista) {
+        this.idCuestionario = idCuestionario;
+        status = 0.0;
+        this.paciente="XEXX010101HNEXXXA4";
+        this.Especialista = Especialista;
+    }
 
     public InfoCuestionario() {
         this.idCuestionario = 00000.0;
