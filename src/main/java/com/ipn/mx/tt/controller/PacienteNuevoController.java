@@ -50,7 +50,7 @@ public class PacienteNuevoController implements Initializable {
         this.c = c;
     }
 
-     @FXML
+    @FXML
     private AnchorPane panelP;
 
     @FXML
@@ -77,7 +77,6 @@ public class PacienteNuevoController implements Initializable {
     @FXML
     private JFXRadioButton rbPmasculino;
 
-    
     @FXML
     private ToggleGroup grupoPregunta;
 
@@ -114,15 +113,14 @@ public class PacienteNuevoController implements Initializable {
         // TODO
     }
 
-    public void registrarPaciente(Paciente p,InfoCuestionario ic)
-    {
+    public void registrarPaciente(Paciente p, InfoCuestionario ic) {
         registrarPaciente(p);
         cad.insertarInfoCuestionario(ic);
     }
+
     public void registrarPaciente(Paciente p) {
         pd.insertarPaciente(p);
     }
-
 
     @FXML
     void registrarPaciente(ActionEvent event) {
@@ -134,35 +132,37 @@ public class PacienteNuevoController implements Initializable {
                 Fecha = validador.validarDP(datePn),
                 Direccion = validador.validarTF(txtPndireccion),
                 Telefono = validador.validarTF(txtPntelefono),
-                CURP = validador.validarTF(txtPnCURP);
+                CURP = validador.validarTF(txtPnCURP),
+                Escolaridad = validador.validarCbx(cbxescolaridad);
+
         if (rbPfemenino.isSelected()) {
             Sexo = "F";
         } else {
             Sexo = "M";
         }
-//        if (!pd.pacienteExiste(CURP)) {
-//            if (!Nombre.equals("") && !Apellido.equals("") && !CURP.equals("") && !Correo.equals("") && !Fecha.equals("")
-//                    && !Direccion.equals("") && !Telefono.equals("") && !cbxescolaridad.getValue().equals("-")) {
-//
-//                Paciente p = new Paciente(Nombre, Apellido, Sexo, Correo, Fecha, Direccion, Telefono, CURP);
-//                InfoCuestionario ic = new InfoCuestionario(cad.buscarSiguiente() + 1, 0.0, CURP, c.getUsuario().getId());
-//                registrarPaciente(p, ic);
-//                
-//                CustomMessage cm1 = new CustomMessage("MENSAJE", "¿Desea realizar el Cuestionario?", 4);
-//                if (cm1.getMessage().getButtonData().equals(ButtonType.OK.getButtonData())) {
+        if (!pd.pacienteExiste(CURP)) {
+            if (!Nombre.equals("") && !Apellido.equals("") && !CURP.equals("") && !Correo.equals("") && !Fecha.equals("")
+                    && !Direccion.equals("") && !Telefono.equals("") && !cbxescolaridad.getValue().equals("-")) {
+
+                Paciente p = new Paciente(Nombre, Apellido, Sexo, Correo, Fecha, Direccion, Telefono, CURP, Escolaridad);
+                InfoCuestionario ic = new InfoCuestionario(cad.buscarSiguiente() + 1, 0.0, CURP, c.getUsuario().getId());
+                registrarPaciente(p, ic);
+
+                CustomMessage cm1 = new CustomMessage("MENSAJE", "¿Desea realizar el Cuestionario?", 4);
+                if (cm1.getMessage().getButtonData().equals(ButtonType.OK.getButtonData())) {
                     PacienteNuevo2Controller pnc = (PacienteNuevo2Controller) cv.cambiarVista("/Center/PacienteNuevo2.fxml", bp);
-//                    pnc.setPaciente(p);
-//                    pnc.setIc(ic);
-//                } else {
-//                    CustomMessage cm2 = new CustomMessage("MENSAJE", "El cuestionario se guardó para más tarde", 2);
-//                    GENERAR PDF O MOSTRAR EL NUMERO DE CUESTIONARIO ASIGNADO PARA APLICAR MÁS TARDE
-//                }
-//            } else {
-//                CustomMessage cm = new CustomMessage("ERROR", "Hubo un error en alguno de los campos...", 2);
-//            }
-//        } else {
-//            CustomMessage cm = new CustomMessage("ERROR", "EL CURP ya esta registrado...", 2);
-//        }
+                    pnc.setPaciente(p);
+                    pnc.setIc(ic);
+                } else {
+                    CustomMessage cm2 = new CustomMessage("MENSAJE", "El cuestionario se guardó para más tarde", 2);
+                    // GENERAR PDF O MOSTRAR EL NUMERO DE CUESTIONARIO ASIGNADO PARA APLICAR MÁS TARDE
+                }
+            } else {
+                CustomMessage cm = new CustomMessage("ERROR", "Hubo un error en alguno de los campos...", 2);
+            }
+        } else {
+            CustomMessage cm = new CustomMessage("ERROR", "EL CURP ya esta registrado...", 2);
+        }
 
     }
 

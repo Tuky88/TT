@@ -72,7 +72,6 @@ public class menuController implements Initializable {
     @FXML
     private Tab TabAyuda;
 
-
     @FXML
     void cerrarSesion(Event event) {
         int resp = 1; //alertMessage.confirm(0, "¿Cerrar Sesión?", "Desea cerrar sesión");
@@ -105,7 +104,7 @@ public class menuController implements Initializable {
         });
 
         TabConfig.setOnSelectionChanged((Event event) -> {
-            
+
             ConfiguracionesController cc = (ConfiguracionesController) cv.cambiarVista("/Center/Configuraciones.fxml", PanelPrin);
             cc.setUsuario(usuario);
             cc.setMc(this);
@@ -114,7 +113,7 @@ public class menuController implements Initializable {
 
         });
         TabPaciente.setOnSelectionChanged((Event event) -> {
-            
+
             PacienteController tc = (PacienteController) cv.cambiarVista("/Center/Paciente.fxml", PanelPrin);
             tc.setC(this);
             tc.clickMenu();
@@ -125,15 +124,18 @@ public class menuController implements Initializable {
             tc.setC(this);
 
         });
+        TabPrediagnostico.setOnSelectionChanged((Event event) -> {
+            PrediagnosticosController pc = (PrediagnosticosController) cv.cambiarVista("/Center/Prediagnosticos.fxml", PanelPrin);
+            pc.setMc(this);
+            pc.abrirHistorial();
+            
+
+        });
         TabReporte.setOnSelectionChanged((Event event) -> {
             cv.cambiarVista("/Center/Reportes.fxml", PanelPrin);
 
         });
-        TabPrediagnostico.setOnSelectionChanged((Event event) -> {
-            cv.cambiarVista("/Center/Prediagnosticos.fxml", PanelPrin);
 
-        });
-        
         TabAyuda.setOnSelectionChanged((Event event) -> {
             cv.cambiarVista("/Center/Ayuda.fxml", PanelPrin);
 
