@@ -41,6 +41,7 @@ public class PacienteConRegistroController implements Initializable {
     private cargadorVista cv;
     private menuController c;
     private CuestionarioAplicadoDAO cad;
+    private PacienteDAO pd;
 
     public menuController getC() {
         return c;
@@ -77,23 +78,28 @@ public class PacienteConRegistroController implements Initializable {
         String curp = toUpperCase(txtPrnombre.getText());
 
         String busqueda = v.validars(curp);
-        if (busqueda.length() > 2) {
-            ol.clear();
-            LinkedList ls = new LinkedList();
-            pacientes.forEach((l) -> {
-                //TERMINO DE BUSQUEDA
-                Paciente paciente = new Paciente((DBObject) l);
-                if (paciente.getCURP().contains(busqueda)) {
-                    ls.add(paciente);
-                }
-            });
-            ls.forEach((termino) -> {
-                //AÑADIR A LA VISTAs
-                PacienteTabla pacienteTabla = new PacienteTabla((Paciente) termino);
-                ol.add(pacienteTabla);
-            });
+        if (pacientes.size() > 0) {
+            if (busqueda.length() > 2) {
+                ol.clear();
+                LinkedList ls = new LinkedList();
+                pacientes.forEach((l) ->
+                {
+                    Paciente p=new Paciente((DBObject) l);
+                    if(p.getCURP().contains(curp))
+                    {
+                        ls.add(p);
+                    }
+                });
+                ls.forEach((termino) -> {
+                    //AÑADIR A LA VISTAs
+                    PacienteTabla pacienteTabla = new PacienteTabla((Paciente) termino);
+                    ol.add(pacienteTabla);
+                });
+            } else {
+                ol.clear();
+            }
         } else {
-            ol.clear();
+
         }
     }
 
@@ -102,11 +108,13 @@ public class PacienteConRegistroController implements Initializable {
         v = new Validador();
         cv = new cargadorVista();
         pacientes = new LinkedList();
-        PacienteDAO pd = new PacienteDAO();
+        pd = new PacienteDAO();
         cad = new CuestionarioAplicadoDAO();
         cad.conectar();
         pd.conectar();
         pacientes = pd.buscarSimilar();
+
+        System.out.println("PACIENTES:" + pacientes.size() + pacientes.toString());
         ol = FXCollections.observableArrayList();
 
         columnaCURP.setCellValueFactory(cellData -> cellData.getValue().getCURP());
@@ -161,7 +169,7 @@ public class PacienteConRegistroController implements Initializable {
     public Paciente getPaciente(String curp) {
         Paciente p = new Paciente();
 
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < pacientes.size(); i++) {
             p = new Paciente((DBObject) pacientes.get(i));
             if (p.getCURP().equals(curp)) {
                 break;

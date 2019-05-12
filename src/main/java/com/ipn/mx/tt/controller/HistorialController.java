@@ -5,39 +5,54 @@
  */
 package com.ipn.mx.tt.controller;
 
+import com.ipn.mx.tt.util.cargadorVista;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.collections.FXCollections;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TableView;
 import javafx.scene.layout.AnchorPane;
 
-/**
- * FXML Controller class
- *
- * @author garci
- */
-public class HistorialController implements Initializable {
+public class HistorialController implements Initializable{
+
+    private cargadorVista cv;
+    private menuController mc;
     @FXML
     private AnchorPane btnPver;
-
-    @FXML
-    private TableView<?> tblPpre;
 
     @FXML
     private JFXTextField txtPnombre;
 
     @FXML
+    private TableView<?> tblPpre;
+
+    @FXML
     private JFXButton btnPver1;
 
-    /**
-     * Initializes the controller class.
-     */
-    @Override
-    public void initialize(URL url, ResourceBundle rb) {
-        // TODO
-    }    
+    public menuController getMc() {
+        return mc;
+    }
+
+    public void setMc(menuController mc) {
+        this.mc = mc;
+    }
     
+        @Override
+    public void initialize(URL url, ResourceBundle rb) {
+        cv=new cargadorVista();
+    } 
+
+    
+        @FXML
+    private void verPrediagnostico(ActionEvent event) {
+        HistorialvistaController hc=(HistorialvistaController)
+                cv.cambiarVista("/Center/Historialvista.fxml",mc.getPanelPrin());
+        hc.setMc(mc);
+        
+    }
 }
+

@@ -35,7 +35,8 @@ public class PacienteDAO extends DocumentoDAO {
                 .append("Correo", p.getCorreo())
                 .append("Sexo", p.getSexo())
                 .append("Telefono", p.getTelefono())
-                .append("_CURP", p.getCURP());
+                .append("_CURP", p.getCURP())
+                .append("Escolaridad", p.getEscolaridad());
     }
 
     public void insertarPaciente(Paciente p) {
@@ -48,7 +49,7 @@ public class PacienteDAO extends DocumentoDAO {
     public Paciente buscarPaciente(String id) {
 
         //db.users.find({name: /a/})
-        DBObject query = new BasicDBObject("CURP", id);
+        DBObject query = new BasicDBObject("_CURP", id);
         DBCursor cursor = cjm.getMongoCollection().find(query);
         Paciente paciente;
         if (cursor.hasNext()) {
@@ -64,7 +65,7 @@ public class PacienteDAO extends DocumentoDAO {
     public List buscarSimilar() {
 
         DBCursor cursor = cjm.getMongoCollection().find();
-
+        System.out.println(cursor.toString());
         return cursor.toArray();
     }
 

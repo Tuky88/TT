@@ -23,6 +23,7 @@ import javafx.scene.layout.Pane;
 public class PrediagnosticosController implements Initializable {
 
     private cargadorVista cv;
+    private menuController mc;
     @FXML
     private Pane panelLeft;
 
@@ -35,9 +36,19 @@ public class PrediagnosticosController implements Initializable {
     @FXML
     private BorderPane panelRight;
 
+    public menuController getMc() {
+        return mc;
+    }
+
+    public void setMc(menuController mc) {
+        this.mc = mc;
+    }
+
+    
     @FXML
     void abrirHistorial(ActionEvent event) {
         HistorialController hc = (HistorialController) cv.cambiarVista("/Center/Historial.fxml", panelRight);
+        hc.setMc(mc);
         btnPhistorial.setDisable(true);
         btnPvalidar.setDisable(false);
     }
@@ -49,6 +60,7 @@ public class PrediagnosticosController implements Initializable {
         btnPvalidar.setDisable(true);
     }
 
+
     /**
      * Initializes the controller class.
      */
@@ -56,5 +68,9 @@ public class PrediagnosticosController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
         cv = new cargadorVista();
+    }
+
+    public void abrirHistorial() {
+        this.btnPhistorial.fire();
     }
 }

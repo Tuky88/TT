@@ -22,6 +22,16 @@ public class Paciente {
     String Direccion;
     String Telefono;
     String CURP;
+    private String Escolaridad;
+
+    public String getEscolaridad() {
+        return Escolaridad;
+    }
+
+    public void setEscolaridad(String Escolaridad) {
+        this.Escolaridad = Escolaridad;
+    }
+    
 
     public String getCURP() {
         return CURP;
@@ -37,8 +47,10 @@ public class Paciente {
 
     @Override
     public String toString() {
-        return "Paciente{" + "Nombre=" + Nombre + ", Apellido=" + Apellido + ", Sexo=" + Sexo + ", Correo=" + Correo + ", Fecha=" + Fecha + ", Direccion=" + Direccion + ", Telefono=" + Telefono + '}';
+        return "Paciente{" + "Nombre=" + Nombre + ", Apellido=" + Apellido + ", Sexo=" + Sexo + ", Correo=" + Correo + ", Fecha=" + Fecha + ", Direccion=" + Direccion + ", Telefono=" + Telefono + ", CURP=" + CURP + ", Escolaridad=" + Escolaridad + '}';
     }
+
+
 
     public String getNombre() {
         return Nombre;
@@ -105,7 +117,7 @@ public class Paciente {
         return 23;
     }
 
-    public Paciente(String Nombre, String Apellido, String Sexo, String Correo, String Fecha, String Direccion, String Telefono, String CURP) {
+    public Paciente(String Nombre, String Apellido, String Sexo, String Correo, String Fecha, String Direccion, String Telefono, String CURP,String Escolaridad) {
         this.Nombre = Nombre;
         this.Apellido = Apellido;
         this.Sexo = Sexo;
@@ -114,6 +126,7 @@ public class Paciente {
         this.Direccion = Direccion;
         this.Telefono = Telefono;
         this.CURP = CURP;
+        this.Escolaridad=Escolaridad;
     }
 
     public Paciente(DBObject dbo) {
@@ -125,6 +138,7 @@ public class Paciente {
         this.Direccion = (String) dbo.get("Direccion");
         this.Telefono = (String) dbo.get("Telefono");
         this.CURP = (String) dbo.get("_CURP");
+        this.Escolaridad = (String) dbo.get("Escolaridad");
     }
 
     public Paciente(PacienteTabla pt) {
