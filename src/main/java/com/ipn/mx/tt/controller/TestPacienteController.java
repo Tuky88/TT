@@ -148,9 +148,9 @@ public class TestPacienteController implements Initializable {
                     if (status == 0) {
                         //CREAR habitos de sueño y mandar  datos obtenidos
                         System.out.println("CUESTIONARIO SIN CONTESTAR");
+                        //CUESTIONARIO NUEVO
 
                         cargarTest();
-                        //CUESTIONARIO NUEVO
                     }
                     if (status == 1) {
                         //CARGAR HABITOS DE SUEÑO Y ORDEN PREGUNTAS...
