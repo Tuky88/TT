@@ -143,11 +143,12 @@ public class TestPacientePreguntasController implements Initializable {
         pc.setMc(mc);
         pc.setTest(test);
         pc.setIc(ic);
-
         pc.cargarResultados();
         pc.startgrafica();
         pc.darClickBotonGuardar();
 
+        pc.cargarResultados();
+        pc.startgrafica();
     }
 
     @FXML
