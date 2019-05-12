@@ -62,7 +62,7 @@
                               <Insets right="50.0" />
                            </GridPane.margin>
                         </ImageView>
-                        <JFXTextArea fx:id="txtayuda" editable="false" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" opacity="0.0" prefHeight="312.0" prefWidth="300.0" stylesheets="@../styles/Styles.css" GridPane.rowIndex="2" GridPane.valignment="TOP">
+                        <JFXTextArea fx:id="txtayuda" editable="false" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" prefHeight="312.0" prefWidth="300.0" stylesheets="@../styles/Styles.css" GridPane.rowIndex="2" GridPane.valignment="TOP">
                            <font>
                               <Font size="21.0" />
                            </font>
