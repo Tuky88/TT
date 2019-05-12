@@ -70,8 +70,12 @@ public class PacienteConRegistroController implements Initializable {
     private TableColumn<PacienteTabla, String> test;
     @FXML
     private TableColumn<PacienteTabla, String> columnaEdad;
-
+    
+        @FXML
+    private JFXButton btnPpregiagnostico;
+    
     private ObservableList<PacienteTabla> ol;
+    
 
     @FXML
     void buscarPaciente(KeyEvent event) {

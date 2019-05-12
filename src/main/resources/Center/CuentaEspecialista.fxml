@@ -40,7 +40,7 @@
                   <RowConstraints maxHeight="370.0" minHeight="10.0" prefHeight="72.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <Label text="Nombre:" GridPane.halignment="CENTER" GridPane.valignment="BOTTOM">
+                  <Label text="Nombre:" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="BOTTOM">
                      <font>
                         <Font name="Arial" size="15.0" />
                      </font>
@@ -48,12 +48,12 @@
                         <Insets bottom="5.0" right="400.0" />
                      </GridPane.margin>
                   </Label>
-                  <JFXTextField fx:id="txtCnombre" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="25.0" prefWidth="263.0" style="-fx-background-color: #FFFFFF;" GridPane.halignment="RIGHT" GridPane.valignment="BOTTOM">
+                  <JFXTextField fx:id="txtCnombre" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="25.0" prefWidth="263.0" style="-fx-background-color: #FFFFFF;" GridPane.halignment="RIGHT" GridPane.rowIndex="2" GridPane.valignment="BOTTOM">
                      <GridPane.margin>
                         <Insets bottom="5.0" right="326.0" />
                      </GridPane.margin>
                   </JFXTextField>
-                  <Label text="Apellidos:" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="BOTTOM">
+                  <Label text="Apellidos:" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="BOTTOM">
                      <font>
                         <Font name="Arial" size="15.0" />
                      </font>
@@ -61,12 +61,30 @@
                         <Insets bottom="5.0" right="400.0" />
                      </GridPane.margin>
                   </Label>
-                  <JFXTextField fx:id="txtCapellido" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="25.0" prefWidth="263.0" style="-fx-background-color: #FFFFFF;" GridPane.halignment="RIGHT" GridPane.rowIndex="1" GridPane.valignment="BOTTOM">
+                  <JFXTextField fx:id="txtCapellido" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="25.0" prefWidth="263.0" style="-fx-background-color: #FFFFFF;" GridPane.halignment="RIGHT" GridPane.rowIndex="3" GridPane.valignment="BOTTOM">
                      <GridPane.margin>
                         <Insets bottom="5.0" right="326.0" />
                      </GridPane.margin>
                   </JFXTextField>
-                  <Label text="Correo:" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="BOTTOM">
+                  <Label text="Correo:" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="BOTTOM">
+                     <font>
+                        <Font name="Arial" size="15.0" />
+                     </font>
+                     <GridPane.margin>
+                        <Insets bottom="5.0" right="410.0" />
+                     </GridPane.margin>
+                  </Label>
+                  <JFXTextField fx:id="txtCcorreo" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="25.0" prefWidth="263.0" style="-fx-background-color: #FFFFFF;" GridPane.halignment="RIGHT" GridPane.rowIndex="4" GridPane.valignment="BOTTOM">
+                     <GridPane.margin>
+                        <Insets bottom="5.0" right="326.0" />
+                     </GridPane.margin>
+                  </JFXTextField>
+                  <JFXTextField fx:id="txtCusuario" editable="false" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="25.0" prefWidth="263.0" style="-fx-background-color: #FFFFFF;" GridPane.halignment="RIGHT" GridPane.valignment="BOTTOM">
+                     <GridPane.margin>
+                        <Insets bottom="5.0" right="326.0" />
+                     </GridPane.margin>
+                  </JFXTextField>
+                  <Label text="Usuario:" GridPane.halignment="CENTER" GridPane.valignment="BOTTOM">
                      <font>
                         <Font name="Arial" size="15.0" />
                      </font>
@@ -74,25 +92,7 @@
                         <Insets bottom="5.0" right="400.0" />
                      </GridPane.margin>
                   </Label>
-                  <JFXTextField fx:id="txtCcorreo" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="25.0" prefWidth="263.0" style="-fx-background-color: #FFFFFF;" GridPane.halignment="RIGHT" GridPane.rowIndex="2" GridPane.valignment="BOTTOM">
-                     <GridPane.margin>
-                        <Insets bottom="5.0" right="326.0" />
-                     </GridPane.margin>
-                  </JFXTextField>
-                  <JFXTextField fx:id="txtCusuario" editable="false" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="25.0" prefWidth="263.0" style="-fx-background-color: #FFFFFF;" GridPane.halignment="RIGHT" GridPane.rowIndex="3" GridPane.valignment="BOTTOM">
-                     <GridPane.margin>
-                        <Insets bottom="5.0" right="326.0" />
-                     </GridPane.margin>
-                  </JFXTextField>
-                  <Label text="Usuario:" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="BOTTOM">
-                     <font>
-                        <Font name="Arial" size="15.0" />
-                     </font>
-                     <GridPane.margin>
-                        <Insets bottom="5.0" right="400.0" />
-                     </GridPane.margin>
-                  </Label>
-                  <JFXTextField fx:id="txtCnoempleado" editable="false" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="25.0" prefWidth="263.0" style="-fx-background-color: #FFFFFF;" GridPane.halignment="RIGHT" GridPane.rowIndex="4" GridPane.valignment="BOTTOM">
+                  <JFXTextField fx:id="txtCnoempleado" editable="false" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="25.0" prefWidth="263.0" style="-fx-background-color: #FFFFFF;" GridPane.halignment="RIGHT" GridPane.rowIndex="1" GridPane.valignment="BOTTOM">
                      <GridPane.margin>
                         <Insets bottom="5.0" right="326.0" />
                      </GridPane.margin>
@@ -131,12 +131,12 @@
                         <Insets left="120.0" />
                      </GridPane.margin>
                   </JFXButton>
-                  <Label text="No. empleado:" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="BOTTOM">
+                  <Label text="No. empleado:" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="BOTTOM">
                      <font>
                         <Font name="Arial" size="15.0" />
                      </font>
                      <GridPane.margin>
-                        <Insets bottom="5.0" right="400.0" />
+                        <Insets bottom="5.0" right="360.0" />
                      </GridPane.margin>
                   </Label>
                   <Label text="Telefono:" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="BOTTOM">

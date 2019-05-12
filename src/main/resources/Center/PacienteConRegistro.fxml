@@ -65,6 +65,17 @@
                      <font>
                         <Font name="Century Gothic" size="14.0" />
                      </font>
+                     <GridPane.margin>
+                        <Insets right="200.0" />
+                     </GridPane.margin>
+                  </JFXButton>
+                  <JFXButton fx:id="btnPpregiagnostico" buttonType="RAISED" onAction="#iniciarTest" prefHeight="28.0" prefWidth="162.0" ripplerFill="WHITE" style="-fx-background-color: #70b2d6;" text="Prediagnóstico" GridPane.halignment="CENTER" GridPane.rowIndex="2">
+                     <font>
+                        <Font name="Century Gothic" size="14.0" />
+                     </font>
+                     <GridPane.margin>
+                        <Insets left="200.0" />
+                     </GridPane.margin>
                   </JFXButton>
                </children>
             </GridPane>
