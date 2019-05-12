@@ -145,11 +145,12 @@ public class TestPacienteController implements Initializable {
                     System.out.println(paciente.toString());
                     System.out.println(ic.toString());
 
-                    
                     if (status == 0) {
                         //CREAR habitos de sueño y mandar  datos obtenidos
                         System.out.println("CUESTIONARIO SIN CONTESTAR");
                         //CUESTIONARIO NUEVO
+
+                        cargarTest();
                     }
                     if (status == 1) {
                         //CARGAR HABITOS DE SUEÑO Y ORDEN PREGUNTAS...
