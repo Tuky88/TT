@@ -46,9 +46,7 @@ public class TestPacientePreguntasController implements Initializable {
     private Test test;
     private int contadorPregunta;
     private Paciente paciente;
-    
-    
-    
+
     @FXML
     private BorderPane panelRight;
 
@@ -93,6 +91,12 @@ public class TestPacientePreguntasController implements Initializable {
 
     @FXML
     private JFXTextArea txtayuda;
+
+    @FXML
+    private Label lblAyuda;
+
+    @FXML
+    private ImageView imgAyuda;
 
     public InfoCuestionario getIc() {
         return ic;
@@ -153,7 +157,16 @@ public class TestPacientePreguntasController implements Initializable {
 
     public void cargarPregunta(Pregunta p) {
 
-        txtayuda.setVisible(false);
+        if (p.getAyuda().equals("")) {
+            txtayuda.setVisible(false);
+            lblAyuda.setVisible(false);
+            imgAyuda.setVisible(false);
+        } else {
+            txtayuda.setVisible(true);
+            lblAyuda.setVisible(true);
+            imgAyuda.setVisible(true);
+        }
+
         if (p.getId() > 0 && p.getId() != 99) {
             txtayuda.setText(p.getAyuda());
             txtpregunta.setText("(" + p.getId() + ")" + contadorPregunta + ".-" + p.getTexto());
@@ -368,5 +381,4 @@ public class TestPacientePreguntasController implements Initializable {
         this.conducta = conducta;
     }
 
-    
 }
