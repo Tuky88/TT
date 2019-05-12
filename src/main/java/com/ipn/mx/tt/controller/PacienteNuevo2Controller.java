@@ -5,7 +5,7 @@ package com.ipn.mx.tt.controller;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-import com.ipn.mx.tt.dao.PacienteDAO;
+import com.ipn.mx.tt.dao.ConductaDAO;
 import com.ipn.mx.tt.modelo.Conducta;
 import com.ipn.mx.tt.modelo.InfoCuestionario;
 import com.ipn.mx.tt.modelo.Paciente;
@@ -36,11 +36,15 @@ import javafx.scene.layout.AnchorPane;
  */
 public class PacienteNuevo2Controller implements Initializable {
 
+    private boolean datosPaciente;
+    private ConductaDAO cd;
     private Validador v;
     private cargadorVista cv;
     private menuController mc;
     private Paciente paciente;
-    private InfoCuestionario infoCuestionario;
+    private InfoCuestionario ic;
+    private Conducta c;
+    private int tipoCuestionario;
     @FXML
     private AnchorPane panelP;
 
@@ -114,9 +118,9 @@ public class PacienteNuevo2Controller implements Initializable {
 
     @FXML
     private JFXRadioButton rbPtrabajan;
-    
-     ObservableList<String> items = FXCollections.observableArrayList("0", "1",
-            "2", "3", "4", "5", "6","7");
+
+    ObservableList<String> items = FXCollections.observableArrayList("0", "1",
+            "2", "3", "4", "5", "6", "7");
 
     /**
      * Initializes the controller class.
@@ -128,41 +132,80 @@ public class PacienteNuevo2Controller implements Initializable {
         cbxdiasd.setItems(items);
         cbxdiasd.setValue("0");
         cbxdiasd.setVisible(false);
-            lbldias.setVisible(false);
-            lblhorario.setVisible(false);
-            lblhoras.setVisible(false);
-            lblphorasdd.setVisible(false);
-            lblphorass.setVisible(false);
-            lblphoras.setVisible(false);
-            spnhoras.setVisible(false);
-            lbltrabaja.setVisible(false);
-            rbPhorariof.setVisible(false);
-            rbPhorarionof.setVisible(false);
-            rbPhorarioturnos.setVisible(false);
-            rbPls.setVisible(false);
-            rbPlv.setVisible(false);
-            rbPld.setVisible(false);
-            spnhorastrabajo.setVisible(false);
-            txtPhorasd.setVisible(false);
-            txtPhorasl.setVisible(false);
+        lbldias.setVisible(false);
+        lblhorario.setVisible(false);
+        lblhoras.setVisible(false);
+        lblphorasdd.setVisible(false);
+        lblphorass.setVisible(false);
+        lblphoras.setVisible(false);
+        spnhoras.setVisible(false);
+        lbltrabaja.setVisible(false);
+        rbPhorariof.setVisible(false);
+        rbPhorarionof.setVisible(false);
+        rbPhorarioturnos.setVisible(false);
+        rbPls.setVisible(false);
+        rbPlv.setVisible(false);
+        rbPld.setVisible(false);
+        spnhorastrabajo.setVisible(false);
+        txtPhorasd.setVisible(false);
+        txtPhorasl.setVisible(false);
+        cd = new ConductaDAO();
+        cd.conectar();
+        cv=new cargadorVista();
         // TODO
     }
 
     public void hacerCuestionario() {
-        ComenzarTestController ctc = (ComenzarTestController) cv.cambiarVista("/Center/ComenzarTest.fxml", mc.getPanelPrin());
-        ctc.setC(mc);
-        ctc.setPaciente(paciente);
-        ctc.setDatosPaciente(true);
-        ctc.setIc(infoCuestionario);
+
+        TestPacienteController tpc
+                = (TestPacienteController) cv.cambiarVista("/Center/TestPaciente.fxml", mc.getPanelPrin());
+        tpc.setMc(mc);
+        tpc.setTipoCuestionario(tipoCuestionario);
+        tpc.setPaciente(paciente);
+
+        tpc.setDatosPaciente(datosPaciente);
+        if (datosPaciente) {
+            tpc.setConducta(c);
+            tpc.setIc(ic);
+            tpc.ponerPaciente();
+            tpc.clickComenzar();
+        }
+        //1 .- Paciente
+        //2 .- Acompañante
+        //CARGAR VISTA 
 
     }
 
-    void setPaciente(Paciente p) {
+    public int getTipoCuestionario() {
+        return tipoCuestionario;
+    }
+
+    public void setTipoCuestionario(int tipoCuestionario) {
+        this.tipoCuestionario = tipoCuestionario;
+    }
+
+    public boolean isDatosPaciente() {
+        return datosPaciente;
+    }
+
+    public void setDatosPaciente(boolean datosPaciente) {
+        this.datosPaciente = datosPaciente;
+    }
+
+    public menuController getMc() {
+        return mc;
+    }
+
+    public void setMc(menuController mc) {
+        this.mc = mc;
+    }
+
+   public void setPaciente(Paciente p) {
         paciente = p;
     }
 
-    void setIc(InfoCuestionario ic) {
-        infoCuestionario = ic;
+    public void setIc(InfoCuestionario ic) {
+        this.ic = ic;
     }
 
     public void configurarObjetos() {
@@ -174,7 +217,7 @@ public class PacienteNuevo2Controller implements Initializable {
 
     @FXML
     public void trabaja(ActionEvent event) {
-       
+
         if (rbPtrabajan.isSelected()) {
             cbxdiasd.setVisible(false);
             lbldias.setVisible(false);
@@ -219,7 +262,6 @@ public class PacienteNuevo2Controller implements Initializable {
     @FXML
     public void comenzarCuestionario(ActionEvent event) {
 
-        Conducta c = null;
         Double horariotrabajo, trabajade, diadescanso, horastrabajo, promediohoraslaboral, promediohorasdescanso, promediohoras;
         //
         promediohoras = v.validarSp(spnhoras);
@@ -276,7 +318,7 @@ public class PacienteNuevo2Controller implements Initializable {
                 //TRAER DATOS DEL CUESTIONARIO
                 c = new Conducta(horariotrabajo, trabajade, diadescanso, promediohoras, horastrabajo, promediohoraslaboral, promediohorasdescanso);
                 System.out.println(c.toString());
-    
+
             }
         } else if (rbPtrabajan.isSelected()) {
             if (true) {
@@ -288,13 +330,26 @@ public class PacienteNuevo2Controller implements Initializable {
                 System.out.println("REQUISITOS NO TRABAJA COMPLETOS");
                 //CONSTRUCTOR HABITOS NO TRABAJA
                 c = new Conducta(promediohoras);
-                            System.out.println(c.toString());
-    
+                System.out.println(c.toString());
             }
         } else {
             CustomMessage cm = new CustomMessage("ERROR", "Seleccionar una opción ", 0);
+        }
+
+        if (c != null) {
+            c.setNumCuestionario(ic.getIdCuestionario());
+            cd.insertar(c);
+            hacerCuestionario();
 
         }
+    }
+    public void imprimirDatos()
+    {
+        System.out.println(paciente.toString() + ic.toString()+ c.toString());
+    }
+
+    void setPanel(AnchorPane panelVista) {
+        panelP=panelVista;
     }
 
 }

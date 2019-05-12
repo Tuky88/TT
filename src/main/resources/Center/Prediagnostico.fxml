@@ -124,6 +124,11 @@
                         <Label fx:id="lblDuracion" prefHeight="21.0" prefWidth="81.0" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="10" />
                      </children>
                   </GridPane>
+                  <Label fx:id="lblCuestionario" layoutX="10.0" layoutY="10.0" prefHeight="23.0" prefWidth="95.0" text="HSDQ" textFill="WHITE">
+                     <font>
+                        <Font name="Century Gothic Bold" size="18.0" />
+                     </font>
+                  </Label>
                </children></AnchorPane>
             <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="510.0" prefWidth="1020.0" style="-fx-background-color: #FFFFFF;">
                <children>

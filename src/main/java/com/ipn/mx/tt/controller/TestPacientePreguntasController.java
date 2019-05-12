@@ -5,6 +5,7 @@
  */
 package com.ipn.mx.tt.controller;
 
+import com.ipn.mx.tt.modelo.Conducta;
 import com.ipn.mx.tt.modelo.InfoCuestionario;
 import com.ipn.mx.tt.modelo.Paciente;
 import com.ipn.mx.tt.modelo.Pregunta;
@@ -35,6 +36,7 @@ import javafx.scene.layout.BorderPane;
  */
 public class TestPacientePreguntasController implements Initializable {
 
+    private Conducta conducta;
     private InfoCuestionario ic;
     private cargadorVista cv;
     private int tipoCuestionario;
@@ -90,6 +92,12 @@ public class TestPacientePreguntasController implements Initializable {
     @FXML
     private JFXTextArea txtayuda;
 
+    @FXML
+    private Label lblAyuda;
+
+    @FXML
+    private ImageView imgAyuda;
+
     public InfoCuestionario getIc() {
         return ic;
     }
@@ -134,8 +142,9 @@ public class TestPacientePreguntasController implements Initializable {
         test.getDuracion();
         pc.setMc(mc);
         pc.setTest(test);
-        pc.cargarResultados();
         pc.setIc(ic);
+
+        pc.cargarResultados();
         pc.startgrafica();
         pc.darClickBotonGuardar();
 
@@ -148,7 +157,16 @@ public class TestPacientePreguntasController implements Initializable {
 
     public void cargarPregunta(Pregunta p) {
 
-        txtayuda.setVisible(false);
+        if (p.getAyuda().equals("")) {
+            txtayuda.setVisible(false);
+            lblAyuda.setVisible(false);
+            imgAyuda.setVisible(false);
+        } else {
+            txtayuda.setVisible(true);
+            lblAyuda.setVisible(true);
+            imgAyuda.setVisible(true);
+        }
+
         if (p.getId() > 0 && p.getId() != 99) {
             txtayuda.setText(p.getAyuda());
             txtpregunta.setText("(" + p.getId() + ")" + contadorPregunta + ".-" + p.getTexto());
@@ -354,4 +372,13 @@ public class TestPacientePreguntasController implements Initializable {
     void ponerPaciente() {
         this.lblPaciente.setText(this.lblPaciente.getText() + " " + paciente.getNombre());
     }
+
+    public Conducta getConducta() {
+        return conducta;
+    }
+
+    public void setConducta(Conducta conducta) {
+        this.conducta = conducta;
+    }
+
 }

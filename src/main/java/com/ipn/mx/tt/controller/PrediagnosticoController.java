@@ -92,6 +92,9 @@ public class PrediagnosticoController implements Initializable {
 
     @FXML
     private Label lblDuracion;
+
+    @FXML
+    private Label lblCuestionario;
     @FXML
     private JFXButton btnPsiguientes;
 
@@ -188,6 +191,7 @@ public class PrediagnosticoController implements Initializable {
         lblDuracion.setText(dt1.format(test.getDuracion()) + "minutos");
         lblInicio.setText(dt.format(test.getInicioCuestionario()));
         lblTermino.setText(dt.format(test.getFinCuestionario()));
+        lblCuestionario.setText(ic.getIdCuestionario()+"");
     }
 
     public void startgrafica() {
@@ -342,6 +346,7 @@ public class PrediagnosticoController implements Initializable {
         Prediagnostico2Controller pc
                 = (Prediagnostico2Controller) cv.cambiarVista("/Center/Prediagnostico2.fxml", mc.getPanelPrin());
         pc.setTest(test);
+        pc.setIc(ic);
         pc.setMc(mc);
         pc.ponerPreguntasHabitos();
     }

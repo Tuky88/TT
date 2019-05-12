@@ -42,6 +42,7 @@ public class PacienteConRegistroController implements Initializable {
     private menuController c;
     private CuestionarioAplicadoDAO cad;
     private PacienteDAO pd;
+    private boolean directoEspecialista;
 
     public menuController getC() {
         return c;
@@ -164,6 +165,10 @@ public class PacienteConRegistroController implements Initializable {
                     //CREAR NUEVA INFO DE CUESTIONARIO Y APLICAR
                 }
             }
+            if (directoEspecialista) {
+                ctc.setEspecialistaDirecto(true);
+                ctc.clicEspecialista();
+            }
         } else {
             CustomMessage cm = new CustomMessage("Advertencia", "Seleccione un paciente", 0);
         }
@@ -181,6 +186,10 @@ public class PacienteConRegistroController implements Initializable {
         }
         return p;
 
+    }
+
+    public void directoEspecialista() {
+        directoEspecialista=true;
     }
 
 }

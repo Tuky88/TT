@@ -7,7 +7,9 @@ package com.ipn.mx.tt.dao;
 
 
 import com.ipn.mx.tt.modelo.Conducta;
+import com.ipn.mx.tt.modelo.Pregunta;
 import com.mongodb.BasicDBObject;
+import com.mongodb.DBCursor;
 import com.mongodb.DBObject;
 
 /**
@@ -24,9 +26,9 @@ public class ConductaDAO extends DocumentoDAO{
         super("TT", "Conducta");
     }
     
-    public void insertar(Conducta cd,Double numCuestionario)
+    public void insertar(Conducta cd)
     {
-        DBObject dbo=new BasicDBObject("_numCuestionario",numCuestionario)
+        DBObject dbo=new BasicDBObject("_numCuestionario",cd.getNumCuestionario())
                 .append("Trabaja", cd.isTrabaja())
                 .append("HorarioTrabajo", cd.getHorarioTrabajo())
                 .append("JornadaLaboral", cd.getJornadaLaboral())
@@ -36,6 +38,19 @@ public class ConductaDAO extends DocumentoDAO{
                 .append("PromedioHorasL", cd.getPromedioHorasLaborales())
                 .append("PromedioHorasD", cd.getPromedioHorasDescanso());
         cjm.getMongoCollection().insert(dbo);
+    }
+    public Conducta buscarConducta(Double numPregunta)
+    {
+        Conducta c;
+                DBObject query = new BasicDBObject("_numCuestionario", numPregunta);
+        DBCursor cursor = cjm.getMongoCollection().find(query);
+        if (cursor.hasNext()) {
+            DBObject jo = cursor.one();
+            c = new Conducta(jo);
+        } else {
+            c = null;
+        }
+        return c;
     }
     
     

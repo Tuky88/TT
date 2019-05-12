@@ -7,6 +7,7 @@ package com.ipn.mx.tt.controller;
 
 import com.ipn.mx.tt.dao.CuestionarioAplicadoDAO;
 import com.ipn.mx.tt.dao.PacienteDAO;
+import com.ipn.mx.tt.modelo.Conducta;
 import com.ipn.mx.tt.modelo.InfoCuestionario;
 import com.ipn.mx.tt.modelo.Paciente;
 import com.ipn.mx.tt.util.CustomMessage;
@@ -32,6 +33,7 @@ import javafx.scene.layout.AnchorPane;
 public class TestPacienteController implements Initializable {
 
     private int tipoCuestionario;
+    private Conducta c;
     private boolean datosPaciente;
     private Paciente paciente;
     private cargadorVista cv;
@@ -40,6 +42,7 @@ public class TestPacienteController implements Initializable {
     private Validador v;
     private CuestionarioAplicadoDAO cad;
     private PacienteDAO pd;
+    private Conducta conducta;
     @FXML
     private Label lblPaciente;
     @FXML
@@ -49,6 +52,14 @@ public class TestPacienteController implements Initializable {
     private JFXTextField txtTPnumero;
     @FXML
     private AnchorPane panelT;
+
+    public Conducta getConducta() {
+        return conducta;
+    }
+
+    public void setConducta(Conducta conducta) {
+        this.conducta = conducta;
+    }
 
     public Paciente getPaciente() {
         return paciente;
@@ -86,6 +97,14 @@ public class TestPacienteController implements Initializable {
         lblPaciente.setText(lblPaciente.getText() + " " + paciente.getNombre());
     }
 
+    public Conducta getC() {
+        return c;
+    }
+
+    public void setC(Conducta c) {
+        this.c = c;
+    }
+
     public InfoCuestionario getIc() {
         return ic;
     }
@@ -112,43 +131,41 @@ public class TestPacienteController implements Initializable {
     }
 
     public void enterBoton() {
-        if(ic==null)
-        {
-                    if (!(v.validarTF(txtTPnumero).equals(""))) {
+        if (ic == null) {
+            if (!(v.validarTF(txtTPnumero).equals(""))) {
 
-            Double numCuestionario = v.validarTFtoDouble(txtTPnumero);
-            Double status = cad.statusCuestionario(numCuestionario);
-            //Traer Paciente con curp
-            if (cad.cuestionarioExiste(numCuestionario) && status != 2) {
-                //Llenar infoCuestionario
-                ic = cad.traerInfo(numCuestionario);
-                //Traer paciente
-                paciente = pd.buscarPaciente(ic.getPaciente());
-                System.out.println(paciente.toString());
-                System.out.println(ic.toString());
+                Double numCuestionario = v.validarTFtoDouble(txtTPnumero);
+                Double status = cad.statusCuestionario(numCuestionario);
+                //Traer Paciente con curp
+                if (cad.cuestionarioExiste(numCuestionario) && status != 2) {
+                    //Llenar infoCuestionario
+                    ic = cad.traerInfo(numCuestionario);
+                    //Traer paciente
+                    paciente = pd.buscarPaciente(ic.getPaciente());
+                    System.out.println(paciente.toString());
+                    System.out.println(ic.toString());
 
-                if (status == 0) {
-                    //CREAR habitos de sueño y mandar  datos obtenidos
-                    System.out.println("CUESTIONARIO SIN CONTESTAR");
-                    //CUESTIONARIO NUEVO
+                    
+                    if (status == 0) {
+                        //CREAR habitos de sueño y mandar  datos obtenidos
+                        System.out.println("CUESTIONARIO SIN CONTESTAR");
+                        //CUESTIONARIO NUEVO
+                    }
+                    if (status == 1) {
+                        //CARGAR HABITOS DE SUEÑO Y ORDEN PREGUNTAS...
+                        System.out.println("CUESTIONARIO EMPEZADO...");
+                        //CUESTIONARIO EMPEZADO
+                    }
+                } else {
+                    CustomMessage cm = new CustomMessage("ERROR", "El numero de cuestionario no es válido, Solicite ayuda", 2);
                 }
-                if (status == 1) {
-                    //CARGAR HABITOS DE SUEÑO Y ORDEN PREGUNTAS...
-                    System.out.println("CUESTIONARIO EMPEZADO...");
-                    //CUESTIONARIO EMPEZADO
-                }
+
             } else {
-                CustomMessage cm = new CustomMessage("ERROR", "El numero de cuestionario no es válido, Solicite ayuda", 2);
+                CustomMessage cm = new CustomMessage("ERROR", "INTRODUCE UN NUMERO", 2);
+
             }
 
         } else {
-            CustomMessage cm = new CustomMessage("ERROR", "INTRODUCE UN NUMERO", 2);
-
-        }
-
-        }
-        else
-        {
             cargarTest();
         }
     }
@@ -161,6 +178,7 @@ public class TestPacienteController implements Initializable {
         tppc.setPaciente(paciente);
         if (datosPaciente) {
             tppc.setIc(ic);
+            tppc.setConducta(conducta);
             tppc.ponerPaciente();
         }
     }

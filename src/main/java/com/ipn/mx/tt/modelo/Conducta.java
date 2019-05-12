@@ -5,6 +5,8 @@
  */
 package com.ipn.mx.tt.modelo;
 
+import com.mongodb.DBObject;
+
 /**
  *
  * @author Temp
@@ -19,6 +21,7 @@ public class Conducta {
     private Double promedioHorasLaborales;
     private Double horasDeTrabajo;
     private Double promedioHorasDescanso;
+    private Double numCuestionario;
 
     public Conducta(Double horas) {
         trabaja = false;
@@ -40,6 +43,16 @@ public class Conducta {
         this.promedioHorasLaborales = promedioHorasLaborales;
         this.horasDeTrabajo = horasDeTrabajo;
         this.promedioHorasDescanso = promedioHorasDescanso;
+    }
+        public Conducta(DBObject dbo) {
+        this.trabaja = (Boolean) dbo.get("Trabaja");
+        this.horarioTrabajo = (Double) dbo.get("HorarioTrabajo");
+        this.jornadaLaboral =  (Double) dbo.get("JornadaLaboral");
+        this.diasDeDescanso =  (Double) dbo.get("DiasDeDescanso");
+        this.promedioHoras =  (Double) dbo.get("PromedioHoras");
+        this.promedioHorasLaborales = (Double) dbo.get("PromedioHorasL");
+        this.horasDeTrabajo = (Double) dbo.get("HorasTrabajo");
+        this.promedioHorasDescanso = (Double) dbo.get("promedioHorasD");
     }
 
     public Double getPromedioHoras() {
@@ -106,10 +119,21 @@ public class Conducta {
         this.promedioHorasDescanso = promedioHorasDescanso;
     }
 
+    public Double getNumCuestionario() {
+        return numCuestionario;
+    }
+
+    public void setNumCuestionario(Double numCuestionario) {
+        this.numCuestionario = numCuestionario;
+    }
+
     @Override
     public String toString() {
-        return "Conducta{" + "trabaja=" + trabaja + ", horarioTrabajo=" + horarioTrabajo + ", jornadaLaboral=" + jornadaLaboral + ", diasDeDescanso=" + diasDeDescanso + ", promedioHoras=" + promedioHoras + ", promedioHorasLaborales=" + promedioHorasLaborales + ", horasDeTrabajo=" + horasDeTrabajo + ", promedioHorasDescanso=" + promedioHorasDescanso + '}';
+        return "Conducta{" + "trabaja=" + trabaja + ", horarioTrabajo=" + horarioTrabajo + ", jornadaLaboral=" + jornadaLaboral + ", diasDeDescanso=" + diasDeDescanso + ", promedioHoras=" + promedioHoras + ", promedioHorasLaborales=" + promedioHorasLaborales + ", horasDeTrabajo=" + horasDeTrabajo + ", promedioHorasDescanso=" + promedioHorasDescanso + ", numCuestionario=" + numCuestionario + '}';
     }
+    
+
+
     
 
 }

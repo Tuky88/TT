@@ -6,6 +6,7 @@
 package com.ipn.mx.tt.controller;
 
 import com.ipn.mx.tt.dao.CuestionarioAplicadoDAO;
+import com.ipn.mx.tt.modelo.Conducta;
 import com.ipn.mx.tt.modelo.InfoCuestionario;
 import com.ipn.mx.tt.modelo.Paciente;
 import com.ipn.mx.tt.util.CustomMessage;
@@ -33,6 +34,15 @@ public class ComenzarTestController implements Initializable {
     private Paciente paciente;
     private InfoCuestionario ic;
     private CuestionarioAplicadoDAO cad;
+    private boolean especialistaDirecto;
+
+    public boolean isEspecialistaDirecto() {
+        return especialistaDirecto;
+    }
+
+    public void setEspecialistaDirecto(boolean especialistaDirecto) {
+        this.especialistaDirecto = especialistaDirecto;
+    }
 
     public boolean isDatosPaciente() {
         return datosPaciente;
@@ -94,23 +104,25 @@ public class ComenzarTestController implements Initializable {
         cv = new cargadorVista();
         cad = new CuestionarioAplicadoDAO();
         cad.conectar();
+        especialistaDirecto = false;
     }
 
     public void abrirPaciente(int i) {
-        TestPacienteController tpc
-                = (TestPacienteController) cv.cambiarVista("/Center/TestPaciente.fxml", c.getPanelPrin());
-        tpc.setMc(c);
-        tpc.setTipoCuestionario(i);
-        tpc.setPaciente(paciente);
 
-        tpc.setDatosPaciente(datosPaciente);
         if (datosPaciente) {
-            tpc.setIc(ic);
-            tpc.ponerPaciente();
-            tpc.clickComenzar();
+            InstruccionesTestController itc
+                    = (InstruccionesTestController) cv.cambiarVista("/Center/InstruccionesTest.fxml", c.getPanelPrin());
+            itc.setMc(c);
+            itc.setTipoCuestionario(i);
+            itc.setPaciente(paciente);
+            if (datosPaciente) {
+                itc.setIc(ic);
+            }
+            itc.setDatosPaciente(datosPaciente);
+        } else {
+            TestPacienteController tpc = (TestPacienteController) cv.cambiarVista("/Center/TestPaciente.fxml", c.getPanelPrin());
         }
-        //1 .- Paciente
-        //2 .- Acompañante
+
     }
 
     @FXML
@@ -121,23 +133,38 @@ public class ComenzarTestController implements Initializable {
     @FXML
     void abrirEspecialista(ActionEvent event) {
 
-        CustomMessage cm = new CustomMessage("¿?", "¿Asignar el cuestionario a un paciente?", 3);
-        if (cm.getMessage().getButtonData().equals(ButtonType.OK.getButtonData())) {
-            // ABRIR PANEL BUSCAR/AGREGAR PACIENTE
-            System.out.println("TONTO");
+        if (especialistaDirecto) {
+            TestEspecialistaController tec
+                    = (TestEspecialistaController) cv.cambiarVista("/Center/TestEspecialista.fxml", c.getPanelPrin());
+            tec.setMc(c);
+            tec.setTipoCuestionario(1);
+            tec.iniciarTest();
+            if (ic != null) {
+                tec.setIc(ic);
+            }
         } else {
-            System.out.println("Paciente generico...");
-            InfoCuestionario icg = new InfoCuestionario(cad.buscarSiguiente() + 1, c.getUsuario().getId());
-            ic = icg;
-            cad.insertarInfoCuestionario(icg);
-        }
-        TestEspecialistaController tec
-                = (TestEspecialistaController) cv.cambiarVista("/Center/TestEspecialista.fxml", c.getPanelPrin());
-        tec.setMc(c);
-        tec.setTipoCuestionario(1);
-        tec.iniciarTest();
-        if (ic != null) {
-            tec.setIc(ic);
+            CustomMessage cm = new CustomMessage("¿?", "¿Asignar el cuestionario a un paciente?", 3);
+            if (cm.getMessage().getButtonData().equals(ButtonType.OK.getButtonData())) {
+                PacienteConRegistroController pcrc = (PacienteConRegistroController) cv.cambiarVista("/Center/PacienteConRegistro.fxml", panelRight);
+                pcrc.setC(c);
+                pcrc.directoEspecialista();
+            } else {
+                System.out.println("Paciente generico...");
+                InfoCuestionario icg = new InfoCuestionario(cad.buscarSiguiente() + 1, c.getUsuario().getId());
+                ic = icg;
+                cad.insertarInfoCuestionario(icg);
+                especialistaDirecto = true;
+            }
+            if (especialistaDirecto) {
+                TestEspecialistaController tec
+                        = (TestEspecialistaController) cv.cambiarVista("/Center/TestEspecialista.fxml", c.getPanelPrin());
+                tec.setMc(c);
+                tec.setTipoCuestionario(1);
+                tec.iniciarTest();
+                if (ic != null) {
+                    tec.setIc(ic);
+                }
+            }
         }
     }
 
@@ -149,6 +176,15 @@ public class ComenzarTestController implements Initializable {
 
     void setCuestionario(Double idCuestionario) {
 
+    }
+
+    public void imprimirDatos() {
+        System.out.println(paciente.toString()
+                + ic.toString());
+    }
+
+    public void clicEspecialista() {
+        btnTespecialista.fire();
     }
 
 }
