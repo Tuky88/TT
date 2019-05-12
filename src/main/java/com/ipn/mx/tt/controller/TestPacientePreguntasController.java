@@ -5,6 +5,7 @@
  */
 package com.ipn.mx.tt.controller;
 
+import com.ipn.mx.tt.modelo.Conducta;
 import com.ipn.mx.tt.modelo.InfoCuestionario;
 import com.ipn.mx.tt.modelo.Paciente;
 import com.ipn.mx.tt.modelo.Pregunta;
@@ -35,6 +36,7 @@ import javafx.scene.layout.BorderPane;
  */
 public class TestPacientePreguntasController implements Initializable {
 
+    private Conducta conducta;
     private InfoCuestionario ic;
     private cargadorVista cv;
     private int tipoCuestionario;
@@ -44,7 +46,9 @@ public class TestPacientePreguntasController implements Initializable {
     private Test test;
     private int contadorPregunta;
     private Paciente paciente;
-
+    
+    
+    
     @FXML
     private BorderPane panelRight;
 
@@ -134,8 +138,9 @@ public class TestPacientePreguntasController implements Initializable {
         test.getDuracion();
         pc.setMc(mc);
         pc.setTest(test);
-        pc.cargarResultados();
         pc.setIc(ic);
+
+        pc.cargarResultados();
         pc.startgrafica();
         pc.darClickBotonGuardar();
 
@@ -354,4 +359,14 @@ public class TestPacientePreguntasController implements Initializable {
     void ponerPaciente() {
         this.lblPaciente.setText(this.lblPaciente.getText() + " " + paciente.getNombre());
     }
+
+    public Conducta getConducta() {
+        return conducta;
+    }
+
+    public void setConducta(Conducta conducta) {
+        this.conducta = conducta;
+    }
+
+    
 }

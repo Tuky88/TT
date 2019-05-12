@@ -37,6 +37,8 @@ import javafx.scene.layout.BorderPane;
  */
 public class PacienteNuevoController implements Initializable {
 
+    private Paciente p;
+    private InfoCuestionario ic;
     private CuestionarioAplicadoDAO cad;
     private menuController c;
     private cargadorVista cv;
@@ -144,15 +146,13 @@ public class PacienteNuevoController implements Initializable {
             if (!Nombre.equals("") && !Apellido.equals("") && !CURP.equals("") && !Correo.equals("") && !Fecha.equals("")
                     && !Direccion.equals("") && !Telefono.equals("") && !cbxescolaridad.getValue().equals("-")) {
 
-                Paciente p = new Paciente(Nombre, Apellido, Sexo, Correo, Fecha, Direccion, Telefono, CURP, Escolaridad);
-                InfoCuestionario ic = new InfoCuestionario(cad.buscarSiguiente() + 1, 0.0, CURP, c.getUsuario().getId());
+                p = new Paciente(Nombre, Apellido, Sexo, Correo, Fecha, Direccion, Telefono, CURP, Escolaridad);
+                ic = new InfoCuestionario(cad.buscarSiguiente() + 1, 0.0, CURP, c.getUsuario().getId());
                 registrarPaciente(p, ic);
 
                 CustomMessage cm1 = new CustomMessage("MENSAJE", "¿Desea realizar el Cuestionario?", 4);
                 if (cm1.getMessage().getButtonData().equals(ButtonType.OK.getButtonData())) {
-                    PacienteNuevo2Controller pnc = (PacienteNuevo2Controller) cv.cambiarVista("/Center/PacienteNuevo2.fxml", bp);
-                    pnc.setPaciente(p);
-                    pnc.setIc(ic);
+
                 } else {
                     CustomMessage cm2 = new CustomMessage("MENSAJE", "El cuestionario se guardó para más tarde", 2);
                     // GENERAR PDF O MOSTRAR EL NUMERO DE CUESTIONARIO ASIGNADO PARA APLICAR MÁS TARDE
@@ -169,5 +169,16 @@ public class PacienteNuevoController implements Initializable {
     void setBorder(BorderPane panelRight) {
         bp = panelRight;
     }
-
+    public void hacerCuestionario() {
+        
+        //CARGAR VISTA 
+        ComenzarTestController ctc = (ComenzarTestController) cv.cambiarVista("/Center/ComenzarTest.fxml", c.getPanelPrin());
+        ctc.setC(c);
+        ctc.setPaciente(p);
+        ctc.setDatosPaciente(true);
+        ctc.setIc(ic);
+        System.out.println(ic.toString());
+        System.out.println(p.toString());
+        
+    }
 }
