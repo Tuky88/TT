@@ -147,8 +147,6 @@ public class TestPacientePreguntasController implements Initializable {
         pc.startgrafica();
         pc.darClickBotonGuardar();
 
-        pc.cargarResultados();
-        pc.startgrafica();
     }
 
     @FXML
