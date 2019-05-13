@@ -38,7 +38,7 @@
                               <Font size="27.0" />
                            </font>
                         </Label>
-                        <Label fx:id="lblAyuda" alignment="CENTER" onMouseClicked="#mostrarAyuda" text="Ayuda" textFill="WHITE" GridPane.rowIndex="1">
+                        <Label fx:id="lblAyuda" alignment="CENTER" onMouseClicked="#mostrarAyuda" prefHeight="36.0" prefWidth="122.0" text="AYUDA" textFill="WHITE" GridPane.rowIndex="1">
                            <font>
                               <Font name="Arial" size="26.0" />
                            </font>
@@ -51,27 +51,30 @@
                               <Image url="@../imagenes/ayuda.jpg" />
                            </image>
                            <GridPane.margin>
-                              <Insets right="40.0" />
+                              <Insets left="50.0" />
                            </GridPane.margin>
                         </ImageView>
-                        <ImageView fitHeight="48.0" fitWidth="55.0" GridPane.halignment="RIGHT" GridPane.rowIndex="1">
-                           <image>
-                              <Image url="@../imagenes/audio.jpg" />
-                           </image>
-                           <GridPane.margin>
-                              <Insets right="50.0" />
-                           </GridPane.margin>
-                        </ImageView>
-                        <JFXTextArea fx:id="txtayuda" editable="false" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" prefHeight="312.0" prefWidth="300.0" styleClass="letra" stylesheets="@../styles/Styles.css" GridPane.rowIndex="2" GridPane.valignment="TOP">
-                           <font>
-                              <Font size="21.0" />
-                           </font>
-                        </JFXTextArea>
                         <JFXButton fx:id="btnguardar" buttonType="RAISED" prefHeight="38.0" prefWidth="138.0" ripplerFill="#2ebb9f" style="-fx-background-color: #2ebb9f;" text="GUARDAR" textFill="WHITE" GridPane.halignment="CENTER" GridPane.rowIndex="3">
                            <font>
                               <Font size="13.0" />
                            </font>
                         </JFXButton>
+                        <ImageView fitHeight="44.0" fitWidth="47.0" GridPane.halignment="RIGHT" GridPane.rowIndex="1">
+                           <image>
+                              <Image url="@../imagenes/audio.png" />
+                           </image>
+                           <GridPane.margin>
+                              <Insets right="50.0" />
+                           </GridPane.margin>
+                        </ImageView>
+                        <JFXTextArea fx:id="txtayuda" editable="false" opacity="0.66" style="-fx-background-color: #FFFFFF;" styleClass="letra" stylesheets="@../styles/Styles.css" GridPane.rowIndex="2">
+                           <GridPane.margin>
+                              <Insets bottom="20.0" top="5.0" />
+                           </GridPane.margin>
+                           <font>
+                              <Font size="22.0" />
+                           </font>
+                        </JFXTextArea>
                      </children>
                   </GridPane>
                   <JFXButton fx:id="btnFinalizar1" buttonType="RAISED" layoutX="780.0" layoutY="462.0" onAction="#mostrarPrediagnostico" prefHeight="38.0" prefWidth="138.0" ripplerFill="#79b1b1" style="-fx-background-color: #79b1b1;" text="Finalizar" />
@@ -120,9 +123,9 @@
                                     <Font name="Century Gothic" size="32.0" />
                                  </font>
                               </JFXTextArea>
-                              <ImageView fitHeight="48.0" fitWidth="55.0" layoutX="807.0" layoutY="137.0">
+                              <ImageView fitHeight="58.0" fitWidth="59.0" layoutX="819.0" layoutY="117.0">
                                  <image>
-                                    <Image url="@../imagenes/audio.jpg" />
+                                    <Image url="@../imagenes/audio.png" />
                                  </image>
                               </ImageView>
                            </children>

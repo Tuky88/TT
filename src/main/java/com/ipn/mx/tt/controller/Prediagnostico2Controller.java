@@ -15,6 +15,7 @@ import com.ipn.mx.tt.modelo.TrastornoTabla;
 import com.ipn.mx.tt.util.cargadorVista;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextArea;
+import com.jfoenix.controls.JFXTextField;
 import java.net.URL;
 import java.text.DecimalFormat;
 import java.util.ResourceBundle;
@@ -88,6 +89,29 @@ public class Prediagnostico2Controller implements Initializable {
     @FXML
     private JFXButton btnregresar;
 
+     @FXML
+    private JFXTextField txttrabaja;
+
+    @FXML
+    private JFXTextField txtlunesa;
+
+    @FXML
+    private JFXTextField txthorasps;
+
+    @FXML
+    private JFXTextField txtdiasd;
+
+    @FXML
+    private JFXTextField txtdriast;
+
+    @FXML
+    private JFXTextField txthorassd;
+
+    @FXML
+    private JFXTextField txthorasst;
+
+    @FXML
+    private JFXTextField txthorario;
     @FXML
     private void regresarDiagnostico(ActionEvent event) {
         PrediagnosticoController pc
