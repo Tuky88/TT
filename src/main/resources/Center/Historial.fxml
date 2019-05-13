@@ -47,18 +47,17 @@
                         <Insets bottom="5.0" />
                      </padding>
                   </Label>
-                  <JFXTextField fx:id="txtPnombre" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="25.0" prefWidth="358.0" style="-fx-background-color: #FFFFFF;" GridPane.valignment="BOTTOM">
+                  <JFXTextField fx:id="txtPnombre" maxHeight="-Infinity" maxWidth="-Infinity" onKeyReleased="#buscarPaciente" prefHeight="25.0" prefWidth="358.0" style="-fx-background-color: #FFFFFF;" GridPane.valignment="BOTTOM">
                      <GridPane.margin>
                         <Insets bottom="30.0" left="410.0" />
                      </GridPane.margin>
                   </JFXTextField>
                   <TableView fx:id="tblPpre" maxWidth="-Infinity" prefHeight="307.0" prefWidth="927.0" GridPane.halignment="CENTER" GridPane.rowIndex="1">
                      <columns>
-                        <TableColumn prefWidth="75.0" text="Nombre" />
-                        <TableColumn prefWidth="75.0" text="Edad" />
-                        <TableColumn prefWidth="115.0" text="Fecha de registro" />
-                        <TableColumn prefWidth="183.0" text="Trastorno prediagnósticado" />
-                        <TableColumn prefWidth="183.0" text="Test " />
+                        <TableColumn fx:id="columnCURP" prefWidth="75.0" text="CURP" />
+                        <TableColumn fx:id="columnEdad" prefWidth="75.0" text="Edad" />
+                        <TableColumn fx:id="columnFecha" prefWidth="115.0" text="Fecha de registro" />
+                        <TableColumn fx:id="columnTest" prefWidth="183.0" text="Test " />
                      </columns>
                      <columnResizePolicy>
                         <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />

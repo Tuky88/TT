@@ -36,5 +36,6 @@ public class PrediagnosticoDAO extends DocumentoDAO {
 
         cjm.getMongoCollection().insert(dbo);
     }
+    
 
 }

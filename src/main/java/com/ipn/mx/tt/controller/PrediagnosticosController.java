@@ -51,6 +51,7 @@ public class PrediagnosticosController implements Initializable {
         hc.setMc(mc);
         btnPhistorial.setDisable(true);
         btnPvalidar.setDisable(false);
+        hc.cargarDatos();
     }
 
     @FXML

@@ -65,6 +65,12 @@ public class CuestionarioAplicadoDAO extends DocumentoDAO {
         }
         return ic;
     }
+        public List traerCuestionariosContestados() {
+        DBObject dbo = new BasicDBObject("status", 2.0);
+        DBCursor cursor = cjm.getMongoCollection().find(dbo);
+  
+        return cursor.toArray();
+    }
 
     public Double statusCuestionario(Double cuestionario) {
         DBObject dbo = new BasicDBObject("_numCuestionario", cuestionario);

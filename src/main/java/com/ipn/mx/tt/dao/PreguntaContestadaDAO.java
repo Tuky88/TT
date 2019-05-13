@@ -5,8 +5,11 @@
  */
 package com.ipn.mx.tt.dao;
 
+import com.ipn.mx.tt.modelo.Pregunta;
+import com.ipn.mx.tt.modelo.PreguntaTabla;
 import com.ipn.mx.tt.modelo.Respuesta;
 import com.mongodb.BasicDBObject;
+import com.mongodb.DBCursor;
 import com.mongodb.DBObject;
 import java.util.LinkedList;
 import java.util.List;
@@ -16,15 +19,15 @@ import java.util.List;
  * @author Axel Reyes
  */
 public class PreguntaContestadaDAO extends DocumentoDAO {
-
+    
     public PreguntaContestadaDAO(String base, String coleccion) {
         super(base, coleccion);
     }
-
+    
     public PreguntaContestadaDAO() {
         super("TT", "PreguntaContestada");
     }
-
+    
     public void guardarPreguntasContestadas(Double numCuestionario, List l) {
         List ln = new LinkedList();
         l.forEach((objectLista) -> {
@@ -37,5 +40,18 @@ public class PreguntaContestadaDAO extends DocumentoDAO {
         });
         cjm.getMongoCollection().insert(ln);
     }
-
+    
+    public PreguntaTabla getPregunta(int i, int idCuestionario) {
+        PreguntaTabla pt = null;
+        DBObject query = new BasicDBObject("_idPregunta", i);
+        DBCursor cursor = cjm.getMongoCollection().find(query);
+        
+        if (cursor.hasNext()) {
+            DBObject jo = cursor.one();
+            pt = new PreguntaTabla(String.valueOf((Double) jo.get("_idPregunta")), String.valueOf((Double) jo.get("respuesta")));
+        }
+        
+        return pt;
+    }
+    
 }
