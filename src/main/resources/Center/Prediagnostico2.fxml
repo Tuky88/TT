@@ -71,7 +71,7 @@
                             <RowConstraints maxHeight="95.0" minHeight="0.0" prefHeight="8.0" vgrow="SOMETIMES" />
                           </rowConstraints>
                            <children>
-                              <TableView fx:id="tbthabitos" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" prefHeight="373.0" prefWidth="509.0" GridPane.rowIndex="1" GridPane.valignment="TOP">
+                              <TableView fx:id="tbthabitos" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" prefHeight="301.0" prefWidth="533.0" GridPane.rowIndex="1" GridPane.valignment="TOP">
                                 <columns>
                                   <TableColumn fx:id="columnaPregunta" editable="false" prefWidth="430.0" resizable="false" text="Pregunta" />
                                   <TableColumn fx:id="columnaRespuesta" editable="false" prefWidth="102.0" resizable="false" text="Respuesta" />
