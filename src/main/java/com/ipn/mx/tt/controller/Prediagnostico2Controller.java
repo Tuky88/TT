@@ -16,6 +16,7 @@ import com.ipn.mx.tt.util.cargadorVista;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextArea;
 import java.net.URL;
+import java.text.DecimalFormat;
 import java.util.ResourceBundle;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
@@ -93,10 +94,10 @@ public class Prediagnostico2Controller implements Initializable {
                 = (PrediagnosticoController) cv.cambiarVista("/Center/Prediagnostico.fxml", mc.getPanelPrin());
         pc.setTest(test);
         pc.setMc(mc);
+
+        pc.setIc(ic);
         pc.cargarResultados();
         pc.startgrafica();
-        pc.setIc(ic);
-
     }
 
     @FXML
@@ -105,7 +106,7 @@ public class Prediagnostico2Controller implements Initializable {
                 = (RecomendacionesController) cv.cambiarVista("/Center/Recomendaciones.fxml", mc.getPanelPrin());
         rc.setMc(mc);
         rc.setTest(test);
-        
+
     }
 
     public InfoCuestionario getIc() {
@@ -116,7 +117,6 @@ public class Prediagnostico2Controller implements Initializable {
         this.ic = ic;
     }
 
-    
     public menuController getMc() {
         return mc;
     }
@@ -155,24 +155,67 @@ public class Prediagnostico2Controller implements Initializable {
         columnaS50.setCellValueFactory(cellData -> cellData.getValue().getS50());
         columnaS50M.setCellValueFactory(cellData -> cellData.getValue().getS50M());
 
-        
         sttol.add(new SintomaTrastornoTabla("prueba", "prueba"));
-        ttol.add(new TrastornoTabla("Prueba", "1", "2.5", "3", "2.5"));
 
         tbthabitos.setItems(ptol);
         tbltrastornos.setItems(ttol);
         tblsintomas.setItems(sttol);
     }
-    public void ponerPreguntasHabitos()
-    {
+
+    public void configurarVista() {
+        ponerPreguntasHabitos();
+        ponerPuntajes();
+    }
+
+    public void ponerPreguntasHabitos() {
         for (int i = 62; i < 70; i++) {
-            Respuesta r=test.obtenerRespuesta(new Double(i));
-            Pregunta p=test.getPregunta(i);
-            PreguntaTabla pt=new PreguntaTabla(r);
+            Respuesta r = test.obtenerRespuesta(new Double(i));
+            Pregunta p = test.getPregunta(i);
+            PreguntaTabla pt = new PreguntaTabla(r);
             pt.setPregunta(new SimpleStringProperty(p.getTexto()));
-            
+
             ptol.add(pt);
         }
+
+    }
+
+    public void ponerPuntajes() {
+
+        ttol.add(traerTrastorno("Insomnio", 1.0));
+        ttol.add(traerTrastorno("Ritmo Circadiano", 2.0));
+        ttol.add(traerTrastorno("RLS/PLMD", 3.0));
+        ttol.add(traerTrastorno("Apnea", 4.0));
+        ttol.add(traerTrastorno("Hipersomnia", 5.0));
+        ttol.add(traerTrastorno("Narcolepsia", 6.0));
+        ttol.add(traerTrastorno("Impacto", 7.0));
+
+    }
+
+    public TrastornoTabla traerTrastorno(String trastorno, Double numTrastorno) {
+
+        TrastornoTabla t = new TrastornoTabla(trastorno,
+                formatearObtenido(1, numTrastorno),
+                formatearCutoff(numTrastorno, 1.0),
+                formatearObtenido(2, numTrastorno),
+                formatearCutoff(numTrastorno, 2.0));
+        System.out.println(t.toString());
+        return t;
+    }
+
+    public String formatearObtenido(int numCuestionario, Double numTrastorno) {
+        DecimalFormat df = new DecimalFormat("#0.00");
+        if (test.getNumPreguntas(numTrastorno, new Double(numCuestionario)) == 0) {
+            return "0.0";
+        } else {
+            return df.format(test.getTrastorno(numCuestionario, numTrastorno.intValue()) / test.getNumPreguntas(numTrastorno, new Double(numCuestionario)));
+
+        }
+    }
+
+    public String formatearCutoff(Double numTrastorno, Double numCuestionario) {
+        DecimalFormat df = new DecimalFormat("#0.00");
+        System.out.println(test.getCutoff(numTrastorno, numCuestionario));
+        return df.format(test.getCutoff(numTrastorno, numCuestionario));
     }
 
 }

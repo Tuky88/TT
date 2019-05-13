@@ -18,14 +18,12 @@ public class Cutoff {
     private Double suma;
     private Double preguntas;
     private Double promedio;
-    
-    private Cutoff(DBObject dbo)
-    {
+
+    public Cutoff(DBObject dbo) {
         this.idCuestionario = (Double) dbo.get("_idCuestionario");
-        this.idTrastorno = (Double) dbo.get("_idCuestionario");
-        this.suma = (Double) dbo.get("_idCuestionario");
-        this.preguntas = (Double) dbo.get("_idCuestionario");
-        this.promedio = (Double) dbo.get("_idCuestionario");
+        this.idTrastorno = (Double) dbo.get("_idTrastorno");
+        this.suma = (Double) dbo.get("minimo");
+        this.preguntas = (Double) dbo.get("num_pre");
     }
 
     public Double getIdCuestionario() {
@@ -61,11 +59,13 @@ public class Cutoff {
     }
 
     public Double getPromedio() {
-        return promedio;
+        if (preguntas == 0) {
+            return 0.0;
+        } else {
+            promedio = suma / preguntas;
+            return promedio;
+        }
+        
     }
 
-    public void setPromedio(Double promedio) {
-        this.promedio = promedio;
-    }
-    
 }

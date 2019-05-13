@@ -266,6 +266,30 @@ public class Test {
     }
 
     public Double getTrastorno(int instrumento, int trastorno) {
-        return cuestionario.getTrastorno(instrumento, trastorno);
+        if(cuestionario.getTrastorno(instrumento, trastorno)!=0)
+            return cuestionario.getTrastorno(instrumento, trastorno);
+        else
+        return 0.0;
+    }
+
+    public Double getCutoff(Double Trastorno, Double idCuestionario) {
+        Double x = 0.0;
+        for (int i = 0; i < cutoff.size(); i++) {
+            Cutoff c = new Cutoff((DBObject) cutoff.get(i));
+            if (c.getIdTrastorno().equals(Trastorno) && c.getIdCuestionario().equals(idCuestionario)) {
+                x = c.getPromedio();
+            }
+        }
+        return x;
+    }
+        public Double getNumPreguntas(Double Trastorno, Double idCuestionario) {
+        Double x = 0.0;
+        for (int i = 0; i < cutoff.size(); i++) {
+            Cutoff c = new Cutoff((DBObject) cutoff.get(i));
+            if (c.getIdTrastorno().equals(Trastorno) && c.getIdCuestionario().equals(idCuestionario)) {
+                x = c.getPreguntas();
+            }
+        }
+        return x;
     }
 }

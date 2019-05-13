@@ -201,7 +201,7 @@ public class TestEspecialistaController implements Initializable {
 
     void contestarPregunta(int valor) {
 
-        if (!test.cuestionarioCompletado()) {
+        while (!test.cuestionarioCompletado()) {
             ThreadPregunta tp = new ThreadPregunta(3, rbtnTEcs, rbtnTEavc, rbtnTEnunca, rbtnTEoca, rbtnTEsiempre, regresar);
             //tp.runClock();
             //AGREGAR A LA VISTA
