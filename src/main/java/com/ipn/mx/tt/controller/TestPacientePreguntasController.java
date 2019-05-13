@@ -98,6 +98,11 @@ public class TestPacientePreguntasController implements Initializable {
 
     @FXML
     private ImageView imgAyuda;
+    
+    
+    @FXML
+    private ImageView imgAudio;
+
 
     public InfoCuestionario getIc() {
         return ic;
@@ -161,10 +166,12 @@ public class TestPacientePreguntasController implements Initializable {
             txtayuda.setVisible(false);
             lblAyuda.setVisible(false);
             imgAyuda.setVisible(false);
+            imgAudio.setVisible(false);
         } else {
             txtayuda.setVisible(true);
             lblAyuda.setVisible(true);
             imgAyuda.setVisible(true);
+            imgAudio.setVisible(true);
         }
 
         if (p.getId() > 0 && p.getId() != 99) {

@@ -46,20 +46,12 @@
                               <Insets left="30.0" />
                            </GridPane.margin>
                         </Label>
-                        <ImageView fx:id="imgAyuda" fitHeight="38.0" fitWidth="42.0" onMouseClicked="#mostrarAyuda" GridPane.halignment="CENTER" GridPane.rowIndex="1">
-                           <image>
-                              <Image url="@../imagenes/ayuda.jpg" />
-                           </image>
-                           <GridPane.margin>
-                              <Insets left="50.0" />
-                           </GridPane.margin>
-                        </ImageView>
                         <JFXButton fx:id="btnguardar" buttonType="RAISED" prefHeight="38.0" prefWidth="138.0" ripplerFill="#2ebb9f" style="-fx-background-color: #2ebb9f;" text="GUARDAR" textFill="WHITE" GridPane.halignment="CENTER" GridPane.rowIndex="3">
                            <font>
                               <Font size="13.0" />
                            </font>
                         </JFXButton>
-                        <ImageView fitHeight="44.0" fitWidth="47.0" GridPane.halignment="RIGHT" GridPane.rowIndex="1">
+                        <ImageView fx:id="imgAudio" fitHeight="44.0" fitWidth="47.0" GridPane.halignment="RIGHT" GridPane.rowIndex="1">
                            <image>
                               <Image url="@../imagenes/audio.png" />
                            </image>
@@ -75,6 +67,14 @@
                               <Font size="22.0" />
                            </font>
                         </JFXTextArea>
+                        <ImageView fx:id="imgAyuda" fitHeight="44.0" fitWidth="51.0" GridPane.halignment="RIGHT" GridPane.rowIndex="1">
+                           <image>
+                              <Image url="@../imagenes/ayuda.png" />
+                           </image>
+                           <GridPane.margin>
+                              <Insets right="100.0" />
+                           </GridPane.margin>
+                        </ImageView>
                      </children>
                   </GridPane>
                   <JFXButton fx:id="btnFinalizar1" buttonType="RAISED" layoutX="780.0" layoutY="462.0" onAction="#mostrarPrediagnostico" prefHeight="38.0" prefWidth="138.0" ripplerFill="#79b1b1" style="-fx-background-color: #79b1b1;" text="Finalizar" />
