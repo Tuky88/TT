@@ -122,6 +122,8 @@ public class ComenzarTestController implements Initializable {
         } else {
             TestPacienteController tpc = (TestPacienteController) cv.cambiarVista("/Center/TestPaciente.fxml", c.getPanelPrin());
             tpc.setMc(c);
+            tpc.setTipoCuestionario(i);
+            
         }
 
     }

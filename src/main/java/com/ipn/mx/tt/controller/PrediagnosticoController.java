@@ -348,7 +348,8 @@ public class PrediagnosticoController implements Initializable {
         pc.setTest(test);
         pc.setIc(ic);
         pc.setMc(mc);
-        pc.ponerPreguntasHabitos();
+        pc.configurarVista();
+        
     }
 
     public void darClickBotonGuardar() {

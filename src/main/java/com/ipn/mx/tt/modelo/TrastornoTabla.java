@@ -107,5 +107,10 @@ public class TrastornoTabla {
     public void setS50M(String s50M) {
         this.s50M = new SimpleStringProperty(s50M);
     }
+
+    @Override
+    public String toString() {
+        return "TrastornoTabla{" + "Trastorno=" + Trastorno + ", Hsdq=" + Hsdq + ", HsdqM=" + HsdqM + ", s50=" + s50 + ", s50M=" + s50M + '}';
+    }
     
 }
