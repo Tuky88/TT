@@ -5,6 +5,7 @@
  */
 package com.ipn.mx.tt.modelo;
 
+import com.mongodb.BasicDBObject;
 import com.mongodb.DBObject;
 
 /**
@@ -23,10 +24,22 @@ public class PreguntaSeguridadRespondida {
         this.respuesta = respuesta;
     }
 
+    public PreguntaSeguridadRespondida() {
+        this.user = "";
+        this.pregunta = "";
+        this.respuesta = "";
+    }
+
     public PreguntaSeguridadRespondida(DBObject dbo) {
-        user = (String) dbo.get("User");
+        user = (String) dbo.get("Usuario");
         pregunta = (String) dbo.get("Pregunta");
         respuesta = (String) dbo.get("Respuesta");
+    }
+
+    public DBObject getDBObject() {
+        return new BasicDBObject("Usuarior", user)
+                .append("Pregunta", pregunta)
+                .append("Respuesta", respuesta);
     }
 
     public String getPregunta() {

@@ -161,9 +161,18 @@ public class TestEspecialistaController implements Initializable {
             instrumento = test.getTipoCuestionario(pregunta);
             // int tipo=id.tipoCuestionario(pregunta);
             if (instrumento == 1) {
+                rbtnTEavc.setText("Aplicable a veces");
+                rbtnTEcs.setText("Generalmente aplicable");
+                rbtnTEnunca.setText("No aplicable en lo absoluto");
+                rbtnTEoca.setText("Generalmente no aplicable");
+                rbtnTEsiempre.setText("Totalmente aplicable");
                 rbtnTEavc.setVisible(true);
             } else {
 
+                rbtnTEcs.setText("Bastante");
+                rbtnTEnunca.setText("Nada");
+                rbtnTEoca.setText("Algo");
+                rbtnTEsiempre.setText("Mucho");
                 rbtnTEavc.setVisible(false);
             }
             contadorPregunta++;
@@ -201,7 +210,7 @@ public class TestEspecialistaController implements Initializable {
 
     void contestarPregunta(int valor) {
 
-        while (!test.cuestionarioCompletado()) {
+        if (!test.cuestionarioCompletado()) {
             ThreadPregunta tp = new ThreadPregunta(3, rbtnTEcs, rbtnTEavc, rbtnTEnunca, rbtnTEoca, rbtnTEsiempre, regresar);
             //tp.runClock();
             //AGREGAR A LA VISTA

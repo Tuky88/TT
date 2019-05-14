@@ -177,6 +177,7 @@ public class TestPacienteController implements Initializable {
         tppc.setTipoCuestionario(tipoCuestionario);
         tppc.iniciarTest();
         tppc.setPaciente(paciente);
+        
         if (datosPaciente) {
             tppc.setIc(ic);
             tppc.setConducta(conducta);

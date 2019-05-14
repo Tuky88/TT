@@ -103,11 +103,11 @@ public class InstruccionesTestController implements Initializable {
         PacienteNuevo2Controller pnc = (PacienteNuevo2Controller) cv.cambiarVista("/Center/PacienteNuevo2.fxml", panelVista);
         pnc.setPaciente(paciente);
         System.out.println(ic.toString());
-        pnc.setMc(mc);
         pnc.setIc(ic);
         pnc.setMc(mc);
         pnc.setPanel(panelVista);
         pnc.setDatosPaciente(datosPaciente);
+        pnc.setTipoCuestionario(tipoCuestionario);
     }
 
 }

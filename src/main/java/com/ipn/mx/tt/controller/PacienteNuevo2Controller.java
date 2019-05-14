@@ -162,7 +162,7 @@ public class PacienteNuevo2Controller implements Initializable {
         tpc.setMc(mc);
         tpc.setTipoCuestionario(tipoCuestionario);
         tpc.setPaciente(paciente);
-
+        
         tpc.setDatosPaciente(datosPaciente);
         if (datosPaciente) {
             tpc.setConducta(c);

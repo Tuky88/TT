@@ -7,6 +7,8 @@ package com.ipn.mx.tt.controller;
 
 import com.ipn.mx.tt.dao.PreguntaSeguridadDAO;
 import com.ipn.mx.tt.dao.UsuarioDAO;
+import com.ipn.mx.tt.modelo.PreguntaSeguridad;
+import com.ipn.mx.tt.modelo.PreguntaSeguridadRespondida;
 import com.ipn.mx.tt.modelo.Usuario;
 import com.ipn.mx.tt.util.CustomMessage;
 import com.ipn.mx.tt.util.Validador;
@@ -16,6 +18,8 @@ import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -60,10 +64,22 @@ public class AñadirEspecialistaController implements Initializable {
     private JFXTextField txtAhorario;
 
     @FXML
-    private JFXComboBox<?> cbxpregunta;
+    private JFXComboBox<String> cbxpregunta;
 
     @FXML
     private JFXTextField txtrespuesta;
+        ObservableList<String> itemsP = FXCollections.observableArrayList(
+            "Lugar de nacimiento de la madre",
+            "Mejor amigo de la infancia",
+            "Nombre de la primera mascota",
+            "Profesor favorito",
+            "Personaje histórico favorito",
+            "Ocupación del abuelo",
+            "Nombre de la calle en la que vivías de niño",
+            "Libro favorito",
+            "Segundo nombre del padre",
+            "Canción favorita", "Apodo que tenías de niño",
+            "Película favorita");
 
     /**
      * Initializes the controller class.
@@ -76,6 +92,9 @@ public class AñadirEspecialistaController implements Initializable {
         psd = new PreguntaSeguridadDAO();
         ud.conectar();
         psd.conectar();
+        cbxpregunta.setItems(itemsP);
+        cbxpregunta.setPromptText("-");
+        
     }
 
     @FXML
@@ -95,10 +114,12 @@ public class AñadirEspecialistaController implements Initializable {
             if (nombre.length() > 3 && apellido.length() > 3
                     && usuario.length() > 3 && correo.length() > 3
                     && (num != 0.0 && num.toString().length() > 3)
-                    && horario.length() > 3 && telefono.length() > 3) {
+                    && horario.length() > 3 && telefono.length() > 3
+                    && preguntaS.length()>3 && respuesta.length()>3) {
                 u = new Usuario(usuario, cc, nombre, apellido, correo, num, telefono, horario);
                 ud.insertarUsuario(u);
-                
+                PreguntaSeguridadRespondida psr =new PreguntaSeguridadRespondida(usuario, preguntaS, respuesta);
+                psd.insertarPregunta(psr);
                 CustomMessage cm = new CustomMessage("CARGADO CON ÉXITO", "El usuario se agregó correctamente.", 1);
             } else {
                 CustomMessage cm = new CustomMessage("AVISO", "Los campos no pueden estar vacíos", 2);

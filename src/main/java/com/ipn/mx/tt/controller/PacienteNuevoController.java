@@ -96,6 +96,7 @@ public class PacienteNuevoController implements Initializable {
     ObservableList<String> items = FXCollections.observableArrayList("Sin estudios", "Primaria",
             "Secundaria", "Preparatoria", "Licenciatura", "Maestria", "Doctorado");
 
+
     /**
      * Initializes the controller class.
      */
@@ -111,6 +112,7 @@ public class PacienteNuevoController implements Initializable {
         cad = new CuestionarioAplicadoDAO();
         cad.conectar();
         cbxescolaridad.setItems(items);
+        
         cbxescolaridad.setValue("-");
         // TODO
     }
@@ -169,8 +171,9 @@ public class PacienteNuevoController implements Initializable {
     void setBorder(BorderPane panelRight) {
         bp = panelRight;
     }
+
     public void hacerCuestionario() {
-        
+
         //CARGAR VISTA 
         ComenzarTestController ctc = (ComenzarTestController) cv.cambiarVista("/Center/ComenzarTest.fxml", c.getPanelPrin());
         ctc.setC(c);
@@ -179,6 +182,6 @@ public class PacienteNuevoController implements Initializable {
         ctc.setIc(ic);
         System.out.println(ic.toString());
         System.out.println(p.toString());
-        
+
     }
 }
