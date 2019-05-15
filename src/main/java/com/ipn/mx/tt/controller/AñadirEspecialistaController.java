@@ -7,7 +7,6 @@ package com.ipn.mx.tt.controller;
 
 import com.ipn.mx.tt.dao.PreguntaSeguridadDAO;
 import com.ipn.mx.tt.dao.UsuarioDAO;
-import com.ipn.mx.tt.modelo.PreguntaSeguridad;
 import com.ipn.mx.tt.modelo.PreguntaSeguridadRespondida;
 import com.ipn.mx.tt.modelo.Usuario;
 import com.ipn.mx.tt.util.CustomMessage;
@@ -68,7 +67,7 @@ public class AñadirEspecialistaController implements Initializable {
 
     @FXML
     private JFXTextField txtrespuesta;
-        ObservableList<String> itemsP = FXCollections.observableArrayList(
+    ObservableList<String> itemsP = FXCollections.observableArrayList(
             "Lugar de nacimiento de la madre",
             "Mejor amigo de la infancia",
             "Nombre de la primera mascota",
@@ -94,7 +93,7 @@ public class AñadirEspecialistaController implements Initializable {
         psd.conectar();
         cbxpregunta.setItems(itemsP);
         cbxpregunta.setPromptText("-");
-        
+
     }
 
     @FXML
@@ -109,16 +108,16 @@ public class AñadirEspecialistaController implements Initializable {
             String telefono = v.validarTF(txtAtelefono);
             String horario = v.validarTF(txtCanombre);
             Double num = Double.valueOf(txtCanoempleado.getText());
-            String preguntaS=v.validarCbx(cbxpregunta);
-            String respuesta= v.validarTF(txtrespuesta);
+            String preguntaS = v.validarCbx(cbxpregunta);
+            String respuesta = v.validarTF(txtrespuesta);
             if (nombre.length() > 3 && apellido.length() > 3
                     && usuario.length() > 3 && correo.length() > 3
                     && (num != 0.0 && num.toString().length() > 3)
                     && horario.length() > 3 && telefono.length() > 3
-                    && preguntaS.length()>3 && respuesta.length()>3) {
+                    && preguntaS.length() > 3 && respuesta.length() > 3) {
                 u = new Usuario(usuario, cc, nombre, apellido, correo, num, telefono, horario);
                 ud.insertarUsuario(u);
-                PreguntaSeguridadRespondida psr =new PreguntaSeguridadRespondida(usuario, preguntaS, respuesta);
+                PreguntaSeguridadRespondida psr = new PreguntaSeguridadRespondida(usuario, preguntaS, respuesta);
                 psd.insertarPregunta(psr);
                 CustomMessage cm = new CustomMessage("CARGADO CON ÉXITO", "El usuario se agregó correctamente.", 1);
             } else {

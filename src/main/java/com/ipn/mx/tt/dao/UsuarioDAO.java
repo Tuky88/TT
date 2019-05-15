@@ -62,6 +62,16 @@ public class UsuarioDAO extends DocumentoDAO {
         DBCursor cursor = cjm.getMongoCollection().find(query);
         return cursor.hasNext();
     }
+        public boolean correoExiste(String correo) {
+        DBObject query = new BasicDBObject("Correo", correo);
+        DBCursor cursor = cjm.getMongoCollection().find(query);
+        return cursor.hasNext();
+    }
+                public String correoDeUsuario(String correo) {
+        DBObject query = new BasicDBObject("Correo", correo);
+        DBCursor cursor = cjm.getMongoCollection().find(query);
+        return (String)cursor.one().get("_id");
+    }
 
     public boolean actualizarDatos(Usuario text) {
         //    throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
@@ -95,4 +105,5 @@ public class UsuarioDAO extends DocumentoDAO {
             return false;
         }
     }
+    
 }

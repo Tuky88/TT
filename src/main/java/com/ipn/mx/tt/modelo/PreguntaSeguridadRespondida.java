@@ -37,7 +37,7 @@ public class PreguntaSeguridadRespondida {
     }
 
     public DBObject getDBObject() {
-        return new BasicDBObject("Usuarior", user)
+        return new BasicDBObject("Usuario", user)
                 .append("Pregunta", pregunta)
                 .append("Respuesta", respuesta);
     }

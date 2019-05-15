@@ -5,6 +5,9 @@
  */
 package com.ipn.mx.tt.controller;
 
+import com.ipn.mx.tt.modelo.Conducta;
+import com.ipn.mx.tt.modelo.InfoCuestionario;
+import com.ipn.mx.tt.modelo.Paciente;
 import com.ipn.mx.tt.modelo.Test;
 import com.ipn.mx.tt.util.cargadorVista;
 import com.jfoenix.controls.JFXButton;
@@ -26,9 +29,28 @@ public class RecomendacionesController implements Initializable {
     private menuController mc;
     private cargadorVista cv;
     private Test test;
+    private InfoCuestionario ic;
+    private Paciente paciente;
+    private Conducta conducta;
 
     public menuController getMc() {
         return mc;
+    }
+
+    public Paciente getPaciente() {
+        return paciente;
+    }
+
+    public void setPaciente(Paciente paciente) {
+        this.paciente = paciente;
+    }
+
+    public Conducta getConducta() {
+        return conducta;
+    }
+
+    public void setConducta(Conducta conducta) {
+        this.conducta = conducta;
     }
 
     public void setMc(menuController mc) {
@@ -41,6 +63,14 @@ public class RecomendacionesController implements Initializable {
 
     public void setTest(Test test) {
         this.test = test;
+    }
+
+    public InfoCuestionario getIc() {
+        return ic;
+    }
+
+    public void setIc(InfoCuestionario ic) {
+        this.ic = ic;
     }
 
     @FXML
@@ -70,7 +100,7 @@ public class RecomendacionesController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-        cv=new  cargadorVista();
+        cv = new cargadorVista();
     }
 
     @FXML
@@ -85,7 +115,14 @@ public class RecomendacionesController implements Initializable {
 
     @FXML
     void regresarPrediagnostico(ActionEvent event) {
-
+        Prediagnostico2Controller pc
+                = (Prediagnostico2Controller) cv.cambiarVista("/Center/Prediagnostico2.fxml", mc.getPanelPrin());
+        pc.setTest(test);
+        pc.setIc(ic);
+        pc.setMc(mc);
+        pc.setConducta(conducta);
+        pc.setPaciente(paciente);
+        pc.configurarVista();
     }
 
     @FXML

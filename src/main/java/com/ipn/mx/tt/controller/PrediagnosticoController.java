@@ -5,7 +5,9 @@
  */
 package com.ipn.mx.tt.controller;
 
+import com.ipn.mx.tt.modelo.Conducta;
 import com.ipn.mx.tt.modelo.InfoCuestionario;
+import com.ipn.mx.tt.modelo.Paciente;
 import com.ipn.mx.tt.modelo.Test;
 import com.ipn.mx.tt.util.cargadorVista;
 import com.jfoenix.controls.JFXButton;
@@ -37,6 +39,8 @@ public class PrediagnosticoController implements Initializable {
     private cargadorVista cv;
     private menuController mc;
     private InfoCuestionario ic;
+    private Paciente paciente;
+    private Conducta conducta;
 
     @FXML
     private AnchorPane panelPrin;
@@ -134,6 +138,23 @@ public class PrediagnosticoController implements Initializable {
     @FXML
     private JFXButton btnGuardar;
 
+    public Paciente getPaciente() {
+        return paciente;
+    }
+
+    public void setPaciente(Paciente paciente) {
+        this.paciente = paciente;
+    }
+
+    public Conducta getConducta() {
+        return conducta;
+    }
+
+    public void setConducta(Conducta conducta) {
+        this.conducta = conducta;
+    }
+
+    
     @FXML
     void guardarCuestionario(ActionEvent event) {
         test.guardarCuestionario(ic.getIdCuestionario());
@@ -348,6 +369,8 @@ public class PrediagnosticoController implements Initializable {
         pc.setTest(test);
         pc.setIc(ic);
         pc.setMc(mc);
+        pc.setConducta(conducta);
+        pc.setPaciente(paciente);
         pc.configurarVista();
         
     }
